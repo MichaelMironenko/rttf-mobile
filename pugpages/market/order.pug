@@ -1,0 +1,160 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Заказы - Маркет - Лаб
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;600;700;800&display=swap'
+    )
+
+    base(href='../../')
+
+body.bg-page-background.pt-12
+    +topBar
+    -
+      const order = {
+        date: '2 октября 2023 г.',
+        id: '341203',
+        status: 'Будет доставлен 4 октября',
+        statusClass: 'bg-gray-200',
+        items: [
+          { img: 'dynamic-img/yonexastrox99.jpg', title: 'Ракетка Yonex Astrox 99 Pro', handle: 'Вес: 4U', price: 5670, quantity: 1 },
+          { img: 'dynamic-img/volan.jpg', title: 'Воланчики Yonex Aerosensa 50', price: 11580, quantity: 2 },
+          { img: 'dynamic-img/bag.jpeg', title: 'Сумка Yonex Pro Racquet Bag', price: 1230, quantity: 1 }
+        ],
+        totalItems: 3,
+        totalPrice: 18780,
+        address: 'РФ, Республика Татарстан, г. Верхнезадрищенск, ул. 25 Задрищенских Комиссаров, д. 18, кв. 24.',
+        deliveryDate: '4 октября',
+        recipient: {
+          name: 'Артамонов Максим Сергеевич',
+          email: 'artamonov@mail.ru',
+          phone: '+7 915 202-04-99'
+        }
+      }
+
+    section.flex.flex-col.gap-4.p-4.bg-white.rounded-lg.shadow-md
+      h1.font-bold.text-lg= `Заказ №${order.id} от ${order.date}`
+      span.text-sm.p-2.rounded-lg.w-fit(class=order.statusClass)= order.status
+      h2.text-lg.font-bold Информация о заказе
+      span.text-sm= `${order.totalItems} товара на сумму ${order.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`
+      .flex.flex-col.gap-2.mt-2
+        each item in order.items
+          .flex.gap-4.border-b.pb-2
+            img.w-16.h-16(src=item.img, alt=item.title)
+            .flex.grow.flex-col.items-start
+              span.text-sm.font-bold= item.title
+              if item.handle
+                span.mt-2.text-xs.text-lab-black-50= item.handle
+              .mt-3.flex.w-full.items-center.gap-4
+                span.text-sm= `${item.quantity} шт.`
+                span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+      .flex.items-center.justify-between.gap-4.border-b.pb-4
+        span.font-bold Итого
+        span.font-bold= order.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+      h2.text-lg.font-bold Доставка по адресу
+      p.py-0.text-sm= order.address
+      p.text-sm.font-bold= `Ожидаемая дата доставки - ${order.deliveryDate}`
+      h2.text-lg.font-bold Получатель
+      div 
+        p.pt-0.text-sm= order.recipient.name
+        p.pt-0.text-sm= order.recipient.email
+        p.pt-0.text-sm= order.recipient.phone
+      +button('Отменить заказ', 'default', 'lab-black', 'bg-lab-color-10', '', 'cancelOrder') 
+      p.py-0.text-sm
+        | Что-то не так? Напишите нам на 
+        a.text-lab-color(href='mailto:info@rttf.ru') info@rttf.ru
+        |
+        | и мы постараемся решить ваш вопрос.
+      
+    
+      // Модальное окно
+      .fixed.inset-0.z-50.flex.items-center.justify-center.bg-black.bg-opacity-50.hidden#cancelModal
+        .bg-white.rounded-lg.p-4.w-96
+          .flex.justify-between.items-center.mb-4
+            h3.text-lg.font-bold Выберите товары для отмены
+            img(src="img/close-round.svg", alt="")#closeModal
+          .flex.flex-col.gap-4.mb-4
+            label.flex.items-center.gap-2
+              input(type='checkbox').size-4
+              span.text-sm Выбрать все
+            each item in order.items
+              label.flex.items-center.gap-4.border-b.pb-4
+                input(type='checkbox').size-4
+                img.w-12.h-12(src=item.img, alt=item.title)
+                .flex.grow.flex-col.items-start
+                  span.text-sm.font-bold= item.title
+                  if item.handle
+                    span.mt-2.text-xs.text-lab-black-50= item.handle
+                  .mt-2.flex.w-full.items-center.gap-4
+                    span.text-sm= `${item.quantity} шт.`
+                    span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+          +button('Продолжить', 'default', 'white', 'bg-lab-color', '', 'continueCancel') 
+
+    // Модальное окно причин отмены
+    .fixed.inset-0.z-50.flex.items-center.justify-center.bg-black.bg-opacity-50.hidden#reasonModal
+      .bg-white.rounded-lg.p-4.w-96
+        .flex.justify-between.items-center.mb-4
+          h3.text-lg.font-bold Выберите причину отмены
+          img(src="img/close-round.svg", alt="")#closeReasonModal
+        .flex.flex-col.gap-4.my-4
+          each reason in ['Слишком долго ждать', 'Перенесли срок доставки', 'Заказ сделан по ошибке', 'Неправильно указан адрес', 'Передумал', 'Другая причина']
+            label.flex.items-center.gap-2
+              input(type='radio', name='reason').size-4
+              span.text-sm= reason
+        +button('Продолжить', 'default', 'white', 'bg-lab-color', 'mt-2', 'confirmCancel') 
+
+    +modal('Заказ отменён', [{ text: 'Отлично', variant: 'default', color: 'white', bgColor: 'bg-lab-color'}], 'modal-cancel-order', true)
+
+    script.
+      document.getElementById('cancelOrder').addEventListener('click', function() {
+        document.getElementById('cancelModal').classList.remove('hidden');
+      });
+
+      document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('cancelModal').classList.add('hidden');
+      });
+
+      document.getElementById('continueCancel').addEventListener('click', function() {
+        document.getElementById('cancelModal').classList.add('hidden');
+        document.getElementById('reasonModal').classList.remove('hidden');
+      });
+
+      document.getElementById('closeReasonModal').addEventListener('click', function() {
+        document.getElementById('reasonModal').classList.add('hidden');
+      });
+
+      document.getElementById('confirmCancel').addEventListener('click', function() {
+        document.getElementById('reasonModal').classList.add('hidden');
+        document.querySelector('.modal-container').style.display = 'block';
+
+      });
+    +tabBar('Маркет')

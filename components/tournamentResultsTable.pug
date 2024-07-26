@@ -1,0 +1,53 @@
+include /components/atoms/userRating.pug
+
+mixin tournamentResultsTable(showPlace)
+    table(class="w-[calc(100vw-6vw)] -mr-4 -ml-4 -mb-2")
+        thead
+            tr(class="p-2 text-xs text-lab-color")
+                if showPlace
+                    th(class="pl-2 text-center max-w-10") #
+                else
+                    th(class="pl-4 p-2 text-left") Имя
+                if showPlace
+                    th(class="p-2 text-left") Имя
+                th(class="p-2 hidden sm:table-cell text-center") Игры
+                th(class="p-2 hidden sm:table-cell text-center") Сеты
+                th(class="p-2  text-center") ★ до
+                th(class="p-2 text-center") ★ +/-
+                th(class="p-2 hidden sm:table-cell text-center") ★ после
+                
+        tbody
+            each player, index in players
+                - const medalClass = index === 0 ? 'bg-gold' : index === 1 ? 'bg-silver' : index === 2 ? 'bg-bronze' : ''
+                - const changeColor = player.change > 0 ? 'text-lab-green' : 'text-lab-red'
+                - const playerRowClass = player.me ? "bg-orange-100" : "even:bg-white odd:bg-slate-100"
+                - const [gamesPlayed, gamesDetails] = player.games.split(' ')
+                - const [setsWon, setsDetails] = player.sets.split(' ')
+                tr.text-sm.text-lab-black(class=playerRowClass)
+                    if showPlace
+                        td(class="pl-2 text-center font-semibold w-7")
+                            if index < 3
+                                div(class="h-5 w-5 flex items-center border border-lab-black-10 justify-center rounded-full " + medalClass)= player.place
+                            else
+                                = player.place
+                    else
+                        td(class="pl-4 p-2 text-left leading-5 text-lab-color")= player.name
+                    if showPlace
+                        td(class="p-2 text-left leading-5 text-lab-color")= player.name
+                    td(class="p-2 text-center hidden sm:table-cell")
+                        span= gamesPlayed
+                        span(class="text-lab-black opacity-50 ml-0.5")=  gamesDetails
+                    td(class="p-2 text-center hidden sm:table-cell")
+                        span= setsWon 
+                        span(class="text-lab-black opacity-50 ml-0.5")=  setsDetails
+                    td(class="p-2 text-center saturate-25 ")
+                        +userRating(player.ratingBefore)
+                    td(class="p-2 text-center " + changeColor)= player.change
+                    td(class="p-2 text-center hidden sm:table-cell align-middle")
+                        +userRating(player.ratingAfter)
+                    
+
+
+- var players = [{ place: 1, name: 'Артамошкин Сергей', games: '18 (10/8)', sets: '30 (18/12)', ratingBefore: 411, change: '+7.6', ratingAfter: 418 },    { place: 2, name: 'Вознесенский Андрей', games: '17 (11/6)', sets: '28 (17/11)', ratingBefore: 357, change: '+6.3', ratingAfter: 363 },    { place: 3, name: 'Бероев Егор', games: '17 (8/9)', sets: '27 (13/14)', ratingBefore: 263, change: '+5.8', ratingAfter: 269 },    { place: 4, name: 'Гаспарян Артур', games: '17 (9/8)', sets: '29 (15/14)', ratingBefore: 256, change: '+5.2', me: true, ratingAfter: 261 },    { place: 5, name: 'Глебов Юрий / Москвин Николай', games: '18 (10/6)', sets: '30 (16/14)', ratingBefore: 264, change: '+3.1', ratingAfter: 267 },    { place: 6, name: 'Голубев Виктор / Касаткина Надежда', games: '18 (11/7)', sets: '31 (17/14)', ratingBefore: 414, change: '-0.6', ratingAfter: 413 },    { place: 7, name: 'Карташов Александр / Глобенский Юрий', games: '19 (7/12)', sets: '32 (18/14)', ratingBefore: 414, change: '-1.2', ratingAfter: 412 },    { place: 8, name: 'Карпунькова Ольга / Шапошников Артемий', games: '16 (12/4)', sets: '28 (16/12)', ratingBefore: 414, change: '-2.6', ratingAfter: 411 },    { place: 9, name: 'Войнов Александр / Штопкин Владимир', games: '16 (12/4)', sets: '28 (16/12)', ratingBefore: 414, change: '-2.3', ratingAfter: 411 },    { place: 10, name: 'Картункова Юлия / Козловский Григорий', games: '16 (12/4)', sets: '26 (15/11)', ratingBefore: 414, change: '-3.2', ratingAfter: 410 }]
+
+

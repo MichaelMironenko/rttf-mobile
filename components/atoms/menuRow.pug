@@ -1,0 +1,7 @@
+mixin menuRow(icon, title, border, link, value)
+    a.flex.items-center.justify-between.py-3.pl-4.pr-3.bg-white.gap-4(class=`${border ? ' border-b' : ''}` href=link)
+        img(src=`img/${icon}.svg`).h-6
+        span.grow= title
+        if value 
+            span.bg-lab-color-10.px-2.py-1.text-sm.font-semibold.rounded-full= value
+        img(src="img/expand-arrow.svg").-rotate-90

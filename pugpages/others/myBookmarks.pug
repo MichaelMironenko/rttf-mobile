@@ -1,0 +1,92 @@
+include /components/atoms/date.pug
+include /components/atoms/button.pug
+include /components/atoms/bookmark.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/inputs/textarea.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+include /components/actionMenu.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filtersPanelButton.pug
+include /components/trainingLine.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Мои закладки
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-white.pt-12.pb-32
+        +topBar
+        
+        .p-4 
+            h1.text-lg Мои закладки
+            +searchAndFilterButton('', false, 'py-4')
+            +filterButtonsRow([
+                    { label: 'Игроки', active: true, number: 53},
+                    { label: 'Фото', active: false, number: 5},
+                    { label: 'Статьи', active: false, number: 32},
+                    { label: 'Турниры', active: false, number: 11},
+                    { label: 'Тренировки', active: false, number: 41},
+                    { label: 'Форум', active: false, number: 41},
+                ], true, 'pb-4 -mx-4')
+            
+            .grid.grid-cols-3(class="430:grid-cols-4 sm:grid-cols-5 lg:grid-cols-6").mb-4.gap-1
+                .relative 
+                    img(src="dynamic-img/club-1.jpg").object-cover.aspect-square
+                    +bookmark(true, 'absolute right-2 bottom-2 drop-shadow-sharp')
+                .relative 
+                    img(src="dynamic-img/club-2.jpg").object-cover.aspect-square
+                    +bookmark(true, 'absolute right-2 bottom-2 drop-shadow-sharp')
+                .relative 
+                    img(src="dynamic-img/club-3.jpg").object-cover.aspect-square
+                    +bookmark(true, 'absolute right-2 bottom-2 drop-shadow-sharp')
+                .relative 
+                    img(src="dynamic-img/club-4.jpg").object-cover.aspect-square
+                    +bookmark(true, 'absolute right-2 bottom-2 drop-shadow-sharp')
+                .relative 
+                    img(src="dynamic-img/photo-2.jpg").object-cover.aspect-square
+                    +bookmark(true, 'absolute right-2 bottom-2 drop-shadow-sharp')
+            .flex.justify-between.gap-3.mb-3
+                .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center.grow
+                    +tournamentTypeBadge('XDF+')
+                    span.text-sm.grow.font-semibold Макс Арена
+                    span.text-sm.text-lab-black-50 11 сентября 
+                    span.text-sm.text-lab-black-50 11:00
+                +bookmark(true)
+            .flex.justify-between.gap-3.mb-3
+                .flex.gap-2.bg-promo-background.px-3.py-1.rounded-lg.border.items-center.grow
+                    div.grow 
+                        span.text-sm.grow.font-semibold Макс Арена
+                        .flex.items-center.gap-1 
+                            img(src="img/trainer.svg").saturate-50.opacity-50.size-3
+                            span.text-xs.text-lab-black-50 Абельмасов Игорь
+                    span.text-sm.text-lab-black-50 11 сентября 
+                    span.text-sm.text-lab-black-50 11:00
+                +bookmark(true)
+            
+            .flex.justify-between.gap-3.mb-3
+                .p-3.bg-white.rounded-lg.border
+                    span.text-xs.px-1(class="py-0.5").border.border-lab-blue.rounded.text-lab-blue.font-semibold Опрос
+                    span.text-xs.text-lab-black-50.ml-2 Сегодня в 11:00
+                    p.font-semibold Вы смотрите на рейтинг своего соперника перед игрой?
+                    .flex.items-center.gap-3
+                        a.text-xs(href="#") goldStone76
+                        img(src="img/comment-outlined.svg").h-4.saturate-50.opacity-70
+                        span.text-xs.text-lab-black-50.-ml-2 32/#[span.font-semibold 5]
+                +bookmark(true)
+
+            .flex.justify-between.gap-3.mb-3.items-center
+                a.flex.gap-3.items-center(href="#")
+                    +avatar('bg-lab-green', 'ПП', 32)
+                    span.text-lab-color.text-sm.font-semibold Пётр Панкратов-Чёрный
+                    +userRating(425)
+                +bookmark(true)
+        +tabBar

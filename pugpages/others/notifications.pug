@@ -1,0 +1,165 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/actionMenu.pug
+include /components/block.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/inputs/switch.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Уведомления
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+
+        base(href="../../")
+    body.bg-white.pt-12.pb-32
+        +topBar
+        .flex.justify-between.gap-4.pr-4.items-center
+            h1.p-4 Уведомления
+            img(src="img/settings.svg" id="settingsButton").size-5
+
+        span.text-lab-color.text-right.px-4.text-sm Отметить все прочитанными
+
+
+        +actionMenu([
+            { text: 'Не показывать подобные уведомления', color: ' text-lab-color' },
+            { text: 'Отметить прочитанным', color: ' text-lab-color' },
+        ], 'menu')
+        .p-4.border-b 
+            .flex.items-center.justify-between.gap-4 
+                .text-xs.text-lab-black-50 Сегодня, 13:55
+                img(src="img/three-dots.svg" alt="" class="three-dots")
+            div.font-semibold.py-3.text-lab-black.text-sm Вы зарегистрировались на турнир
+            .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                span.text-xs 11 сентября 
+                span.text-xs 11:00
+        .p-4.border-b 
+            .flex.items-center.justify-between.gap-4 
+                .text-xs.text-lab-black-50 Сегодня, 12:11
+                img(src="img/three-dots.svg" alt="" class="three-dots")
+            div.font-semibold.py-2.text-lab-black.text-sm Вы заняли 5-е место на турнире. Рейтинг увеличился на 8 пунктов и стал 635.
+            .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                span.text-xs 11 сентября 
+                span.text-xs 11:00
+        .p-4.border-b 
+            .flex.items-center.justify-between.gap-4 
+                .text-xs.text-lab-black-50 Вчера, 19:30
+                img(src="img/three-dots.svg" alt="" class="three-dots")
+            div.font-semibold.py-2.text-lab-black.text-sm Вы зарегистрировались на тренировку
+            .flex.gap-2.bg-promo-background.px-3.py-1.rounded-lg.mb-2.border.items-center
+                div.grow 
+                    span.text-sm.grow.font-semibold Naten-ЮГ
+                    .flex.items-center.gap-1 
+                        img(src="img/trainer.svg").saturate-50.opacity-50.size-3
+                        span.text-xs.text-lab-black-50 Леонид Слуцкий
+                span.text-xs  14 сентября 
+                span.text-xs  15:00
+        .p-4.border-b 
+            .flex.items-center.justify-between.gap-4 
+                .text-xs.text-lab-black-50 24 мая, 22:44
+                img(src="img/three-dots.svg" alt="" class="three-dots")
+            div.font-semibold.py-2.text-lab-black.text-sm Турнир, на который вы зарегистрированы, состоится уже завтра
+            .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                span.text-xs 11 сентября 
+                span.text-xs 11:00
+        .p-4.border-b 
+            .flex.items-center.justify-between.gap-4 
+                .text-xs.text-lab-black-50 21.03.2023, 12:11
+                img(src="img/three-dots.svg" alt="" class="three-dots")
+            div.py-2.text-lab-black.text-sm Вы оплатили участие в турнире
+            .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                span.text-xs 11 сентября 
+                span.text-xs 11:00
+
+        .p-4.border-b 
+            .flex.items-center.justify-between.gap-4 
+                .text-xs.text-lab-black-50 21.03.2023, 12:11
+                img(src="img/three-dots.svg" alt="" class="three-dots")
+            div.py-2.text-lab-black.text-sm Вас отметили на 3 фотографиях
+            .flex.gap-3.items-center.overflow-x-auto.no-scrollbar.-mx-4.px-4
+                a(href="pages/aroundgame/photo.html") 
+                    img(src="dynamic-img/video-1.jpg" alt="" class="w-24 h-24 rounded-md object-cover")
+                a(href="pages/aroundgame/photo.html") 
+                    img(src="dynamic-img/photo-2.jpg" alt="" class="w-24 h-24 rounded-md object-cover")
+                a(href="pages/aroundgame/photo.html") 
+                    img(src="dynamic-img/photo-1.jpg" alt="" class="w-24 h-24 rounded-md object-cover")
+
+
+
+        div(class="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-20" id="backdrop" style="display: none;")
+        .max-h-90.absolute.bottom-0.left-0.w-full.z-30.bg-white.rounded-t-2xl.flex.flex-col(id="switchPanel" style="display: none;")
+            .pb-2
+                .w-20.h-1.bg-slate-200.rounded-xl.mx-auto.mt-2.relative
+            .flex-1.overflow-y-auto.scroll-smooth.no-scrollbar.px-4
+                +switch('События в турнирах', 'py-2')
+                +switch('События в тренировках', 'py-2')
+                +switch('Маркет', 'py-2')
+                +switch('Фото со мной', 'py-2')
+                +switch('Видео со мной', 'py-2')
+                +switch('Комментарии', 'py-2')
+                +switch('Дни рождения', 'py-2')
+
+        script.
+            document.addEventListener('DOMContentLoaded', function() {
+                const settingsButton = document.getElementById('settingsButton');
+                const backdrop = document.getElementById('backdrop');
+                const switchPanel = document.getElementById('switchPanel');
+
+                settingsButton.onclick = () => {
+                    backdrop.style.display = 'block';
+                    switchPanel.style.display = 'flex';
+                };
+
+                backdrop.onclick = () => {
+                    backdrop.style.display = 'none';
+                    switchPanel.style.display = 'none';
+                };
+            });
+
+            document.querySelectorAll('.three-dots').forEach((button, index) => {
+                button.onclick = () => {
+                    const menu = document.getElementById('menu');
+                    menu.classList.toggle('hidden');
+                };
+            });
+
+        +tabBar

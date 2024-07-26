@@ -1,0 +1,103 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/modal.pug
+include /components/messageBlock.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/clubCard.pug
+include /components/selectedCourts.pug
+include /components/newsCard.pug
+include /components/inputs/select.pug
+include /components/clientBookingTable.pug
+include /components/mapOverlay.pug
+include /components/bottomPanel.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Корты
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+        .bg-white.p-4.pb-1
+            +rentCourt 
+        .p-4.flex.justify-between.items-center
+            +sortButton('По популярности', [{text: 'По рейтингу'}, {text: 'По новизне'}, {text: 'Сначала дешевые'}, {text: 'Сначала дорогие'}, {text: 'По удаленности'}])
+            div
+                img(src="img/location-icon.svg", alt="").inline.mr-1
+                a(href="clubsMap.html").inline.text-sm На карте
+        +mapOverlay('mapOverlay')
+        div.grid.grid-cols-1(class="sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4").gap-3.px-4
+            - 
+                let slots = []
+                for (let hour = 11; hour <= 19; hour++) {
+                let price = hour < 18 ? 1000 : 1200
+                slots.push({ time: `${hour}:00`, price: price, lastCourt: hour === 17 || hour === 19 })
+                }
+                
+            +rentCard({photo: 'dynamic-img/club-1.jpg', logo: 'dynamic-img/naten-logo.png', name: 'Naten-ЮГ', stars: '4.4', reviews: '12', metro: 'Юго-Западная', metroColor: 'lab-red', distance: '1,8', courts: '6', services: ['wifi', 'shower', 'parking']}, slots, '', 'card1')
+            +messageBlock('bg-white') 
+                div.text-sm Мигающие слоты — последние доступные корты на указанное время. 
+                    span.text-lab-red Успейте забронировать!
+            +rentCard({photo: 'dynamic-img/club-placeholder.svg', logo: '', name: 'Naten-СЕВЕР', stars: '4.2', reviews: '8', metro: 'Северная', metroColor: 'lab-black-30', distance: '2,5', courts: '4', services: ['wifi', 'parking']}, [{time: '13:00', price: '550', lastCourt: false}, {time: '14:00', price: '550', lastCourt: false}],'', 'card2')
+            +rentCard({photo: 'dynamic-img/club-placeholder.svg', logo: 'dynamic-img/club-placeholder.svg', name: 'Naten-ВОСТОК', stars: '4.6', reviews: '20', metro: 'Восточная',  metroColor: 'lab-yellow', distance: '1,2', courts: '8', services: ['wifi', 'shower', 'parking', 'ac']}, [{time: '15:00', price: '600', lastCourt: false}, {time: '16:00', price: '600', lastCourt: true}], '', 'card3')
+        .p-4.text-center
+            p.text-lab-black-50.text-sm Нет клуба, в котором вы бы хотели бронировать корты? Выберите его из списка и мы отправим ваше пожелание владельцу клуба.
+            p.text-lab-black-50.text-sm Если клуба нет в списке, скорее всего он уже в нашей системе. 
+            +select('Выберите клуб', ' mx-auto')
+            +button('Хочу бронировать через ЛАБ', 'default', 'white', 'bg-lab-color')
+            div.text-lab-green.font-bold.py-2 Ваше пожелание отправлено!
+        +tabBar('Корты')
+        script.
+            document.addEventListener('DOMContentLoaded', function () {
+                const selectButtons = document.querySelectorAll(".selectTable");
+                const selectCourt = document.getElementById('selectCourt');
+                const overlay = document.querySelector('.selectCourtOverlay');
+
+                selectButtons.forEach(button => {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        selectCourt.classList.toggle('hidden');
+                    });
+                });
+
+                overlay.addEventListener('click', function () {
+                    selectCourt.classList.add('hidden');
+                });
+            });
+        div(id='selectCourt' class="selectCourtOverlay fixed hidden inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-30")
+            .max-h-90.absolute.h-90.bottom-0.left-0.right-0.w-full.z-40.rounded-t-2xl.overflow-hidden.bg-white
+                .w-20.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute 
+                .px-4.pt-6.pb-4.overflow-y-scroll.h-90
+                    .flex.flex-wrap.items-center.gap-x-4.justify-between
+                        h2 Выберите корты и время игры
+                        .flex.items-center.mt-4.mb-3.flex-wrap.gap-2
+                            img.h-5.w-5.rounded-sm(src='dynamic-img/naten-logo.png', alt="Logo")
+                            h2.text-base.font-semibold.mr-2 Naten-ЮГ 
+                            div.flex.items-center
+                                div(class=`bg-lab-red`).size-2.rounded-full.mr-1.shrink-0 
+                                span(class=`text-lab-black-50 leading-none text-sm inline`) Юго-Западная
+                    +messageBlock 
+                        div.text-sm Кликните по ячейкам для выбора времени
+                            div.mt-3 Цена указана за #[strong получасовые отрезки]. Минимальная длительность игры — #[strong 1 час]
+                    
+                    .-mx-4
+                        +clientBookingTable
+                +bottomPanel
+                    h3.font-bold.pb-2 Ваш выбор на 11 мая
+                    +selectedCourts
+                    .flex.justify-between.gap-3.pt-4
+                        div 
+                            div.text-lab-black-50.text-sm.text-nowrap Общая стоимость
+                            span.text-lab-color.text-lg.font-bold 1800&#8202;₽
+                        +button('Далее', 'default', 'white', 'bg-lab-color', 'max-w-[60%]')
+                    
+

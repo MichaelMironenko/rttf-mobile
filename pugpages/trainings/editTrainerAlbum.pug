@@ -1,0 +1,91 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/photoTiles.pug
+include /components/bottomPanel.pug
+include /components/actionMenu.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Редактирование альбома
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +topBar
+    +backButtonTitle('Редактирование альбома', 'pages/trainings/trainerAlbum.html', 'px-2')
+    .block.mx-auto.mb-4.text-center.text-lab-color(onclick="toggleActionMenu()") Добавить фото
+    +photoTiles(false, true)
+
+    +actionMenu([
+        { text: 'Выбрать из ваших фото на ЛАБ', color: ' text-lab-color',  action: 'showModal' },
+        { text: 'Загрузить своё фото', color: ' text-lab-red' }], 'action-menu-container')
+
+    +bottomPanel('add-photo-modal')
+        h3.font-semibold.leading-tight.text-center.py-2 Выберите фото для добавления в свой профиль тренера
+        div.text-xs.leading-tight.text-lab-black.text-center.mb-2 Ранее добавленные фото не показываются
+        div(class="max-h-[70vh] h-full overflow-y-auto")
+            +photoTiles('', false, true)
+        +button('Добавить выделенные фото', 'default', 'white', 'bg-lab-color', 'mt-4')
+
+    +tabBar('Тренировки')
+
+  script.
+    function toggleActionMenu() {
+        var menu = document.getElementById('action-menu-container');
+        menu.classList.toggle('hidden');
+    }  
+
+    document.addEventListener('click', function (e) {
+        if (e.target.dataset.action === 'hide') {
+            var menuContainer = document.querySelector('.menu-container'); 
+            if (menuContainer) {
+                menuContainer.style.display = 'none';
+            }
+        }
+        if (e.target.dataset.action === 'showModal') {
+            var modal = document.getElementById('add-photo-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+            }
+            var menuContainer = document.querySelector('.menu-container'); 
+            if (menuContainer) {
+                menuContainer.style.display = 'none';
+            }
+        }
+    });

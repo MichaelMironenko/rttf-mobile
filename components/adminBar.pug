@@ -1,0 +1,29 @@
+mixin adminBar(options)
+    div.flex.w-full.gap-2
+        if options.edit
+            a(href="pages/tournaments/editTournament.html")
+                img(src="img/admin-bar-edit.svg" alt="Редактировать")
+        if options.addPhoto
+            a(href="#")
+                img(src="img/admin-bar-add-photo.svg" alt="Добавить фото")
+        if options.addVideo
+            a(href="#")
+                img(src="img/admin-bar-add-video.svg" alt="Добавить видео")
+        if options.copy
+            a(href="#")
+                img(src="img/admin-bar-copy.svg" alt="Создать аналогичный турнир")
+        if options.logs
+            a(href="pages/tournaments/logs.html")
+                img(src="img/admin-bar-logs.svg" alt="Логи")
+        if options.close
+            a(href="#")
+                img(src="img/admin-bar-close.svg" alt="Закрыть")
+        if options.delete
+            a(href="#")
+                img(src="img/admin-bar-delete.svg" alt="Удалить")
+        if options.hide
+            a(href="#")
+                img(src="img/admin-bar-hide.svg" alt="Скрыть")
+        if options.editWebsite
+            a(href="#")
+                img(src="img/admin-bar-edit-website.svg" alt="Редактировать сайт")

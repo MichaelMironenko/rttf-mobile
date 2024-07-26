@@ -1,0 +1,29 @@
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/comments.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/breadcrumbs.pug
+include /components/inputs/switch.pug
+include /components/atoms/sortButton.pug
+include /components/photoTiles.pug
+include /components/searchAndFilterButton.pug
+include /components/videoSlider
+include /components/poll.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Вы знаете правила бадминтона? - Опросы
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+  base(href='../../')
+  body.bg-page-background.pb-16.pt-12
+    +topBar
+    +breadcrumbs([{name: 'Опросы', href: 'pages/aroundgame/polls.html'}, {name: 'Вы знаете правила бадминтона?'}])
+    .px-4
+      +poll('Вы знаете правила бадминтона?', [{text: 'Реально их прочитал(а) и раз в несколько лет перечитываю', percent: 36}, {text: 'Думаю, что знаю, потому что я давно играю', percent: 48}, {text: 'Я их не знаю, но знаю, что они есть', percent: 13}, {text: 'Я их не знаю, но знаю того, кто их знает и каждый раз спрашиваю', percent: 3}], false, false, false)
+      .py-4 
+        +comments
+      +tabBar('Вокруг игры')

@@ -1,0 +1,30 @@
+{
+    "name": "lab",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build:css": "tailwindcss build -i tailwind.css -o styles.css",
+        "watch:css": "tailwindcss build -i tailwind.css -o styles.css --watch",
+        "build:index": "pug -P index.pug --out ./",
+        "build:pages": "pug -P pugpages --out pages",
+        "watch:index": "pug -b . -w -P index.pug --out ./",
+        "watch:pages": "pug -b . -w -P pugpages --out pages",
+        "build:html": "npm run build:index && npm run build:pages",
+        "watch:html": "concurrently \"npm run watch:index\" \"npm run watch:pages\"",
+        "build": "npm run build:css && npm run build:html",
+        "start": "concurrently \"npm run watch:css\" \"npm run watch:html\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@prettier/plugin-pug": "^3.0.0",
+        "concurrently": "^8.2.2",
+        "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.11",
+        "pug": "^3.0.2",
+        "pug-cli": "^1.0.0-alpha6",
+        "tailwindcss": "^3.4.4"
+    }
+}

@@ -1,0 +1,101 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Статистика - Кудайбердиев Адилет Кудайбердиевич
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.pt-12.pb-32
+        +topBar
+        +backButtonTitle('Соперники', 'pages/others/profile.html', 'px-2')
+        div.flex.justify-between.items-center.gap-4.bg-white.p-4
+            span.text-sm.whitespace-nowrap Ваш партнер
+            +select('Егор Бероев (★431)', '!mb-0')
+
+        .span.text-xs.px-4.bg-white.pb-4.text-lab-black-50 Нажмите на строку для просмотра истории игр с соперником или на фамилию для перехода в профиль
+        -
+            let players = [
+                { name: 'Байбулдин А.', subName: '(738)', rating: '473', games: '122', wins: '75', losses: '47', change: '+28' },
+                { name: 'Забулдырин А.', subName: '(★345)', rating: '473', games: '122', wins: '75', losses: '47', change: '+28' },
+                { name: 'Тотромов А.', rating: '654', games: '115', wins: '74', losses: '41', change: '+33' },
+                { name: 'Гор Д.', rating: '793', games: '103', wins: '64', losses: '39', change: '+25' },
+                { name: 'Иванов Г.', rating: '434', games: '95', wins: '64', losses: '31', change: '+33' },
+                { name: 'Мутыргуллин Р.', rating: '826', games: '91', wins: '56', losses: '35', change: '+21' },
+                { name: 'Мерзлякин Т.', rating: '830', games: '84', wins: '34', losses: '30', change: '+4' },
+                { name: 'Пайков М.', rating: '274', games: '76', wins: '38', losses: '38', change: '0' },
+                { name: 'Березин И.', rating: '720', games: '63', wins: '25', losses: '38', change: '-13' },
+                { name: 'Волин Л.', rating: '175', games: '55', wins: '24', losses: '31', change: '-7' },
+                { name: 'Питчфорд Л.', rating: '175', games: '55', wins: '24', losses: '31', change: '-7' },
+                ]
+            let additional = 252
+            let totalWins = '867'
+            let totalLosses = '398'
+            let totalChange = '+77'
+
+        table(class="").bg-white.w-full
+            thead.text-xs.text-lab-black-50.uppercase
+                tr(class="text-xs text-center text-lab-black-50")
+                    th.text-left.px-3 Имя
+                    th ★
+                    th.p-2 Игр
+                    th.p-2 В
+                    th.p-2 П
+                    th.p-2 +/- 
+            tbody
+                each player, index in players
+                    tr(class="text-[13px] text-lab-black even:bg-white odd:bg-slate-100")
+                        td.py-2.px-3
+                            a(href="pages/others/singlePlayer.html").text-lab-color.font-medium #{player.name}
+                        td.text-center
+                            a(href="pages/others/gamesHistory.html").text-lab-black
+                                +userRating(player.rating)
+                        td.p-2.text-center
+                            a(href="pages/others/gamesHistory.html").text-lab-black #{player.games}
+                        td.p-2.text-center
+                            a(href="pages/others/gamesHistory.html").text-lab-black #{player.wins}
+                        td.p-2.text-center
+                            a(href="pages/others/gamesHistory.html").text-lab-black #{player.losses}
+                        td.p-2.text-center
+                            a(href="pages/others/gamesHistory.html" class=player.change > 0 ? 'text-lab-green' : player.change < 0 ? 'text-lab-red' : 'text-lab-black-50') #{player.change}
+
+                            
+            tr.text-sm.text-lab-black.font-semibold.bg-lab-color-10.border
+                    td(class="px-3 py-2 text-left leading-5" colspan=2) Всего
+                    td(class="p-2 text-center ") 95
+                    td(class="p-2 text-center ") 64
+                    td(class="p-2 text-center ") 45
+                    td(class="p-2 text-center text-lab-green") +174

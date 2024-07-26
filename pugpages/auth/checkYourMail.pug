@@ -1,0 +1,64 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/forumRow.pug
+include /components/poll.pug
+include /components/market/productCard.pug
+include /components/articleRow.pug
+include /components/profileTournamentCard.pug
+include /components/tournamentsPanel
+include /components/tournamentLiveCard
+include /components/editLabel
+
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title ЛАБ - Проверьте свою почту
+    link(href='../../styles.css', rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-white.pt-8
+    img(src="img/lab-logo.svg", alt="").size-24.mx-auto.my-4
+    h1.font-semibold.text-center Проверьте свою почту
+    
+    .p-4.max-w-420.mx-auto.mt-4
+      p.text-center Отлично! Волан на вашей стороне.
+      p.mt-4 Мы отправили вам письмо со ссылкой для сброса пароля. Проверьте свою электронную почту 
+        span.font-bold user@mail.com
+      p.mt-2 Если письмо не приходит в течение нескольких минут, проверьте папку Спам.
+      p.mt-2 Если у вас возникли проблемы или вопросы, свяжитесь со службой поддержки 
+        a(href='mailto:info@badminton4u.ru').text-blue-500 info@badminton4u.ru

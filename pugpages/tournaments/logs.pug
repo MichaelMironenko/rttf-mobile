@@ -1,0 +1,56 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/ratingLimit.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/gameResult.pug
+include /components/inputs/searchBar.pug
+
+
+
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Журнал событий
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body
+        +topBar()
+        div.bg-white.pt-16.pb-16
+            .flex.justify-between.gap-3.items-center.px-4
+                h1.text-lg.leading-6.text-lab-black.text-center.flex-grow.font-bold Майский фестиваль микстов в Сколково
+            div.flex.gap-4.items-center.pt-3.justify-center.text-sm
+                +tournamentTypeBadge('XDF+')
+                div.flex.gap-2
+                    img.w-4.aspect-square(src='img/calendar.svg' alt='Дата')
+                    span 11 сентября, четверг
+                span 12:30
+            - 
+                var rows = [
+                { admin: "Администратор (TTL-Savel)", date: "11 сентября 13:35", statusText: "Завершен" },
+                { admin: "Администратор (TTL-Savel)", date: "10 сентября 23:35", statusText: "Отмена", price: "+100₽", priceClass: "text-lab-green" },
+                { admin: "Администратор (TTL-Savel)", date: "11 сентября 12:00", statusText: "Online", priceClass: "text-blue-500" },
+                { admin: "Администратор (TTL-Savel)", date: "9 сентября 10:15", statusText: "Более 16 чел" },
+                { admin: "Администратор (TTL-Savel)", date: "5 сентября 21:30", statusText: "Создание", price: "-200₽", priceClass: "text-lab-black-50" }
+                ]
+            table(class="w-full divide-y divide-gray-200 mt-4 text-sm")
+                thead(class="bg-gray-50")
+                    tr
+                        th(class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider") Пользователь
+                        th(class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider") Время
+                        th(class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider") Статус
+                tbody(class="bg-white divide-y divide-gray-200")
+                    each row in rows
+                        tr(class="even:bg-white odd:bg-slate-100")
+                            td(class="px-3 py-2") 
+                                a(href="player")= row.admin
+                            td(class="px-3 py-2 text-lab-black") #{row.date}
+                            td(class="px-3 py-2  text-lab-black")
+                                span.font-semibold #{row.statusText}
+                                if row.price
+                                    div(class=row.priceClass) #{row.price}
+        +tabBar('Турниры')
+
+

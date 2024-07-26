@@ -1,0 +1,83 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/atoms/button.pug
+include /components/modal.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Номера кортов и время игр - Справочник - Лаб
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+    +breadcrumbs([{name: 'Справочник', href: 'pages/aroundgame/articles.html'}, {name: 'Программа проведения турниров Tournament Manager', href: 'pages/aroundgame/articlesSection.html'}, {name: 'Номера кортов и время игр'}])
+
+    .gap-4.bg-white(class='sm:flex')
+      .hidden.p-4(class='sm:block sm:w-1/3')
+        h1.pb-4.text-base Программа проведения турниров Tournament Manager
+        h2.my-4.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Как получить программу
+        h2.mb-4.mt-8.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Как установить программу
+        h2.mb-4.mt-8.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Как провести турнир
+        h2.mb-4.mt-8.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Схемы-форматы турниров
+        .px-2.text-sm.text-lab-black
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Создание новой схемы
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Круговая (каждый с каждым)
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Круговая (в два круга)
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Сетки (приложение 11 или 12)
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Группы + Сетка
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Группы + два финала
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Группы + финалы вкруг с зачетом
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Группа + матч за 3 место и финал
+        h2.mb-4.mt-8.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Регистрация участников
+        .px-2.text-sm.text-lab-black
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Добавление новичков без рейтинга
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Изменение рейтинга для участника
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Вставка списка игроков
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Добавление игроков "вне зачета"
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Выбор типа рейтинга
+        h2.mb-4.mt-8.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Настройки турнира
+        .px-2.text-sm.text-lab-black
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Расчет призового фонда
+        h2.mb-4.mt-8.text-sm: a.text-lab-black(href='pages/aroundgame/article.html') Процесс турнира
+        .px-2.text-sm.text-lab-black
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Онлайн-трансляция на сайте
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Настройка народного монитора
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Вызов встреч
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Запись результатов встреч
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Редактирование и отмена матчей
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Запись технической победы
+          h3.mb-2: a.font-semibold(href='pages/aroundgame/article.html') Номера кортов и время игр
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Снятие по ходу турнира
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Включение в 1-й финал
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Игра "вне турнира" (на рейтинг)
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Отправка результатов
+          h3.mb-2: a.text-lab-black(href='pages/aroundgame/article.html') Проведение двух и более турниров одновременно
+
+      .lg.bg-white.p-4(class='sm:w-2/3')
+        h1.pb-4 Номера кортов и время игр
+        p В поле “Играется”, а также на картинке этапа турнира для каждой встречи отображаются номер активного корта и прошедшее с начала встречи время.
+        p В поле “В ожидании” отображается длительность ожидания следующей встречи участником
+        p Примеры на картинках ниже:
+        img.my-2(src='https://rttf.ru/public/img/content/25/07-013.png', alt='')
+        img.my-2(src='https://rttf.ru/public/img/content/25/07-014.png', alt='')
+
+    +tabBar('Вокруг игры')

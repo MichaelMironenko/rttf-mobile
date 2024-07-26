@@ -1,0 +1,88 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/button.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/modal.pug
+include /components/actionMenu
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Страница создания турниров
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body
+        +tabBar('Турниры')
+        +topBar
+        div.bg-page-background.min-h-screen.w-full.fixed.top-0.left-0(class="z-[-1]")
+        .tab-content.scroll-smooth.flex.flex-col.gap-4.no-scrollbar.pt-16.pb-28
+            h2.px-4 Подтвердите создание новых турниров в клубе "Space Химки"
+            div
+                .flex.justify-between.items-center.px-4.mb-2     
+                    h3.font-bold 2 марта 
+                    +button('Создать все', 'text', 'lab-color', 'bg-transparent') 
+                .w-full.bg-white.pt-4.pb-2.px-4
+                    .flex.items-center.justify-between.gap-3 
+                        .flex.items-center.py-2.px-3.gap-3.text-sm.border.border-lab-color.rounded-lg.bg-lab-color-10.w-28.flex-shrink-0
+                            span 15:00
+                            +tournamentTypeBadge('XDF')
+                        +button('Создать', 'default', 'lab-color', 'bg-page-background', 'max-w-80', 'create-button')
+                        img(src="img/three-dots.svg", alt="" onclick="toggleMenu()").three-dots.h-5.w-5#tournament-dots
+
+                        .created.hidden.flex.items-center.gap-3#tournament-created.grow.justify-between
+                            div.mx-auto
+                                img.inline(src="img/checkmark.svg", alt="", class="h-6, w-6")
+                                span.text-sm.inline.font-semibold.ml-1 Турнир создан
+                            +button('Отмена', 'text', 'lab-color', 'bg-transparent', 'text-sm', 'cancel-button')
+                .w-full.bg-white.p-4
+                    .flex.items-center.justify-between.gap-3 
+                        .flex.items-center.py-2.px-3.gap-3.text-sm.border.border-lab-color.rounded-lg.bg-lab-color-10.w-28.flex-shrink-0
+                            span 18:00
+                            +tournamentTypeBadge('XD')
+                        +button('Создать', 'default', 'lab-color', 'bg-page-background', 'max-w-80', 'create-button')
+                        img(src="img/three-dots.svg", alt="" onclick="toggleMenu()").three-dots.h-5.w-5#tournament-dots
+
+                        .created.hidden.flex.items-center.gap-3#tournament-created.grow.justify-between
+                            div.mx-auto
+                                img.inline(src="img/checkmark.svg", alt="", class="h-6, w-6")
+                                span.text-sm.inline.font-semibold.ml-1 Турнир создан
+                            +button('Отмена', 'text', 'lab-color', 'bg-transparent', 'text-sm', 'cancel-button')
+                        div(id=`tournamentMenu`, class="hidden absolute bottom-0")
+                            +actionMenu([
+                                { text: 'Не создавать в этот раз', icon: '', color: ' text-lab-color' },
+                                { text: 'Больше не проводить', icon: '', color: ' text-lab-color' },
+                                { text: 'Быстрый просмотр турнира', icon: '', color: ' text-lab-color' },
+                                { text: 'Перейти на страницу турнира', icon: '', color: ' text-lab-color' },
+                            ])
+                        script.
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var createButton = document.getElementById('create-button');
+                                var cancelButton = document.getElementById('cancel-button');
+                                var tournamentCreated = document.getElementById('tournament-created');
+                                var tournamentDots = document.getElementById('tournament-dots');
+
+                                createButton.addEventListener('click', function() {
+                                    // Скрыть кнопку "Создать" и три точки
+                                    createButton.style.display = 'none';
+                                    tournamentDots.style.display = 'none';
+                                    // Показать элементы "Турнир создан" и кнопку "Отмена"
+                                    tournamentCreated.style.display = 'flex';
+                                    cancelButton.style.display = 'flex';
+                                });
+
+                                cancelButton.addEventListener('click', function() {
+                                    // Скрыть элементы "Турнир создан" и кнопку "Отмена"
+                                    tournamentCreated.style.display = 'none';
+                                    cancelButton.style.display = 'none';
+                                    // Показать кнопку "Создать" и три точки
+                                    createButton.style.display = 'block';
+                                    tournamentDots.style.display = 'block';
+                                });
+                            });
+
+                            function toggleMenu() {
+                                var tournamentMenu = document.getElementById(`tournamentMenu`);
+                                tournamentMenu.classList.toggle('hidden');
+                            }

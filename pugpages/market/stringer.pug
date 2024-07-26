@@ -1,0 +1,85 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/comments.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+include /components/atoms/userStatusBadge
+include /components/atoms/starRating
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Маркет
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+    .border-b.bg-white.p-4
+      .flex.w-full.items-center.gap-3.rounded-lg
+        .flex.flex-col.items-center.-space-y-4
+          +avatar('bg-lab-blue', 'НП', '80')
+          +userStatusBadge('Стрингер')
+        .w-full
+          h2.mb-2.text-base.font-semibold Вадим Новосёлов
+          .mb-2.flex.items-center.text-sm
+            img.h-4(src='img/star.svg')
+            span.ml-1.font-semibold= 4.4
+            span.ml-3.text-lab-black-50= 6 + ' отзывов'
+      .mt-4.flex.items-center.gap-2
+        .grow.rounded-lg.border.bg-lab-color-10.p-2.text-center
+          .mb-1.text-xs.text-lab-black-50 Опыт
+          .font-semibold 5 лет
+        .grow.rounded-lg.border.bg-lab-color-10.p-2.text-center
+          .mb-1.text-xs.text-lab-black-50 Цена
+          .font-semibold от 600₽
+
+      p.mt-4 Описание тренера
+
+      .mt-4.flex.items-center.gap-2
+        img.opacity-50.saturate-50(src='img/player.svg')
+        span.h-4.text-sm.leading-none Профиль на сайте
+        |
+        a.text-sm.leading-none(href='pages/others/profile.html') Volan4ik
+        +userRating(984)
+      .mt-2.flex.items-center.gap-2
+        img.opacity-50.saturate-50(src='img/home.svg')
+        div
+          a.text-sm.leading-none(href='pages/courts/singleClub.html') Gym Space
+          span.text-sm.leading-none ,
+          a.ml-1.text-sm.leading-none(href='pages/courts/singleClub.html') Сколково
+
+      .mt-4.flex.items-center.gap-2
+        img.opacity-50.saturate-50(src='img/location-icon.svg')
+        span.h-4.text-sm.leading-none Красногорск, Москва
+      .mt-4.flex.items-center.gap-2
+        img.opacity-50.saturate-50(src='img/phone.svg')
+        a.h-4.text-sm.leading-none(href='tel:79313952421') +7 (931) 395-24-21
+    +comments(true)
+    +tabBar('Маркет')

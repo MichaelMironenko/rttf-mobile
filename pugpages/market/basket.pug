@@ -1,0 +1,173 @@
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/comments.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/atoms/stepper.pug
+include /components/modal.pug
+include /components/block.pug
+include /components/dottedLine.pug
+include /components/atoms/userStatusBadge
+include /components/atoms/starRating
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Куплю ракетку Yonex Astrox 99 - Маркет - ЛАБ
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.pt-12
+    +topBar
+    -
+      const items = [
+      { img: 'dynamic-img/yonexastrox99.jpg', title: 'Ракетка Yonex Astrox 99 Pro', handle: 'Вес: 4U', oldPrice: '12000', price: '10500', quantity: 1 },
+      { img: 'dynamic-img/volan.jpg', title: 'Воланчики Yonex Aerosensa 50', oldPrice: '2500', price: '2200', quantity: 2 },
+      { img: 'dynamic-img/bag.jpeg', title: 'Сумка Yonex Pro Racquet Bag', price: '7000', quantity: 1 }
+      ]
+
+    section#cart.flex.flex-col.gap-4.rounded-lg.bg-white.p-4
+      header.text-lg.font-bold.text-lab-black Корзина
+      each item in items
+        .flex.gap-4.border-b.pb-2
+          img.aspect-square.w-16.shrink-0.self-start(loading='lazy', src=item.img, alt=item.title)
+          .flex.grow.flex-col.items-start
+            span.text-sm.font-bold= item.title
+            if item.handle
+              span.mt-2.text-xs.text-lab-black-50= item.handle
+            .mt-4.flex.w-full.items-center.justify-between.gap-5
+              +stepper(1)
+              .flex.items-center.gap-2
+                if item.oldPrice
+                  span.text-sm.text-lab-black-50.line-through= item.oldPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+                span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+
+            button.mt-2.text-xs.text-lab-color Удалить
+      button.text-xs.text-lab-red Очистить корзину
+      .flex.items-center.justify-between.gap-4
+        span.text-sm Всего 4 товара на сумму:
+        span.font-bold 18 480 ₽
+      .flex.items-center.justify-between.gap-4
+        span.text-sm Ожидаемая дата доставки
+        span.font-bold 12 июня
+
+      +button('Оформить заказ', 'default', 'white', 'bg-lab-color', '', 'toCheckout') 
+      button.self-center.text-sm.leading-5.text-lab-color Продолжить покупки
+
+    section#checkout.hidden.flex.flex-col.gap-4.rounded-lg.bg-white
+      .container.mx-auto.bg-white.p-4
+        a.-ml-1.flex.items-center.gap-1.pb-4(href='#', id='backToCart')
+          img.size-5.rotate-90(src='img/expand-arrow.svg', alt='')
+          span.text-sm.text-lab-color Вернуться к корзине
+        h1.mb-4.font-bold Оформление покупки
+        form.border-b
+          .mb-6.flex.justify-between.gap-1
+            +editLabel('Имя', '', true, '!w-32')
+            +input('Введите имя', 'w-full', 'name', 'text', '', 'Андрей', '')
+
+          .mb-6.flex.justify-between.gap-1
+            +editLabel('Фамилия', '', true, '!w-32')
+            +input('Введите фамилию', 'w-full', 'surname', 'text', '', 'Филимонов', '')
+
+          .mb-6.flex.justify-between.gap-1
+            +editLabel('Город', '', true, '!w-32')
+            +input('Введите город', 'w-full', 'city', 'text', 'border-lab-red border-2', '', '')
+          .mb-6.flex.justify-between.gap-1
+            +editLabel('Адрес доставки', '', true, '!w-32')
+            +textarea('Введите адрес', 'w-full', 'address', 'text', '', '', '')
+          .mb-6.flex.justify-between.gap-1
+            +editLabel('Телефон', '', true, '!w-32')
+            +input('', 'w-full', 'phone', 'tel', '', '+7 (910) 314-45-50', 'tel')
+          .mb-6.flex.justify-between.gap-1
+            +editLabel('Email', '', true, '!w-32')
+            +input('Введите email', 'w-full', 'email', 'email', 'border-lab-red border-2', '', 'email')
+
+        .mt-4
+          h2.text-lg.font-semibold Ваш заказ
+          .mt-4.flex.items-center.justify-between.gap-4
+            span.text-sm Всего 4 товара на сумму:
+            span 18 480 ₽
+          .my-4.flex.items-center.justify-between.gap-4
+            div
+              span.text-sm Доставка в Верхнезадрищенск
+              div.text-lab-black-50.text-xs Ожидаемая дата доставки: 12 июня
+            span 300 ₽
+          .flex.items-center.justify-between.gap-4.mb-4
+              span.font-bold Итого
+              span.font-bold 18 480 ₽
+          +button('Оплатить', 'default', 'white', 'bg-lab-color', '', 'toPay') 
+
+    section#confirmation.hidden.flex.flex-col.gap-4.rounded-lg.bg-white.p-4
+      header.text-lg.font-bold.text-lab-black Ваш заказ №341203 оплачен
+      h2.text-lg.font-bold Детали заказа
+      each item in items
+        .flex.gap-4.border-b.pb-2
+          img.aspect-square.w-16.shrink-0.self-start(loading='lazy', src=item.img, alt=item.title)
+          .flex.grow.flex-col.items-start
+            span.text-sm.font-bold= item.title
+            if item.handle
+              span.mt-2.text-xs.text-lab-black-50= item.handle
+            .mt-4.flex.w-full.items-center.gap-4
+              span.text-sm= item.quantity + ' шт.'
+              .flex.items-center.gap-2
+                span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+
+      .flex.items-center.justify-between.gap-4
+        span Итого
+        span.font-bold 18 780 ₽
+
+      h2.mt-2 Доставка по адресу:
+      p.py-0.text-sm
+        | РФ, Республика Татарстан, г. Верхнезадрищенск, ул. 25 Задрищенских Комиссаров, д. 18, кв. 24.
+      p.text-sm.font-bold Ожидаемая дата доставки - 12 июня
+
+      p.py-0.text-sm
+        | Вы также получите подтверждение о покупке на 
+        a.text-lab-color(href='mailto:name@mail.ru') name@mail.ru
+      p.py-0.text-sm
+        | Что-то не так? Напишите нам на 
+        a.text-lab-color(href='mailto:info@rttf.ru') info@rttf.ru
+        |
+        | и мы постараемся решить ваш вопрос.
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('toCheckout').addEventListener('click', function() {
+          document.getElementById('cart').classList.add('hidden')
+          document.getElementById('checkout').classList.remove('hidden')
+        });
+
+        document.getElementById('toPay').addEventListener('click', function() {
+          document.getElementById('checkout').classList.add('hidden')
+          document.getElementById('confirmation').classList.remove('hidden')
+        });
+
+        document.getElementById('backToCart').addEventListener('click', function() {
+          document.getElementById('checkout').classList.add('hidden')
+          document.getElementById('cart').classList.remove('hidden')
+        });
+      });
+

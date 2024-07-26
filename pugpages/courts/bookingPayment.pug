@@ -1,0 +1,75 @@
+include /components/atoms/button.pug
+include /components/atoms/stepper.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/editLabel.pug
+include /components/selectedCourts.pug
+include /components/bottomPanel.pug
+include /components/bookingData.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Подтверждение бронирования
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-white.mt-12.pb-32
+        +topBar
+        .py-4.px-2.flex.gap-3.bg-white
+            img(src="img/expand-arrow.svg", alt="").rotate-90
+            div.text-lg.text-center.grow.font-bold.text-lab-black.-ml-6 Проверьте данные бронирования
+        .p-4.max-w-420.w-full.mx-auto
+            img(src="img/home.svg", alt="").inline.align-middle.saturate-50.opacity-50
+            a(href="pages/courts/singleClub.html").inline.align-middle.ml-2 Натен-Юг
+            .flex.gap-2.items-center.my-4.mt-6
+                img(src="img/calendar.svg").saturate-50.opacity-60
+                div.leading-none 11 сентября, четверг
+            +selectedCourts
+            div.py-2
+                img(src="img/player.svg", alt="").inline.align-middle.saturate-50.opacity-50
+                span.inline.align-middle.ml-2 Константин
+            div.py-2
+                img(src="img/phone.svg", alt="").inline.align-middle.saturate-50.opacity-50
+                span.inline.align-middle.ml-2 +7 (093) 232-52-25
+            div.pt-2.pb-4
+                img(src="img/racket.svg", alt="").inline.align-middle.saturate-50.opacity-50
+                span.inline.align-middle.ml-2 2 полупрофессиональные ракетки
+
+            h2.py-4 Стоимость
+            .flex.justify-between.pb-4
+                span Аренда кортов
+                span 1400&#8202;₽
+            .flex.justify-between.pb-4
+                span Аренда ракеток
+                span 600&#8202;₽
+            .flex.justify-between.font-bold.pb-4
+                span Итого
+                span 2000&#8202;₽
+
+            h2.py-4 Условия отмены
+            .flex.justify-between.pb-4.gap-2
+                span Более 24 часов до игры
+                .div.border-b-2.grow.mb-1.border-dotted
+                span Возврат 100%
+            .flex.justify-between.pb-4.gap-2
+                span 12-24 часов
+                .div.border-b-2.grow.mb-1.border-dotted
+                span Возврат 50%
+            .flex.justify-between.gap-2
+                span.font-bold Менее 12 часов
+                .div.border-b-2.grow.mb-1.border-dotted
+                span.text-lab-red.text-right Оплата не возвращается
+                
+                
+        
+        +bottomPanel
+            .flex.justify-between.gap-3
+                +button('Оплатить', 'default', 'white', 'bg-lab-color', '', '', 'pages/courts/bookingConfirmed.html')
+        

@@ -1,0 +1,388 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Маркет
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    - var tabs = ['Маркет', 'Б/У', 'Стрингеры']
+    - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
+    - var tabIds = ['market', 'used', 'stringers']
+    - var activeTab = 'Маркет'
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+      each tab, index in tabs
+        - var isActive = tab === activeTab
+        .players-panel-tab.tab(
+          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          data-tab=`${tabIds[index]}`
+        )
+          img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
+          .py-1.leading-none= tab
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.players-panel-tab')
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', function () {
+            tabs.forEach((t) => {
+              const img = t.querySelector('img')
+              if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
+              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              t.classList.add('opacity-75', 'saturate-50')
+              if (img) {
+                img.classList.add('opacity-75', 'saturate-50')
+              }
+            })
+            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.remove('opacity-75', 'saturate-50')
+            const img = this.querySelector('img')
+            if (img) {
+              img.classList.remove('opacity-75', 'saturate-50')
+            }
+            const tabId = this.getAttribute('data-tab')
+            const tabContent = document.querySelectorAll('.tab-content')
+            tabContent.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove('hidden')
+              } else {
+                content.classList.add('hidden')
+              }
+            })
+          })
+        })
+      })
+    #market.tab-content
+      .flex.items-center.justify-between.gap-3.p-4.text-sm.leading-none
+        a.flex.items-center.gap-2(href='pages/market/orders.html')
+          img.size-5(src='img/orders.svg', alt='Маркет')
+          span Заказы
+        a.flex.grow.items-center.gap-2(href='pages/market/favorites.html')
+          img.size-5(src='img/heart-empty.svg', alt='Маркет')
+          span Избранное
+        a.flex.items-center.gap-2(href='pages/market/basket.html')
+          .relative
+            img.size-6(src='img/basket.svg', alt='Маркет')
+            span.absolute.-right-1.-top-1.inline-block.rounded-full.bg-lab-red.px-1.text-center.text-xxs.text-white 4
+          span.font-semibold 23 040 ₽
+
+      -
+        const categories = [ 
+          {
+              image: 'dynamic-img/rackets.jpeg',
+              name: 'Ракетки'
+          },
+          {
+              image: 'dynamic-img/strings.jpg',
+              name: 'Струны'
+          },
+          {
+              image: 'dynamic-img/volan.jpg',
+              name: 'Воланы'
+          },
+          {
+              image: 'dynamic-img/t-shirt.jpeg',
+              name: 'Футболки, поло'
+          },
+          {
+              image: 'dynamic-img/shorts.jpg',
+              name: 'Шорты, юбки'
+          },
+          {
+              image: 'dynamic-img/accessories.jpg',
+              name: 'Аксессуары'
+          },
+          {
+              image: 'dynamic-img/socks.jpeg',
+              name: 'Носки'
+          },
+          {
+              image: 'dynamic-img/shoes.jpg',
+              name: 'Обувь'
+          },
+          {
+              image: 'dynamic-img/bag.jpeg',
+              name: 'Сумки'
+          },
+        ]
+
+        const brands = [ 
+          { image: 'dynamic-img/wilson.png', name: 'Wilson' },
+          { image: 'dynamic-img/yonex.png', name: 'Yonex' },
+          { image: 'dynamic-img/li-ning.png', name: 'Li-Ning' },
+          { image: 'dynamic-img/kawasaki.png', name: 'Kawasaki' },
+          { image: 'dynamic-img/black-knight.png', name: 'Black Knight' },
+          { image: 'dynamic-img/adidas.png', name: 'Adidas' },
+          ]
+
+        const articles = [
+          {
+            title: "Выбор ракетки до 10 000 ₽",
+            date: "2024-06-05",
+            comments: 12,
+            image: "dynamic-img/rackets.jpeg"
+          },
+          {
+            title: "Струны для ракеток - стоит ли экономить?",
+            date: "2024-05-20",
+            comments: 8,
+            image: "dynamic-img/strings.jpg"
+          },
+          {
+            title: "Топ-5 бадминтонных воланов",
+            date: "2024-04-18",
+            comments: 15,
+            image: "dynamic-img/volan.jpg"
+          },
+          {
+            title: "Выбор правильной обуви для бадминтона",
+            date: "2024-01-30",
+            comments: 9,
+            image: "dynamic-img/shoes.jpg"
+          },
+          {
+            title: "Как выбрать подходящую спортивную форму?",
+            date: "2024-03-02",
+            comments: 7,
+            image: "dynamic-img/t-shirt.jpeg"
+          },
+          {
+            title: "Рюкзаки и сумки для бадминтона",
+            date: "2024-02-10",
+            comments: 11,
+            image: "dynamic-img/bag.jpeg"
+          },
+          {
+            title: "Спортивные носки для бадминтона: советы по выбору",
+            date: "2024-04-01",
+            comments: 5,
+            image: "dynamic-img/socks.jpeg"
+          },
+          {
+            title: "Лучшие бутылки для воды для спортсменов",
+            date: "2024-05-12",
+            comments: 6
+          }
+        ];
+
+
+      .bg-white.p-4
+        +searchAndFilterButton('Поиск', false, 'pb-6')
+        .no-scrollbar.-mx-4.flex.gap-3.overflow-x-auto.px-4
+          each item in categories 
+            div
+              .flex.size-20.items-center.justify-center.rounded-lg.border.p-2.shadow
+                img.size-16.size-20.object-contain(src=`${item.image}`, alt=`${item.name}`)
+              .mt-2.w-full.text-center.text-xs.text-lab-black= item.name
+      .mt-2.flex
+        img(src='dynamic-img/market-banner.jpg', alt='', class='sm:w-1/2 lg:w-1/3')
+        img.hidden(src='dynamic-img/market-banner.jpg', alt='', class='sm:block sm:w-1/2 lg:w-1/3')
+        img.hidden(src='dynamic-img/market-banner.jpg', alt='', class='lg:block lg:w-1/3')
+      .p-2
+        +block('Выбор игроков', { href: 'pages/market/inventory.html', text: 'Все игроки'})
+          -
+            var inventory = [ 
+              { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, comments: 2, price: 12800, shop: 'Lining center', name: 'Yonex Astrox 100 Game (KURENAI)', newItem: true, liked: false }, 
+              { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, comments: 0, price: 8990, shop: 'Rackets.ru', name: 'Yonex 65Х 3 (Navy/Blue)', newItem: false, liked: true }, 
+              { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, comments: 1, price: 1800, shop: 'Badm Store', name: 'KUMPOO KW-0101 (RED)', newItem: false, liked: false } 
+            ]        
+          .no-scrollbar.-mx-4.-my-4.flex.gap-2.overflow-x-auto.p-4
+            each item in inventory
+              +productCard(item)
+        +block('Бренды', { href: 'pages/market/brands.html', text: 'Все'})
+          .no-scrollbar.-mx-4.flex.gap-3.overflow-x-auto.px-4
+            each brand in brands 
+              a(href='pages/market/brand.html') 
+                .flex.size-20.items-center.justify-center
+                  img.size-16.size-20.object-contain(src=`${brand.image}`, alt=`${brand.name}`)
+                .mt-2.w-full.text-center.text-xs.text-lab-black= brand.name
+
+        +block('Статьи', {href: 'pages/aroundgame/articles.html', text: 'Все'})
+          .sm.grid.grid-cols-1.gap-8(class='sm:grid-cols-2 lg:grid-cols-3')
+            // На всех экранах показываем первые 3 статьи
+            .flex.flex-col.gap-4
+              each article, index in articles
+                if index < 3
+                  +articleCard(article.title, article.date, article.comments, article.image)
+
+            // На экранах от 640px показываем следующие 3 статьи (итого 6)
+            .hidden(class='sm:flex sm:flex-col sm:gap-4')
+              each article, index in articles
+                if index >= 3 && index < 6
+                  +articleCard(article.title, article.date, article.comments, article.image)
+
+            // На экранах от 1024px показываем еще 3 статьи (итого 9)
+            .hidden(class='lg:flex lg:flex-col lg:gap-4')
+              each article, index in articles
+                if index >= 6 && index < 9
+                  +articleCard(article.title, article.date, article.comments, article.image)
+        +block('Товары в сравнении')
+          .flex.items-center.justify-between.gap-2
+            span.font-semibold 3 основания
+            span.text-sm.text-lab-color Удалить все
+          .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.p-4
+            .relative.w-24.shrink-0
+              img.size-24(src='dynamic-img/yonex-astrox.jpg', alt='')
+              .mt-2.line-clamp-3.text-center.text-xs Yonex Astrox 100 Game (KURENAI)
+              img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
+            .relative.w-24.shrink-0
+              img.size-24(src='dynamic-img/yonex-astrox.jpg', alt='')
+              .mt-2.text-center.text-xs Li-Ning Racket 800 X
+              img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
+            .relative.w-24.shrink-0
+              img.size-24(src='dynamic-img/yonex-astrox.jpg', alt='')
+              .mt-2.line-clamp-3.text-center.text-xs Huyonex Red Pro 14
+              img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
+          .mt-4.flex.items-center.justify-between.gap-2
+            span.font-semibold 3 струны
+            span.text-sm.text-lab-color Удалить все
+          .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.p-4
+            .relative.w-24.shrink-0
+              img.size-24(src='dynamic-img/strings.jpg', alt='')
+              .mt-2.line-clamp-3.text-center.text-xs Yonex Astrox 100 Game (KURENAI)
+              img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
+            .relative.w-24.shrink-0
+              img.size-24(src='dynamic-img/strings.jpg', alt='')
+              .mt-2.text-center.text-xs Li-Ning Racket 800 X
+              img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
+            .relative.w-24.shrink-0
+              img.size-24(src='dynamic-img/strings.jpg', alt='')
+              .mt-2.line-clamp-3.text-center.text-xs Huyonex Red Pro 14
+              img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
+        +block('Новинки', { href: 'pages/market/productSearchResults.html', text: 'Все товары'})
+          -
+            var inventory = [ 
+              { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, comments: 2, price: 12800, shop: 'Lining center', name: 'Yonex Astrox 100 Game (KURENAI)', newItem: true, liked: false }, 
+              { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, comments: 0, price: 8990, shop: 'Rackets.ru', name: 'Yonex 65Х 3 (Navy/Blue)', newItem: false, liked: true }, 
+              { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, comments: 1, price: 1800, shop: 'Badm Store', name: 'KUMPOO KW-0101 (RED)', newItem: false, liked: false } 
+            ]        
+          .no-scrollbar.-mx-4.-my-4.flex.gap-2.overflow-x-auto.p-4
+            each item in inventory
+              +productCard(item)
+
+    #used.tab-content.hidden
+      .flex.flex-wrap.items-center.gap-x-6.gap-y-4.p-4.text-sm.leading-none
+        a.flex.items-center.gap-2(href='pages/market/mySells.html')
+          img.size-5(src='img/orders.svg', alt='Маркет')
+          span Мои объявления
+        a.flex.items-center.gap-1(href='pages/market/favoritesSecondHand.html')
+          img.size-5(src='img/heart-empty.svg', alt='Избранное')
+          span Избранное
+        a.flex.items-center.gap-2(href='pages/market/editSecondHandProduct.html')
+          img.size-5(src='img/plus.svg', alt='Разместить объявление')
+          span Разместить объявление
+      .bg-white.p-4
+        +searchAndFilterButton('Поиск', true, 'pb-4')
+        .no-scrollbar.-mx-4.flex.gap-3.overflow-x-auto.px-4
+          each item in categories 
+            div
+              .flex.size-20.items-center.justify-center.overflow-hidden.rounded-lg.border.p-2
+                img.size-16.size-20.object-contain(src=`${item.image}`, alt=`${item.name}`)
+              .mt-2.w-full.text-center.text-xs.text-lab-black= item.name
+
+      .flex.items-center.justify-between.gap-4.bg-white.px-4.pb-2
+        +sortButton('По новизне', [{text: 'По новизне'}, {text: 'Сначала с низкой ценой'}, {text: 'Сначала с высокой ценой'}, {text: 'По удаленности'}], 'pb-2')
+        +citySelect(false, 'text-right')
+
+      .used-buttons.fixed.bottom-24.z-30.mb-4.w-full
+        .mx-auto.flex.w-fit.justify-center.overflow-hidden.rounded-full.border-2.border-lab-color.drop-shadow-around
+          button#sellBtn.bg-lab-color.px-3.py-2.text-sm.text-white(onclick='toggleBlocks("sell")') Продам
+          button#buyBtn.bg-white.px-3.py-2.text-sm.text-lab-color(onclick='toggleBlocks("buy")') Куплю
+
+      #sellBlock.p-2
+        h2.pt-4.pb-4 Предложения в Нижнем Новгороде
+        .grid.grid-cols-2.gap-2(class='480:grid-cols-3 768:grid-cols-4 lg:grid-cols-5')
+          +secondHandCard('yonexastrox99.jpg', 'Yonex Astrox 99', 12000, 'Москва', 'metro', 'Киевская', '#ff0000', '4 дня назад')
+          +secondHandCard('lining.jpg', 'Li-Ning Turbo Charging 75', 10500, 'Санкт-Петербург', 'metro', 'Невский проспект', 'blue', '3 дня назад')
+          +secondHandCard('victorthrustrer.webp', 'Victor Thruster K 9900', 13000, 'Казань', 'metro', 'Площадь Тукая', '#00ff00', '5 мая')
+          +secondHandCard('yonexzforce.jpg', 'Yonex Voltric Z-Force II', 15000, 'Новосибирск', 'metro', 'Площадь Ленина', '#ffdd00', '2 декабря 2023 г.')
+        h2.pt-8.pb-4 Предложения в других городах
+        .grid.grid-cols-2.gap-2(class='480:grid-cols-3 768:grid-cols-4 lg:grid-cols-5')
+          +secondHandCard('ziggler.jpg', 'Apacs Z Ziggler', 8000, 'Екатеринбург', 'metro', 'Геологическая', '#ff0000', '1 мая')
+          +secondHandCard('carlton.jpg', 'Carlton Kinesis Rapid', 9500, 'Нижний Новгород', 'street', 'ул. Белинского', '', '4 дня назад')
+          +secondHandCard('forzapower.jpg', 'Forza Power 988 S', 11000, 'Красноярск', 'street', 'ул. Мира', '', '20 апреля')
+          +secondHandCard('babolat.jpg', 'Babolat Satelite Gravity 74', 14000, 'Самара', 'metro', 'Советская', '#800080', '10 мая')
+
+      #buyBlock.hidden.p-2
+        .grid.gap-2(class='768:grid-cols-2 lg:grid-cols-3')
+          +buyCard('Ракетки', 'Куплю Yonex Arcsaber 11 Pro', 'badminton_pro', 'Сегодня 12:43')
+          +buyCard('Ракетки', 'Куплю Victor Thruster F', 'shuttle_master', 'Вчера в 19:06')
+          +buyCard('Струны', 'Куплю Yonex BG80 Power', 'string_fan', 'Два дня назад в 17:34')
+          +buyCard('Ракетки', 'Куплю Li-Ning 3D Calibar 900', 'birdie_hunter', '3 июня 14:12')
+          +buyCard('Струны', 'Куплю Li-Ning No.1', 'net_master', '2 июня 10:23')
+          +buyCard('Ракетки', 'Куплю Babolat Satelite Gravity 74', 'court_ace', '1 июня 18:45')
+          +buyCard('Струны', 'Куплю Ashaway Zymax 66 Fire', 'stringer', '31 мая 09:37')
+          +buyCard('Ракетки', 'Куплю Carlton Kinesis X900', 'smash_buddy', '30 мая 20:50')
+          +buyCard('Струны', 'Куплю Victor VS-850', 'net_player', '29 мая 13:14')
+          +buyCard('Ракетки', 'Куплю Apacs Z-Ziggler', 'racket_collector', '28 мая 16:32')
+
+      script.
+        function toggleBlocks(type) {
+          const sellBtn = document.getElementById('sellBtn')
+          const buyBtn = document.getElementById('buyBtn')
+          const sellBlock = document.getElementById('sellBlock')
+          const buyBlock = document.getElementById('buyBlock')
+
+          if (type === 'sell') {
+            sellBtn.classList.add('bg-lab-color', 'text-white')
+            sellBtn.classList.remove('bg-white', 'text-lab-color')
+            buyBtn.classList.add('bg-white', 'text-lab-color')
+            buyBtn.classList.remove('bg-lab-color', 'text-white')
+            sellBlock.classList.remove('hidden')
+            buyBlock.classList.add('hidden')
+          } else {
+            buyBtn.classList.add('bg-lab-color', 'text-white')
+            buyBtn.classList.remove('bg-white', 'text-lab-color')
+            sellBtn.classList.add('bg-white', 'text-lab-color')
+            sellBtn.classList.remove('bg-lab-color', 'text-white')
+            buyBlock.classList.remove('hidden')
+            sellBlock.classList.add('hidden')
+          }
+        }
+
+    #stringers.tab-content.hidden
+      .bg-white.px-4.pb-2.pt-4
+        h2.bg-white Стрингеры
+        +searchAndFilterButton('Поиск', false, 'py-4')
+        .flex.items-center.justify-between.gap-4.bg-white
+          +sortButton('По рейтингу', [{text: 'По рейтингу'}, {text: 'Сначала с низкой ценой'}, {text: 'Сначала с высокой ценой'}, {text: 'По удаленности'}], 'pb-2')
+          +citySelect(false, 'text-right')
+      .p-2
+        +stringerCard({ color: 'bg-lab-color', initials: 'ВН', name: 'Вадим Новоселов', stars: 4.4, reviews: 5, address: 'Gym Space', distance: 1.5, price: 500 })
+        +stringerCard({ color: 'bg-lab-color', initials: 'АП', name: 'Александр Переверзев', stars: 4.6, reviews: 8, address: 'Москва', distance: 22, price: 600 })
+        +stringerCard({ color: 'bg-lab-color', initials: 'ДЯ', name: 'Денис Якимов', stars: 4.4, reviews: 5, address: 'Москва', distance: 15, price: 600 })
+
+    +tabBar('Маркет')

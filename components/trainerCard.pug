@@ -1,0 +1,23 @@
+mixin trainerCard(avatarColor, fullName, gameRating, coachRating, reviewsCount, pricePerHour, superTrainer=false, club)
+  a.relative.flex.flex-col.items-center.gap-3.rounded-md.shadow-lg.p-3(
+    class=`${superTrainer ? 'bg-gradient-to-br from-[#6686B0] via-[#253C59] via-[#375B8B] to-[#243956] min-w-32' : 'bg-white'} `
+    href="pages/trainings/singleTrainer.html"
+  )
+    - const initials = fullName.split(' ').map(name => name[0]).join('')
+    if superTrainer
+      .absolute.right-0.top-0.rounded-bl.rounded-tr-md.bg-lab-color.z-10.px-1.py-1.shadow-md
+        .no-wrap.text-xxs.font-semibold.leading-none.text-white Супер-тренер
+
+    +avatar(avatarColor, initials, 64, '', 'тренер')
+    +userRating(gameRating, true, '-mt-6 shadow-sm z-[1] ')
+    span.min-w-24.text-center.text-sm.font-semibold(class=`${superTrainer ? 'text-white' : ''}`) #{ fullName }
+    .mb-auto.flex.items-center.gap-1
+      img.h-4.opacity-75(src='img/rating-star-aqua.svg')
+      span.mr-2.text-xs.font-semibold(class=`${superTrainer ? 'text-white ' : ''}`) #{ coachRating }
+      img.h-4.opacity-60(src='img/comment-outlined.svg')
+      span.text-xs.font-semibold(class=`${superTrainer ? '  text-white ' : ''}`) #{ reviewsCount }
+    if club 
+      .flex.items-center.gap-1.justify-center
+        img(src="img/location-icon.svg", alt="").opacity-75
+        div.text-xs.opacity-75(class=`${superTrainer  ? 'text-white' : 'text-lab-black'}`) #{club}
+    span.rounded.bg-lab-light-yellow.px-2.py-1.text-xs.font-bold от #{ pricePerHour }₽/ч

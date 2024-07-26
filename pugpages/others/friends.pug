@@ -1,0 +1,250 @@
+include /components/atoms/date.pug
+include /components/atoms/button.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/inputs/textarea.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+include /components/actionMenu.pug
+include /components/filters/filterButtonsRow.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Друзья
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.pt-12.pb-32
+        +topBar
+
+        
+        - var tabs = ["Лента друзей", "Список друзей"]
+        - var images = ["img/friends-feed.svg", "img/friends.svg"]
+        - var tabIds = ["feed", "list"]
+        - var activeTab = "Лента друзей" 
+        div(class="fixed pb-safe-extra-panel w-full z-20 flex justify-between bg-white text-lab-black overflow-hidden rounded-t-2xl border-b drop-shadow-top")
+            each tab, index in tabs
+                - var isActive = tab === activeTab
+                div.tournaments-panel-tab.tab(class=`flex grow cursor-pointer gap-1.5 w-1/2 items-center ${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} justify-center py-3 ` data-tab=`${tabIds[index]}`)
+                    img(src=images[index] class=`w-4 h-4 aspect-square ${!isActive && 'opacity-75 saturate-50'}`)
+                    div= tab
+
+        script. 
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabs = document.querySelectorAll('.tournaments-panel-tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // Убираем активный класс и стили со всех вкладок
+                        tabs.forEach(t => {
+                            ['font-bold', 'bg-lab-color-10', 'opacity-75', 'saturate-100'].forEach(className => t.classList.remove(className));
+                            // Добавляем неактивным иконкам стили
+                            t.classList.add('opacity-75', 'saturate-50'); 
+                            t.querySelector('img').classList.add('opacity-75', 'saturate-50');
+                        });
+
+                        // Добавляем активный класс к нажатой вкладке и удаляем стили неактивности с иконки
+                        ['font-bold', 'bg-lab-color-10', 'saturate-100'].forEach(className => this.classList.add(className));
+                        this.classList.remove('opacity-75', 'saturate-50'); // Удаляем полупрозрачность и насыщенность
+                        this.querySelector('img').classList.remove('opacity-75', 'saturate-50');
+
+                        // Обновляем контент в соответствии с выбранной вкладкой
+                        const tabId = this.getAttribute('data-tab');
+                        const tabContent = document.querySelectorAll('.tab-content');
+                        tabContent.forEach(content => {
+                            if(content.id === tabId) {
+                                content.classList.remove('hidden');
+                            } else {
+                                content.classList.add('hidden');
+                            }
+                        });
+                    });
+                });
+            });
+
+
+        div.tab-content(id="feed").mx-auto.w-screen.max-w-xl
+            
+            h2.p-4 Лента друзей
+            +filterButtonsRow([
+                    { label: 'Все события', active: true},
+                    { label: 'Турниры', active: false},
+                    { label: 'Тренировки', active: false},
+                    { label: 'Фото', active: false},
+                    { label: 'Видео', active: false},
+                    { label: 'Форум', active: false},
+                    { label: 'Инвентарь', active: false},
+                    { label: 'Другое', active: false},
+                ], true)
+
+            .grid.gap-2.mt-4.mx-auto.max-w-xl
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-color.border.text-xs.font-semibold.border-lab-color.px-1(class="py-0.5").rounded Турниры    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Алексей Смирнитский] зарегистрировался на турнир в паре с #[a.font-semibold(href='#') Алёна Коноплёва]
+                    .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center
+                        +tournamentTypeBadge('XDF+')
+                        span.text-sm.grow.font-semibold Макс Арена
+                        span.text-sm.text-lab-black-50 11 сентября 
+                        span.text-sm.text-lab-black-50 11:00
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-yellow.border.text-xs.font-semibold.border-lab-yellow.px-1(class="py-0.5").rounded Тренировки    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Алексей Смирнитский] зарегистрировался на тренировку
+                    .flex.gap-2.bg-promo-background.px-3.py-1.rounded-lg.border.items-center
+                        div.grow 
+                            span.text-sm.grow.font-semibold Макс Арена
+                            .flex.items-center.gap-1 
+                                img(src="img/trainer.svg").saturate-50.opacity-50.size-3
+                                span.text-xs.text-lab-black-50 Абельмасов Игорь
+                        span.text-sm.text-lab-black-50 11 сентября 
+                        span.text-sm.text-lab-black-50 11:00
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-color.border.text-xs.font-semibold.border-lab-color.px-1(class="py-0.5").rounded Турниры    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Валерия Гончаренко] заняла 12-е место в турнире 
+                    .flex.gap-2.bg-lab-color-10.p-3.rounded-lg.border.items-center
+                        +tournamentTypeBadge('XDF+')
+                        span.text-sm.grow.font-semibold Макс Арена
+                        span.text-sm.text-lab-black-50 11 сентября 
+                        span.text-sm.text-lab-black-50 11:00
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-green.border.text-xs.font-semibold.border-lab-green.px-1(class="py-0.5").rounded Инвентарь    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Анна Семёнова] добавила ракетку в свой инвентарь
+                    div.flex.gap-4.p-2.rounded-lg.border
+                        img(src=`dynamic-img/yonex-astrox.jpg`).size-12.object-cover
+                        
+                        div.grow
+                            div.text-lab-black.text-sm.font-medium.line-clamp-1.mb-2 Yonex Astrox 100 Game (KURENAI) amazing version  
+                            .flex.items-center(class="gap-0.5")   
+                                img(src="img/star.svg").size-3
+                                span.text-xs= 4.8
+                                img(src="img/player.svg").size-3.ml-3
+                                span.text-xs 23
+                                span.text-xs.ml-3.text-lab-black-50 3 отзыва    
+
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-green.border.text-xs.font-semibold.border-lab-green.px-1(class="py-0.5").rounded Форум    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Валерий Гаркалин] написал новую тему на форуме
+                    .flex.gap-1.p-2.border.rounded-lg.items-center.justify-between
+                        img(src="img/forum.svg").size-5
+                        a(href="#").text-sm.font-semibold.grow.ml-2 Выбор ракетки до 10000 ₽. Обзор производителей
+                        img(src="img/comment-outlined.svg").size-4
+                        span.text-sm 3
+
+
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-blue.border.text-xs.font-semibold.border-lab-blue.px-1(class="py-0.5").rounded Фото    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Юрий Колесников] отмечен на 3 фотографиях
+                    .flex.gap-3.items-center.overflow-x-auto.no-scrollbar.-mx-4.px-4
+                        a(href="#") 
+                            img(src="dynamic-img/video-1.jpg", alt="" class="w-24 h-24 rounded-md object-cover")
+                        a(href="#") 
+                            img(src="dynamic-img/photo-2.jpg", alt="" class="w-24 h-24 rounded-md object-cover")
+                        a(href="#") 
+                            img(src="dynamic-img/photo-1.jpg", alt="" class="w-24 h-24 rounded-md object-cover")
+                .p-4.bg-white(class="430:rounded-lg")
+                    .flex.gap-3.justify-between.items-center.mb-3
+                        span.text-lab-red.border.text-xs.font-semibold.border-lab-red.px-1(class="py-0.5").rounded Видео    
+                        span.text-xs(class="xs:text-sm").text-lab-black-50.grow 11 сентября 20:38
+                        img(src="img/three-dots.svg", alt="")
+                    .flex.gap-3.items-center.mb-3
+                        +avatar('bg-lab-color', 'НП', 32)
+                        span.text-sm #[a.font-semibold(href='#') Юрий Колесников] отмечен на 3 видео
+                    .flex.gap-3.items-center.overflow-x-auto.no-scrollbar.-mx-4.px-4
+                        a(href="#").shrink-0
+                            img(src="dynamic-img/video-1.jpg", alt="" class="w-40 h-24 rounded-md object-cover")
+                        a(href="#").shrink-0
+                            img(src="dynamic-img/photo-2.jpg", alt="" class="w-40 h-24 rounded-md object-cover")
+                        a(href="#").shrink-0 
+                            img(src="dynamic-img/photo-1.jpg", alt="" class="w-40 h-24 rounded-md object-cover")
+
+
+
+
+
+
+
+
+
+        div.tab-content(id="list" class="hidden").mx-auto.w-screen.max-w-xl
+            h2.p-4 Лента друзей
+            +searchAndFilterButton('Имя или логин игрока', '', 'px-4 pb-4')
+        
+
+            - 
+                var players = [
+                    { name: 'Пухов Станислав', status: 'Онлайн', statusClass: 'text-lab-green', rating: 500, color: 'bg-lab-green', initials: 'СП' },
+                    { name: 'Мальков Владимир', status: 'Был сегодня в 12:30', statusClass: 'text-lab-black-50', rating: 600, color: 'bg-lab-blue', initials: 'ВМ' },
+                    { name: 'Жданов Илья', status: 'Играет турнир', statusClass: 'text-lab-red', rating: 700, color: 'bg-lab-red', initials: 'ИЖ' },
+                    { name: 'Матазов Николай', status: 'Онлайн', statusClass: 'text-lab-green', rating: 550, color: 'bg-lab-color', initials: 'НМ' },
+                    { name: 'Федоткин Григорий', status: 'Был вчера в 11:20', statusClass: 'text-lab-black-50', rating: 450, color: 'bg-lab-yellow', initials: 'ГФ' },
+                    { name: 'Ицков Вадим', status: 'Онлайн', statusClass: 'text-lab-green', rating: 350, color: 'bg-lab-green', initials: 'ВИ' },
+                    { name: 'Ярославцев Степан', status: 'Был вчера в 19:00', statusClass: 'text-lab-black-50', rating: 320, color: 'bg-lab-blue', initials: 'СЯ' },
+                    { name: 'Иванов Антон', status: 'Онлайн', statusClass: 'text-lab-green', rating: 420, color: 'bg-lab-color', initials: 'АИ' },
+                    { name: 'Архангельская Ольга', status: 'Играет турнир', statusClass: 'text-lab-red', rating: 680, color: 'bg-lab-red', initials: 'ОА' },
+                    { name: 'Петров Пётр', status: 'Был сегодня в 08:50', statusClass: 'text-lab-black-50', rating: 390, color: 'bg-lab-yellow', initials: 'ПП' }
+                ]
+
+            each player in players
+                .flex.gap-2.px-3.py-2.items-center.bg-white.border-t
+                    +avatar(player.color, player.initials, 32)
+                    
+                    div.grow 
+                        a(href="#").text-sm.font-semibold.text-lab-color.mr-1= player.name
+                        .text-xs.text-lab-color.inline.align-middle.font-medium ★#{player.rating}
+                        .text-xs.font-medium(class=player.statusClass + ' pt-0.5')= player.status
+                    a(href="pages/others/chat.pug")
+                        img(src="img/messages-icon.svg", alt="").size-6
+                    img(src="img/three-dots.svg", alt="").size-4.mx-1(onclick="toggleChatMenu()")
+
+
+        +actionMenu([
+            { text: 'Открыть профиль', color: ' text-lab-color' },
+            { text: 'Не показывать в ленте друзей', color: ' text-lab-red' },
+            { text: 'Заблокировать', color: ' text-lab-red' },
+            { text: 'Удалить из друзей', color: ' text-lab-red', last: true }], 'action-menu-container')
+
+        script.
+            function toggleChatMenu() {
+                var commentMenu = document.getElementById(`action-menu-container`);
+                console.log(commentMenu)
+                commentMenu.classList.toggle('hidden');
+            }
+
+
+
+        
+        +tabBar

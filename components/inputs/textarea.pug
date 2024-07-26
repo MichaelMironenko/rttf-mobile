@@ -1,0 +1,7 @@
+mixin textarea(placeholder, width, id, extraClass, value, rows)
+  textarea(id=id rows=rows class=`border border-lab-black-30 p-2 ${width} rounded-lg ${extraClass} focus:outline-none focus:ring-1 focus:ring-lab-color shadow-sm max-w-sm`, placeholder=placeholder oninput='autoResizeTextarea(this)')= value
+  script. 
+    function autoResizeTextarea(elem) {
+        elem.style.height = 'auto';
+        elem.style.height = elem.scrollHeight+2 + 'px'; 
+    }

@@ -1,0 +1,98 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/tag.pug
+include /components/atoms/date.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/videoSlider.pug
+include /components/block.pug
+include /components/trainingLine.pug
+include /components/selectedCourts.pug
+include /components/modal.pug
+include /components/messageBlock.pug
+include /components/atoms/stepper.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/clubCard.pug
+include /components/selectedCourts.pug
+include /components/newsCard.pug
+include /components/inputs/select.pug
+include /components/clientBookingTable.pug
+include /components/trainerCard.pug
+include /components/mapOverlay.pug
+include /components/bottomPanel.pug
+include /components/inputs/switch.pug
+include /components/inputs/input.pug
+include /components/editLabel.pug
+include /components/searchAndFilterButton.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/dayOfWeek.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Тренировки
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+        .p-4
+            .flex.justify-between.items-center.mb-4.gap-4 
+                h1.text-lg.leading-tight Тренировки   
+                a(href="#").grow
+                    img(src="img/plus-button.svg" class="size-5")
+                +filtersPanelButton
+            .flex.flex-wrap.gap-2
+                +tag('slate-100', 'lab-black', 'Рейтинг 200-400')
+                +tag('slate-100', 'lab-black', 'Санкт-Петербург')
+                +tag('slate-100', 'lab-black', 'Space Химки')
+
+
+            -
+                const trainings = [
+                    { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
+                    { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                    { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-lab-green', img: '', players: '5/10' },
+                    { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                    { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-lab-blue', img: '', players: '5/10' },
+                    { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                    { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-lab-green', img: '', players: '5/10' },
+                    { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+                ];
+                    
+                    
+          
+
+            .flex.flex-col
+                +date("Вторник, 25 ноября")
+                each training in trainings
+                    +trainingLine({
+                        time: training.time,
+                        duration: training.duration + ' ч',
+                        title: training.title,
+                        initials: training.initials,
+                        trainerName: training.trainerName,
+                        club: training.club,
+                        color: training.color,
+                        img: training.img,
+                        players: training.players
+                    }, true)
+                +date("Четверг, 27 ноября")
+                each training in trainings
+                    +trainingLine({
+                        time: training.time,
+                        duration: training.duration + ' ч',
+                        title: training.title,
+                        initials: training.initials,
+                        trainerName: training.trainerName,
+                        club: training.club,
+                        color: training.color,
+                        img: training.img,
+                        players: training.players
+                    }, true)

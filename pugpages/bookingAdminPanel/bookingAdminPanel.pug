@@ -1,0 +1,498 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/modal.pug
+include /components/messageBlock.pug
+include /components/atoms/stepper.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/clubCard.pug
+include /components/selectedCourts.pug
+include /components/newsCard.pug
+include /components/inputs/select.pug
+include /components/clientBookingTable.pug
+include /components/mapOverlay.pug
+include /components/bottomPanel.pug
+include /components/inputs/switch.pug
+include /components/inputs/input.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/dayOfWeek.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Управление бронированием
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+        .bg-white.pb-1
+            .grid.grid-cols-1.p-4(class="sm:grid-cols-2").gap-4
+                .flex.items-center.justify-between.gap-4
+                    h1.text-lg.leading-tight Управление бронированием
+                    a.flex.items-center.gap-1(href="pages/bookingAdminPanel/bookingsHistory.html")
+                        img(src="img/history.svg", class="xs:hidden" alt="").shrink-0
+                        a(class="xs:block" href="pages/bookingAdminPanel/bookingsHistory.html").hidden.text-sm.shrink-0 Список броней
+                div.flex.w-full.rounded-lg.overflow-hidden(class="lg:justify-self-end lg:mb-0")
+                    button#tabBooking.flex-1.text-sm.p-2.bg-lab-color.text-white.border-none.outline-none Бронирования
+                    button#tabPrices.flex-1.text-sm.p-2.bg-lab-color-10.text-gray-500.border-none.outline-none Расписание цен
+            
+            div#bookingContent
+                div(class="flex overflow-x-auto  px-4 gap-2 no-scrollbar").mb-2
+                    div(class="flex-shrink-0")
+                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Март
+                        - var marchDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт']
+                        - var marchDates = [27, 28, 29, 30, 31]
+                        .flex.gap-2.my-2
+                            each day, index in marchDays
+                                - var isWeekend = day === 'Вс' || day === 'Сб'
+                                - var isActive = day === 'Вт' && marchDates[index] === 29
+                                - var isCurrent = day === 'Вс' && marchDates[index] === 27
+                                    div(class=isCurrent && isWeekend ? "font-semibold bg-lab-color-10" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
+                                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50 font-semibold" : "text-xs text-lab-black-50 opacity-50")= day
+                                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= marchDates[index]
+                    div(class="flex-shrink-0")
+                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Апрель
+                        - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
+                        - var aprilDates = [1, 2, 3, 4, 5, 6]
+                        .flex.gap-2.mt-2
+                            each day, index in aprilDays
+                                - var isWeekend = day === 'Вс' || day === 'Сб'
+                                - var isActive = false 
+                                div(class=isActive && isWeekend ? "bg-lab-red" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
+                                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50" : "text-xs text-lab-black-50 opacity-50")= day
+                                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= aprilDates[index]
+                
+                div(class="lg:flex ")#events
+                    div(class="lg:w-96 lg:order-2 lg:border").px-4.shrink-0
+                        
+                        div(id='personalBooking' class="modal-container fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden lg:static lg:max-w-96 lg:w-full lg:backdrop-blur-none  lg:border lg:bg-transparent lg:p-0 lg:shadow-none")
+                            .fixed.bottom-0.left-0.right-0.w-full.z-40.p-4.rounded-t-2xl.overflow-hidden.bg-white.drop-shadow-top.pb-safe-16(class="lg:absolute lg:rounded-none lg:border lg:bottom-auto lg:w-96 lg:-mx-4 lg:drop-shadow-none")
+
+                                .w-20.top-0.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
+                                img(src="img/close-round.svg", alt="").top-2.right-2.absolute#closeButton
+                                .max-w-96.mx-auto
+                                    .w-full.text-center.my-4
+                                        div.font-semibold.text-lg.mb-2 Сергей Макаров
+                                        a(href="tel:79051271542") +7 (905) 127-15-42 
+
+                                    .flex.gap-4.items-center.py-2
+                                        img(src="img/calendar.svg").saturate-50.opacity-60
+                                        div.leading-none.text-lab-black 11 сентября, четверг
+                                    .flex.gap-8.py-2.max-w-sm.items-center
+                                        div.inline
+                                            img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
+                                            span.inline.align-middle.leading-none.ml-4 11:00-12:30
+                                        div.court
+                                            img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
+                                            span.inline.align-middle.ml-2.text-lab-color Корт 5
+                                        
+                                    .flex.gap-8.py-2.max-w-sm.items-center
+                                        div.inline
+                                            img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
+                                            span.inline.align-middle.leading-none.ml-4 11:00-12:30
+                                        div.court 
+                                            img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
+                                            span.inline.align-middle.ml-2.text-lab-color Корт 6
+                                    
+                                    div.pt-2.pb-4
+                                        img(src="img/racket.svg", alt="").inline.align-middle.saturate-50.opacity-50
+                                        span.inline.align-middle.ml-4 2 полупрофессиональные ракетки
+
+                                    div 
+                                        img(src="img/price.svg", alt="Цена").inline.align-middle.saturate-50.opacity-50
+                                        span.inline.align-middle.ml-4 1800&#8202;₽
+                                        span.inline.align-middle.ml-4.text-lab-green.font-semibold Оплачено 
+
+                                    +button('Редактировать', 'default', 'white', 'bg-lab-color', 'mt-4', 'editButton', '')
+                        
+                        div(id='editBooking' class="modal-container fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden lg:static lg:max-w-96 lg:w-full lg:backdrop-blur-none  lg:border lg:bg-transparent lg:p-0 lg:shadow-none")
+                            .fixed.bottom-0.left-0.right-0.w-full.z-40.p-4.rounded-t-2xl.overflow-hidden.bg-white.drop-shadow-top.pb-safe-16(class="lg:absolute lg:rounded-none lg:border lg:bottom-auto lg:w-96 lg:-mx-4 lg:drop-shadow-none")
+
+                                .w-20.top-0.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
+                                img(src="img/close-round.svg", alt="").top-2.right-2.absolute#closeButton
+                                .max-w-96.mx-auto
+                                    
+                                    h2 Редактирование бронирования
+                                    .flex.items-center.gap-2.pt-6
+                                        +editLabel('Имя', '', true)
+                                        +input('')
+                                    .text-right.text-xs.text-lab-red Заполните имя
+                                    .flex.items-center.gap-2.pt-2
+                                        +editLabel('Телефон', '', true)
+                                        +input('', '', '', 'phone')
+                                    .text-right.text-xs.text-transparent Введите корректный телефон
+                                    .flex.items-center.gap-2.pt-2
+                                        +editLabel('Email', '', true)
+                                        +input('', '', '', 'email')
+                                    .text-right.text-xs.text-lab-red Введите корректный email
+
+                                    +editLabel('Бронь', '', true, 'py-2')
+                                    +selectedCourts(true, false)
+                                    
+
+                                    +switch('Абонемент', 'py-4' ,'')
+                                    +editLabel('Аренда ракетки', '', '')
+                                    div
+                                        .flex.items-center.justify-between.gap-3
+                                            div
+                                                span.text-sm Любительская
+                                                .text-sm.text-lab-black-50 150₽/шт
+                                            +stepper(0)
+                                        .flex.items-center.justify-between.gap-3.pt-4
+                                            div
+                                                span.text-sm Полупрофи
+                                                .text-sm.text-lab-black-50 200₽/шт
+                                            +stepper(0)
+                                    
+                                    .flex.items-center.gap-2.py-4.justify-between
+                                        +editLabel('Итого', '', '', 'w-32')
+                                        +input('', 'w-20', '', 'email')
+                                        label.flex.items-center.gap-2.ml-2
+                                            input(type='checkbox').size-5
+                                            span.text-sm Оплачено
+                                    
+                                    div.flex.gap-2
+                                        +button('Удалить бронь', 'text', 'lab-red', '', 'w-1/2 shrink-0', 'deleteButton')
+                                        +button('Сохранить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'submitButton')
+
+
+                        div#dayEvents
+                            h2.py-4.border-b.hidden(class="lg:block") Вторник, 29 марта
+
+                            +switch('Бронирование доступно', 'py-4', 'text-sm')
+                            
+                            - 
+                                const tournaments = [
+                                    { time: '10:00', name: 'XDE', status: 'past' },
+                                    { time: '12:00', name: 'XDB', status: 'past' },
+                                    { time: '12:00', name: 'XDF+', status: 'unselected' },
+                                    { time: '13:00', name: 'MD', status: 'selected' },
+                                    { time: '14:00', name: 'XDA', status: 'unselected' },
+                                    { time: '15:00', name: 'XDE', status: 'unselected' },
+                                    { time: '20:00', name: 'WD', status: 'unselected' }
+                                ]
+
+                                const trainings = [
+                                    { time: '10:00', name: 'Соловьёв', status: 'past' },
+                                    { time: '12:00', name: 'Новосёлов', status: 'past' },
+                                    { time: '12:00', name: 'Воробьёв', status: 'unselected' },
+                                    { time: '13:00', name: 'Зубарь', status: 'selected' }
+                                ]
+
+                                const activities = [
+                                    { time: '10:00', name: 'Корпоратив', status: 'past' },
+                                ]
+
+                            .flex.gap-2.flex-col.mt-2
+                                +editLabel('Турниры ЛАБ', true, true, '!w-36 text-sm shrink-0')
+                                .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mx-4.px-4
+
+                                    each tournament in tournaments
+                                        div(class=`${tournament.status === 'past' ? 'opacity-50' : tournament.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center`)
+                                            div(class="text-lab-color text-sm font-medium")= tournament.time
+                                            span.text-sm= tournament.name
+                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center")
+                                        div.text-2xl.text-lab-black(class="font-[100]") +
+
+                            .flex.gap-2.flex-col.mt-6    
+                                +editLabel('Групповые тренировки ЛАБ', true, true, 'text-sm ')
+                                .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mx-4.px-4
+
+                                    each training in trainings
+                                        div(class=`${training.status === 'past' ? 'opacity-50' : training.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center`)
+                                            div(class="text-lab-color text-sm font-medium")= training.time
+                                            span.text-sm= training.name
+                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center")
+                                        div.text-2xl.text-lab-black(class="font-[100]") +
+                                        
+                            .flex.gap-2.flex-col.mt-6.mb-6  
+                                +editLabel('Мероприятия', true, true, 'text-sm ')
+                                .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mr-4
+
+                                    each activity in activities
+                                        div(class=`${activity.status === 'past' ? 'opacity-50' : activity.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center`)
+                                            div(class="text-lab-color text-sm font-medium")= activity.time
+                                            span.text-sm= activity.name
+                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center")
+                                        div.text-2xl.text-lab-black(class="font-[100]") +
+                        
+                        
+                    - const startTime = 9; // Start time 9 AM
+                    - const endTime = 23; // End time 11 PM
+                    - const timeSlots = [];
+                    - for (let hour = startTime; hour <= endTime; hour++) {
+                    -   let formattedHour = hour < 10 ? `0${hour}` : hour.toString();
+                    -   timeSlots.push(`${formattedHour}:00`);
+                    -   if (hour !== endTime) timeSlots.push(`${formattedHour}:30`);
+                    - }
+
+                    div.w-screen.overflow-auto.no-scrollbar.bg-white.order-1
+
+                        table.table-fixed.w-full.border
+                            thead.sticky.top-0.bg-white.z-10.h-10.mb-4
+                                tr
+                                    th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Корт
+                                    each _, index in Array(6)
+                                        th.text-sm.min-w-32.w-32.text-center.align-middle.sticky.pt-2.top-0.h-8(class="text-center")
+                                            div #{index + 1}
+                                            div.text-xs.font-normal.text-lab-black-50.mt-1 Обычный
+                            tbody(class="before:content-['@'] before:text-xxs before:block before:leading-none before:text-transparent")
+                                each time, index in timeSlots
+                                    tr.h-8.text-lab-black-50.text-xs
+                                        td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14
+                                            div(class="-mt-2.5 bg-white") #{time}
+                                        each _, courtIndex in Array(6)
+                                            if time == '11:00' && courtIndex == 2
+                                                td.border.min-w-16.text-center.w-16.z-10.align-middle(rowspan="3")#bookingCell
+                                                    div.font-semibold.text-sm.text-lab-black Сергей М.
+                                                    div.py-2 8 (915) 124-15-23
+                                                    div.flex.justify-center.items-center.gap-1
+                                                        img(src="img/trainer.svg", alt="").opacity-50.saturate-50
+                                                        img(src="img/warning.svg", alt="").opacity-50.saturate-50
+                                                        img(src="img/racket.svg", alt="").opacity-50.saturate-50
+                                                        span 2400 ₽
+                                                        img(src="img/checkmark.svg", alt="")
+                                            else if (time == '11:30' || time == '12:00') && courtIndex == 2
+                                                continue
+                                            else if time == '15:00' && courtIndex == 2
+                                                td.border.min-w-16.text-center.w-16.align-middle(colspan="3")
+                                                    div.font-semibold.mb-2.text-sm.text-lab-black Турнир 
+                                                    span XDE
+                                            else if time == '15:00' && (courtIndex == 3 || courtIndex == 4)
+                                                continue
+                                            else if time == '16:00' && courtIndex == 0
+                                                td.border.min-w-16.text-center.w-16.align-middle(rowspan="2")
+                                                    div.font-semibold.mb-2.text-sm.text-lab-black Турнир 
+                                                    span XDF
+                                            else if time == '16:30' && courtIndex == 0
+                                                continue
+                                            else if time == '16:00' && courtIndex == 1
+                                                td.border.min-w-16.text-center.w-16.align-middle(rowspan="2")
+                                                    div.font-semibold.mb-2.text-sm.text-lab-black Турнир 
+                                                    span XDE
+                                            else if time == '16:30' && courtIndex == 1
+                                                continue
+                                            else if time == '17:30' && courtIndex == 5
+                                                td.border.min-w-16.text-center.w-16.align-middle(rowspan="2")
+                                                    div.font-semibold.mb-2.text-sm.text-lab-black Тренировка
+                                                    .flex.items-center.gap-1.justify-center
+                                                        img(src="img/trainer.svg", alt="")
+                                                        span Трушкин A.
+                                            else if time == '18:00' && courtIndex == 5
+                                                continue
+                                            else
+                                                - let price = time >= '09:00' && time < '13:00' ? '600' : time >= '13:00' && time < '18:00' ? '800' : time >= '18:00' && time < '21:00' ? '1000' : '800'
+                                                - let bgColor = price === '600' ? 'bg-green-100' : price === '800' ? 'bg-blue-100' : 'bg-red-100'
+                                                td.border.min-w-16.text-center.w-16.align-middle(class=bgColor data-action="show-menu") #{price}
+                    +actionMenu([
+                        { text: 'Аренда', link: '#', color: 'text-lab-color' },
+                        { text: 'Турнир ЛАБ', link: '#', color: 'text-lab-color' },
+                        { text: 'Тренировка ЛАБ', link: '#', color: 'text-lab-color' },
+                        { text: 'Мероприятие', link: '#', color: 'text-lab-color' },
+                        { text: 'Закрыть стол', link: '#', color: 'text-lab-color' }
+                        ], 'actionMenuId', 'Создать новое событие')    
+                    script.
+                        document.addEventListener('click', function (e) {
+                            if (e.target.dataset.action === 'show-menu') {
+                            var menuContainer = document.getElementById('actionMenuId'); 
+                            if (menuContainer) {
+                                menuContainer.style.display = 'block';
+                            }
+                            }
+                            if (e.target.dataset.action === 'hide') {
+                            var menuContainer = document.querySelector('.menu-container'); 
+                            if (menuContainer) {
+                                menuContainer.style.display = 'none';
+                            }
+                            }
+                        });
+
+                
+
+                script.
+                    document.getElementById('bookingCell').addEventListener('click', function() {
+                        document.getElementById('personalBooking').classList.remove('hidden');
+                        document.getElementById('dayEvents').classList.add('hidden');
+                    });
+
+                    document.getElementById('closeButton').addEventListener('click', function() {
+                        document.getElementById('personalBooking').classList.add('hidden');
+                        document.getElementById('dayEvents').classList.remove('hidden');
+                    });
+
+                    document.getElementById('editButton').addEventListener('click', function() {
+                        document.getElementById('personalBooking').classList.add('hidden');
+                        document.getElementById('editBooking').classList.remove('hidden');
+                    });
+
+                    document.getElementById('submitButton').addEventListener('click', function() {
+                        document.getElementById('editBooking').classList.add('hidden');
+                        document.getElementById('personalBooking').classList.remove('hidden');
+                    });
+
+            div#pricesContent.hidden.px-4
+                div(class="flex overflow-x-auto -mx-4 px-4 gap-2 no-scrollbar").mb-2
+                    div(class="flex-shrink-0")
+                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Март
+                        - var marchDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт']
+                        - var marchDates = [27, 28, 29, 30, 31]
+                        .flex.gap-2.mt-2
+                            each day, index in marchDays
+                                - var isWeekend = day === 'Вс' || day === 'Сб'
+                                - var isActive = day === 'Вт' && marchDates[index] === 29
+                                - var isCurrent = day === 'Вс' && marchDates[index] === 27
+                                    div(class=isCurrent && isWeekend ? "font-semibold bg-lab-color-10" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
+                                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50 font-semibold" : "text-xs text-lab-black-50 opacity-50")= day
+                                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= marchDates[index]
+                    div(class="flex-shrink-0")
+                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Апрель
+                        - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
+                        - var aprilDates = [1, 2, 3, 4, 5, 6]
+                        .flex.gap-2.mt-2
+                            each day, index in aprilDays
+                                - var isWeekend = day === 'Вс' || day === 'Сб'
+                                - var isActive = false 
+                                div(class=isActive && isWeekend ? "bg-lab-red" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
+                                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50" : "text-xs text-lab-black-50 opacity-50")= day
+                                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= aprilDates[index]
+                +switch('Бронирование доступно', 'py-4', 'text-sm')
+                
+                .flex.gap-2.justify-start.mb-6.items-center(class="430:justify-start 430:gap-2")
+                    +editLabel('Часы работы', '', true, '!w-32 text-sm')
+                    +input('', 'w-24 shrink-0', 'from', 'time')
+                    span —
+                    +input('', 'w-24 shrink-0', 'to', 'time')
+
+                .flex.items-center.gap-4.mb-4.-mr-4
+                    span.shrink-0.mr-4.text-sm Шаблоны цен
+                    +filterButtonsRow([ { label: 'Рабочий день', active: true}, { label: 'Выходной', active: false}, { label: 'Пятница', active: false}, { label: 'Турнирный день', active: false } ], '', '-ml-4 pr-4', 'text-sm', '', true)
+                .flex.gap-4.w-full.justify-center.pb-4
+                    .text-lab-color.text-sm Обновить шаблон
+                    .text-lab-red.text-sm Удалить шаблон
+                    
+                        
+                
+                div.w-screen.overflow-auto.no-scrollbar.bg-white.-mx-4
+                    table.table-fixed.w-full.text-lab-black
+                        thead.sticky.top-0.bg-white.z-20.h-10.mb-4
+                            tr
+                                th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Корт
+                                each _, index in Array(10)
+                                    th.court.text-sm.min-w-16.w-16.text-center.align-middle.sticky.top-0.h-8(data-court-index=index)
+                                        div #{index + 1}
+                                        div.text-xs.font-normal.text-lab-black-50.mt-1 Обычный
+                        tbody(class="before:content-['@'] before:text-xxs before:block before:leading-none before:text-transparent")
+                            each time, index in timeSlots
+                                tr.h-8.text-sm.text-lab-black-50.text-xs
+                                    td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14.text-lab-black-50
+                                        div(class="-mt-2.5 bg-white") #{time}
+                                    each _, courtIndex in Array(10)
+                                        - let price = time >= '09:00' && time < '13:00' ? '600' : time >= '13:00' && time < '18:00' ? '800' : time >= '18:00' && time < '21:00' ? '1000' : '800'
+                                        - let bgColor = price === '600' ? 'bg-green-100' : price === '800' ? 'bg-blue-100' : 'bg-red-100'
+                                        td.border.min-w-16.text-center.w-16.z-10.align-middle(class=bgColor) #{price}
+
+        +modal('', '', 'court-modal', true)  
+            h2 Корт №5
+            p.text-lab-black-50.text-sm.pt-0.pb-2 Стандартный  
+            img(src="dynamic-img/court5.jpg", alt="").mt-2.rounded-sm.pb-2
+            +dottedLine('Размер зала', '17x10 м')
+            +dottedLine('Высота потолков', '8 м')
+            +dottedLine('Покрытие', 'Тарафлекс')
+            button.mt-4.bg-blue-500.text-white.rounded.px-4.py-2(data-modal-target="edit-court-modal") Редактировать
+
+        +modal('', '', 'edit-court-modal', true)
+            h2 Корт №11
+            form(action="", method="post").space-y-4
+                label.block
+                    span.block.text-sm.font-medium.text-gray-700 Корт №
+                    input(type="text", name="court-number", value="11", readonly).mt-1.block.w-full
+                div.flex.space-x-4
+                    div.flex-grow
+                        label.block
+                            span.block.text-sm.font-medium.text-gray-700 Покрытие
+                            select(name="surface").mt-1.block.w-full
+                                option(value="") Выберите
+                                option(value="hard") Хард
+                                option(value="clay") Грунт
+                    div.flex-grow
+                        label.block
+                            span.block.text-sm.font-medium.text-gray-700 Описание
+                            input(type="text", name="description", maxlength="30").mt-1.block.w-full
+                div.flex.items-center.space-x-2
+                    label.block
+                        span.block.text-sm.font-medium.text-gray-700 Доступен для брони
+                        input(type="date", name="available-date", value="2023-09-11").mt-1.block.w-full
+                    div.flex.items-center.ml-4
+                        span.text-sm.font-medium.text-gray-700.toggle-label Доступен
+                        input(type="checkbox", name="available", checked).ml-2.toggle-checkbox
+                div.flex.justify-between.mt-6
+                    button.bg-red-500.text-white.rounded.px-4.py-2 Удалить корт
+                    button.bg-green-500.text-white.rounded.px-4.py-2 Сохранить
+
+        script.
+             document.addEventListener('DOMContentLoaded', function() {
+                console.log('DOM fully loaded and parsed');
+                
+                const courtDivs = document.querySelectorAll('.court');
+                
+                
+                courtDivs.forEach(function(div) {
+                    div.addEventListener('click', function() {
+                        const modal = document.getElementById('court-modal');
+                        if (modal) {
+                            console.log('Opening court-modal:', modal);
+                            modal.classList.remove('hidden');
+                            modal.style.removeProperty('display');
+                        } else {
+                            console.error('Modal court-modal not found');
+                        }
+                    });
+                });
+                const editButton = document.querySelector('[data-modal-target="edit-court-modal"]');
+                    if (editButton) {
+                        editButton.addEventListener('click', function() {
+                            const modal = document.getElementById('edit-court-modal');
+                            if (modal) {
+                                console.log('Opening edit-court-modal:', modal);
+                                modal.classList.remove('hidden');
+                                modal.style.removeProperty('display');
+                            }
+                        });
+                    }
+                });
+
+
+        script.
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabBooking = document.getElementById('tabBooking');
+                const tabPrices = document.getElementById('tabPrices');
+                const bookingContent = document.getElementById('bookingContent');
+                const pricesContent = document.getElementById('pricesContent');
+
+                tabBooking.addEventListener('click', function() {
+                    bookingContent.classList.remove('hidden');
+                    pricesContent.classList.add('hidden');
+                    tabBooking.classList.add('bg-lab-color', 'text-white');
+                    tabBooking.classList.remove('bg-lab-color-10', 'text-gray-500');
+                    tabPrices.classList.add('bg-lab-color-10', 'text-gray-500');
+                    tabPrices.classList.remove('bg-lab-color', 'text-white');
+                });
+
+                tabPrices.addEventListener('click', function() {
+                    pricesContent.classList.remove('hidden');
+                    bookingContent.classList.add('hidden');
+                    tabPrices.classList.add('bg-lab-color', 'text-white');
+                    tabPrices.classList.remove('bg-lab-color-10', 'text-gray-500');
+                    tabBooking.classList.add('bg-lab-color-10', 'text-gray-500');
+                    tabBooking.classList.remove('bg-lab-color', 'text-white');
+                });
+            });

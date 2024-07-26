@@ -1,0 +1,262 @@
+
+<script>
+  function togglePhotoSelection(el) {
+    const checkmark = el.querySelector('.checkmark');
+    checkmark.classList.toggle('hidden');
+  }
+</script><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотографии</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background pb-28 pt-12">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="flex items-center justify-between gap-3 p-4">
+      <h1>Фотографии</h1><img class="size-6" src="img/plus-button.svg" alt="">
+    </div>
+    <div class="flex items-center justify-between gap-4  px-4 ">
+      <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-lab-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search"/>
+        <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Имя, клуб, фотограф"/>
+      </div><img class="filters-panel-button h-6 w-6" src="img/filters-icon.svg"/>
+    </div>
+    <div class="flex items-center px-4 py-3 gap-2 justify-between">
+      <button class="sort-button  undefined " type="button"><img class="inline align-middle size-4" src="img/sort.svg"/><span class="inline align-middle text-lab-color text-sm ml-1">Самые интересные</span></button>
+      <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="undefined" data-action="hide">
+        <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Новые</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Самые комментируемые</span></a>
+        </div>
+        <script>
+          document.addEventListener('click', function (e) {
+            if (e.target.dataset.action === 'hide') {
+              var menuContainer = document.querySelector('.menu-container'); 
+              if (menuContainer) {
+                menuContainer.style.display = 'none';
+              }
+            }
+          });
+        </script>
+      </div>
+      <script>
+        document.querySelector('.sort-button').addEventListener('click', function () {
+            var menuContainer = document.querySelector('.menu-container'); 
+            if (menuContainer.style.display === 'none' || menuContainer.style.display === '') {
+                menuContainer.style.display = 'block';
+            } else {
+                menuContainer.style.display = 'none';
+            }
+        });
+      </script>
+      <div class="grow"></div><img class="size-5" id="viewCards" src="img/cards-view.svg" alt=""><img class="size-5 saturate-50 opacity-50" id="viewGrid" src="img/tiles.svg" alt="">
+    </div>
+    <div class="cards-container">
+      <div class="grid grid-cols-1 576:grid-cols-2 576:px-4 768:grid-cols-3 xl:grid-cols-4 gap-3 pb-4">
+        <div class="flex flex-shrink-0 flex-col gap-2 bg-white pb-3 576:overflow-hidden 576:rounded-lg">
+          <div class="flex justify-between gap-3 pt-3 px-3 pb-1"> <span class="text-xs text-lab-black-50">2 часа назад</span><img class="size-4" src="img/three-dots.svg" onclick="toggleCommentMenu('undefined')"></div><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-1.jpg"></a>
+          <div class="px-3 py-1"> 
+            <div class="flex items-center gap-3 text-sm justify-between">
+              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>13</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>2K</span></div>
+              <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>3</span></div>
+              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark"/>
+              </button>
+              <script>
+                var isActive = false; // Начальное состояние закладки
+                function toggleBookmark() {
+                  isActive = !isActive; // Переключаем состояние
+                  var bookmarkIcon = document.getElementById('bookmarkIcon');
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                }
+              </script>
+            </div>
+            <div class="font-semibold py-2 leading-tight">Призёры БК Брянск DF</div>
+            <div class="flex flex-wrap gap-2 inline pt-1"><a class="text-xxs text-lab-black font-medium px-1.5 py-1 bg-[linear-gradient(150deg,#FFCE31_0%,#FFCA21_25%,#FFE287_48%,#EAC039_78%)] rounded-md" href="pages/others/profile.html">Волосатов Игорь</a><a class="text-xxs text-lab-black font-medium px-1.5 py-1 bg-[linear-gradient(150deg,#FFCE31_0%,#FFCA21_25%,#FFE287_48%,#EAC039_78%)] rounded-md" href="pages/others/profile.html">Мартыненко Евгений</a><a class="text-xxs text-lab-black font-medium px-1.5 py-1 bg-[linear-gradient(150deg,#BFCACD_0%,#F2F9FB_40%,#C8D4D8_71%,#CAE8F0_100%)] rounded-md" href="pages/others/profile.html">Сыровежко Наталья</a><a class="text-xxs text-lab-black font-medium px-1.5 py-1 bg-[linear-gradient(150deg,#BFCACD_0%,#F2F9FB_40%,#C8D4D8_71%,#CAE8F0_100%)] rounded-md" href="pages/others/profile.html">Ширяева Дарья</a><a class="text-xxs text-lab-black font-medium px-1.5 py-1 bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)] rounded-md" href="pages/others/profile.html">Мартыненко Иван</a><a class="text-xxs text-lab-black font-medium px-1.5 py-1 bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)] rounded-md" href="pages/others/profile.html">Аббясова Алина</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-shrink-0 flex-col gap-2 bg-white pb-3 576:overflow-hidden 576:rounded-lg">
+          <div class="flex justify-between gap-3 pt-3 px-3 pb-1"> <span class="text-xs text-lab-black-50">Вчера в 14:03</span><img class="size-4" src="img/three-dots.svg" onclick="toggleCommentMenu('undefined')"></div><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-1.jpg"></a>
+          <div class="px-3 py-1"> 
+            <div class="flex items-center gap-3 text-sm justify-between">
+              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
+              <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
+              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark"/>
+              </button>
+              <script>
+                var isActive = false; // Начальное состояние закладки
+                function toggleBookmark() {
+                  isActive = !isActive; // Переключаем состояние
+                  var bookmarkIcon = document.getElementById('bookmarkIcon');
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                }
+              </script>
+            </div>
+            <div class="font-semibold py-2 leading-tight">Иванов / Петров — Сидоров / Медведев</div>
+            <div class="flex flex-wrap gap-2 inline pt-1"><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Волосатов Игорь</span><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Мартыненко Евгений</span><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Сыровежко Наталья</span><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Ширяева Дарья</span><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Мартыненко Иван</span><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Аббясова Алина</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-shrink-0 flex-col gap-2 bg-white pb-3 576:overflow-hidden 576:rounded-lg">
+          <div class="flex justify-between gap-3 pt-3 px-3 pb-1"> <span class="text-xs text-lab-black-50">3 дня назад</span><img class="size-4" src="img/three-dots.svg" onclick="toggleCommentMenu('undefined')"></div><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-1.jpg"></a>
+          <div class="px-3 py-1"> 
+            <div class="flex items-center gap-3 text-sm justify-between">
+              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
+              <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
+              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark"/>
+              </button>
+              <script>
+                var isActive = false; // Начальное состояние закладки
+                function toggleBookmark() {
+                  isActive = !isActive; // Переключаем состояние
+                  var bookmarkIcon = document.getElementById('bookmarkIcon');
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                }
+              </script>
+            </div>
+            <div class="font-semibold py-2 leading-tight">Иванов / Петров — Сидоров / Медведев</div>
+          </div>
+        </div>
+        <div class="flex flex-shrink-0 flex-col gap-2 bg-white pb-3 576:overflow-hidden 576:rounded-lg">
+          <div class="flex justify-between gap-3 pt-3 px-3 pb-1"> <span class="text-xs text-lab-black-50">15 мая</span><img class="size-4" src="img/three-dots.svg" onclick="toggleCommentMenu('undefined')"></div><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-1.jpg"></a>
+          <div class="px-3 py-1"> 
+            <div class="flex items-center gap-3 text-sm justify-between">
+              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
+              <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
+              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark"/>
+              </button>
+              <script>
+                var isActive = false; // Начальное состояние закладки
+                function toggleBookmark() {
+                  isActive = !isActive; // Переключаем состояние
+                  var bookmarkIcon = document.getElementById('bookmarkIcon');
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                }
+              </script>
+            </div>
+            <div class="font-semibold py-2 leading-tight">Иванов / Петров — Сидоров / Медведев</div>
+            <div class="flex flex-wrap gap-2 inline pt-1"><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Волосатов Игорь</span><span class="text-xxs font-medium px-1.5 py-0.5 bg-lab-color-10 rounded-md">Мартыненко Евгений</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0" id="commentMenu-undefined"></div>
+      <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+        <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Убрать своё имя с фото</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Меня нет на фото</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-red">Пожаловаться</span></a>
+        </div>
+        <script>
+          document.addEventListener('click', function (e) {
+            if (e.target.dataset.action === 'hide') {
+              var menuContainer = document.querySelector('.menu-container'); 
+              if (menuContainer) {
+                menuContainer.style.display = 'none';
+              }
+            }
+          });
+        </script>
+      </div>
+      <script>
+        function toggleCommentMenu(photoID) {
+            var commentMenu = document.getElementById(`action-menu-container`);
+            console.log(commentMenu)
+            commentMenu.classList.toggle('hidden');
+        }
+        
+      </script>
+    </div>
+    <div class="grid-container">
+      <div class="mb-4 grid grid-cols-3 430grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-0.5 "><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-1.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-3.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-4.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-1.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-3.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-4.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-1.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-3.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-4.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-1.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-2.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-3.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/club-4.jpg"/></a><a href="pages/aroundgame/photo.html"><img class="aspect-square object-cover" src="dynamic-img/photo-2.jpg"/></a>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelector('.cards-container');
+            const grid = document.querySelector('.grid-container');
+            const viewCardsIcon = document.getElementById('viewCards');
+            const viewGridIcon = document.getElementById('viewGrid');
+        
+            function updateIconStyles() {
+                if (cards.style.display === 'block') {
+                    viewCardsIcon.classList.remove('saturate-50', 'opacity-50');
+                    viewGridIcon.classList.add('saturate-50', 'opacity-50');
+                } else {
+                    viewGridIcon.classList.remove('saturate-50', 'opacity-50');
+                    viewCardsIcon.classList.add('saturate-50', 'opacity-50');
+                }
+            }
+        
+            function showCards() {
+                cards.style.display = 'block';
+                grid.style.display = 'none';
+                updateIconStyles();
+            }
+        
+            function showGrid() {
+                cards.style.display = 'none';
+                grid.style.display = 'block';
+                updateIconStyles();
+            }
+        
+            viewCardsIcon.addEventListener('click', showCards);
+            viewGridIcon.addEventListener('click', showGrid);
+        
+            // Инициализация начального вида и стилей иконок
+            showCards();
+        });
+        
+      </script>
+    </div>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tournaments.svg" alt="Турниры"/><span class=" text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt="Тренировки"/><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/courts/courts.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/courts.svg" alt="Корты"/><span class=" text-nowrap text-[10px] tracking-tighter">Корты</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt="Игроки"/><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7" src="img/tabbar/around-game-active.svg" alt="Вокруг игры"/><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/market.svg" alt="Маркет"/><span class=" text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

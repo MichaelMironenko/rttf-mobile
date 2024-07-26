@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвентарь игроков</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background pb-28 pt-12">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="p-4"> 
+      <h1 class="pb-4">Инвентарь игроков</h1>
+      <div class="flex items-center justify-between gap-4  undefined ">
+        <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-lab-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search"/>
+          <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Бренд, модель, имя игрока"/>
+        </div><img class="filters-panel-button h-6 w-6" src="img/filters-icon.svg"/>
+      </div>
+    </div>
+    <table class="w-full border-collapse">
+      <thead>
+        <tr class="text-xs text-center text-lab-black-50 border-b"> 
+          <th class="px-3 py-1 text-left">Игрок</th>
+          <th class="px-3 py-1 text-left font-normal">Рейтинг</th>
+          <th class="hidden sm:table-cell px-3 py-1 text-left font-normal">Ракетка</th>
+          <th class="hidden sm:table-cell px-3 py-1 text-left font-normal">Струны</th>
+          <th class="hidden sm:table-cell px-3 py-1 text-left font-normal">Обувь</th>
+          <th class="sm:hidden px-3 py-1 text-left font-normal">Инвентарь</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Иванов Иван</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">523</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Yonex Astrox 99</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG65</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 ">
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Yonex Astrox 99</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG65</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Петров Петр</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">712</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Li-Ning Windstorm 72</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG80</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex Power Cushion 65</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Li-Ning Windstorm 72</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG80</a></li>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">Yonex Power Cushion 65</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Сидоров Сидор</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">489</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Victor Thruster K 9900</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 ">
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 ">
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Victor Thruster K 9900</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Кузнецов Алексей</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">658</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Babolat Satelite Gravity 74</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG85</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex Eclipsion Z</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Babolat Satelite Gravity 74</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG85</a></li>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">Yonex Eclipsion Z</a></li>
+              <li><span class="text-lab-black-50">Футболка: </span><a href="pages/market/product.html">Wilson Team</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Смирнов Сергей</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">547</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 ">
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 ">
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">ASICS Gel-Rocket 10</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">ASICS Gel-Rocket 10</a></li>
+              <li><span class="text-lab-black-50">Футболка: </span><a href="pages/market/product.html">Li-Ning Quick Dry</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Васильев Василий</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">789</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Li-Ning Aeronaut 9000</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG80</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex Aerus 3</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Li-Ning Aeronaut 9000</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG80</a></li>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">Yonex Aerus 3</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Николаев Николай</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">821</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 ">
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 ">
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Mizuno Wave Mirage 3</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">Mizuno Wave Mirage 3</a></li>
+              <li><span class="text-lab-black-50">Футболка: </span><a href="pages/market/product.html">Adidas Club Polo</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Федоров Федор</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">476</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Babolat X-Feel Essential</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG85</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 ">
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Babolat X-Feel Essential</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG85</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Михайлов Михаил</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">623</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Yonex Voltric Z-Force II</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG65</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">ASICS Gel-Tactic</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Yonex Voltric Z-Force II</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG65</a></li>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">ASICS Gel-Tactic</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="text-lab-black text-sm bg-white border-b">
+          <td class="px-3 py-2 max-w-32">Александров Александр</td>
+          <td class="px-3 py-2 "> 
+            <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+              <div class="text-center text-lab-black text-xs font-semibold leading-none">842</div>
+            </div>
+          </td>
+          <td class="hidden sm:table-cell px-3 py-2 "><a href="pages/market/product.html">Li-Ning N90-IV</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex BG80</a>
+          </td>
+          <td class="hidden sm:table-cell  px-3 py-2 "><a href="pages/market/product.html">Yonex Power Cushion 88 Dial</a>
+          </td>
+          <td class="sm:hidden p-3">
+            <ul>
+              <li><span class="text-lab-black-50">Ракетка: </span><a href="pages/market/product.html">Li-Ning N90-IV</a></li>
+              <li><span class="text-lab-black-50">Струны: </span><a href="pages/market/product.html">Yonex BG80</a></li>
+              <li><span class="text-lab-black-50">Обувь: </span><a href="pages/market/product.html">Yonex Power Cushion 88 Dial</a></li>
+              <li><span class="text-lab-black-50">Футболка: </span><a href="pages/market/product.html">Wilson Competition</a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tournaments.svg" alt="Турниры"/><span class=" text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt="Тренировки"/><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/courts/courts.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/courts.svg" alt="Корты"/><span class=" text-nowrap text-[10px] tracking-tighter">Корты</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt="Игроки"/><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/around-game.svg" alt="Вокруг игры"/><span class=" text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7" src="img/tabbar/market-active.svg" alt="Маркет"/><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

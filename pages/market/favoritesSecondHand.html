@@ -1,0 +1,249 @@
+
+<script>
+  function toggleHint(icon) {
+    const hintBox = icon.nextElementSibling
+    const allHints = document.querySelectorAll('.hint-box')
+    allHints.forEach((hint) => {
+      if (hint !== hintBox) {
+        hint.classList.add('hidden')
+      }
+    })
+    hintBox.classList.toggle('hidden')
+  }
+  
+  document.addEventListener('click', function (event) {
+    const isClickInsideHint = event.target.closest('.hint-box') !== null
+    const isClickOnIcon = event.target.closest('.info-icon') !== null
+    if (!isClickInsideHint && !isClickOnIcon) {
+      document.querySelectorAll('.hint-box').forEach((hint) => {
+        hint.classList.add('hidden')
+      })
+    }
+  })
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.hint-box').forEach((hint) => {
+      hint.addEventListener('click', function (event) {
+        event.stopPropagation()
+        this.classList.add('hidden')
+      })
+    })
+  })
+</script><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Избранное - Б/У</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background py-12 pb-32">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="pb-safe-extra-panel fixed z-20 flex w-full justify-between overflow-hidden rounded-t-2xl border bg-white text-lab-black drop-shadow-top">
+      <div class="players-panel-tab tab opacity-75 saturate-50 flex grow items-center justify-center gap-1.5 border-r py-3 " data-tab="market"><img class="opacity-75 saturate-50 aspect-square h-4 w-4" src="img/market.svg">
+        <div class="py-1 leading-none">Маркет</div>
+      </div>
+      <div class="players-panel-tab tab font-bold bg-lab-color-10 flex grow items-center justify-center gap-1.5 border-r py-3 " data-tab="used"><img class="false aspect-square h-4 w-4" src="img/price.svg">
+        <div class="py-1 leading-none">Б/У</div>
+      </div>
+      <div class="players-panel-tab tab opacity-75 saturate-50 flex grow items-center justify-center gap-1.5 border-r py-3 " data-tab="stringers"><img class="opacity-75 saturate-50 aspect-square h-4 w-4" src="img/racket.svg">
+        <div class="py-1 leading-none">Стрингеры</div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.players-panel-tab')
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', function () {
+            tabs.forEach((t) => {
+              const img = t.querySelector('img')
+              if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
+              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              t.classList.add('opacity-75', 'saturate-50')
+              if (img) {
+                img.classList.add('opacity-75', 'saturate-50')
+              }
+            })
+            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.remove('opacity-75', 'saturate-50')
+            const img = this.querySelector('img')
+            if (img) {
+              img.classList.remove('opacity-75', 'saturate-50')
+            }
+            const tabId = this.getAttribute('data-tab')
+            const tabContent = document.querySelectorAll('.tab-content')
+            tabContent.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove('hidden')
+              } else {
+                content.classList.add('hidden')
+              }
+            })
+          })
+        })
+      })
+      
+    </script>
+    <div class="bg-white p-4">
+      <h1>Избранное</h1>
+      <div class="flex overflow-x-auto items-center space-x-2 no-scrollbar scroll-smooth  -mx-4 py-4 px-4">
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Ракетки</div>
+        </div>
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Струны</div>
+        </div>
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Обувь</div>
+        </div>
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Одежда</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-2 576:grid-cols-3 768:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/yonexastrox99.jpg" alt="Yonex Astrox 99"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Yonex Astrox 99</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">12 000 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Москва</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="mr-2 h-2 w-2 rounded-full" style="background-color:#ff0000"></span><span class="text-lab-black-50">Киевская</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">4 дня назад</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a>
+        <div class="relative flex flex-col items-center justify-center rounded-lg bg-lab-color-10 p-4 shadow-lg">
+          <div class="text-center text-xs font-semibold text-lab-black">Воланы для эйрбадминтона KAWASAKI AirShuttle 2.0</div>
+          <div class="mb-4 text-center text-xs text-lab-black">больше не в Избранном</div><a class="text-xs">Восстановить</a><img class="absolute right-2 top-2" src="img/close.svg" alt="">
+        </div><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/lining.jpg" alt="Li-Ning Turbo Charging 75"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Li-Ning Turbo Charging 75</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">10 500 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Санкт-Петербург</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="mr-2 h-2 w-2 rounded-full" style="background-color:blue"></span><span class="text-lab-black-50">Невский проспект</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">3 дня назад</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/victorthrustrer.webp" alt="Victor Thruster K 9900"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Victor Thruster K 9900</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">13 000 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Казань</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="mr-2 h-2 w-2 rounded-full" style="background-color:#00ff00"></span><span class="text-lab-black-50">Площадь Тукая</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">5 мая</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/yonexzforce.jpg" alt="Yonex Voltric Z-Force II"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Yonex Voltric Z-Force II</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">15 000 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Новосибирск</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="mr-2 h-2 w-2 rounded-full" style="background-color:#ffdd00"></span><span class="text-lab-black-50">Площадь Ленина</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">2 декабря 2023 г.</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/ziggler.jpg" alt="Apacs Z Ziggler"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Apacs Z Ziggler</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">8 000 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Екатеринбург</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="mr-2 h-2 w-2 rounded-full" style="background-color:#ff0000"></span><span class="text-lab-black-50">Геологическая</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">1 мая</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/carlton.jpg" alt="Carlton Kinesis Rapid"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Carlton Kinesis Rapid</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">9 500 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Нижний Новгород</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="text-lab-black-50">ул. Белинского</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">4 дня назад</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/forzapower.jpg" alt="Forza Power 988 S"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Forza Power 988 S</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">11 000 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Красноярск</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="text-lab-black-50">ул. Мира</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">20 апреля</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a><a class="relative min-w-40 overflow-hidden rounded-lg border bg-white drop-shadow-around-light" href="pages/market/secondHandProduct.html"><img class="aspect-square max-h-40 w-full object-contain" src="dynamic-img/babolat.jpg" alt="Babolat Satelite Gravity 74"/>
+          <div class="p-3 text-center">
+            <div class="line-clamp-3 text-sm font-semibold text-lab-color">Babolat Satelite Gravity 74</div>
+            <div class="mt-2 text-sm font-semibold text-lab-black">14 000 ₽</div>
+            <div class="mt-2 flex items-center justify-center text-xs"><img class="mr-1 size-3 opacity-50 saturate-50" src="img/location-icon.svg"/><span class="text-lab-black-50">Самара</span></div>
+            <div class="mt-1 flex items-center justify-center text-xs"><span class="mr-2 h-2 w-2 rounded-full" style="background-color:#800080"></span><span class="text-lab-black-50">Советская</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">10 мая</div>
+          </div>
+          <div class="absolute right-0 top-0">
+            <button class="flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50" onclick="event.preventDefault(); event.stopPropagation(); var img = this.querySelector(&quot;img&quot;); img.src.includes(&quot;heart-empty&quot;) ? img.src=&quot;img/heart-fill.svg&quot; : img.src=&quot;img/heart-empty.svg&quot;"><img class="size-6" src="img/heart-empty.svg"/></button>
+          </div></a>
+      </div>
+    </div>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tournaments.svg" alt="Турниры"/><span class=" text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt="Тренировки"/><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/courts/courts.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/courts.svg" alt="Корты"/><span class=" text-nowrap text-[10px] tracking-tighter">Корты</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt="Игроки"/><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/around-game.svg" alt="Вокруг игры"/><span class=" text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7" src="img/tabbar/market-active.svg" alt="Маркет"/><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

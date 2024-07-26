@@ -1,0 +1,62 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/atoms/button.pug
+include /components/modal.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Справочник - ЛАБ
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+    .bg-white.p-4
+      h1.pb-4 Справочник
+      h2.my-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Информация для новичков
+      .px-4.text-lab-black
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Правила бадминтона
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Правила сайта
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Правила подачи в бадминтоне
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Как записаться на турнир?
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Как написать комментарий?
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Игра "вне зачета"
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Тегирование фотографий перед загрузкой на сайт
+        h3.mb-2: a(href='pages/aroundgame/articlesSection.html') Пособие по добавлению фото
+      h2.mb-2.mt-8: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Рейтинг ЛАБ
+      .px-4
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Правила расчета рейтинга
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Как получить рейтинг?
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') История расчета рейтинга
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Рейтинг для парных турниров
+
+      h2.mb-2.mt-8: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Программа проведения турниров Tournament Manager
+      .px-4
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Как получить программу
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Как установить программу
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Как провести турнир
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Схемы-форматы турниров
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Регистрация участников
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Настройки турнира
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Процесс турнира
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Возможные трудности
+        h3.mb-2: a.text-lab-black(href='pages/aroundgame/articlesSection.html') Справочные материалы
+    +tabBar('Вокруг игры')

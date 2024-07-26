@@ -1,0 +1,141 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/atoms/button.pug
+include /components/modal.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Редактирование фото
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+
+        base(href="../../")
+    body.bg-page-background.py-12.pb-32
+        +topBar
+        +backButtonTitle('Редактирование фото', 'pages/aroundgame/photo.html', 'px-2')
+
+        #image-container.w-full.overflow-hidden(onclick="openModal()" class="max-h-[70vh]")
+        
+        script.
+            const imgContainer = document.querySelector('#image-container')
+            const img = new Image()
+            img.src = 'dynamic-img/photo-3.jpeg'
+            function updateImageContainer() {
+                const aspectRatio = img.width / img.height;
+                const maxWidth = 430:; // Максимальная ширина изображения
+                const containerWidth = Math.min(window.innerWidth, maxWidth); // Ограничиваем ширину контейнера
+
+                const height = img.height * (containerWidth / img.width);
+                const maxVisibleHeight = img.height * 0.8; // Максимум 80% высоты изображения
+
+                imgContainer.style.width = containerWidth + 'px';
+                imgContainer.style.height = Math.min(height, maxVisibleHeight) + 'px';
+                imgContainer.style.background = `url(${img.src}) center / cover no-repeat`;
+                imgContainer.style.margin = '0 auto'; // Центрируем контейнер
+            }
+
+            img.onload = function () {
+                updateImageContainer();
+                window.addEventListener('resize', updateImageContainer);
+            }
+
+            
+
+        - 
+            var winners = [
+                { type: 'gold', players: ['Волосатов Игорь', 'Мартыненко Евгений'] },
+                { type: 'silver', players: ['Сыровежко Наталья', 'Ширяева Дарья'] },
+                { type: 'bronze', players: ['Мартыненко Иван', 'Аббясова Алина'] }
+            ]        
+        
+        div.bg-white.p-4
+            +editLabel('Название')    
+            +input('', 'w-full mb-6')
+            +editLabel('Автор фото', '(укажите, если вы не автор)')
+            +input('Укажите только если вы не автор', 'w-full mb-6')
+            +editLabel('Турнир/Событие')  
+            +input('Введите название турнира/события', 'w-full mb-6')
+            +editLabel('Игроки на фото') 
+            div#player-input-container.w-full.mb-6.flex.flex-wrap.items-center.px-2.py-2.border.border-gray-300.rounded-lg
+                input#player-input(type="text" class="inline w-full outline-none mb-1")
+                div#player-tags.flex.flex-wrap.gap-1.inline.w-full.pt-2.border-t
+
+            .text-xs.-mt-2.mb-1.text-lab-black-50 Кликните на победителей турнира для добавления в список игроков на фото или 
+                |
+                span#add-all.text-lab-color добавьте всех сразу
+            div#player-list.flex.flex-wrap.gap-1.inline.pt-1
+                each category in winners
+                    each player in category.players
+                        - 
+                            var gradientClass = category.type === 'gold' 
+                             ? 'bg-[linear-gradient(150deg,#FFCE31_0%,#FFCA21_25%,#FFE287_48%,#EAC039_78%)]'
+                             : category.type === 'silver' 
+                                 ? 'bg-[linear-gradient(150deg,#BFCACD_0%,#F2F9FB_40%,#C8D4D8_71%,#CAE8F0_100%)]'
+                                 : 'bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)]'
+                        span.player.text-xxs.font-medium(class="px-2 py-1 " + gradientClass data-player=player).rounded-md= player
+
+            .text-lab-red.w-full.p-4.text-center Удалить фото
+        
+        script.
+            document.addEventListener('DOMContentLoaded', () => {
+                const playerList = document.getElementById('player-list');
+                const playerTags = document.getElementById('player-tags');
+                const playerInput = document.getElementById('player-input');
+                const addAllButton = document.getElementById('add-all');
+
+                playerList.addEventListener('click', (e) => {
+                if (e.target.classList.contains('player')) {
+                    const player = e.target.getAttribute('data-player');
+                    addPlayerTag(player);
+                    e.target.style.display = 'none';
+                }
+                });
+
+                playerTags.addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-tag')) {
+                    const tag = e.target.parentElement;
+                    const player = tag.getAttribute('data-player');
+                    const playerElem = document.querySelector(`.player[data-player="${player}"]`);
+                    playerElem.style.display = 'inline-flex';
+                    tag.remove();
+                }
+                });
+
+                addAllButton.addEventListener('click', () => {
+                const players = document.querySelectorAll('.player');
+                players.forEach(playerElem => {
+                    const player = playerElem.getAttribute('data-player');
+                    if (playerElem.style.display !== 'none') {
+                    addPlayerTag(player);
+                    playerElem.style.display = 'none';
+                    }
+                });
+                });
+
+                function addPlayerTag(player) {
+                const tag = document.createElement('span');
+                tag.className = 'px-2 py-1 bg-slate-100 text-xs';
+                tag.setAttribute('data-player', player);
+                tag.innerHTML = `${player} <span class="ml-1 remove-tag">⤫</span>`;
+                playerTags.appendChild(tag);
+                }
+            });
+
+
+                
+
+        +tabBar('Турниры')

@@ -1,0 +1,12 @@
+mixin breadcrumbs(levels, padding='p-4')
+    - const last = levels.length - 1
+    nav(class=`${padding}`)
+        ol.flex.items-center.gap-1.flex-wrap
+            each level, index in levels
+                if index !== 0
+                    img(src="img/expand-arrow.svg" alt="Стрелка" class="-rotate-90 size-4")
+                li.inline
+                    if index !== last
+                        a.text-xs.whitespace-nowrap.font-medium.block.leading-tight(href=level.href) #{level.name}
+                    else
+                        div.text-xs.text-lab-black-50.font-medium.leading-tight #{level.name}

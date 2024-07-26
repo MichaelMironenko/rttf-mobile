@@ -1,0 +1,70 @@
+include /components/atoms/date.pug
+include /components/atoms/button.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/inputs/textarea.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+include /components/actionMenu.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Сообщения - Кудайбердиев Адилет Кудайбердиевич
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.pt-12.pb-32
+        +topBar
+        .flex.justify-center.bg-white.py-2.items-center.gap-2.pr-4.pl-2
+            img(src="img/expand-arrow.svg").size-5.rotate-90
+            .flex.items-center.grow.gap-2.justify-center
+                +avatar('bg-lab-green', 'ИП', 28) 
+                span.inline.align-middle.font-semibold.truncate.text-sm Иван Петров
+            img(src="img/three-dots.svg" onclick=`toggleCommentMenu()`).size-4
+        div(class="p-4 w-full")
+            div(class="mx-auto text-lab-black text-sm bg-lab-color-10 px-3 p-1 rounded-full w-fit mb-4") Сегодня
+            div.flex.items-center.gap-2.mb-4
+                +avatar('bg-lab-green', 'ИП', 28) 
+                div(class="bg-white px-3 p-2 rounded-lg")
+                    span Завтра будешь в турнире участвовать?
+                div(class="text-right text-xs text-lab-black-50") 13:41
+            div.flex.items-center.gap-2.justify-end.mb-4
+                div(class="text-right text-xs text-lab-black-50") 13:41
+                div(class="bg-lab-color-10 text-white p-2 rounded-lg")
+                    span Не, меня жена не отпускает
+                
+            div.flex.items-center.gap-2.mb-2
+                +avatar('bg-lab-green', 'ИП', 28) 
+                div(class="bg-white px-3 p-2 rounded-lg")
+                    span Приходи с женой! 
+                div(class="text-right text-xs text-lab-black-50") 13:42
+
+            .flex.items-center.gap-2.ml-9 
+                div(class="bg-white px-3 p-2 rounded-lg")
+                    span Она играет?
+                div(class="text-right text-xs text-lab-black-50") 13:42
+
+            div.flex.items-center.gap-2.justify-end.py-4
+                div(class="text-right text-xs text-lab-black-50") 13:43
+                div(class="bg-lab-color-10 text-white p-2 rounded-lg")
+                    span Разве что сковородкой на кухне 😂
+        .flex.gap-4.bg-white.absolute.bottom-0.w-full.px-2.py-2.items-end
+            +textarea('', 'w-full overflow-auto max-h-80', '', '', '', 1)
+            +button('img/send-message.svg', 'image', '', '', 'pb-3')
+        +actionMenu([
+            { text: 'Открыть профиль', color: ' text-lab-color' },
+            { text: 'Заблокировать', color: ' text-lab-red' },
+            { text: 'Удалить чат', color: ' text-lab-red', last: true }], 'action-menu-container')
+
+        script.
+            function toggleCommentMenu() {
+                var commentMenu = document.getElementById(`action-menu-container`);
+                console.log(commentMenu)
+                commentMenu.classList.toggle('hidden');
+            }

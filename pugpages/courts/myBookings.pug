@@ -1,0 +1,55 @@
+include /components/atoms/button.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/filters/filterButtonsRow.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/editLabel.pug
+include /components/selectedCourts.pug
+include /components/bottomPanel.pug
+include /components/bookingData.pug
+include /components/editBlock.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Мои бронирования
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+        .py-4.px-2.flex.gap-3
+            img(src="img/expand-arrow.svg", alt="").rotate-90
+            div.text-lg.text-center.grow.font-bold.text-lab-black.-ml-6 Мои бронирования
+        .px-4.pt-4
+            +filterButtonsRow([
+                    { label: '2024', active: true},
+                    { label: '2023', active: false},
+                    { label: '2022', active: false},
+                ])
+        div.text-lab-black-50.px-4.pt-6.pb-1 Актуальные
+        .bg-white.w-full.px-4
+            mixin bookingCard(border, current)   
+                a.flex.gap-3.justify-between.items-center.pt-3.pb-3(class=`${border ? ' border-b ' : ''}` href=`${current ? 'pages/courts/singleBooking.html' : 'pages/courts/pastBooking.html'}`)
+                    img(src="dynamic-img/naten-logo.png").size-10.rounded-md
+                    div.grow    
+                        h3.font-bold Naten-ЮГ
+                        span.text-lab-black-50.text-sm 10:00-11:30
+                    div.text-right    
+                        div.leading-6.text-sm.text-lab-black 11 сентября
+                        span.text-lab-black-50.text-sm 1300₽
+
+            +bookingCard('', true)
+        div.text-lab-black-50.px-4.pt-6.pb-1 Прошедшие
+        .bg-white.w-full.px-4
+            +bookingCard(true)
+            +bookingCard(true)
+            +bookingCard(true)
+            +bookingCard()
+                
+        +tabBar

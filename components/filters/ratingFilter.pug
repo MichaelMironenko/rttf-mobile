@@ -1,0 +1,13 @@
+include filterButtonsRow.pug
+include /components/inputs/input.pug
+
+mixin ratingFilter
+  .flex.flex-col.pb-2
+    label.pb-3.font-bold Ограничение по рейтингу
+
+    +filterButtonsRow([ { label: 'Все турниры', active: true }, { label: 'Открытые', active: false }, { label: '<', active: false }, { label: '>', active: false } ])
+    .mt-2.flex.items-center.gap-2.py-2
+      span.text-sm С минимальным рейтингом игрока
+      +input('от', 'w-14')
+      span —
+      +input('до', 'w-14')

@@ -1,0 +1,56 @@
+mixin bet(selfBet, winners, allWinners)
+    div.flex.flex-col(class="w-11/12").max-w-72.p-4.bg-white.shadow-md.rounded-lg.gap-4.border-lab-black-10.border.shrink-0    
+        if selfBet
+            .flex.flex-col.gap-2.bg-lab-color-10.-m-4.px-4.py-3.rounded-t-lg(class="mb-1")
+                .flex.gap-2 
+                    +tournamentTypeBadge('XDF+')
+                    span.text-sm.grow.font-semibold Макс Арена
+                .flex.gap-2
+                    img(src="img/calendar.svg").saturate-50.opacity-60            
+                    span.text-sm 11 сентября 
+                    span.text-sm 11:00
+        
+        div.flex.items-center.justify-between.gap-2
+            img(src="img/medal-gold.svg", alt="Gold Medal", class="w-4 h-4")
+            span.text-sm.flex-grow Варнек / Саблинский
+            if winners 
+                img(src=allWinners ? "img/forecast-bonus.svg" : "img/checkmark.svg").size-4
+            else 
+                span.text-sm.text-lab-black-50 x1,5
+
+        div.flex.items-center.justify-between.gap-2
+            img(src="img/medal-silver.svg", alt="Silver Medal", class="w-4 h-4")
+            span.text-sm.flex-grow Войнич / Газманов
+            if winners 
+                img(src=allWinners ? "img/forecast-bonus.svg" : "img/forecast-win.svg").size-4
+            else
+                span.text-sm.text-lab-black-50 x1,21
+
+        div.flex.items-center.justify-between.gap-2
+            img(src="img/medal-bronze.svg", alt="Bronze Medal", class="w-4 h-4")
+            span.text-sm.flex-grow Толстой / Дусмухаметов
+            if winners 
+                img(src=allWinners ? "img/forecast-bonus.svg" : "img/forecast-win.svg").size-4
+            else
+                span.text-sm.text-lab-black-50 x1,13
+
+        div.flex.flex-col.border-t.border-lab-black-10.pt-2.gap-1
+            if !selfBet 
+                span.text-xs.text-lab-black-50 Прогноз сделал Симонов А.
+                span.text-xs.text-lab-black-50 11 сентября в 23:15
+            else 
+                if allWinners 
+                    .flex.justify-between.gap-4
+                        span.bg-avatar-gradient.bg-clip-text.text-sm.text-transparent Бонус за полное угадывание 
+                        span.bg-avatar-gradient.bg-clip-text.text-sm.font-semibold.text-transparent 15
+                    .flex.justify-between.gap-4
+                        span.text-sm.font-semibold Очков, с учетом бонуса
+                        span.text-sm.font-semibold 20
+                if winners && !allWinners
+                    .flex.justify-between.gap-4
+                        span.text-sm.font-semibold Очков 
+                        span.text-sm.font-semibold 3
+                if !winners 
+                    span.text-sm.text-lab-black-50 Прогноз сделан 11 сентября в 23:15
+
+            

@@ -1,0 +1,157 @@
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/comments.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+include /components/dottedLine.pug
+include /components/atoms/userStatusBadge
+include /components/atoms/starRating
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Куплю ракетку Yonex Astrox 99 - Маркет - ЛАБ
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    - var tabs = ['Маркет', 'Б/У', 'Стрингеры']
+    - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
+    - var tabIds = ['market', 'used', 'stringers']
+    - var activeTab = 'Б/У'
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+      each tab, index in tabs
+        - var isActive = tab === activeTab
+        .players-panel-tab.tab(
+          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          data-tab=`${tabIds[index]}`
+        )
+          img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
+          .py-1.leading-none= tab
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.players-panel-tab')
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', function () {
+            tabs.forEach((t) => {
+              const img = t.querySelector('img')
+              if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
+              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              t.classList.add('opacity-75', 'saturate-50')
+              if (img) {
+                img.classList.add('opacity-75', 'saturate-50')
+              }
+            })
+            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.remove('opacity-75', 'saturate-50')
+            const img = this.querySelector('img')
+            if (img) {
+              img.classList.remove('opacity-75', 'saturate-50')
+            }
+            const tabId = this.getAttribute('data-tab')
+            const tabContent = document.querySelectorAll('.tab-content')
+            tabContent.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove('hidden')
+              } else {
+                content.classList.add('hidden')
+              }
+            })
+          })
+        })
+      })
+
+    .bg-white.p-4
+      .grid.grid-cols-1.gap-2(class='sm:grid-cols-2')
+        div(class='sm:col-span-1')
+          +breadcrumbs([{name: 'Б/У маркет', href: 'pages/market/products.html'}, {name: 'Куплю', href: 'pages/market/products.html'}, {name: 'Yonex Astrox 99'}], 'px-0 pb-4')
+          h1.leading-tight Куплю ракетку Yonex Astrox 99
+
+          .my-4.flex.items-center.gap-2
+            +avatar('bg-lab-blue', 'АС', '32')
+            a.text-sm bdan
+            span.ml-2.text-sm.text-lab-black-50 4 июля 2023 09:16
+
+        div(class='sm:col-span-2')
+          p До 3000₽. Желательно на юго-западе Москвы
+          .mt-4.flex.items-center.justify-between.gap-2
+            button.w-full.rounded-lg.bg-lab-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
+              id=`${id}`,
+              onmousedown='this.classList.add(\'scale-97\')',
+              onmouseup='this.classList.remove(\'scale-97\')',
+              ontouchstart='this.classList.add(\'scale-97\')',
+              onmouseleave='this.classList.remove(\'scale-97\')',
+              ontouchmove='this.classList.remove(\'scale-97\')',
+              ontouchend='this.classList.remove(\'scale-97\')',
+              onclick=`${onClickAction}`
+            ) Написать
+              .mt-1.flex.items-center.justify-center.gap-1
+                .size-2.rounded-full.bg-green-300
+                span.text-xs.font-normal.text-white Онлайн
+            button.w-full.rounded-lg.bg-lab-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
+              id=`${id}`,
+              onmousedown='this.classList.add(\'scale-97\')',
+              onmouseup='this.classList.remove(\'scale-97\')',
+              ontouchstart='this.classList.add(\'scale-97\')',
+              onmouseleave='this.classList.remove(\'scale-97\')',
+              ontouchmove='this.classList.remove(\'scale-97\')',
+              ontouchend='this.classList.remove(\'scale-97\')',
+              onclick=`${onClickAction}`
+            ) Позвонить
+              .mt-1.text-center.text-xs.font-normal +7 (963) 123-45-67
+          .mt-4.flex.items-center.justify-between.gap-2
+            +button('Редактировать', 'default', 'white', 'bg-lab-color', 'w-1/2', 'editButton')
+            +button('Закрыть', 'default', 'white', 'bg-lab-color', 'w-1/2', 'editButton')
+          .mt-4.flex.items-center.gap-1
+            img.opacity-50.saturate-50(src='img/warning.svg', alt='')
+            span.text-sm.text-lab-black-50 Пожаловаться
+
+    h2.px-4.bg-white Похожие объявления
+    .grid.gap-2.bg-white.p-4(class='768:grid-cols-2 lg:grid-cols-3') 
+      +buyCard('Ракетки', 'Куплю Yonex Arcsaber 11 Pro', 'badminton_pro', 'Сегодня 12:43')
+      +buyCard('Ракетки', 'Куплю Victor Thruster F', 'shuttle_master', 'Вчера в 19:06')
+      +buyCard('Струны', 'Куплю Yonex BG80 Power', 'string_fan', 'Два дня назад в 17:34')
+      +buyCard('Ракетки', 'Куплю Li-Ning 3D Calibar 900', 'birdie_hunter', '3 июня 14:12')
+      +buyCard('Струны', 'Куплю Li-Ning No.1', 'net_master', '2 июня 10:23')
+      +buyCard('Ракетки', 'Куплю Babolat Satelite Gravity 74', 'court_ace', '1 июня 18:45')
+
+    +block('Похожие новые товары', { href: 'pages/market/products.html', text: 'Все'})
+      -
+        var inventory = [ 
+          { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, comments: 2, price: 12800, shop: 'Lining center', name: 'Yonex Astrox 100 Game (KURENAI)', newItem: true, liked: false }, 
+          { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, comments: 0, price: 8990, shop: 'Rackets.ru', name: 'Yonex 65Х 3 (Navy/Blue)', newItem: false, liked: true }, 
+          { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, comments: 1, price: 1800, shop: 'Badm Store', name: 'KUMPOO KW-0101 (RED)', newItem: false, liked: false } 
+        ]        
+      .no-scrollbar.-mx-4.-my-4.flex.gap-2.overflow-x-auto.p-4
+        each item in inventory
+          +productCard(item)
+
+    +tabBar('Маркет')

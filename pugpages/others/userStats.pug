@@ -1,0 +1,289 @@
+
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Статистика - Кудайбердиев Адилет Кудайбердиевич
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.pt-12.pb-32(class="px-2 xs:px-3 sm:px-4 ")
+        +topBar
+        +backButtonTitle('Кудайбердиев Адилет Кудайбердиевич', 'pages/others/profile.html')
+
+        +block('Статистика по одиночным турнирам')
+            - var statsBlocks = [ { title: 'Турниров', value: 193 }, { title: 'Игр', value: 1285 }, { title: 'Побед / поражений', value: ['765', '533'] }, { title: 'Рейтинг', value: 884, arrow: 'up'}, { title: 'Место в рейтинге', value: 53, arrow: 'down'}, { title: 'Коэффициент', value: 1.23, arrow: 'up' } ]
+
+            div.flex.gap-2.flex-wrap
+                each statsBlock in statsBlocks
+                    div.flex.flex-col.items-center.justify-center.bg-lab-color-10.p-3.rounded-lg.gap-3.grow(class="w-1/4 max-w-40")
+                        span.flex.items-center.text-lab-black-50.text-center.text-xs.h-7.leading-tight= statsBlock.title
+                        if Array.isArray(statsBlock.value)
+                            .grow.text-center.flex.items-center.gap-1
+                                div.text-lab-green.font-bold= statsBlock.value[0] 
+                                span.text-lab-black / 
+                                span.text-lab-red.font-bold= statsBlock.value[1]
+                        else
+                            .grow.text-center.flex.items-center.gap-1(class=statsBlock.arrow ? 'ml-2' : '') 
+                                div.text-lab-black.font-bold= statsBlock.value
+                                if statsBlock.arrow
+                                    img(src=`img/arrow-${statsBlock.arrow}.svg`, alt="" class="mb-0.5").h-3
+
+
+        +block('Рейтинг')
+            img(src="dynamic-img/graph.svg", alt="").w-full
+            .flex.items-center.gap-2.pt-4
+                span.text-sm Максимальный рейтинг
+                +userRating(742)
+                span.text-lab-black-50.text-sm 11.04.2022
+        
+        +block('Последние турниры', { href:"pages/others/myTournaments.html", text:"Все"})
+            .flex.gap-2.overflow-x-auto.no-scrollbar.p-4.-m-4
+                -
+                    let tournamentData = {
+                        date: '02.12.2022 12:30',
+                        typeBadge: 'XDF',
+                        link: 'pages/courts/singleClub.html',
+                        clubName: 'Naten-Юг',
+                        playerIcon: 'img/player.svg',
+                        playersCount: 6,
+                        players: [
+                            { stage: '1/32', names: ['Савельев А.'], link: 'players/singlePlayer.html', flag: true, rating: '376', score: '2 : 1', change: '+2.8' },
+                            { stage: '1/16', names: ['Иванов С.'], link: 'players/singlePlayer.html', flag: false, rating: '386', score: '2 : 1', change: '-6.2' },
+                            { stage: '1/8', names: ['Артемьев Б.'], link: 'players/singlePlayer.html', flag: false, rating: '345', score: '2 : 1', change: '+1.6' },
+                            { stage: '1/4', names: ['Косолапенко Р.'], link: 'players/singlePlayer.html', flag: false, rating: '453', score: '1 : 2', change: '-5.4' },
+                            { stage: '1/2', names: ['Джабраилов К.'], link: 'players/singlePlayer.html', flag: true, rating: '462', score: '1 : 2', change: '-13.8' },
+                            { stage: 'Фин', names: ['Савельев А.'], link: 'players/singlePlayer.html', flag: false, rating: '491', score: '2 : 0', change: '+6.8' }
+                        ],
+                        finalPosition: '1 место',
+                        wins: 6,
+                        losses: 2,
+                        finalChange: '+6.6',
+                        ratingBefore: '324',
+                        ratingAfter: '331'
+                    }
+
+                +profileTournamentCard(tournamentData)
+
+                -
+                    let doublesTournamentData = {
+                        date: '15.04.2023 14:45',
+                        typeBadge: 'MD',
+                        link: 'pages/courts/doublesClub.html',
+                        clubName: 'Двойной Удар',
+                        playerIcon: 'img/player.svg',
+                        playersCount: 12,
+                        players: [
+                            { stage: '1/16', names: ['Савельев А.', 'Иванов С.'], link: 'players/doublePlayer.html', flag: true, rating: '400', score: '2 : 0', change: '+3.2' },
+                            { stage: '1/8', names: ['Артемьев Б.', 'Косолапенко Р.'], link: 'players/doublePlayer.html', flag: false, rating: '380', score: '2 : 1', change: '+2.1' },
+                            { stage: '1/4', names: ['Джабраилов К.', 'Савельев А.'], link: 'players/doublePlayer.html', flag: true, rating: '420', score: '0 : 2', change: '-4.8' },
+                            { stage: '1/2', names: ['Кузнецов П.', 'Новиков Д.'], link: 'players/doublePlayer.html', flag: false, rating: '410', score: '2 : 1', change: '+1.4' },
+                            { stage: 'Фин', names: ['Смирнов М.', 'Козлов Ю.'], link: 'players/doublePlayer.html', flag: false, rating: '430:', score: '2 : 0', change: '+5.6' }
+                        ],
+                        finalPosition: '1 место',
+                        wins: 5,
+                        losses: 0,
+                        finalChange: '+7.3',
+                        ratingBefore: '350',
+                        ratingAfter: '357'
+                    }
+
+                +profileTournamentCard(doublesTournamentData)
+
+        +block('Награды', { href:"pages/others/allWins.html", text:"Все"})
+            div.font-bold.mt-6 Последние медали
+            .flex.gap-2.items-center.py-3
+                div.text-lab-black-50.w-14(class="xs:w-24")
+                    div.text-sm 13 сен 
+                        span.text-lab-black-50.text-sm.ml-none(class="xs:ml-1") 19:00
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                img(src="img/medal-gold.svg").h-5
+            .flex.gap-2.items-center.py-3
+                div.text-lab-black-50.w-14(class="xs:w-24")
+                    div.text-sm 4 сен 
+                        span.text-lab-black-50.text-sm.ml-none(class="xs:ml-1") 14:00
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                img(src="img/medal-bronze.svg").h-5
+            .flex.gap-2.items-center.py-3
+                div.text-lab-black-50.w-14(class="xs:w-24")
+                    div.text-sm 22 авг 
+                        span.text-lab-black-50.text-sm.ml-none(class="xs:ml-1") 13:00
+                +tournamentTypeBadge('XDF+')
+                span.text-sm.grow.font-semibold Макс Арена
+                img(src="img/medal-silver.svg").h-5
+        
+            
+            - 
+                const players = [
+                    { name: "Space Химки", gold: 20, silver: 15, bronze: 10, total: 45 },
+                    { name: "Impact", gold: 18, silver: 14, bronze: 9, total: 41 },
+                    { name: "Naten-ЮГ", gold: 16, silver: 12, bronze: 8, total: 36 },
+                    { name: "Impact-Лужники", gold: 14, silver: 11, bronze: 7, total: 32 },
+                    { name: "Newton", gold: 12, silver: 10, bronze: 6, total: 28 },
+                    { name: "МаксАрена", gold: 10, silver: 9, bronze: 5, total: 24 },
+                    { name: "Новая Лига", gold: 8, silver: 7, bronze: 4, total: 19 },
+                    { name: "TerBall", gold: 6, silver: 5, bronze: 3, total: 14 },
+                    { name: "MBC", gold: "-", silver: "-", bronze: 9, total: 9 },
+                    { name: "Мир бадминтона", gold: "–", silver: 1, bronze: 3, total: 4 }
+                ];
+            table(class="w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]  -mx-4 -mb-4 mt-4")
+                thead
+                    tr(class="px-4 text-xs text-lab-color")
+                        th(class="px-3 py-2 text-left") Клубы
+                        th(class="p-2 text-center") 
+                            img(src="img/medal-gold.svg", alt="").mx-auto
+                        th(class="p-2 text-center") 
+                            img(src="img/medal-silver.svg", alt="").mx-auto
+                        th(class="p-2 text-center") 
+                            img(src="img/medal-bronze.svg", alt="").mx-auto
+                        th(class="text-center") Всего
+                        
+                tbody
+                    each player, index in players
+                        - const playerRowClass = player.me ? "bg-orange-100" : "even:bg-white odd:bg-slate-100"
+                        tr.text-sm.text-lab-black(class=playerRowClass)
+                            td(class="px-3 py-2 text-left leading-5 text-lab-color")= player.name
+                            td(class="p-2 text-center ")= player.gold
+                            td(class="p-2 text-center ")= player.silver 
+                            td(class="p-2 text-center ")= player.bronze 
+                            td(class="p-2 text-center font-semibold")= player.total
+                    tr.text-sm.text-lab-black-50.bg-slate-50
+                        td.px-3.p-2.underline.decoration-dotted.w-full(colspan="5") Показать остальные клубы
+                    tr.text-sm.text-lab-black.font-semibold.bg-lab-color-10.border
+                        td(class="px-3 py-2 text-left leading-5") Всего
+                        td(class="p-2 text-center ") 95
+                        td(class="p-2 text-center ") 64
+                        td(class="p-2 text-center ") 45
+                        td(class="p-2 text-center ") 174
+        
+        
+
+        +block('Соперники', { href:"pages/others/allOpponents.html", text:"Все"})
+            div.flex.justify-between.items-center.gap-4
+                span.text-sm.whitespace-nowrap Ваш партнер
+                +select('Егор Бероев (★431)', '!mb-0')
+            .span.text-xs.bg-white.py-4.text-lab-black-50 Нажмите на строку для просмотра истории игр с соперником или на фамилию для перехода в профиль игрока
+            -
+                let players = [
+                    { name: 'Байбулдин А.', subName: '(738)', rating: '473', games: '122', wins: '75', losses: '47', change: '+28' },
+                    { name: 'Забулдырин А.', subName: '(★345)', rating: '473', games: '122', wins: '75', losses: '47', change: '+28' },
+                    { name: 'Тотромов А.', rating: '654', games: '115', wins: '74', losses: '41', change: '+33' },
+                    { name: 'Гор Д.', rating: '793', games: '103', wins: '64', losses: '39', change: '+25' },
+                    { name: 'Иванов Г.', rating: '434', games: '95', wins: '64', losses: '31', change: '+33' },
+                    { name: 'Мутыргуллин Р.', rating: '826', games: '91', wins: '56', losses: '35', change: '+21' },
+                    { name: 'Мерзлякин Т.', rating: '830', games: '84', wins: '34', losses: '30', change: '+4' },
+                    { name: 'Пайков М.', rating: '274', games: '76', wins: '38', losses: '38', change: '0' },
+                    { name: 'Березин И.', rating: '720', games: '63', wins: '25', losses: '38', change: '-13' },
+                    { name: 'Волин Л.', rating: '175', games: '55', wins: '24', losses: '31', change: '-7' },
+                    { name: 'Питчфорд Л.', rating: '175', games: '55', wins: '24', losses: '31', change: '-7' },
+                ]
+                let additional = 252
+                let totalWins = '867'
+                let totalLosses = '398'
+                let totalChange = '+77'
+            
+            table(class="w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]  -mx-4 -mb-4")
+                thead.text-xs.text-lab-black-50.uppercase
+                    tr(class="text-xs text-center text-lab-black-50")
+                        th.text-left.pl-4 Имя
+                        th.p-2 ★
+                        th.p-2 Игр
+                        th.p-2 В
+                        th.p-2 П
+                        th.p-2.pr-4 +/- 
+                tbody
+                    each player, index in players
+                        tr(class="text-[13px] text-lab-black even:bg-white odd:bg-slate-100")
+                            td.py-2.pl-4
+                                a(href="players/singlePlayer.html").text-lab-color.font-medium #{player.name}
+                            td.p-2.text-center
+                                +userRating(player.rating)
+                            td.p-2.text-center #{player.games}
+                            td.p-2.text-center #{player.wins}
+                            td.p-2.text-center #{player.losses}
+                            td.p-2.text-center.pr-4
+                                span(class=player.change > 0 ? 'text-lab-green' : player.change < 0 ? 'text-lab-red' : 'text-lab-black-50') #{player.change}
+                tr.text-sm.text-lab-black-50.bg-slate-50
+                    td.px-3.p-2.underline.decoration-dotted.w-full(colspan="5") Показать еще 10 соперников
+                tr.text-sm.text-lab-black.font-semibold.bg-lab-color-10.border
+                        td(class="px-3 py-2 text-left leading-5" colspan=2) Всего
+                        td(class="p-2 text-center ") 95
+                        td(class="p-2 text-center ") 64
+                        td(class="p-2 text-center ") 45
+                        td(class="p-2 pr-4 text-center text-lab-green") +174
+
+           
+
+        +block('Лучшие победы')
+            +filterButtonsRow([
+                { label: 'Неделя', active: true},
+                { label: 'Месяц', active: false},
+                { label: 'Год', active: false},
+                { label: 'Всё время', active: false },
+            ], 'padding', '-mx-4 mb-4')
+            +gameResult({
+                stage: '1/16',
+                duration: 14,
+                border: true,
+                players: [
+                    { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-lab-blue' },
+                    { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-lab-yellow' }
+                ],
+                numOfPlayers: 1
+            })
+            +gameResult({
+                stage: '1/16',
+                duration: 12,
+                border: true,
+                players: [
+                    { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '-14.2', opponentScore: 2, initials: 'НП', avatarBg: 'bg-lab-blue' },
+                    { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '+11.5', opponentScore: 1, initials: 'АК', avatarBg: 'bg-lab-yellow' }
+                ],
+                numOfPlayers: 2
+            })
+            +gameResult({
+                stage: '1/16',
+                duration: 13,
+                border: false,
+                players: [
+                    { name: 'Бадминтонные пауки', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-lab-blue' },
+                    { name: 'Подмосковные ястребы', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-lab-yellow' }
+                ],
+                numOfPlayers: 3
+            })
+        +tabBar

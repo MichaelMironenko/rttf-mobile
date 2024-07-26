@@ -1,0 +1,221 @@
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/comments.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+include /components/dottedLine.pug
+include /components/atoms/userStatusBadge
+include /components/atoms/starRating
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Сравнение товаров
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    - var tabs = ['Маркет', 'Б/У', 'Стрингеры']
+    - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
+    - var tabIds = ['market', 'used', 'stringers']
+    - var activeTab = 'Маркет'
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+      each tab, index in tabs
+        - var isActive = tab === activeTab
+        .players-panel-tab.tab(
+          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          data-tab=`${tabIds[index]}`
+        )
+          img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
+          .py-1.leading-none= tab
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.players-panel-tab')
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', function () {
+            tabs.forEach((t) => {
+              const img = t.querySelector('img')
+              if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
+              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              t.classList.add('opacity-75', 'saturate-50')
+              if (img) {
+                img.classList.add('opacity-75', 'saturate-50')
+              }
+            })
+            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.remove('opacity-75', 'saturate-50')
+            const img = this.querySelector('img')
+            if (img) {
+              img.classList.remove('opacity-75', 'saturate-50')
+            }
+            const tabId = this.getAttribute('data-tab')
+            const tabContent = document.querySelectorAll('.tab-content')
+            tabContent.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove('hidden')
+              } else {
+                content.classList.add('hidden')
+              }
+            })
+          })
+        })
+      })
+    
+    - 
+      var products = [
+       { name: "Yonex Astrox 100 ZZ", price: "15 000₽", type: "Маневренный", weight: "4U (80-84 г)", balance: "305 мм", stiffness: "Жесткая", stringTension: "20-28 фунтов", image: "dynamic-img/yonex-astrox-100-zz.jpg" },
+       { name: "Li-Ning Windstorm 72", price: "10 000₽", type: "Маневренный", weight: "5U (75-79 г)", balance: "295 мм", stiffness: "Средняя", stringTension: "20-30 фунтов", image: "dynamic-img/li-ning windstorm 72.jpg" },
+       { name: "Victor Thruster K 9900", price: "13 500₽", type: "Маневренный", weight: "3U (85-89 г)", balance: "310 мм", stiffness: "Жесткая", stringTension: "24-32 фунтов", image: "dynamic-img/victor-thruster.jpg" }
+      ]
+
+    div.overflow-x-auto.min-w-80.no-scrollbar
+      table.bg-white.w-full
+        thead
+          tr
+            th
+              div.items-center.text-xs.text-lab-black-50.font-normal.p-2
+                label.flex.items-center.whitespace-nowrap
+                  input(type="radio" name="view" value="all" checked).mr-2 
+                  | Все характеристики
+                label.flex.items-center.mt-2.whitespace-nowrap
+                  input(type="radio" name="view" value="differences").mr-2 
+                  | Только различия
+                .flex.items-center.mt-4(class="-ml-1")
+                  img(src="img/delete.svg", alt="" class="ml-0.5").mr-2.saturate-0.opacity-50
+                  button.text-lab-black-50.text-left Удалить все из сравнения
+            each product in products
+              th.p-2.relative
+                .w-24.h-24.bg-white.flex.items-center.justify-center.mx-auto
+                  img(src=product.image, alt=product.name, class="w-20 h-auto")
+                  button.absolute.top-0.right-0.p-1
+                    img(src="img/close-round.svg", alt="Close").size-6
+                div.sticky.top-24.bg-white.z-10
+                  div.my-2.mx-auto.text-lab-black.text-center.text-sm= product.name
+                  div.shrink-0.w-fit.mx-auto.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= product.price
+
+        tbody
+          - var characteristics = ["Тип", "Вес", "Баланс", "Жесткость", "Натяжение струн"]
+          - var keys = ["type", "weight", "balance", "stiffness", "stringTension"]
+          tr(class="sm:hidden").always-visible
+            td(colspan="10").border-y
+              .flex.items-center.gap-2.w-screen.p-2.justify-center
+                img(src="img/turn-icon.svg", alt="").size-6.saturate-50.opacity-50
+                span.text-xs.text-lab-black-50.font-normal Сравнение более двух товаров удобнее в альбомной ориентации
+                  
+          tr.always-visible
+            td.p-2.font-semibold(colspan=3) Технические характеристики
+            each characteristic, index in characteristics
+              tr.text-sm.relative
+                td.text-lab-black-50.p-2
+                  .flex.items-center
+                    = characteristic
+                    if characteristic === "Жесткость"
+                      img.info-icon.h-4.w-4(src='img/info.svg', alt='', onclick='toggleHint(this)').ml-2
+                      .hint-box.w-80.absolute.left-2.-top-8.z-10.hidden.rounded-lg.bg-white.px-3.drop-shadow-around
+                        p.text-sm Жесткость ракетки влияет на управляемость. Жесткая - для сильных ударов, требует лучшего контроля. Мягкая - лучше контроль, слабее удар
+                
+                each product in products
+                  td.text-lab-black.p-2.text-center.text-sm= product[keys[index]]
+
+
+
+    script.
+
+      function toggleHint(icon) {
+        const hintBox = icon.nextElementSibling
+        const allHints = document.querySelectorAll('.hint-box')
+        allHints.forEach((hint) => {
+          if (hint !== hintBox) {
+            hint.classList.add('hidden')
+          }
+        })
+        hintBox.classList.toggle('hidden')
+      }
+
+      document.addEventListener('click', function (event) {
+        const isClickInsideHint = event.target.closest('.hint-box') !== null
+        const isClickOnIcon = event.target.closest('.info-icon') !== null
+        if (!isClickInsideHint && !isClickOnIcon) {
+          document.querySelectorAll('.hint-box').forEach((hint) => {
+            hint.classList.add('hidden')
+          })
+        }
+      })
+
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.hint-box').forEach((hint) => {
+          hint.addEventListener('click', function (event) {
+            event.stopPropagation()
+            this.classList.add('hidden')
+          })
+        })
+      })
+
+      document.querySelectorAll('input[name="view"]').forEach(radio => {
+        radio.addEventListener('change', event => {
+          const view = event.target.value;
+          const rows = document.querySelectorAll('tbody tr');
+          rows.forEach(row => {
+            if (row.classList.contains('always-visible')) {
+              row.style.display = '';
+            } else {
+              const cells = Array.from(row.querySelectorAll('td:not(:first-child)'));
+              const values = cells.map(td => td.innerText);
+              const uniqueValues = new Set(values);
+              if (view === 'differences') {
+                row.style.display = uniqueValues.size > 1 ? '' : 'none';
+              } else {
+                row.style.display = '';
+              }
+            }
+          });
+        });
+      });
+
+      document.querySelectorAll('button img[src="img/close-round.svg"]').forEach(button => {
+        button.addEventListener('click', () => {
+          const th = button.closest('th');
+          const columnIndex = Array.from(th.parentNode.children).indexOf(th) + 1; 
+          const table = th.closest('table');
+          const cellsToRemove = table.querySelectorAll(`th:nth-child(${columnIndex}), td:nth-child(${columnIndex})`);
+
+          cellsToRemove.forEach(cell => {
+            cell.style.opacity = 0;
+            cell.style.transition = 'opacity 0.5s ease-out';
+          });
+
+          setTimeout(() => {
+            cellsToRemove.forEach(cell => cell.remove());
+          }, 500);
+        });
+      });
+
+    +tabBar('Маркет')

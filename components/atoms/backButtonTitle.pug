@@ -1,0 +1,6 @@
+
+mixin backButtonTitle(title, backLink, extraClass)
+    .py-4.flex.gap-3.items-center.justify-between(class=extraClass)
+        a(href=backLink) 
+            img(src="img/expand-arrow.svg", alt="").rotate-90.shrink-0
+        h1.text-lg.text-center.grow.mr-8(class="max-w-[calc(100%-24px)]")= title

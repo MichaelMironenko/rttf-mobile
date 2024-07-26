@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - ЛАБ </title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-white pt-8"><img class="size-24 mx-auto my-4" src="img/lab-logo.svg" alt="">
+    <h1 class="font-semibold text-center">Вход на сайт ЛАБ</h1>
+    <div class="p-4 max-w-420 mx-auto mt-8">
+      <div class="flex items-center gap-2 mb-2 undefined">
+        <label class="block text-lab-black" for="Логин">Логин</label>
+      </div>
+      <input class="border p-2 w-full mb-6 rounded-lg undefined focus:outline-none focus:ring-1 focus:ring-lab-color bg-white leading-none shadow-sm max-w-sm border-lab-black-30" placeholder="Введите логин или email"/>
+      <div class="flex items-center gap-2 mb-2 undefined">
+        <label class="block text-lab-black" for="Пароль">Пароль</label>
+      </div>
+      <div class="relative w-full">
+        <input class="border p-2 w-full rounded-lg pr-10 focus:outline-none focus:ring-1 focus:ring-lab-color bg-white leading-none shadow-sm max-w-sm border-lab-black-30" id="password" type="password" value="" inputmode="" placeholder="Введите пароль"/>
+        <button class="absolute right-2 top-2" type="button" onclick="togglePasswordVisibility()"><img class="h-6" src="img/eye.svg" alt="Toggle visibility"></button><a class="block text-sm text-lab-black-50 mt-2 text-right w-full" href="pages/auth/resetPassword.html">Забыли пароль?</a>
+      </div>
+      <button class="w-full mt-4 bg-lab-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out" id="editButton" onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick="">Войти</button>
+      <div class="p-4 text-center">
+        <p class="text-lab-black-50">или войдите через</p>
+        <div class="flex items-center gap-4 justify-center"><img class="size-10" src="img/vk-round.svg" alt=""><img class="size-10" src="img/google-round.svg" alt=""><img class="size-10" src="img/yandex-round.svg" alt=""></div>
+      </div>
+      <div class="text-center mt-4">Нет аккаунта? <a href="pages/auth/signup.html">Зарегистрируйтесь! </a></div>
+    </div>
+    <script>
+      function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.querySelector('button img');
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          eyeIcon.src = 'img/hide.svg';
+        } else {
+          passwordInput.type = 'password';
+          eyeIcon.src = 'img/eye.svg';
+        }
+      }
+    </script>
+  </body>
+</html>

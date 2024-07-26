@@ -1,0 +1,89 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/forumRow.pug
+include /components/poll.pug
+include /components/market/productCard.pug
+include /components/articleRow.pug
+include /components/profileTournamentCard.pug
+include /components/tournamentsPanel
+include /components/tournamentLiveCard
+include /components/editLabel
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Вход - ЛАБ 
+    link(href='../../styles.css', rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-white.pt-8
+    img(src="img/lab-logo.svg", alt="").size-24.mx-auto.my-4
+    h1.font-semibold.text-center Вход на сайт ЛАБ
+    
+    .p-4.max-w-420.mx-auto.mt-8
+      +editLabel('Логин')
+      +input('Введите логин или email', 'w-full mb-6')
+      +editLabel('Пароль')
+      div.relative.w-full
+        +input('Введите пароль', 'w-full', 'password', 'password', 'pr-10', '', '', '')
+        button.absolute.right-2.top-2(type="button" onclick="togglePasswordVisibility()")
+          img(src="img/eye.svg" alt="Toggle visibility").h-6
+        a(href="pages/auth/resetPassword.html").block.text-sm.text-lab-black-50.mt-2.text-right.w-full Забыли пароль?
+      +button('Войти', 'default', 'white', 'bg-lab-color', 'mt-4', 'editButton', '')
+
+      div.p-4.text-center
+        p.text-lab-black-50 или войдите через
+        .flex.items-center.gap-4.justify-center
+          img(src="img/vk-round.svg", alt="").size-10
+          img(src="img/google-round.svg", alt="").size-10
+          img(src="img/yandex-round.svg", alt="").size-10
+
+      div.text-center.mt-4 Нет аккаунта? 
+        a(href="pages/auth/signup.html") Зарегистрируйтесь! 
+
+    script.
+      function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.querySelector('button img');
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          eyeIcon.src = 'img/hide.svg';
+        } else {
+          passwordInput.type = 'password';
+          eyeIcon.src = 'img/eye.svg';
+        }
+      }

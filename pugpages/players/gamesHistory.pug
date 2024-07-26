@@ -1,0 +1,134 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title История игр
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +topBar
+    .flex.justify-between.p-4
+        h1.mb-2 История игр
+        img(src="img/filters-icon.svg", alt="")
+    .px-4
+      .opacity-50 
+        div.text-lab-red.mb-2 Эти серые поля можно убрать в фильтры
+        .grid.grid-cols-1(class="sm:grid-cols-2 sm:gap-8")
+          .flex.items-center.gap-3.pb-4
+            h3.w-14.shrink-0.text-15 Клуб
+            +input('Название', 'w-full')
+          .flex.items-center.gap-3.pb-4
+            h3.w-14.shrink-0.text-15 Турнир
+            +input('Название', 'w-full')
+        .flex.items-center.gap-3.pb-4
+          h3.shrink-0.text-15(class='xs:w-14') Дата
+          input#dateInput.min-w-32.max-w-40.rounded-lg.border.border-lab-black-30.px-2(class="py-1.5")(
+            type='text',
+            placeholder='От',
+            onfocus='if(this.value==\'\') this.type=\'date\'',
+            onblur='if(this.value==\'\') this.type=\'text\''
+          )
+          input#dateInput.min-w-32.max-w-40.rounded-lg.border.border-lab-black-30.px-2(class="py-1.5")(
+            type='text',
+            placeholder='До',
+            onfocus='if(this.value==\'\') this.type=\'date\'',
+            onblur='if(this.value==\'\') this.type=\'text\''
+          )
+    
+
+      #toggleButtonsStats.flex.mb-4
+        button.w-full.rounded-l-md.py-2.bg-white.font-bold.text-sm.text-lab-color Одиночные
+        button.w-full.rounded-r-md.bg-lab-color.border.py-2.text-sm.text-white Парные
+
+      .grid.grid-cols-1#singlePlayerFields(class="sm:grid-cols-2 sm:gap-2 hidden").gap-y-3
+        .flex.w-full.items-center.gap-3
+          +input('Игрок 1', 'w-full !max-w-none')
+        .flex.w-full.items-center.gap-3
+          +input('Игрок 2', 'w-full !max-w-none')
+
+      .grid.grid-cols-1#doublePlayerFields(class="sm:grid-cols-[1fr_auto_1fr] sm:gap-2 ")
+        .px-3.pt-2.bg-lab-color-10.rounded-lg.mb-2
+          div.pb-2.text-lab-black Первая пара
+          .flex.w-full.items-center.gap-3.pb-3
+            +input('Игрок 1', 'w-full !max-w-none')
+          .flex.w-full.items-center.gap-3.pb-3
+            +input('Игрок 2', 'w-full !max-w-none')
+        div.text-center.text-lab-black-50.my-auto.text-sm.pb-2 против
+        .px-3.pt-2.bg-lab-color-10.rounded-lg.mb-2
+          div.pb-2.text-lab-black Вторая пара
+          .flex.w-full.items-center.gap-3.pb-3
+            +input('Игрок 1', 'w-full !max-w-none')
+          .flex.w-full.items-center.gap-3.pb-3
+            +input('Игрок 2', 'w-full !max-w-none')
+
+      +button('Найти', 'default', 'white', 'bg-lab-color', 'w-1/2 my-4', 'commentSubmitButton')
+
+      script.
+        document.addEventListener('DOMContentLoaded', function() {
+          const toggleButtonsStats = document.getElementById('toggleButtonsStats');
+          const singlePlayerFields = document.getElementById('singlePlayerFields');
+          const doublePlayerFields = document.getElementById('doublePlayerFields');
+
+          toggleButtonsStats.addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+              const buttons = toggleButtonsStats.querySelectorAll('button');
+              buttons.forEach(button => {
+                button.classList.remove('bg-lab-color', 'text-white', 'font-bold');
+                button.classList.add('text-lab-color', 'bg-white', 'border');
+              });
+              event.target.classList.add('bg-lab-color', 'text-white', 'font-bold');
+              event.target.classList.remove('text-lab-color', 'bg-white', 'border');
+
+              if (event.target.textContent.trim() === 'Одиночные') {
+                singlePlayerFields.style.display = 'grid';
+                doublePlayerFields.style.display = 'none';
+              } else {
+                singlePlayerFields.style.display = 'none';
+                doublePlayerFields.style.display = 'grid';
+              }
+            }
+          });
+        });
+    .bg-white.p-4
+      +gameResult({ date: '12.05.2023 13:00', tournament: 'Лига ПРО', stage: '1/16', duration: 14, border: true, players: [ { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'КА', avatarBg: 'bg-lab-blue' }, { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'ПВ', avatarBg: 'bg-lab-yellow' } ], numOfPlayers: 1 })
+      +gameResult({ date: '12.05.2023 13:00', tournament: 'Лига ПРО', stage: '1/16', duration: 14, border: true, players: [ { name: 'Афанасьева В.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'АФ', avatarBg: 'bg-lab-blue' }, { name: 'Лысак О.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'ЛО', avatarBg: 'bg-lab-yellow' } ], numOfPlayers: 1 })
+      +gameResult({ date: '12.05.2023 13:00', tournament: 'Лига ПРО', stage: '1/16', duration: 12, border: true, players: [ { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '+14.2', opponentScore: 2, initials: 'ГА', avatarBg: 'bg-lab-blue' }, { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '-11.5', opponentScore: 1, initials: 'БС', avatarBg: 'bg-lab-yellow' } ], numOfPlayers: 2 })
+    +tabBar('Игроки')

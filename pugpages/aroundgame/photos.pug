@@ -1,0 +1,187 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/photoTiles.pug
+include /components/actionMenu.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Фотографии
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +topBar
+    .flex.items-center.justify-between.gap-3.p-4
+      h1 Фотографии
+      img.size-6(src='img/plus-button.svg' alt='')
+    +searchAndFilterButton('Имя, клуб, фотограф', true, 'px-4') 
+
+    .flex.items-center.px-4.py-3.gap-2.justify-between
+      +sortButton('Самые интересные', [{text: 'Новые'}, {text: 'Самые комментируемые'}])
+      div.grow
+      img#viewCards(src="img/cards-view.svg" alt="").size-5
+      img#viewGrid(src="img/tiles.svg" alt="").size-5.saturate-50.opacity-50
+    -
+      var photos = [
+        { 
+          time: '2 часа назад', rating: 'DF', tournamentName: 'Сколково', title: 'Призёры БК Брянск DF', likes: 13, views: '2K', comments: 3, 
+          winners: {
+            gold: ['Волосатов Игорь', 'Мартыненко Евгений'],
+            silver: ['Сыровежко Наталья', 'Ширяева Дарья'],
+            bronze: ['Мартыненко Иван', 'Аббясова Алина']
+          }
+        }, 
+        { 
+          time: 'Вчера в 14:03', rating: 'ADF', tournamentName: 'Open Space ZP', title: 'Иванов / Петров — Сидоров / Медведев', likes: 8, views: 1024, comments: 1, 
+          players: ['Волосатов Игорь', 'Мартыненко Евгений', 'Сыровежко Наталья', 'Ширяева Дарья', 'Мартыненко Иван', 'Аббясова Алина']
+        },
+        { 
+          time: '3 дня назад', rating: 'ADF', tournamentName: 'Open Space ZP', title: 'Иванов / Петров — Сидоров / Медведев', likes: 8, views: 1024, comments: 1, 
+        },
+        { 
+          time: '15 мая', rating: 'ADF', tournamentName: 'Open Space ZP', title: 'Иванов / Петров — Сидоров / Медведев', likes: 8, views: 1024, comments: 1, 
+          players: ['Волосатов Игорь', 'Мартыненко Евгений']
+        },
+      ];
+
+    div.cards-container
+        .grid.grid-cols-1(class="576:grid-cols-2 576:px-4 768:grid-cols-3 xl:grid-cols-4").gap-3.pb-4
+            each photo, index in photos
+                .flex.flex-shrink-0.flex-col.gap-2.bg-white.pb-3(class="576:overflow-hidden 576:rounded-lg")
+
+                    .flex.justify-between.gap-3.pt-3.px-3.pb-1  
+                        span.text-xs.text-lab-black-50= photo.time
+                        img(src='img/three-dots.svg', onclick=`toggleCommentMenu('${photoID}')`).size-4
+
+                    a(href="pages/aroundgame/photo.html")
+                        img.aspect-square.object-cover(
+                            src=`dynamic-img/photo-1.jpg`,
+                        )
+
+                    .px-3.py-1 
+                        .flex.items-center.gap-3.text-sm.justify-between
+                            .flex.items-center.gap-1
+                                img.size-5.cursor-pointer.opacity-50.saturate-50(
+                                src='img/heart-empty.svg',
+                                onclick='toggleHeart(this)'
+                                )
+                                span #{ photo.likes }
+                            .flex.items-center.gap-1
+                                img.size-5.opacity-50.saturate-50(src='img/views.svg')
+                                span #{ photo.views }
+                            .flex.items-center.gap-1.grow
+                                img.size-5.opacity-50.saturate-50(src='img/comment.svg')
+                                span #{ photo.comments }
+                            +bookmark('', '', 5)
+
+                        if photo.title
+                            .font-semibold.py-2.leading-tight #{ photo.title }
+                            //- .flex.items-center.text-xs.font-bold.gap-2.text-lab-black-50.pb-2
+                            //-   span.text-lab-black-50= photo.time
+                            //-   span.text-lab-black-50= photo.rating
+                            //-   span.text-lab-black-50= photo.tournamentName
+                        if photo.winners || photo.players
+                            .flex.flex-wrap.gap-2.inline.pt-1
+                                if photo.winners 
+                                    each player in photo.winners.gold
+                                        a.text-xxs.text-lab-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(150deg,#FFCE31_0%,#FFCA21_25%,#FFE287_48%,#EAC039_78%)]" href="pages/others/profile.html").rounded-md= player
+                                    each player in photo.winners.silver
+                                        a.text-xxs.text-lab-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(150deg,#BFCACD_0%,#F2F9FB_40%,#C8D4D8_71%,#CAE8F0_100%)]" href="pages/others/profile.html").rounded-md= player
+                                    each player in photo.winners.bronze
+                                        a.text-xxs.text-lab-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)]" href="pages/others/profile.html").rounded-md= player
+                                if photo.players 
+                                    each player in photo.players
+                                        span.text-xxs.font-medium(class="px-1.5 py-0.5 bg-lab-color-10").rounded-md= player
+
+        div(id=`commentMenu-${photoID}`, class="absolute bottom-0")
+        +actionMenu([
+            { text: 'Редактировать', color: ' text-lab-color' },
+            { text: 'Убрать своё имя с фото', color: ' text-lab-color' },
+            { text: 'Меня нет на фото', color: ' text-lab-color' },
+            { text: 'Пожаловаться', color: ' text-lab-red', last: true }
+
+        ], 'action-menu-container')
+
+        script.
+            function toggleCommentMenu(photoID) {
+                var commentMenu = document.getElementById(`action-menu-container`);
+                console.log(commentMenu)
+                commentMenu.classList.toggle('hidden');
+            }
+
+    div.grid-container
+        +photoTiles
+
+        script.
+            document.addEventListener('DOMContentLoaded', function () {
+                const cards = document.querySelector('.cards-container');
+                const grid = document.querySelector('.grid-container');
+                const viewCardsIcon = document.getElementById('viewCards');
+                const viewGridIcon = document.getElementById('viewGrid');
+
+                function updateIconStyles() {
+                    if (cards.style.display === 'block') {
+                        viewCardsIcon.classList.remove('saturate-50', 'opacity-50');
+                        viewGridIcon.classList.add('saturate-50', 'opacity-50');
+                    } else {
+                        viewGridIcon.classList.remove('saturate-50', 'opacity-50');
+                        viewCardsIcon.classList.add('saturate-50', 'opacity-50');
+                    }
+                }
+
+                function showCards() {
+                    cards.style.display = 'block';
+                    grid.style.display = 'none';
+                    updateIconStyles();
+                }
+
+                function showGrid() {
+                    cards.style.display = 'none';
+                    grid.style.display = 'block';
+                    updateIconStyles();
+                }
+
+                viewCardsIcon.addEventListener('click', showCards);
+                viewGridIcon.addEventListener('click', showGrid);
+
+                // Инициализация начального вида и стилей иконок
+                showCards();
+            });
+
+    +tabBar('Вокруг игры')

@@ -1,0 +1,8 @@
+include inputs/searchBar
+include filters/filtersPanelButton
+
+mixin searchAndFilterButton(placeholder, filtersButton, extraClass) 
+    div.flex.items-center.justify-between.gap-4(class=` ${extraClass} `)
+        +searchBar(placeholder)
+        if filtersButton
+            +filtersPanelButton

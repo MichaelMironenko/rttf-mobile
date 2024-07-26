@@ -1,0 +1,118 @@
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/comments.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+include /components/dottedLine.pug
+include /components/atoms/userStatusBadge
+include /components/atoms/starRating
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Adidas - Бренды - ЛАБ
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    - var tabs = ['Маркет', 'Б/У', 'Стрингеры']
+    - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
+    - var tabIds = ['market', 'used', 'stringers']
+    - var activeTab = 'Маркет'
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+      each tab, index in tabs
+        - var isActive = tab === activeTab
+        .players-panel-tab.tab(
+          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          data-tab=`${tabIds[index]}`
+        )
+          img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
+          .py-1.leading-none= tab
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.players-panel-tab')
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', function () {
+            tabs.forEach((t) => {
+              const img = t.querySelector('img')
+              if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
+              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              t.classList.add('opacity-75', 'saturate-50')
+              if (img) {
+                img.classList.add('opacity-75', 'saturate-50')
+              }
+            })
+            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.remove('opacity-75', 'saturate-50')
+            const img = this.querySelector('img')
+            if (img) {
+              img.classList.remove('opacity-75', 'saturate-50')
+            }
+            const tabId = this.getAttribute('data-tab')
+            const tabContent = document.querySelectorAll('.tab-content')
+            tabContent.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove('hidden')
+              } else {
+                content.classList.add('hidden')
+              }
+            })
+          })
+        })
+      })
+
+    .flex.items-center.gap-4.bg-white.p-4
+      img.h-16.w-16.object-contain(src='dynamic-img/adidas.png', alt='Adidas')
+      .w-full
+        .mb-2.flex.items-center.justify-between
+          h1.font-bold.text-lab-color Adidas
+          span.text-sm.text-lab-black-50 Германия
+        .w-fit.rounded-lg.bg-lab-color-10.px-2.py-1.text-xs.text-lab-black-50 123 товара
+    .bg-white.px-4.pb-4
+      +filterButtonsRow([ { label: 'Ракетки', active: false, number: 3}, { label: 'Струны', active: false, number: 5}, { label: 'Обувь', active: false, number: 36}, { label: 'Одежда', active: false, number: 42 }, ], 'padding', '-mx-4 py-4')
+
+      -
+        var inventory = [ 
+            { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, comments: 2, price: 12800, shop: 'Lining center', name: 'Yonex Astrox 100 Game (KURENAI)', newItem: true, liked: false }, 
+            { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, comments: 0, price: 8990, shop: 'Rackets.ru', name: 'Yonex 65Х 3 (Navy/Blue)', newItem: false, liked: true }, 
+            { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, comments: 1, price: 1800, shop: 'Badm Store', name: 'KUMPOO KW-0101 (RED)', newItem: false, liked: false },
+            { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, comments: 2, price: 12800, shop: 'Lining center', name: 'Yonex Astrox 100 Game (KURENAI)', newItem: true, liked: false }, 
+            { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, comments: 0, price: 8990, shop: 'Rackets.ru', name: 'Yonex 65Х 3 (Navy/Blue)', newItem: false, liked: true }, 
+            { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, comments: 1, price: 1800, shop: 'Badm Store', name: 'KUMPOO KW-0101 (RED)', newItem: false, liked: false }  
+        ]        
+
+      +sortButton('По популярности', [{text: 'По популярности'}, {text: 'По новизне'}, {text: 'По цене'}, {text: 'По рейтингу'}], 'pb-4')
+
+      .grid.grid-cols-2.gap-2(class='576:grid-cols-3 768:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6')
+        each item in inventory
+          +productCard(item, false)
+
+    +tabBar('Маркет')

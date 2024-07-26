@@ -1,0 +1,153 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/tag.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/videoSlider.pug
+include /components/block.pug
+include /components/trainingLine.pug
+include /components/selectedCourts.pug
+include /components/modal.pug
+include /components/messageBlock.pug
+include /components/atoms/stepper.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/clubCard.pug
+include /components/selectedCourts.pug
+include /components/newsCard.pug
+include /components/inputs/select.pug
+include /components/clientBookingTable.pug
+include /components/trainerCard.pug
+include /components/mapOverlay.pug
+include /components/bottomPanel.pug
+include /components/inputs/switch.pug
+include /components/inputs/input.pug
+include /components/editLabel.pug
+include /components/searchAndFilterButton.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/dayOfWeek.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Тренировки
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+
+        .p-4 
+            +block('Тренеры клуба', {href: 'pages/trainings/trainers.html', text:'Все'})
+                .no-scrollbar.-m-4.flex.overflow-x-auto.p-4.flex.gap-2
+                    +trainerCard('bg-lab-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800')
+                    +trainerCard('bg-lab-red', 'Ирина Васильева', 210, 4.7, 5, '900', true)
+                    +trainerCard('bg-lab-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750')
+                    +trainerCard('bg-lab-green', 'Ольга Кузнецова', 234, 4.8, 4, '850')
+
+            +videoSlider('', '', 'Уроки')
+            +block('Групповые тренировки', {href: 'pages/trainings/trainingsList.html', text:'Все'}, true)
+                
+                +filterButtonsRow([
+                        { label: 'Вт, 23.09', active: true},
+                        { label: 'Ср, 24.09', active: false},
+                        { label: 'Пт, 25.09', active: false}
+                    ], '', 'pb-4' )
+
+                -
+                    const trainings = [
+                        { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
+                        { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                        { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-lab-green', img: '', players: '5/10' },
+                        { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                        { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-lab-blue', img: '', players: '5/10' },
+                        { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                        { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-lab-green', img: '', players: '5/10' },
+                        { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+                    ];
+                    
+                    
+                .-mx-4
+                    each training in trainings
+                        +trainingLine({
+                            time: training.time,
+                            duration: training.duration + ' ч',
+                            title: training.title,
+                            initials: training.initials,
+                            trainerName: training.trainerName,
+                            club: training.club,
+                            color: training.color,
+                            img: training.img,
+                            players: training.players
+                        })
+            
+            
+
+            +block('Сборы', { href:"pages/trainings/meetups.html", text:'Все'})
+
+                - 
+                    var camps = [
+                        { title: "Летний интенсив", img: 'camp1.png', dates: "18–22 июля", location: "Пансионат 'Клязьма', г. Мытищи", price: "от 4500₽ / сутки", coaches: "МС Ларченко Елена (★710), КМС Игошин Сергей (★879)", organizer: "NATEN, Ларченко Елена", slots: "8 / 20" },
+                        { title: "Сборы в Светлогорске с Андреем Дегтярёвым", img: 'camp2.png', dates: "19 июня –2 июля", location: "Яблоневая ул., 13, Светлогорск", price: "12000/чел", coaches: "Дегтярев Андрей (★957)", organizer: "Бадминтонный клуб Янтарный волан", slots: "8 / 20" },
+                        { title: "Летние сборы в Суко", img: 'camp3.png', dates: "24 июня – 14 июля", location: "дер. Суко", price: "4150/день", coaches: "Новоселов Вадим (★1000), Сухов Иван (★683), Бакланов Михаил (★301)", organizer: "Бадминтонный клуб Красногорск, ЛАБ", slots: "2 / 14" }
+                    ]
+                .flex.items-center.gap-2.pb-4
+                    img(src="img/calendar.svg") 
+                    span.leading-tight.text-sm.text-lab-color Показать расписание 
+
+                .flex.overflow-x-auto.gap-4.no-scrollbar.p-4.-m-4
+                    each camp in camps
+                        a.bg-white.shadow-lg.rounded-lg.overflow-hidden.w-64.shrink-0(href="pages/trainings/meetup.html")
+                            img(src=`dynamic-img/${camp.img}`, alt="").w-full
+                            div.p-4
+                                h2.font-bold.leading-tight.mb-4= camp.title
+                                .text-sm.text-lab-black
+                                    div.flex.items-center.gap-3.mb-3
+                                        img(src="img/calendar.svg").size-4
+                                        span= camp.dates
+                                    div.flex.items-center.gap-3.mb-3
+                                        img(src="img/location-icon.svg").size-4
+                                        span= camp.location
+                                    div.flex.items-center.gap-3.mb-3
+                                        img(src="img/price.svg").size-4
+                                        span= camp.price
+                                    div.flex.items-center.gap-3.mb-3
+                                        img(src="img/trainer.svg").size-4
+                                        span= camp.coaches
+                                    div.flex.items-center.gap-3.mb-3
+                                        img(src="img/administrator.svg").size-4
+                                        span= camp.organizer
+                                    div.flex.items-center.gap-3
+                                        img(src="img/player.svg").size-4
+                                        span= camp.slots
+
+            +block()
+                .flex.items-center.gap-3.justify-between
+                    h2 Новые спарринг-партнёры в #[span(class="underline text-lab-color underline-offset-4 decoration-dotted") Нижнем Новгороде]
+                    a(href="pages/trainings/sparrings.html") Все 
+                .flex.-mx-4.p-4.overflow-x-auto.no-scrollbar.gap-3
+                    mixin player(avatarClass, name, rating, isRatingActive, ratingRange, locations)
+                        a(href="pages/trainings/singleSparring.html").flex.flex-col.w-32.items-center.gap-2.shrink-0
+                            +avatar(avatarClass, name[0] + name.split(' ')[1][0], 64)
+                            div.text-center.shrink-0.max-h-16.grow
+                                div.text-sm.text-lab-color.font-semibold.mb-1 #{name}
+                                +userRating(rating, isRatingActive)
+                            div.self-start.grow.max-h-24
+                                div.self-start.my-2
+                                    img(src="img/star-lab-color.svg").inline.align-middle.opacity-50.saturate-50
+                                    span.inline.align-middle.ml-2.text-sm #{ratingRange}
+                                div.flex.self-start.gap-2.items-start
+                                    img(src="img/location-icon.svg" class="mt-0.5").opacity-50.saturate-50
+                                    div.text-sm.flex.flex-col
+                                        each loc in locations
+                                            span #{loc}   
+                    +player('bg-lab-yellow', 'Алексей Борисов', 532, true, '100-300', ['Naten-1905', 'Фили-ТТ'])
+                    +player('bg-lab-green', 'Мария Иванова', 428, true, '200-400', ['Space Химки', 'Выхино', 'NATEN-Юг'])
+                    +player('bg-lab-red', 'Игорь Смирнов', 600, true, '500-700', ['Impact-Луж', 'NewTon', 'WC Митино'])
+
+        +tabBar('Тренировки')

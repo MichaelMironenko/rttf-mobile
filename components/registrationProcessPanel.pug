@@ -1,0 +1,188 @@
+include /components/filters/ratingFilter.pug
+include /components/filters/tournamentType.pug
+include /components/filters/dayOfWeek.pug
+include /components/filters/tags.pug
+include /components/atoms/button.pug
+include /components/atoms/userRating.pug
+include /components/inputs/searchBar.pug
+include /components/editLabel.pug
+include /components/atoms/avatar.pug
+
+mixin registrationProcessPanel
+    .hidden.registrationProcessPanel
+        div(class="fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-20")
+        .max-h-90.fixed.bottom-0.left-0.w-full.h-full.z-30.bg-white.rounded-t-2xl.flex.flex-col
+            .pb-2
+                .w-20.h-1.bg-slate-200.rounded-xl.mx-auto.mt-2.relative 
+            .flex-1.overflow-y-auto.scroll-smooth.no-scrollbar.p-4.pt-2(id="mainContent") 
+                h2.mb-4 Добавить партнёра
+                +searchBar
+
+                div#partners
+                    div.leading-tight.text-lab-black-50.text-sm Партнёра нет на сайте?
+                    +button('Пригласить', 'text', 'lab-color', '', 'text-sm')
+
+                    .flex.gap-4.items-center.mt-4.justify-between.mb-2
+                        span.font-bold Предыдущие партнёры 
+                        .text-lab-black-50 Сбросить
+
+                    - 
+                        var partners = ([
+                            { name: 'Андрей Красильников' },
+                            { name: 'Елена Беркова' },
+                            { name: 'Михаил Иванов' },
+                            { name: 'Ольга Петрова' },
+                            { name: 'Сергей Николаев' }
+                        ])
+
+                    each partner in partners
+                        .flex.gap-3.items-center.py-2.justify-between.border-t.border-lab-black-10
+                            img(src="img/history.svg" class="saturate-25 opacity-50")
+                            .text-lab-black-50.grow #{partner.name}
+                            img(src="img/close.svg" class="saturate-25 opacity-50")
+
+                -
+                    let suggestions = [
+                        { name: 'Карпов Алексей', color: 'bg-lab-blue', initials: 'АК', city: 'Москва', age: 28, rating: 450 },
+                        { name: 'Каримов Рустам', color: 'bg-lab-green', initials: 'РК', city: 'Самара', age: 32, rating: 520 },
+                        { name: 'Карлов Михаил', color: 'bg-lab-red', initials: 'МК', city: 'Казань', age: 24, rating: 610 },
+                        { name: 'Карасева Ольга', color: 'bg-lab-yellow', initials: 'ОК', city: 'Нижний Новгород', age: 30, rating: 400 },
+                        { name: 'Карпенко Дмитрий', color: 'bg-lab-color', initials: 'ДК', city: 'Екатеринбург', age: 35, rating: 780 },
+                        { name: 'Карташова Елена', color: 'bg-lab-blue', initials: 'ЕК', city: 'Пермь', age: 29, rating: 350 },
+                        { name: 'Карнеев Андрей', color: 'bg-lab-green', initials: 'АК', city: 'Воронеж', age: 33, rating: 560 },
+                        { name: 'Каргинова Светлана', color: 'bg-lab-red', initials: 'СК', city: 'Сочи', age: 27, rating: 660 },
+                        { name: 'Карась Анатолий', color: 'bg-lab-yellow', initials: 'АК', city: 'Красноярск', age: 31, rating: 720 },
+                        { name: 'Карпухин Виктор', color: 'bg-lab-color', initials: 'ВК', city: 'Иркутск', age: 26, rating: 530 }
+                    ]
+
+                div#suggestions.mt-2
+                    each player in suggestions
+                        .playerItem.flex.gap-3.items-center.py-2.justify-between.border-b.border-lab-black-10
+                            +avatar(player.color, player.initials, 40)
+                            .grow
+                                .flex.items-center.gap-1.text-lab-color.font-bold 
+                                    span.playerName #{player.name}
+                                    +userRating(player.rating)
+                                .text-lab-black-50.text-sm #{player.city}, #{player.age} лет
+
+            div#selectPlayer.flex-1.overflow-y-auto.scroll-smooth.no-scrollbar.p-4.pt-2
+                // Кнопка "назад"
+                div#backButton.flex.items-center.cursor-pointer.sticky.top-0
+                    img(src="img/expand-arrow.svg" alt="Back" class="rotate-90")
+                    span.text-sm.ml-2 Вернуться к результатам поиска
+                .flex.flex-col.items-center.mt-16.gap-4.pb-8
+                    h2.playerName Ваш партнёр по игре
+                    div.flex.gap-3.items-center
+                        +avatar('bg-lab-blue', 'КП', '40')
+                        span.text-lab-color.font-bold Вася
+                    +button('Подтвердить', 'default', 'white', 'bg-lab-color', '!w-64')
+
+                .flex.flex-col.items-center.gap-4.border-t.p-8
+                    span.text-right.text-xs.text-lab-black-50 Вариант для команд
+                    h2.playerName Ваши партнёры по игре
+                    div.flex.gap-3.items-center.justify-between.max-w-sm
+                        +avatar('bg-lab-blue', 'ИИ', '40')
+                        span.text-lab-color.font-bold.grow Иван Иванов
+                        span.text-lab-black-50 ✕
+                    div.flex.gap-3.items-center.justify-between.max-w-sm
+                        +avatar('bg-lab-blue', 'ПП', '40')
+                        span.text-lab-color.font-bold.grow Петр Петров
+                        span.text-lab-black-50 ✕
+                    div
+                        h2.text-center.my-2 Название команды
+                        +input('Введите название', 'w-64', 'team-name')
+                        div(id="autocomplete-container" class="hidden absolute mt-1 w-64 border border-lab-black-10 bg-white shadow-lg max-h-60 overflow-y-auto rounded-lg z-10")
+                            ul.list-none
+                                li.px-4.py-2.cursor-pointer.border-b Московские орлы
+                                li.px-4.py-2.cursor-pointer.border-b Орловские москвичи
+                                li.px-4.py-2.cursor-pointer Три ракетки
+                    script.
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const input = document.getElementById('team-name');
+                            const autocompleteContainer = document.getElementById('autocomplete-container');
+
+                            // Показываем контейнер с подсказками при фокусе на форме
+                            input.addEventListener('focus', function() {
+                                autocompleteContainer.classList.remove('hidden');
+                            });
+
+                            // Скрываем контейнер с подсказками при потере фокуса
+                            // Отложенное скрытие позволяет отловить клик по элементам списка
+                            input.addEventListener('blur', function() {
+                                setTimeout(() => {
+                                autocompleteContainer.classList.add('hidden');
+                                }, 100);
+                            });
+
+                            // Добавляем логику для закрытия контейнера с подсказками при клике вне инпута и контейнера подсказок
+                            document.addEventListener('click', function(event) {
+                                if (!input.contains(event.target) && !autocompleteContainer.contains(event.target)) {
+                                autocompleteContainer.classList.add('hidden');
+                                }
+                            });
+                        });
+                    +button('Зарегистрировать команду', 'default', 'white', 'bg-lab-color', '!w-64')
+
+
+
+            script.
+                var suggestions = !{JSON.stringify(suggestions)};
+                document.addEventListener('DOMContentLoaded', function () {
+                    const searchBar = document.querySelector('#searchBar');
+                    const partnersDiv = document.querySelector('#partners');
+                    const suggestionsDiv = document.querySelector('#suggestions');
+                    const selectPlayerDiv = document.querySelector('#selectPlayer');
+                    const backButton = document.querySelector('#backButton'); 
+                    const mainContent = document.querySelector('#mainContent')
+                    suggestionsDiv.style.display = 'none';
+                    selectPlayerDiv.style.display = 'none';
+                    // Функция для показа третьего экрана с выбранным игроком
+                    function showSelectedPlayer(player) {
+
+                        mainContent.style.display = 'none'; 
+                        const selectPlayerDiv = document.querySelector('#selectPlayer');
+
+                        selectPlayerDiv.style.display = ''; 
+                        // Создание и добавление нового содержимого для третьего экрана
+                            const playerNameSpan = document.querySelector('#selectPlayer .text-lab-color.font-bold');
+                        // Обновляем текстовое содержимое элемента на имя выбранного игрока
+                        playerNameSpan.textContent = player.name;
+                        // TODO: Добавьте другие элементы третьего экрана здесь
+
+                        selectPlayer.appendChild(playerNameElement);
+                        // Продолжайте добавлять другие элементы третьего экрана в mainContent
+                    }
+                    searchBar.addEventListener('input', function() {
+                        if(searchBar.value.trim() !== '') {
+                            // Показываем suggestions и скрываем partners, когда в инпуте есть текст
+                            suggestionsDiv.style.display = '';
+                            partnersDiv.style.display = 'none';
+                            selectPlayerDiv.style.display = 'none'; // Скрываем третий экран при поиске
+                        } else {
+                            // Показываем partners и скрываем suggestions, когда инпут пуст
+                            suggestionsDiv.style.display = 'none';
+                            partnersDiv.style.display = '';
+                            selectPlayerDiv.style.display = 'none'; // Скрываем третий экран
+                        }
+                    });
+
+                    // Вешаем обработчик клика на элементы списка suggestions
+                    suggestionsDiv.querySelectorAll('.playerItem').forEach((item) => {
+                        item.addEventListener('click', function() {
+                            // Получаем текстовое содержимое элемента с классом playerName
+                            const playerName = this.querySelector('.playerName').textContent;
+                            // Ищем данные игрока по имени
+                            const playerData = suggestions.find(player => player.name === playerName);
+                            showSelectedPlayer(playerData);
+                        });
+                    });
+
+                    // Обработчик кнопки "назад"
+                    backButton.addEventListener('click', function() {
+                        // Показываем suggestions и скрываем экран выбранного игрока
+                        suggestionsDiv.style.display = '';
+                        mainContent.style.display = '';
+                        selectPlayerDiv.style.display = 'none';
+
+                    });
+                });

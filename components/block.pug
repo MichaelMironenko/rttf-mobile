@@ -1,0 +1,12 @@
+mixin block(title, link, button, marginBottom=true, extraClass)
+  div(class=`p-4 bg-white rounded-lg overflow-hidden ${marginBottom ? 'mb-3' : ''} ${extraClass}`)
+    if title 
+      div.flex.justify-between.items-center.mb-4.gap-4
+        div.flex.gap-2.items-center
+          h2.leading-tight #{title}
+          if button
+            a(href="#")
+              img(src="img/plus-button.svg" class="size-5")
+        if link
+          a(href=link.href class="text-lab-color leading-none") #{link.text}
+    block

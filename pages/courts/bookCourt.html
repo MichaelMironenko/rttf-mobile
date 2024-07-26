@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корты</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background mt-12 pb-32">
+    <div class="bg-white px-3 py-2 flex justify-between items-center fixed inset-x-0 top-0 border-b z-10"><a class="flex items-center flex-shrink min-w-30 space-x-2" href="https://badminton4u.ru"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex flex-col flex-shrink min-w-0 items-start gap-1"><span class="text-xs tracking-tight leading-4 xs:truncate xs:overflow-visible xs:leading-none text-slate-500 xs:text-ellipsis xs:whitespace-nowrap whitespace-normal w-full">Нижний Новгород</span></div></a>
+      <div class="flex items-center shrink-0 justify-end gap-4 ml-4 flex-grow"><a class="relative shrink-0" href="notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute px-1 rounded-full text-xxs -top-1 -right-1 inline-block text-center text-white bg-lab-red">99</span></a><a class="relative shrink-0" href="messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute px-1 rounded-full text-xxs -top-1 -right-1 inline-block text-center text-white bg-lab-red">99</span></a><a class="inline-flex gap-2">
+          <div class="text-right hidden sm:block">
+            <div class="text-xs text-slate-700 font-semibold">nikpol</div>
+            <div class="flex items-center justify-end"><img class="h-3 w-3 relative z-10" src="img/gradient-star.svg" alt="Rating"/><img class="h-3 w-3 -ml-4 relative" src="img/gradient-star.svg" alt="Rating"/><span class="text-lab-color font-bold text-xs ml-1">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] bg-gradient-to-r from-green-600 to-sky-500 rounded-full flex justify-center items-center shrink-0 flex-" id="avatarContainer">
+            <div class="bg-lab-blue rounded-full flex justify-center border border-white border-opacity-75 items-center w-full h-full"><span class="text-[calc(32px/2.66)] text-white w-full font-bold text-center leading-none">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-48 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-50 absolute top-10 right-4 drop-shadow-around">
+          <div class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-[#e8f3f7] border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-[#e8f3f7] border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col self-stretch py-2 border-b border-blue-950 border-opacity-10 justify-start items-start">
+            <div class="py-2 flex items-center gap-3"><img class="w-4 h-4 justify-center items-center" src="img/person.svg"/>
+              <div class="text-blue-950 text-sm font-normal  leading-tight">Мой профиль</div>
+            </div>
+            <div class="py-2 flex items-center gap-3"><img class="w-4 h-4 justify-center items-center" src="img/settings.svg"/>
+              <div class="text-blue-950 text-sm font-normal  leading-tight">Настройки</div>
+            </div>
+            <div class="py-2 flex items-center gap-3"><img class="w-4 h-4 justify-center items-center" src="img/price.svg"/>
+              <div class="text-blue-950 text-sm font-normal  leading-tight">Финансы</div>
+            </div>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-blue-950 text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer');
+        var userMenu = document.getElementById('userMenu');
+        avatar.addEventListener('click', function() {
+          userMenu.classList.toggle('hidden');
+        });
+      });
+    </script>
+    <div class="bg-white p-4 pb-1">
+      <h2 class="leading-tight mb-4">Аренда кортов в 
+        <div class="gap-1 items-center py-2 inline-flex">
+          <select class="appearance-none bg-transparent leading-none rounded-2xl border-none bg-none p-0 text-lab-color text-sm font-semibold focus-visible:outline-none  !underline !text-lg text-lab-color !rounded-none !underline-offset-4 !decoration-dotted ">
+            <option value="0" selected="selected">Все города</option>
+            <option value="781">Алексин</option>
+            <option value="38">Казань</option>
+            <option value="120">Калининград</option>
+            <option value="197">Калуга</option>
+            <option value="35">Кемерово</option>
+            <option value="8">Красногорск</option>
+            <option value="1">Москва</option>
+            <option value="67">Новосибирск</option>
+            <option value="312">Одинцово</option>
+          </select>
+        </div>
+      </h2>
+      <div class="flex overflow-x-auto -mx-4 px-4 gap-2 no-scrollbar">
+        <div class="flex-shrink-0"><span class="sticky left-0 text-sm  text-lab-black-50 py-2 z-10">Март</span>
+          <div class="flex gap-2 mt-2">
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-lab-red opacity-50">Вс</div>
+              <div class="text-base text-lab-red">27</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-lab-black-50 opacity-50">Пн</div>
+              <div class="text-base text-lab-black">28</div>
+            </div>
+            <div class="bg-lab-color flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-white opacity-50">Вт</div>
+              <div class="text-base text-white font-semibold">29</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-lab-black-50 opacity-50">Ср</div>
+              <div class="text-base text-lab-black">30</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-lab-black-50 opacity-50">Чт</div>
+              <div class="text-base text-lab-black">31</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 text-sm  text-lab-black-50 py-2 z-10">Апрель</span>
+          <div class="flex gap-2 mt-2">
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-lab-black-50 opacity-50">Пт</div>
+              <div class="text-base text-lab-black">1</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-lab-red opacity-50">Сб</div>
+              <div class="text-base text-lab-red">2</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-lab-red opacity-50">Вс</div>
+              <div class="text-base text-lab-red">3</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-lab-black-50 opacity-50">Пн</div>
+              <div class="text-base text-lab-black">4</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-lab-black-50 opacity-50">Вт</div>
+              <div class="text-base text-lab-black">5</div>
+            </div>
+            <div class="bg-lab-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-lab-black-50 opacity-50">Ср</div>
+              <div class="text-base text-lab-black">6</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4 py-4 items-end">
+        <div>
+          <div class="text-sm text-lab-black-50 py-2">Кортов</div>
+          <div class="flex items-center bg-lab-color-10 rounded-lg">
+            <button class="size-10 text-xl text-lab-black-50" id="decrease-courts">–</button><span class="w-4 h-3.5 text-center leading-none" id="courts-count">2</span>
+            <button class="size-10 text-xl text-lab-black-50" id="increase-courts">+</button>
+          </div>
+        </div>
+        <div>
+          <div class="text-sm text-gray-500 py-2">Буду играть</div>
+          <div class="flex items-center bg-lab-color-10 rounded-lg">
+            <button class="size-10  text-xl text-lab-black-50 leading-none" id="decrease-time">–</button><span class="flex items-center justify-center space-x-1" id="play-time"><span class="w-2 h-3.5 hours shrink-0 text-right leading-none">1</span><span class="text-lab-black-50 h-3.5 leading-none">ч</span><span class="w-6 h-3.5 minutes shrink-0 text-right leading-none">30</span><span class="text-lab-black-50 h-3.5 leading-none">м</span></span>
+            <button class="size-10 text-xl text-lab-black-50 leading-none" id="increase-time">+</button>
+          </div>
+        </div>
+        <button class=" undefined rounded-lg font-semibold max-h-12 transition-transform duration-150 text-undefined leading-none ease-in-out" id="undefined" onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=""> <img src="img/refresh.svg"/></button>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Степпер для количества кортов
+            const courtsCount = document.querySelector('#courts-count');
+            const decreaseCourtsButton = document.querySelector('#decrease-courts');
+            const increaseCourtsButton = document.querySelector('#increase-courts');
+        
+            decreaseCourtsButton.addEventListener('click', () => {
+                const currentCount = parseInt(courtsCount.textContent, 10);
+                courtsCount.textContent = currentCount > 1 ? currentCount - 1 : 1;
+            });
+        
+            increaseCourtsButton.addEventListener('click', () => {
+                const currentCount = parseInt(courtsCount.textContent, 10);
+                courtsCount.textContent = currentCount + 1;
+            });
+        
+            // Степпер для времени игры
+            const playTimeHours = document.querySelector('#play-time .hours');
+            const playTimeMinutes = document.querySelector('#play-time .minutes');
+            const decreaseTimeButton = document.querySelector('#decrease-time');
+            const increaseTimeButton = document.querySelector('#increase-time');
+            let timeInMinutes = 90; // Начальное значение 1 ч 30 м
+        
+            const updateTimeText = () => {
+                const hours = Math.floor(timeInMinutes / 60);
+                const minutes = timeInMinutes % 60;
+                playTimeHours.textContent = `${hours} `;
+                playTimeMinutes.textContent = `${minutes} `;
+            };
+        
+            decreaseTimeButton.addEventListener('click', () => {
+                timeInMinutes = timeInMinutes > 30 ? timeInMinutes - 30 : 30;
+                updateTimeText();
+            });
+        
+            increaseTimeButton.addEventListener('click', () => {
+                timeInMinutes += 30;
+                updateTimeText();
+            });
+        });
+      </script>
+    </div>
+    <div class="p-4 flex justify-between items-center">
+      <button class="sort-button  undefined " type="button"><img class="inline align-middle size-4" src="img/sort.svg"/><span class="inline align-middle text-lab-color text-sm ml-1">По популярности</span></button>
+      <div class="menu-container fixed hidden inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-20" data-action="hide">
+        <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col">
+          <div class="flex items-center gap-3 px-4 py-3 border-b border-lab-black-10" data-action="hide"><span class="flex-1 text-center text-lab-color">По рейтингу</span>
+          </div>
+          <div class="flex items-center gap-3 px-4 py-3 border-b border-lab-black-10" data-action="hide"><span class="flex-1 text-center text-lab-color">По новизне</span>
+          </div>
+          <div class="flex items-center gap-3 px-4 py-3 border-b border-lab-black-10" data-action="hide"><span class="flex-1 text-center text-lab-color">Сначала дешевые</span>
+          </div>
+          <div class="flex items-center gap-3 px-4 py-3 border-b border-lab-black-10" data-action="hide"><span class="flex-1 text-center text-lab-color">Сначала дорогие</span>
+          </div>
+          <div class="flex items-center gap-3 px-4 py-3" data-action="hide"><span class="flex-1 text-center text-lab-color">По удаленности</span>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('click', function (e) {
+            if (e.target.dataset.action === 'hide') {
+              var menuContainer = document.querySelector('.menu-container'); 
+              if (menuContainer) {
+                menuContainer.style.display = 'none';
+              }
+            }
+          });
+        </script>
+      </div>
+      <script>
+        document.querySelector('.sort-button').addEventListener('click', function () {
+            var menuContainer = document.querySelector('.menu-container'); 
+            if (menuContainer.style.display === 'none' || menuContainer.style.display === '') {
+                menuContainer.style.display = 'block';
+            } else {
+                menuContainer.style.display = 'none';
+            }
+        });
+      </script>
+      <div><img class="inline mr-1" src="img/location-icon.svg" alt=""><a class="inline text-sm" href="clubsMap.html">На карте</a></div>
+    </div>
+    <div class="fixed inset-0 hidden bg-gray-900 bg-opacity-50 backdrop-blur-sm z-20" id="mapOverlay">
+      <div class="max-h-90 absolute bottom-0 left-0 right-0 w-full z-30 rounded-t-2xl overflow-hidden">
+        <div class="w-20 left-0 right-0 h-1 bg-lab-black-10 rounded-xl mx-auto mt-2 absolute"></div><img class="w-full" src="dynamic-img/map-large.png"/>
+      </div>
+      <div class="flex relative left-16 top-60 z-40 items-center"><img class="size-8" src="img/location-icon.svg" alt=""/>
+        <div class="px-2 py-1 flex flex-col bg-white rounded-lg border border-lab-black-30 shadow-lg"><span class="text-sm font-semibold">Naten-ЮГ</span>
+          <div class="flex gap-3">
+            <div> <img class="inline align-middle h-4 mr-1" src="img/star.svg"/><span class="text-xs inline font-semibold align-middle">4.4</span></div>
+            <div><img class="inline align-middle h-4 mr-1" src="img/price.svg"/><span class="text-xs inline align-middle">500-700&#8202;₽</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 z-40">
+        <div class="w-20 left-0 right-0 h-1 bg-lab-black-10 rounded-xl mx-auto -mt-2 absolute"></div><img class="absolute h-8 right-2 top-2" src="img/close-round.svg" alt=""/>
+        <div class="w-full bg-white rounded-t-2xl shadow-md p-4 flex flex-col justify-between border">
+          <div class="flex gap-3 items-center"> <img class="size-24 object-cover rounded-md" src="dynamic-img/club-1.jpg" alt=""/>
+            <div class="w-full">
+              <div class="flex items-center mb-2"><img class="h-5 w-5 mr-2 rounded-sm" src="dynamic-img/naten-logo.png" alt="Logo"/>
+                <h2 class="text-base font-semibold">Naten-ЮГ</h2>
+              </div>
+              <div class="flex items-center text-sm mb-2"><span>4.4</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-lab-black-50 ml-2">12 отзывов</span></div>
+              <div class="flex items-center mb-1 gap-3 flex-wrap">
+                <div class="flex items-center">
+                  <div class="bg-lab-red size-2 rounded-full mr-1 shrink-0"></div><span class="text-lab-black-50 leading-none text-sm">Юго-Западная</span>
+                </div>
+                <div class="flex items-center"><img class="size-4 mr-1" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">1,8 км</span></div>
+              </div>
+              <div class="flex items-center">
+                <div><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">6</span></div>
+                <div class="inline ml-3"><img class="inline h-4 w-4 ml-1" src="img/wifi.svg" alt="wifi"/><img class="inline h-4 w-4 ml-1" src="img/shower.svg" alt="shower"/><img class="inline h-4 w-4 ml-1" src="img/parking.svg" alt="parking"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-3"><img class="inline size-4 mr-1 opacity-50 saturate-50" src="img/warning.svg"/>
+            <div class="text-sm inline text-lab-black-50">Указана полная стоимость за 1,5 часа</div>
+          </div>
+          <div class="flex flex-wrap gap-2 grow"><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">11:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">12:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">13:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">14:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">15:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">16:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg animate-pulse" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">17:00</div>
+              <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">18:00</div>
+              <div class="text-lab-black-50 text-xs">1200&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg animate-pulse" href="pages/courts/rentConfirm.html">
+              <div class="font-semibold text-lab-color text-sm mb-1">19:00</div>
+              <div class="text-lab-black-50 text-xs">1200&#8202;₽</div></a>
+          </div>
+          <div class="flex items-center pt-4 mt-auto selectTable"><img class="size-6 mr-2" src="img/choose-table.svg"/>
+            <div class="text-sm text-lab-black-50 leading-none">Выбрать стол (опционально)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 px-4">
+      <div class="w-full bg-white rounded-xl shadow-md p-4 flex flex-col justify-between border">
+        <div class="flex gap-3 items-center"> <img class="size-24 object-cover rounded-md" src="dynamic-img/club-1.jpg" alt=""/>
+          <div class="w-full">
+            <div class="flex items-center mb-2"><img class="h-5 w-5 mr-2 rounded-sm" src="dynamic-img/naten-logo.png" alt="Logo"/>
+              <h2 class="text-base font-semibold">Naten-ЮГ</h2>
+            </div>
+            <div class="flex items-center text-sm mb-2"><span>4.4</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-lab-black-50 ml-2">12 отзывов</span></div>
+            <div class="flex items-center mb-1 gap-3 flex-wrap">
+              <div class="flex items-center">
+                <div class="bg-lab-red size-2 rounded-full mr-1 shrink-0"></div><span class="text-lab-black-50 leading-none text-sm">Юго-Западная</span>
+              </div>
+              <div class="flex items-center"><img class="size-4 mr-1" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">1,8 км</span></div>
+            </div>
+            <div class="flex items-center">
+              <div><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">6</span></div>
+              <div class="inline ml-3"><img class="inline h-4 w-4 ml-1" src="img/wifi.svg" alt="wifi"/><img class="inline h-4 w-4 ml-1" src="img/shower.svg" alt="shower"/><img class="inline h-4 w-4 ml-1" src="img/parking.svg" alt="parking"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-3"><img class="inline size-4 mr-1 opacity-50 saturate-50" src="img/warning.svg"/>
+          <div class="text-sm inline text-lab-black-50">Указана полная стоимость за 1,5 часа</div>
+        </div>
+        <div class="flex flex-wrap gap-2 grow"><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">11:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">12:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">13:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">14:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">15:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">16:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg animate-pulse" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">17:00</div>
+            <div class="text-lab-black-50 text-xs">1000&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">18:00</div>
+            <div class="text-lab-black-50 text-xs">1200&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg animate-pulse" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">19:00</div>
+            <div class="text-lab-black-50 text-xs">1200&#8202;₽</div></a>
+        </div>
+        <div class="flex items-center pt-4 mt-auto selectTable" id="card1"><img class="size-6 mr-2" src="img/choose-table.svg"/>
+          <div class="text-sm text-lab-black-50 leading-none">Выбрать стол (опционально)</div>
+        </div>
+      </div>
+      <div class="bg-white message-block p-4 rounded-lg flex justify-between border items-start text-lab-black gap-2 shadow-md"> 
+        <div class="text-sm">Мигающие слоты — последние доступные корты на указанное время. <span class="text-lab-red">Успейте забронировать!</span></div>
+        <button class="mt-0.5 delete-button leading-none text-lab-black-50" type="button" @click="removeElement">✕</button>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            deleteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                this.closest('.message-block').remove();
+            });
+            });
+        });
+      </script>
+      <div class="w-full bg-white rounded-xl shadow-md p-4 flex flex-col justify-between border">
+        <div class="flex gap-3 items-center"> <img class="size-24 object-cover rounded-md" src="dynamic-img/club-placeholder.svg" alt=""/>
+          <div class="w-full">
+            <div class="flex items-center mb-2">
+              <h2 class="text-base font-semibold">Naten-СЕВЕР</h2>
+            </div>
+            <div class="flex items-center text-sm mb-2"><span>4.2</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-lab-black-50 ml-2">8 отзывов</span></div>
+            <div class="flex items-center mb-1 gap-3 flex-wrap">
+              <div class="flex items-center">
+                <div class="bg-lab-black-30 size-2 rounded-full mr-1 shrink-0"></div><span class="text-lab-black-50 leading-none text-sm">Северная</span>
+              </div>
+              <div class="flex items-center"><img class="size-4 mr-1" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">2,5 км</span></div>
+            </div>
+            <div class="flex items-center">
+              <div><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">4</span></div>
+              <div class="inline ml-3"><img class="inline h-4 w-4 ml-1" src="img/wifi.svg" alt="wifi"/><img class="inline h-4 w-4 ml-1" src="img/parking.svg" alt="parking"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-3"><img class="inline size-4 mr-1 opacity-50 saturate-50" src="img/warning.svg"/>
+          <div class="text-sm inline text-lab-black-50">Указана полная стоимость за 1,5 часа</div>
+        </div>
+        <div class="flex flex-wrap gap-2 grow"><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">13:00</div>
+            <div class="text-lab-black-50 text-xs">550&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">14:00</div>
+            <div class="text-lab-black-50 text-xs">550&#8202;₽</div></a>
+        </div>
+        <div class="flex items-center pt-4 mt-auto selectTable" id="card2"><img class="size-6 mr-2" src="img/choose-table.svg"/>
+          <div class="text-sm text-lab-black-50 leading-none">Выбрать стол (опционально)</div>
+        </div>
+      </div>
+      <div class="w-full bg-white rounded-xl shadow-md p-4 flex flex-col justify-between border">
+        <div class="flex gap-3 items-center"> <img class="size-24 object-cover rounded-md" src="dynamic-img/club-placeholder.svg" alt=""/>
+          <div class="w-full">
+            <div class="flex items-center mb-2"><img class="h-5 w-5 mr-2 rounded-sm" src="dynamic-img/club-placeholder.svg" alt="Logo"/>
+              <h2 class="text-base font-semibold">Naten-ВОСТОК</h2>
+            </div>
+            <div class="flex items-center text-sm mb-2"><span>4.6</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-lab-black-50 ml-2">20 отзывов</span></div>
+            <div class="flex items-center mb-1 gap-3 flex-wrap">
+              <div class="flex items-center">
+                <div class="bg-lab-yellow size-2 rounded-full mr-1 shrink-0"></div><span class="text-lab-black-50 leading-none text-sm">Восточная</span>
+              </div>
+              <div class="flex items-center"><img class="size-4 mr-1" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">1,2 км</span></div>
+            </div>
+            <div class="flex items-center">
+              <div><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">8</span></div>
+              <div class="inline ml-3"><img class="inline h-4 w-4 ml-1" src="img/wifi.svg" alt="wifi"/><img class="inline h-4 w-4 ml-1" src="img/shower.svg" alt="shower"/><img class="inline h-4 w-4 ml-1" src="img/parking.svg" alt="parking"/><img class="inline h-4 w-4 ml-1" src="img/ac.svg" alt="ac"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-3"><img class="inline size-4 mr-1 opacity-50 saturate-50" src="img/warning.svg"/>
+          <div class="text-sm inline text-lab-black-50">Указана полная стоимость за 1,5 часа</div>
+        </div>
+        <div class="flex flex-wrap gap-2 grow"><a class="text-center w-14 h-12 py-1 border rounded-lg opacity-100" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">15:00</div>
+            <div class="text-lab-black-50 text-xs">600&#8202;₽</div></a><a class="text-center w-14 h-12 py-1 border rounded-lg animate-pulse" href="pages/courts/rentConfirm.html">
+            <div class="font-semibold text-lab-color text-sm mb-1">16:00</div>
+            <div class="text-lab-black-50 text-xs">600&#8202;₽</div></a>
+        </div>
+        <div class="flex items-center pt-4 mt-auto selectTable" id="card3"><img class="size-6 mr-2" src="img/choose-table.svg"/>
+          <div class="text-sm text-lab-black-50 leading-none">Выбрать стол (опционально)</div>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 text-center">
+      <p class="text-lab-black-50 text-sm">Нет клуба, в котором вы бы хотели бронировать корты? Выберите его из списка и мы отправим ваше пожелание владельцу клуба.</p>
+      <p class="text-lab-black-50 text-sm">Если клуба нет в списке, скорее всего он уже в нашей системе. </p>
+      <select class="block appearance-none border border-lab-black-30 p-2 rounded-lg mb-4 text-sm pr-10 max-w-sm leading-tight shadow-sm focus:outline-none focus:shadow-outline  mx-auto">
+        <option value="" disabled="disabled" selected="selected" hidden="hidden">Выберите клуб</option>
+        <option>Вариант 1</option>
+        <option>Вариант 2</option>
+        <option>Вариант 3</option>
+      </select>
+      <button class="w-full  bg-lab-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out" id="undefined" onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick="">Хочу бронировать через ЛАБ</button>
+      <div class="text-lab-green font-bold py-2">Ваше пожелание отправлено!</div>
+    </div>
+    <nav class="bg-white inset-x-0 fixed bottom-0 border-t z-10 pb-safe">
+      <div class="flex justify-between"><a class="flex-1 text-center py-1 w-1/6 leading-4 text-gray-500" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7" src="img/tabbar/tournaments.svg" alt="Турниры"/><span class="text-[10px] tracking-tighter text-nowrap">Турниры</span></a><a class="flex-1 text-center py-1 w-1/6 leading-4 text-gray-500" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7" src="img/tabbar/trainings.svg" alt="Тренировки"/><span class="text-[10px] tracking-tighter text-nowrap">Тренировки</span></a><a class="flex-1 text-center py-1 w-1/6 leading-4 text-gray-500" href="pages/courts/courts.html"><img class="mx-auto h-7 w-7" src="img/tabbar/courts-active.svg" alt="Корты"/><span class="text-[10px] tracking-tighter text-nowrap">Корты</span></a><a class="flex-1 text-center py-1 w-1/6 leading-4 text-gray-500" href="pages/players/players.html"><img class="mx-auto h-7 w-7" src="img/tabbar/players.svg" alt="Игроки"/><span class="text-[10px] tracking-tighter text-nowrap">Игроки</span></a><a class="flex-1 text-center py-1 w-1/6 leading-4 text-gray-500" href="pages/aroundgame/aroundgame.html"><img class="mx-auto h-7 w-7" src="img/tabbar/around-game.svg" alt="Вокруг игры"/><span class="text-[10px] tracking-tighter text-nowrap">Вокруг игры</span></a><a class="flex-1 text-center py-1 w-1/6 leading-4 text-gray-500" href="pages/market/market.html"><img class="mx-auto h-7 w-7" src="img/tabbar/market.svg" alt="Маркет"/><span class="text-[10px] tracking-tighter text-nowrap">Маркет</span></a>
+      </div>
+    </nav>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const selectButtons = document.querySelectorAll(".selectTable");
+          const selectCourt = document.getElementById('selectCourt');
+          const overlay = document.querySelector('.selectCourtOverlay');
+      
+          selectButtons.forEach(button => {
+              button.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  selectCourt.classList.toggle('hidden');
+              });
+          });
+      
+          overlay.addEventListener('click', function () {
+              selectCourt.classList.add('hidden');
+          });
+      });
+    </script>
+    <div class="selectCourtOverlay fixed hidden inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-30" id="selectCourt">
+      <div class="max-h-90 absolute h-90 bottom-0 left-0 right-0 w-full z-40 rounded-t-2xl overflow-hidden bg-white">
+        <div class="w-20 left-0 right-0 h-1 bg-lab-black-10 rounded-xl mx-auto mt-2 absolute"> </div>
+        <div class="px-4 pt-6 pb-4 overflow-y-scroll h-90">
+          <div class="flex flex-wrap items-center gap-x-4 justify-between">
+            <h2>Выберите корты и время игры</h2>
+            <div class="flex items-center mt-4 mb-3 flex-wrap gap-2"><img class="h-5 w-5 rounded-sm" src="dynamic-img/naten-logo.png" alt="Logo">
+              <h2 class="text-base font-semibold mr-2">Naten-ЮГ </h2>
+              <div class="flex items-center">
+                <div class="bg-lab-red size-2 rounded-full mr-1 shrink-0"> </div><span class="text-lab-black-50 leading-none text-sm inline">Юго-Западная</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-promo-background message-block p-4 rounded-lg flex justify-between border items-start text-lab-black gap-2 shadow-md"> 
+            <div class="text-sm">Кликните по ячейкам для выбора времени
+              <div class="mt-3">Цена указана за <strong>получасовые отрезки</strong>. Минимальная длительность игры — <strong>1 час</strong></div>
+            </div>
+            <button class="mt-0.5 delete-button leading-none text-lab-black-50" type="button" @click="removeElement">✕</button>
+          </div>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const deleteButtons = document.querySelectorAll('.delete-button');
+                deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    this.closest('.message-block').remove();
+                });
+                });
+            });
+          </script>
+          <div class="-mx-4">
+            <div class="flex justify-between items-center p-2">
+              <button class="size-8 text-left -ml-1"><img class="rotate-90 size-6" src="img/expand-arrow.svg" alt=""/></button><span class="text-lab-color font-bold">11 мая </span>
+              <button class="size-8 text-right -mr-2"><img class="-rotate-90 size-6" src="img/expand-arrow.svg" alt=""/></button>
+            </div>
+            <div class="w-full overflow-auto h-[55lvh] no-scrollbar">
+              <table class="table-fixed w-full text-lab-black">
+                <thead class="sticky top-0 bg-white z-20 h-10 mb-4">
+                  <tr>
+                    <th class="px-2 text-center text-xs sticky bg-white left-0 align-middle min-w-14 w-14 z-20">Корт</th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>1</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>2</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>3</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>4</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>5</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>6</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>7</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>8</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>9</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                    <th class="text-sm min-w-16 w-16 text-center align-middle sticky top-0 h-8 text-center">
+                      <div>10</div>
+                      <div class="text-xs font-normal text-lab-black-50 mt-1">Обычный</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="before:content-['@'] before:text-xxs before:block before:leading-none before:text-transparent">
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">09:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">09:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">10:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">10:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">11:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">11:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">12:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">12:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-green-100">600</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">13:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">13:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">14:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">14:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">15:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">15:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">16:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">16:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">17:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">17:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">18:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">18:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">19:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">19:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">20:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">20:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-red-100">1000</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">21:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">21:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">22:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">22:30</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                  <tr class="h-8 text-sm text-lab-black-50 text-xs">
+                    <td class="sticky left-0 text-center bg-white align-top w-14 min-w-14 text-lab-black-50">
+                      <div class="-mt-2.5 bg-white">23:00</div>
+                    </td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                    <td class="border border-slate-300 min-w-16 text-center w-16 z-10 align-middle bg-blue-100">800</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="fixed bottom-0 left-0 right-0 w-full z-40 p-4 rounded-t-2xl overflow-hidden bg-white drop-shadow-top pb-safe-16">
+          <h3 class="font-bold pb-2">Ваш выбор на 11 мая</h3>
+          <div class="flex justify-between gap-3 py-2 max-w-sm">
+            <div class="inline"><img class="inline align-middle saturate-50 opacity-50" src="img/time.svg" alt="Время"/><span class="inline align-middle leading-none ml-2">11:00-12:30</span></div>
+            <div> <img class="inline align-middle saturate-50 opacity-50" src="img/court.svg" alt="Корт"/><span class="inline align-middle ml-2">Корт 5</span></div>
+            <div> <img class="inline align-middle saturate-50 opacity-50" src="img/price.svg" alt="Цена"/><span class="inline align-middle ml-2">1800&#8202;₽</span></div>
+          </div>
+          <div class="flex justify-between gap-3 py-2 max-w-sm">
+            <div class="inline"><img class="inline align-middle saturate-50 opacity-50" src="img/time.svg" alt="Время"/><span class="inline align-middle leading-none ml-2">11:00-12:30</span></div>
+            <div> <img class="inline align-middle saturate-50 opacity-50" src="img/court.svg" alt="Корт"/><span class="inline align-middle ml-2">Корт 6</span></div>
+            <div> <img class="inline align-middle saturate-50 opacity-50" src="img/price.svg" alt="Цена"/><span class="inline align-middle ml-2">1800&#8202;₽</span></div>
+          </div>
+          <div class="flex justify-between gap-3 pt-4">
+            <div> 
+              <div class="text-lab-black-50 text-sm text-nowrap">Общая стоимость</div><span class="text-lab-color text-lg font-bold">1800&#8202;₽</span>
+            </div>
+            <button class="w-full max-w-[60%] bg-lab-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out" id="undefined" onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick="">Далее</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

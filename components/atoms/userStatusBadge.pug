@@ -1,0 +1,29 @@
+mixin userStatusBadge(type)
+  if type && type.trim() !== ''
+    -
+      let badgeColor = '';
+      switch(type.toLowerCase()) {
+        case 'админ':
+          badgeColor = 'bg-lab-red';
+          break;
+        case 'модератор':
+          badgeColor = 'bg-lab-color';
+          break;
+        case 'админ клуба':
+          badgeColor = 'bg-lab-green';
+          break;
+        case 'организатор':
+          badgeColor = 'bg-lab-blue';
+          break;
+        case 'тренер':
+          badgeColor = 'bg-lab-black';
+          break;
+        case 'фотограф':
+          badgeColor = 'bg-purple-500';
+          break;
+        case 'стрингер':
+          badgeColor = 'bg-lab-yellow';
+          break;
+      }
+    div(class=`${badgeColor} z-10 w-fit rounded px-1.5 py-0.5 text-xs font-medium text-white`)
+      | #{ type }

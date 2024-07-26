@@ -1,0 +1,100 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Инвентарь игроков
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +topBar
+    .p-4 
+        h1.pb-4 Инвентарь игроков
+        +searchAndFilterButton('Бренд, модель, имя игрока', true)
+    - 
+        const players = [
+          { name: "Иванов Иван", rating: 523, inventory: [{ category: "Ракетка", item: "Yonex Astrox 99" }, { category: "Струны", item: "Yonex BG65" }] },
+          { name: "Петров Петр", rating: 712, inventory: [{ category: "Ракетка", item: "Li-Ning Windstorm 72" }, { category: "Струны", item: "Yonex BG80" }, { category: "Обувь", item: "Yonex Power Cushion 65" }] },
+          { name: "Сидоров Сидор", rating: 489, inventory: [{ category: "Ракетка", item: "Victor Thruster K 9900" }] },
+          { name: "Кузнецов Алексей", rating: 658, inventory: [{ category: "Ракетка", item: "Babolat Satelite Gravity 74" }, { category: "Струны", item: "Yonex BG85" }, { category: "Обувь", item: "Yonex Eclipsion Z" }, { category: "Футболка", item: "Wilson Team" }] },
+          { name: "Смирнов Сергей", rating: 547, inventory: [{ category: "Обувь", item: "ASICS Gel-Rocket 10" }, { category: "Футболка", item: "Li-Ning Quick Dry" }] },
+          { name: "Васильев Василий", rating: 789, inventory: [{ category: "Ракетка", item: "Li-Ning Aeronaut 9000" }, { category: "Струны", item: "Yonex BG80" }, { category: "Обувь", item: "Yonex Aerus 3" }] },
+          { name: "Николаев Николай", rating: 821, inventory: [{ category: "Обувь", item: "Mizuno Wave Mirage 3" }, { category: "Футболка", item: "Adidas Club Polo" }] },
+          { name: "Федоров Федор", rating: 476, inventory: [{ category: "Ракетка", item: "Babolat X-Feel Essential" }, { category: "Струны", item: "Yonex BG85" }] },
+          { name: "Михайлов Михаил", rating: 623, inventory: [{ category: "Ракетка", item: "Yonex Voltric Z-Force II" }, { category: "Струны", item: "Yonex BG65" }, { category: "Обувь", item: "ASICS Gel-Tactic" }] },
+          { name: "Александров Александр", rating: 842, inventory: [{ category: "Ракетка", item: "Li-Ning N90-IV" }, { category: "Струны", item: "Yonex BG80" }, { category: "Обувь", item: "Yonex Power Cushion 88 Dial" }, { category: "Футболка", item: "Wilson Competition" }] }
+        ]
+
+
+    table(class="w-full border-collapse")
+      thead
+        tr.text-xs.text-center.text-lab-black-50.border-b 
+          th(class="px-3 py-1 text-left") Игрок
+          th(class="px-3 py-1 text-left font-normal") Рейтинг
+          th(class="hidden sm:table-cell px-3 py-1 text-left font-normal") Ракетка
+          th(class="hidden sm:table-cell px-3 py-1 text-left font-normal") Струны
+          th(class="hidden sm:table-cell px-3 py-1 text-left font-normal") Обувь
+          th(class="sm:hidden px-3 py-1 text-left font-normal") Инвентарь
+      tbody
+        each player in players
+          tr.text-lab-black.text-sm.bg-white.border-b
+            td(class="px-3 py-2 max-w-32")= player.name
+            td(class="px-3 py-2 ") 
+              +userRating(player.rating)
+            td(class="hidden sm:table-cell px-3 py-2 ")
+              - let racket = player.inventory.find(i => i.category === "Ракетка")
+              if racket
+                a(href="pages/market/product.html")= racket.item
+            td(class="hidden sm:table-cell  px-3 py-2 ")
+              - let strings = player.inventory.find(i => i.category === "Струны")
+              if strings
+                a(href="pages/market/product.html" )= strings.item
+            td(class="hidden sm:table-cell  px-3 py-2 ")
+              - let shoes = player.inventory.find(i => i.category === "Обувь")
+              if shoes
+                a(href="pages/market/product.html" )= shoes.item
+            
+            td(class="sm:hidden p-3")
+              ul
+                each item in player.inventory
+                  li
+                    span(class="text-lab-black-50")= item.category + ": "
+                    a(href="pages/market/product.html")= item.item
+    +tabBar('Маркет')

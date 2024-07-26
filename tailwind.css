@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+a {
+  cursor: pointer;
+  color: #178dae;
+  line-height: 1.25 !important;
+  /* display: block; */
+}
+
+.grid-rows-auto {
+  grid-auto-rows: minmax(50px, auto);
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.flex-container> :nth-child(3n + 1) {
+  order: 1;
+}
+
+/* колонка 1 */
+.flex-container> :nth-child(3n + 2) {
+  order: 2;
+}
+
+/* колонка 2 */
+.flex-container> :nth-child(3n + 3) {
+  order: 3;
+}
+
+/* колонка 3 */
+
+.flex-container> :nth-child(-n + 3) {
+  break-before: flex;
+  /* так должно быть по текущей спеке */
+  break-before: always;
+  /* так работает в Firefox, хотя не должно:) */
+}
+
+.fade-out {
+  @apply opacity-0 transition-opacity duration-500 ease-out;
+}
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    letter-spacing: -0.01em;
+    color: #213551;
+  }
+
+  body,
+  div,
+  span,
+  p {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  body h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  body h3 {
+    font-weight: 500;
+  }
+
+  body h1 {
+    font-size: 21px;
+    font-weight: bold;
+  }
+
+  p {
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+
+  select {
+    width: 100%;
+    border: 1px solid lab-black-10;
+    border-radius: 8px;
+    background-color: white;
+    padding: 8px 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('img/expand-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    font-size: 16px;
+  }
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pb-safe-extra-panel {
+    bottom: calc(3.3rem + env(safe-area-inset-bottom));
+  }
+
+  .pb-safe-16 {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}

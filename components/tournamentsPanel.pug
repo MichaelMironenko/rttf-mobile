@@ -1,0 +1,14 @@
+mixin tournamentsPanel(activeTab, mainPage)
+  - var tabs = ["Регистрация", "Live", "Результаты", "Календарь"]
+  - var images = ["img/registration.svg", "img/live.svg", "img/results.svg", "img/calendar.svg"]
+  - var tabIds = ["registration", "live", "results", "calendar"] // Добавлено для соответствия с ID контента
+  div(class="flex gap-5 justify-between px-3 text-sm leading-5 drop-shadow-xl whitespace-nowrap bg-white text-slate-900 text-opacity-50 z-20")
+    each tab, index in tabs
+      unless (mainPage && tab === "Календарь")
+        - var isActive = tab === activeTab
+        div(class=`tournaments-panel-tab inline-flex cursor-pointer gap-1 items-center justify-between py-2 ${isActive ? "font-bold border-t-2 border-t-transparent border-b-2 border-solid text-blue-950 border-lab-color" : ""}` data-tab=`${tabIds[index]}`)
+          img(src=images[index] class=`w-4 h-5 aspect-square ${tab === 'Live' ? 'animate-pulse' : ''}`)
+          if tab === 'Календарь'
+            div(class="grow hidden sm:block")= "Календарь турниров"
+          else
+            div(class="grow")= tab

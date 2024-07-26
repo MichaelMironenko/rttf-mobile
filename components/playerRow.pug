@@ -1,0 +1,68 @@
+mixin playerRow(players, showCoefficient, teamName, dateTime, medal)
+  - var colors = ['bg-lab-blue', 'bg-lab-green', 'bg-lab-red', 'bg-lab-purple', 'bg-lab-yellow']
+  - var randomColor = colors[Math.floor(Math.random() * colors.length)]
+
+  tr.text-sm(class="border-b border-lab-black-10")
+    if !showCoefficient
+      td
+        div.flex.items-center.shrink-0.w-5
+          div.relative.inline-block
+            span #{players[0].number}
+            if players[0].warning 
+              img(class="absolute -top-1 -right-3 w-3 h-3 max-w-none" src="img/player-warning.svg")
+            if players[0].byPhone 
+              img(class="absolute -top-1 -right-3 w-3 h-3 max-w-none" src="img/player-phone.svg")
+    td.py-2
+      div.flex.flex-col
+        if teamName
+          div.font-semibold.mb-1.leading-tight.text-lab-black #{teamName}
+        .flex.gap-2.items-center
+          .flex.flex-col.shrink-0.items-centerl(class="sm:flex-row flex-shrink-0")
+            each player, index in players
+              - var avatarClass = index > 0 ? '-mt-2' : ''
+              div(class=avatarClass class=index === 0 ? '' : "sm:mr-0 sm:mt-0 sm:-ml-2")
+                a(href="https://badminton4u.ru/players/" + player.id + "?type=d")
+                  +avatar(randomColor, player.firstName[0] + player.lastName[0], 28, player.avatar)
+
+          .block(class="sm:hidden")
+            each player in players
+              a(href="https://badminton4u.ru/players/" + player.id class="py-0.5").block
+                if players.length > 1
+                  span.text-lab-color #{player.firstName[0]}. #{player.lastName}
+                  span.text-xs.text-lab-color.h-4.ml-1 ★#{player.rating}
+                else
+                  | #{player.firstName + ' ' + player.lastName}
+          // Десктоп версия
+          .hidden(class="sm:block")
+            .flex.flex-row.gap-1
+              each player, index in players
+                div
+                  a(href="https://badminton4u.ru/players/" + player.id)
+                    if players.length > 1
+                      | #{player.firstName[0]}. #{player.lastName}
+                    else
+                      | #{player.firstName + ' ' + player.lastName}
+                    if index < players.length - 1
+                      | /
+    td.text-center
+      +userRating(players[0].rating, true)
+    
+    if dateTime && !showCoefficient
+      td.text-center.hidden(class="sm:table-cell text-lab-black-50") #{dateTime}
+
+   
+    
+    if showCoefficient
+      td.text-center
+        span.font-medium.leading-none.px-2 #{players[0].coefficient}
+      td
+        if medal
+          case medal
+            when 'gold'
+              img(src="img/medal-gold.svg" alt="Gold Medal" class="w-6 h-6 mx-auto")
+            when 'silver'
+              img(src="img/medal-silver.svg" alt="Silver Medal" class="w-6 h-6 mx-auto")
+            when 'bronze'
+              img(src="img/medal-bronze.svg" alt="Bronze Medal" class="w-6 h-6 mx-auto")
+        else
+            .rounded-full.border.border-lab-black-10.size-6.mx-auto

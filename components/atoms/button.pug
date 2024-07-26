@@ -1,0 +1,14 @@
+mixin button(text, variant="default", color, bgColor, extraClasses='', id, href='', imageText)
+  - const onClickAction = href ? `window.location.href='${href}'` : ''
+  if variant == 'default'
+    button(id=`${id}` class=`w-full ${extraClasses} ${bgColor} rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) #{text}
+  else if variant == 'text'
+    button(id=`${id}` class=`text-${color} bg-transparent ${extraClasses} transition-transform duration-150 ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) #{text}
+  else if variant == 'image'
+    button(id=`${id}` class=`${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) 
+      img(src=text)
+  else if variant == 'imageText'
+    button(id=`${id}` class=`${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) 
+      img.inline.align-middle(src=text)
+      span.inline.align-middle.ml-1.text-xs(class=`text-${color} xs:text-sm`)= imageText
+

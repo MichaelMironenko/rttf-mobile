@@ -1,0 +1,22 @@
+mixin userRating(rating, double, extraClasses)
+    div(class=`${extraClasses} items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center`)
+        if double 
+            //- При double=true отображаем две звезды, одна из которых сдвинута
+            img(src="img/rating-star-aqua.svg" class="h-3 w-3")
+            img(src="img/rating-star-aqua.svg" class="h-3 w-3 -ml-2")
+        else
+            //- При double=false отображаем одну звезду
+            img(src="img/rating-star-aqua.svg" class="h-3 w-3")
+        div(class="text-center text-lab-black text-xs font-semibold leading-none")= rating
+
+
+//- mixin userRating(rating, double)
+//-     div(class="w-12 h-5 bg-avatar-gradient rounded justify-center items-center gap-px inline-flex shrink-0")
+//-         if double 
+//-             //- При double=true отображаем две звезды, одна из которых сдвинута
+//-             img(src="img/rating-star.svg" class="h-3 w-3")
+//-             img(src="img/rating-star.svg" class="h-3 w-3 -ml-2")
+//-         else
+//-             //- При double=false отображаем одну звезду
+//-             img(src="img/rating-star.svg" class="h-3 w-3 mr-0.5")
+//-         div(class="text-center text-stone-50 text-xs font-semibold leading-none")= rating

@@ -1,0 +1,39 @@
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/comments.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/breadcrumbs.pug
+include /components/inputs/switch.pug
+include /components/atoms/sortButton.pug
+include /components/photoTiles.pug
+include /components/searchAndFilterButton.pug
+include /components/videoSlider
+include /components/poll.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Опросы
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+  base(href='../../')
+  body.bg-page-background.pb-16.pt-12
+    +topBar
+    .px-4.pt-4
+      .flex.items-center.justify-between.gap-3.pb-4
+        h1 Опросы
+        img.size-6(src='img/plus-button.svg' alt='')
+      +searchAndFilterButton('Название', '')
+      +switch('Только открытые')   
+      .grid.grid-cols-1.gap-4(class='sm:grid-cols-2 lg:grid-cols-3')
+        +poll('Вы знаете правила бадминтона?', [{text: 'Реально их прочитал(а) и раз в несколько лет перечитываю', percent: 36}, {text: 'Думаю, что знаю, потому что я давно играю', percent: 48}, {text: 'Я их не знаю, но знаю, что они есть', percent: 13}, {text: 'Я их не знаю, но знаю того, кто их знает и каждый раз спрашиваю', percent: 3}], false)
+        +poll('Какой формат игры в бадминтон предпочитаете?', [{text: 'Одиночные', percent: 30}, {text: 'Парные', percent: 45, selected: true}, {text: 'Командные', percent: 25}], 'poll1')
+        +poll('Любите ли вы играть в бадминтон зимой?', [{text: 'Да', percent: 20, selected: true}, {text: 'Нет', percent: 80}], 'poll2')
+        +poll('Лучший бренд ракеток для бадминтона?', [{text: 'Yonex', percent: 60, selected: true}, {text: 'Li-Ning', percent: 25}, {text: 'Victor', percent: 15}], 'poll3')
+        +poll('Вы знаете правила бадминтона?', [{text: 'Реально их прочитал(а) и раз в несколько лет перечитываю', percent: 36}, {text: 'Думаю, что знаю, потому что я давно играю', percent: 48}, {text: 'Я их не знаю, но знаю, что они есть', percent: 13}, {text: 'Я их не знаю, но знаю того, кто их знает и каждый раз спрашиваю', percent: 3}], false)
+        +poll('Какой формат игры в бадминтон предпочитаете?', [{text: 'Одиночные', percent: 30}, {text: 'Парные', percent: 45, selected: true}, {text: 'Командные', percent: 25}], 'poll1')
+        +poll('Любите ли вы играть в бадминтон зимой?', [{text: 'Да', percent: 20, selected: true}, {text: 'Нет', percent: 80}], 'poll2')
+        +poll('Лучший бренд ракеток для бадминтона?', [{text: 'Yonex', percent: 60, selected: true}, {text: 'Li-Ning', percent: 25}, {text: 'Victor', percent: 15}], 'poll3')
+      +tabBar('Вокруг игры')

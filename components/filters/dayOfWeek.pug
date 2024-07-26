@@ -1,0 +1,15 @@
+include filterButton.pug
+
+mixin dayOfWeek
+    .flex.flex-col
+        .flex.justify-between.p-4.pb-1.items-center
+            label.font-bold День недели
+            span.text-lab-color.text-sm Включить все
+        div.flex.p-4.justify-between.max-w-sm
+            +filterButton('Пн', true)
+            +filterButton('Вт', true)
+            +filterButton('Ср', true)
+            +filterButton('Чт', false)
+            +filterButton('Пт', true)
+            +filterButton('Сб', false)
+            +filterButton('Вс', false)

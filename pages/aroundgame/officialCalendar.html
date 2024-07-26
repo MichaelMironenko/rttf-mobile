@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь официальных турниров</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background py-12 pb-32">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="sticky top-12 w-screen border-b bg-white p-4 shadow-lg">
+      <h1 class="pb-4 leading-tight">Календарь официальных турниров</h1>
+      <div class="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4">
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const activeMonth = document.querySelector('.active-month')
+            if (activeMonth) {
+              const container = document.querySelector('.no-scrollbar')
+              container.scrollLeft = activeMonth.offsetLeft - container.offsetWidth / 2 + activeMonth.offsetWidth / 2
+            }
+            document.querySelectorAll('.july-button').forEach((button) => {
+              button.addEventListener('click', () => {
+                const eventsContainer = document.querySelector('#events-container')
+                const julyEvents = document.querySelector('#july-events')
+                const scrollPosition = julyEvents.offsetTop - eventsContainer.offsetTop + eventsContainer.scrollTop
+                console.log(julyEvents.offsetTop, eventsContainer.offsetTop)
+          
+                eventsContainer.scrollTo({
+                  top: julyEvents.offsetTop - eventsContainer.offsetTop,
+                  behavior: 'smooth',
+                })
+              })
+            })
+          })
+        </script>
+        <div class="flex-shrink-0"><span class="sticky left-0 z-10 py-2 text-sm text-lab-black-50">2020</span>
+          <div class="mt-2 flex gap-2">
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Январь">
+              <div class="text-xs text-lab-black">Январь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Февраль">
+              <div class="text-xs text-lab-black">Февраль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Март">
+              <div class="text-xs text-lab-black">Март</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Апрель">
+              <div class="text-xs text-lab-black">Апрель</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Май">
+              <div class="text-xs text-lab-black">Май</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Июнь">
+              <div class="text-xs text-lab-black">Июнь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10 july-button" data-month="Июль">
+              <div class="text-xs text-lab-black">Июль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Август">
+              <div class="text-xs text-lab-black">Август</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Сентябрь">
+              <div class="text-xs text-lab-black">Сентябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Октябрь">
+              <div class="text-xs text-lab-black">Октябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Ноябрь">
+              <div class="text-xs text-lab-black">Ноябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Декабрь">
+              <div class="text-xs text-lab-black">Декабрь</div>
+            </button>
+          </div>
+        </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 z-10 py-2 text-sm text-lab-black-50">2021</span>
+          <div class="mt-2 flex gap-2">
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Январь">
+              <div class="text-xs text-lab-black">Январь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Февраль">
+              <div class="text-xs text-lab-black">Февраль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Март">
+              <div class="text-xs text-lab-black">Март</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Апрель">
+              <div class="text-xs text-lab-black">Апрель</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Май">
+              <div class="text-xs text-lab-black">Май</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Июнь">
+              <div class="text-xs text-lab-black">Июнь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10 july-button" data-month="Июль">
+              <div class="text-xs text-lab-black">Июль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Август">
+              <div class="text-xs text-lab-black">Август</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Сентябрь">
+              <div class="text-xs text-lab-black">Сентябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Октябрь">
+              <div class="text-xs text-lab-black">Октябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Ноябрь">
+              <div class="text-xs text-lab-black">Ноябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Декабрь">
+              <div class="text-xs text-lab-black">Декабрь</div>
+            </button>
+          </div>
+        </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 z-10 py-2 text-sm text-lab-black-50">2022</span>
+          <div class="mt-2 flex gap-2">
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Январь">
+              <div class="text-xs text-lab-black">Январь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Февраль">
+              <div class="text-xs text-lab-black">Февраль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Март">
+              <div class="text-xs text-lab-black">Март</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Апрель">
+              <div class="text-xs text-lab-black">Апрель</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Май">
+              <div class="text-xs text-lab-black">Май</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Июнь">
+              <div class="text-xs text-lab-black">Июнь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10 july-button" data-month="Июль">
+              <div class="text-xs text-lab-black">Июль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Август">
+              <div class="text-xs text-lab-black">Август</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Сентябрь">
+              <div class="text-xs text-lab-black">Сентябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Октябрь">
+              <div class="text-xs text-lab-black">Октябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Ноябрь">
+              <div class="text-xs text-lab-black">Ноябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Декабрь">
+              <div class="text-xs text-lab-black">Декабрь</div>
+            </button>
+          </div>
+        </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 z-10 py-2 text-sm text-lab-black-50">2023</span>
+          <div class="mt-2 flex gap-2">
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Январь">
+              <div class="text-xs text-lab-black">Январь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Февраль">
+              <div class="text-xs text-lab-black">Февраль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Март">
+              <div class="text-xs text-lab-black">Март</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Апрель">
+              <div class="text-xs text-lab-black">Апрель</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Май">
+              <div class="text-xs text-lab-black">Май</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Июнь">
+              <div class="text-xs text-lab-black">Июнь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10 july-button" data-month="Июль">
+              <div class="text-xs text-lab-black">Июль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Август">
+              <div class="text-xs text-lab-black">Август</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Сентябрь">
+              <div class="text-xs text-lab-black">Сентябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Октябрь">
+              <div class="text-xs text-lab-black">Октябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Ноябрь">
+              <div class="text-xs text-lab-black">Ноябрь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Декабрь">
+              <div class="text-xs text-lab-black">Декабрь</div>
+            </button>
+          </div>
+        </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 z-10 py-2 text-sm text-lab-black-50">2024</span>
+          <div class="mt-2 flex gap-2">
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Январь">
+              <div class="text-xs text-lab-black">Январь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Февраль">
+              <div class="text-xs text-lab-black">Февраль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Март">
+              <div class="text-xs text-lab-black">Март</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Апрель">
+              <div class="text-xs text-lab-black">Апрель</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Май">
+              <div class="text-xs text-lab-black">Май</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color active-month" data-month="Июнь">
+              <div class="text-xs text-white">Июнь</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10 july-button" data-month="Июль">
+              <div class="text-xs text-lab-black">Июль</div>
+            </button>
+            <button class="flex flex-col items-center justify-center rounded-lg p-2 bg-lab-color-10" data-month="Август">
+              <div class="text-xs text-lab-black">Август</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="no-scrollbar max-h-screen w-full overflow-y-auto bg-white p-4" id="events-container">
+      <h2 class="pb-2 pt-2">Июнь 2024</h2>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">1–4 июня</div><img class="mx-auto mt-2 size-6" src="img/euro.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Danish Junior Cup 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Дания, Видовре</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">2-4 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Чемпионат Крыма среди ветеранов 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Евпатория, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">4–6 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Самарское лето 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Самара, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">8–11 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Чемпионат России среди ветеранов 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Евпатория, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">10–13 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Белые ночи 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Гатчина, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <table class="hidden w-full sm:table">
+        <thead class="border-b text-sm text-lab-black-50">
+          <tr>
+            <th class="p-2 text-left font-semibold">Дата</th>
+            <th class="px-2 text-left font-semibold">Название</th>
+            <th class="px-2 text-left font-semibold">Место</th>
+            <th class="px-2 text-left text-center font-semibold">Организатор</th>
+            <th class="px-2 text-center font-semibold">Уровень</th>
+          </tr>
+        </thead>
+        <tbody class="text-lab-black">
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">1–4 июня</td>
+            <td class="px-2">Danish Junior Cup 2023</td>
+            <td class="px-2">Дания, Видовре</td>
+            <td class="px-2 text-center">Badminton Europe</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">2-4 июня</td>
+            <td class="px-2">Чемпионат Крыма среди ветеранов 2023</td>
+            <td class="px-2">Евпатория, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">4–6 июня</td>
+            <td class="px-2">Самарское лето 2023</td>
+            <td class="px-2">Самара, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">8–11 июня</td>
+            <td class="px-2">Чемпионат России среди ветеранов 2023</td>
+            <td class="px-2">Евпатория, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">10–13 июня</td>
+            <td class="px-2">Белые ночи 2023</td>
+            <td class="px-2">Гатчина, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="pb-2 pt-4" id="july-events">Июль 2024</h2>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">1–4 июня</div><img class="mx-auto mt-2 size-6" src="img/euro.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Danish Junior Cup 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Дания, Видовре</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">2-4 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Чемпионат Крыма среди ветеранов 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Евпатория, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">4–6 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Самарское лето 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Самара, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">8–11 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Чемпионат России среди ветеранов 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Евпатория, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-4 rounded-lg border-b pb-2 last:border-b-0 last:pb-0 sm:hidden">
+        <div class="w-20 shrink-0 text-center">
+          <div class="whitespace-nowrap text-sm text-lab-black">10–13 июня</div><img class="mx-auto mt-2 size-6" src="img/nfbr.png" alt="logo">
+        </div>
+        <div class="grow items-center">
+          <h3 class="text-sm font-bold">Белые ночи 2023</h3>
+          <div class="pb-2 pt-1 text-sm text-lab-black-50">Гатчина, Россия</div>
+          <div class="w-fit rounded bg-lab-color-10 px-1 text-xs text-lab-black">U17</div>
+        </div>
+      </div>
+      <table class="hidden w-full sm:table">
+        <thead class="border-b text-sm text-lab-black-50">
+          <tr>
+            <th class="p-2 text-left font-semibold">Дата</th>
+            <th class="px-2 text-left font-semibold">Название</th>
+            <th class="px-2 text-left font-semibold">Место</th>
+            <th class="px-2 text-left text-center font-semibold">Организатор</th>
+            <th class="px-2 text-center font-semibold">Уровень</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">1–4 июня</td>
+            <td class="px-2">Danish Junior Cup 2023</td>
+            <td class="px-2">Дания, Видовре</td>
+            <td class="px-2 text-center">Badminton Europe</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">2-4 июня</td>
+            <td class="px-2">Чемпионат Крыма среди ветеранов 2023</td>
+            <td class="px-2">Евпатория, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">4–6 июня</td>
+            <td class="px-2">Самарское лето 2023</td>
+            <td class="px-2">Самара, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">8–11 июня</td>
+            <td class="px-2">Чемпионат России среди ветеранов 2023</td>
+            <td class="px-2">Евпатория, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+          <tr class="border-b text-sm last:border-b-0">
+            <td class="whitespace-nowrap p-2 text-lab-black">10–13 июня</td>
+            <td class="px-2">Белые ночи 2023</td>
+            <td class="px-2">Гатчина, Россия</td>
+            <td class="px-2 text-center">НФБР</td>
+            <td class="px-2 text-center">U17 </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tournaments.svg" alt="Турниры"/><span class=" text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt="Тренировки"/><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/courts/courts.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/courts.svg" alt="Корты"/><span class=" text-nowrap text-[10px] tracking-tighter">Корты</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt="Игроки"/><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7" src="img/tabbar/around-game-active.svg" alt="Вокруг игры"/><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/market.svg" alt="Маркет"/><span class=" text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+include /components/atoms/date.pug
+include /components/atoms/button.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/inputs/textarea.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+include /components/actionMenu.pug
+include /components/filters/filterButtonsRow.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Мои темы на форуме
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-white.pt-12.pb-32
+        +topBar
+
+        h1.text-lg.p-4 Мои темы на форуме
+        +searchAndFilterButton('Текст темы', false, 'px-4')
+       
+        +filterButtonsRow([
+                { label: '2024', active: true},
+                { label: '2023', active: false},
+                { label: '2022', active: false},
+                { label: '2021', active: false},
+                { label: '2020', active: false},
+            ], true, 'py-4')
+
+        .p-4.bg-white.border-t
+            h3.font-semibold Чемпионат мира среди смешанных команд в разгаре
+            .flex.items-center.gap-3.mt-2
+                span.text-xs.px-1(class="py-0.5").border.border-lab-yellow.rounded.text-lab-yellow.font-semibold Новости 
+                span.text-xs.text-lab-black-50 Сегодня в 11:00
+                img(src="img/comment-outlined.svg").h-4.saturate-50.opacity-70
+                span.text-xs.text-lab-black-50.-ml-2 32
+
+        .p-4.bg-white.border-t
+            h3.font-semibold Вы смотрите на рейтинг своего соперника перед игрой?
+            .flex.items-center.gap-3.mt-2
+                span.text-xs.px-1(class="py-0.5").border.border-lab-blue.rounded.text-lab-blue.font-semibold Опрос 
+                span.text-xs.text-lab-black-50 Сегодня в 11:00
+                img(src="img/comment-outlined.svg").h-4.saturate-50.opacity-70
+                span.text-xs.text-lab-black-50.-ml-2 32/#[span.font-semibold 5]
+        +tabBar

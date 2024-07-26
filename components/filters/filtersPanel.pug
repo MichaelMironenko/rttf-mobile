@@ -1,0 +1,26 @@
+include /components/filters/ratingFilter.pug
+include /components/filters/tournamentType.pug
+include /components/filters/dayOfWeek.pug
+include /components/filters/tags.pug
+include /components/atoms/button.pug
+
+mixin filtersPanel(hidden)
+  .filters-panel(class=hidden ? 'hidden' : '')
+    .fixed.inset-0.z-20.bg-gray-900.bg-opacity-50.backdrop-blur-sm
+    .absolute.bottom-0.left-0.z-30.flex.max-h-90.w-full.flex-col.rounded-t-2xl.bg-white
+      .pb-2
+      .relative.mx-auto.mt-2.h-1.w-20.rounded-xl.bg-slate-200
+      .no-scrollbar.flex-1.overflow-y-auto.scroll-smooth
+      block
+      .w-full.p-4.text-center
+        +button('Применить', 'default', 'white', 'bg-lab-color')
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const backdrop = document.querySelector('.backdrop-blur-sm')
+        const filtersPanel = document.querySelector('.filters-panel')
+
+        backdrop.addEventListener('click', function () {
+          filtersPanel.classList.add('hidden')
+        })
+      })

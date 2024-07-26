@@ -1,0 +1,99 @@
+include /components/atoms/button.pug
+include /components/atoms/stepper.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/modal.pug
+include /components/rentCourt.pug
+include /components/rentCard.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/editLabel.pug
+include /components/selectedCourts.pug
+include /components/bottomPanel.pug
+include /components/bookingData.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Бронирование №123456
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-white.mt-12.pb-32
+        +topBar
+        .p-4
+            div.text-lg.text-center.grow.font-bold.text-lab-black.pb-4 Бронирование №123456 
+            +bookingData(false)
+            .flex.justify-between.pb-4.pt-4.border-t
+                span Аренда кортов
+                span 1400&#8202;₽
+            .flex.justify-between.pb-4
+                span Аренда ракеток
+                span 600&#8202;₽
+            .flex.justify-between.font-bold.pb-4.items-center
+                span.grow Итого
+                span 2000&#8202;₽
+            .flex.justify-between.pb-2.items-center
+                span.grow Статус
+                div.py-1.px-2.bg-lab-green.text-white.text-sm.rounded-md.font-semibold Оплачено
+            
+            
+            .flex.flex-col.gap-2.pt-4.pb-2.border-t
+                h2 Naten-ЮГ
+                span г. Красногорск, ул Парковая, д. 8А
+                div
+                    img(src="img/D1.svg").w-7.inline.align-middle 
+                    span.w-7.inline.align-middle.ml-2.text-lab-black-50 Красногорская
+                div 
+                    img(src="img/phone.svg", alt="Телефон").inline.align-middle 
+                    a.ml-2.inline.align-middle(href="tel: +71234567890")  +7 (123) 456-78-90
+                img(src="dynamic-img/map.png", alt="").pb-2
+
+            .flex.flex-col.gap-2.pt-4.pb-2
+                h2.pb-2 Как добраться?
+                h3.font-bold На автомобиле
+                p.pt-0 Ехать из Москвы по Волоколамскому шоссе (в Красногорске - это улица Ленина), повернуть направо на ул. Народного Ополчения. На втором перекрестке повернуть направо и затем налево 100 метров до здания World’s Gym.
+                h3.font-bold На общественном транспорте
+                p.pt-0 От станции D2 Красногорская на маршрутках 3к, 15к, 4к до остановки “Улица Народного Ополчения”. От остановки повернуть направо, на ул. Народного Ополчения. На втором перекрестке повернуть направо и затем налево 100 метров до здания World’s Gym.
+
+            h2.py-4 Условия отмены
+            .flex.justify-between.pb-4.gap-2
+                span Более 24 часов до игры
+                .div.border-b-2.grow.mb-1.border-dotted
+                span.text-right Возврат 100%
+            .flex.justify-between.pb-4.gap-2
+                span 12-24 часов
+                .div.border-b-2.grow.mb-1.border-dotted
+                span.text-right Возврат 50%
+            .flex.justify-between.gap-2.pb-6
+                span Менее 12 часов
+                .div.border-b-2.grow.mb-1.border-dotted
+                span.text-lab-red.text-right Оплата не возвращается
+            +button('Отменить бронирование', 'default', 'white', 'bg-lab-red','', 'cancelBooking')
+        +modal('Отменить бронирование?', [
+            {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-lab-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'}
+        ], "modal-delete", true)
+            span До игры осталось менее 24 часов, будет возвращено 50% стоимости
+
+        script.
+            document.addEventListener('DOMContentLoaded', function() {
+                const openModalButton = document.getElementById('cancelBooking');
+                const modal = document.getElementById('modal-delete-template');
+                openModalButton.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                });
+
+                const closeButton = document.querySelector('.close-modal');
+                closeButton?.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+
+                modal.addEventListener('click', function(event) {
+                    if (event.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+        +tabBar

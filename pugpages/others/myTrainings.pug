@@ -1,0 +1,69 @@
+include /components/atoms/date.pug
+include /components/atoms/tag.pug
+include /components/atoms/button.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/inputs/textarea.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+include /components/actionMenu.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filtersPanelButton.pug
+include /components/trainingLine.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Мои тренировки
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-white.pt-12.pb-32
+        +topBar
+
+        .flex.gap-4.justify-between.p-4
+            h1.text-lg Мои тренировки
+            +filtersPanelButton
+        div.flex.flex-wrap.gap-2.px-4.pb-4
+            +tag('slate-100', 'lab-black', 'Славнова А.')
+            +tag('slate-100', 'lab-black', 'Space Химки')
+        +filterButtonsRow([
+                { label: '2024', active: true},
+                { label: '2023', active: false},
+                { label: '2022', active: false},
+                { label: '2021', active: false},
+                { label: '2020', active: false},
+            ], true, 'pb-4')
+
+        -
+            const trainings = [
+                { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-lab-green', img: '', players: '5/10' },
+                { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-lab-blue', img: '', players: '5/10' },
+                { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-lab-green', img: '', players: '5/10' },
+                { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+            ];
+            
+            
+        each training in trainings
+            +trainingLine({
+                time: training.time,
+                duration: training.duration + ' ч',
+                title: training.title,
+                initials: training.initials,
+                trainerName: training.trainerName,
+                club: training.club,
+                color: training.color,
+                img: training.img,
+                players: training.players
+            })
+        
+        +tabBar

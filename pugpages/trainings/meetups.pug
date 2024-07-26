@@ -1,0 +1,119 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/atoms/button.pug
+include /components/modal.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Календарь сборов
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    .sticky.top-12.w-screen.border-b.bg-white.p-4.shadow-lg
+      h1.pb-4.leading-tight Календарь сборов
+
+      .no-scrollbar.-mx-4.flex.gap-2.overflow-x-auto.px-4
+        - var years = ['2020', '2021', '2022', '2023', '2024']
+        - var months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+        script.
+          document.addEventListener('DOMContentLoaded', () => {
+            const activeMonth = document.querySelector('.active-month')
+            if (activeMonth) {
+              const container = document.querySelector('.no-scrollbar')
+              container.scrollLeft = activeMonth.offsetLeft - container.offsetWidth / 2 + activeMonth.offsetWidth / 2
+            }
+            document.querySelectorAll('.july-button').forEach((button) => {
+              button.addEventListener('click', () => {
+                const meetupsContainer = document.querySelector('#meetups-container')
+                const julymeetups = document.querySelector('#july-meetups')
+                const scrollPosition = julymeetups.offsetTop - meetupsContainer.offsetTop + meetupsContainer.scrollTop
+                console.log(julymeetups.offsetTop, meetupsContainer.offsetTop)
+
+                meetupsContainer.scrollTo({
+                  top: julymeetups.offsetTop - meetupsContainer.offsetTop,
+                  behavior: 'smooth',
+                })
+              })
+            })
+          })
+        each year in years
+          .flex-shrink-0
+            span.sticky.left-0.z-10.py-2.text-sm.text-lab-black-50= year
+            .mt-2.flex.gap-2
+              - var displayMonths = year === '2024' ? months.slice(0, 8) : months
+              each month in displayMonths
+                - var isActive = month === 'Июнь' && year === '2024'
+                button.flex.flex-col.items-center.justify-center.rounded-lg.p-2(
+                  class=[isActive ? 'bg-lab-color active-month' : 'bg-lab-color-10'],
+                  class=month === 'Июль' ? 'july-button' : '',
+                  data-month=month
+                )
+                  div(class=isActive ? 'text-xs text-white' : 'text-xs text-lab-black')= month
+
+        - 
+            var meetups = [
+                { title: "Летний интенсив", img: 'camp1.png', dates: "18–22 июля", location: "Пансионат 'Клязьма', г. Мытищи", price: "от 4500₽ / сутки", coaches: "МС Ларченко Елена (★710), КМС Игошин Сергей (★879)", organizer: "NATEN, Ларченко Елена", slots: "8 / 20" },
+                { title: "Сборы в Светлогорске с Андреем Дегтярёвым", img: 'camp2.png', dates: "19 июня –2 июля", location: "Яблоневая ул., 13, Светлогорск", price: "12000/чел", coaches: "Дегтярев Андрей (★957)", organizer: "Бадминтонный клуб Янтарный волан", slots: "8 / 20" },
+                { title: "Летние сборы в Сукко", img: 'camp3.png', dates: "24 июня – 14 июля", location: "дер. Сукко", price: "4150/день", coaches: "Новоселов Вадим (★1000), Сухов Иван (★683), Бакланов Михаил (★301)", organizer: "Бадминтонный клуб Красногорск, ЛАБ", slots: "2 / 14" }
+            ]
+
+    #meetups-container.no-scrollbar.max-h-screen.w-full.overflow-y-auto.bg-white
+        each meetup in meetups
+            div.p-4.flex.items-center.justify-between.gap-4.rounded-lg.border-b(
+            class='last:border-b-0 last:pb-0 sm:hidden'
+            )
+                div.w-32.shrink-0.text-center.rounded.overflow-hidden
+                    img.mx-auto(src=`dynamic-img/${meetup.img}`, alt='logo')
+                div.grow.items-center
+                    div.w-fit.text-sm.text-lab-black-50.py-1 #{meetup.dates}
+                    h3.font-bold #{meetup.title}
+                    
+                    .flex.items-center.gap-2.py-1 
+                        img(src="img/price.svg", alt="").size-4.opacity-50.saturate-50
+                        div.text-sm.text-lab-black-50 #{meetup.price}
+                    .flex.items-center.gap-2.py-1
+                        img(src="img/player.svg", alt="").size-4.opacity-50.saturate-50
+                        div.text-sm.text-lab-black-50 #{meetup.slots}
+
+        table.hidden.w-full(class="sm:table").mt-4
+            thead.border-b.text-sm.text-lab-black-50
+                tr
+                    th.px-4.text-left.font-semibold Даты
+                    th.p-2.text-left.font-semibold Название
+                    th.px-2.text-left.font-semibold Место
+                    th.px-2.text-left.font-semibold Цена
+                    th.px-2.text-center.font-semibold Тренеры
+                    th.px-2.text-center.font-semibold Организатор
+                    th.px-2.text-center.font-semibold Участвуют
+            tbody.text-lab-black
+                each meetup in meetups
+                    tr.border-b.text-sm(class='last:border-b-0')
+                        td.whitespace-nowrap.p-4.text-lab-black #{meetup.dates}
+                        td.p-2 #{meetup.title}
+                        td.p-2 #{meetup.location}
+                        td.p-2 #{meetup.price}
+                        td.p-2.text-center #{meetup.coaches}
+                        td.p-2.text-center #{meetup.organizer}
+                        td.p-2.text-center #{meetup.slots}
+    +tabBar('Вокруг игры')

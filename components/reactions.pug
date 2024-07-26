@@ -1,0 +1,17 @@
+mixin reactions(reactions, activeIndex)
+  .flex.flex-wrap.gap-2
+    if reactions
+      each reaction, index in reactions
+        if reaction.count !== 0
+          - const isActive = index === activeIndex
+          - const reactionClass = isActive ? 'bg-lab-color !text-white' : 'bg-slate-100 text-lab-black'
+          - const showCounter = reaction.count > 1 || isActive
+          div(
+            class=`${reactionClass} my-2 inline-flex h-[30px] cursor-pointer items-center rounded-full px-2 py-1.5 text-xs leading-none`,
+            role='button',
+            tabindex='0'
+          )
+            | #{ reaction.emoji }
+            if showCounter
+              .text-sm(class='px-1.5 py-0.5')
+                | #{ reaction.count }

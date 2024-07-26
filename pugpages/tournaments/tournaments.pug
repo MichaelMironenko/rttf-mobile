@@ -1,0 +1,103 @@
+include /components/tournamentRegCard.pug
+include /components/timezoneMessage.pug
+include /components/tournamentsPanel.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/atoms/date.pug
+include /components/atoms/citySelect.pug
+include /components/tournamentLiveCard.pug
+include /components/searchAndFilterButton.pug
+include /components/atoms/tag.pug
+include /components/tournamentResultCard.pug
+include /components/compactCalendar.pug
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Турниры
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.h-screen.overflow-hidden
+    +topBar
+    .fixed.inset-x-0(class='top-[49px]')
+      // +timezoneMessage
+      // Панель сообщения о другом часовом поясе
+      //  <div class="w-full h-14 px-3 py-2 bg-amber-100 border-blue-950 border-opacity-10 justify-start items-center gap-2 inline-flex">
+        <div class="w-4 h-4 justify-center shrink-0 items-center flex"><img class="w-4 h-4" src="img/warning.svg" alt="Предупреждение"/></div>
+        <div class="grow shrink text-blue-950 text-xxs leading-3">Время турниров и тренировок показывается в часовом поясе региона <span class="font-bold">Нижний Новгород</span></div>
+        <div class="px-2 py-1 rounded border border-blue-950 border-opacity-10 justify-start items-center gap-2 flex">
+          <div class="text-blue-950 text-xxs  leading-3">Местное время</div>
+          <div class="flex-col justify-center items-center inline-flex">
+            <div class="text-center text-lab-color text-xs font-bold">10:41</div>
+            <div class="text-center text-slate-900 text-opacity-50 text-xxs leading-none">(UTC+4)</div>
+          </div>
+        </div>
+        </div>
+      +tournamentsPanel("Регистрация")
+    .fixed.left-0.top-0.min-h-screen.w-full.bg-page-background(class='z-[-1]')
+    .no-scrollbar.h-screen.overflow-y-auto
+      #registration.tab-content.p-4(class='pb-[50px] pt-[104px]')
+        +citySelect(true)
+        .flex.flex-col.items-center
+          +date("Вторник, 25 ноября")
+          +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
+          +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+          +date("Четверг, 27 ноября")
+          +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
+      #live.tab-content.hidden.p-4(, class='pb-[50px] pt-[104px]')
+        .flex.flex-col.items-center
+          +tournamentLiveCard('11:30', 'A', '12', '2', true, true, 'Майский фестиваль Микстов в Сколково')
+          +tournamentLiveCard('11:30', 'B', '12', '0', false, true, 'Турнир Ленинского района')
+          +tournamentLiveCard('11:30', 'C', '24', '11', false, false, "Khimki BC. Men's Day")
+      #results.tab-content.hidden.p-4(, class='pb-[50px] pt-[104px]')
+        +searchAndFilterButton('Город, клуб, фамилия', true)
+        .flex.flex-wrap.gap-2.pt-4
+          +tag('slate-200', 'lab-black', 'Рейтинг 200-400')
+          +tag('slate-200', 'lab-black', 'Санкт-Петербург')
+          +tag('slate-200', 'lab-black', 'Space Химки')
+          +date("Вторник, 25 ноября")
+        .flex.flex-wrap.justify-center.gap-2
+          +tournamentResultCard('11:30', 'XDF', 'Сколково', 12, 2)
+          +tournamentResultCard('11:30', 'XDB', 'Сколково', 10, 0)
+          +tournamentResultCard('11:30', 'XDC', 'Сколково', 22, 1)
+
+      #calendar.tab-content.hidden.bg-white(, class='pb-[50px] pt-[88px]')
+        .p-4
+          +searchAndFilterButton('Город, клуб, фамилия', true) 
+          .flex.flex-wrap.gap-2.pt-4
+            +tag('slate-100', 'lab-black', 'Рейтинг 200-400')
+            +tag('slate-100', 'lab-black', 'Санкт-Петербург')
+            +tag('slate-100', 'lab-black', 'Space Химки')
+        +compactCalendar
+        .z-1.flex.flex-col.items-center.bg-page-background.p-4
+          +date("Воскресенье, 20 ноября")
+          +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
+          +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+          +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+          +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
+    +tabBar('Турниры')
+    script.
+      document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {
+        tab.addEventListener('click', function () {
+          let activeTab = this.getAttribute('data-tab')
+
+          // Скрываем все контенты
+          document.querySelectorAll('.tab-content').forEach((content) => {
+            content.classList.add('hidden')
+          })
+
+          // Показываем контент активной вкладки
+          document.getElementById(activeTab).classList.remove('hidden')
+
+          // Удаляем класс active-tab у всех вкладок
+          document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {
+            tab.classList.remove('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-lab-color')
+          })
+
+          // Добавляем класс active-tab к активной вкладке
+          this.classList.add('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-lab-color')
+        })
+      })

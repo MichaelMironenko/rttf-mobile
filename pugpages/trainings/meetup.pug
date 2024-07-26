@@ -1,0 +1,142 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/bookmark.pug
+include /components/atoms/ratingLimit.pug
+include /components/atoms/button.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/bet.pug
+include /components/gameResult.pug
+include /components/block.pug
+include /components/videoSlider.pug
+include /components/photoSlider.pug
+include /components/playerRow.pug
+include /components/comments.pug
+include /components/adminBar.pug
+include /components/tournamentResultsTable.pug
+include /components/filters/filterButtonsRow.pug
+include /components/modal.pug
+include /components/registrationProcessPanel.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Летний интенсив
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32.p-2
+        +topBar
+
+       
+
+        div.p-4.bg-white.rounded-lg.mb-3
+            .flex.justify-between.gap-3.items-center
+                h1.text-lg.text-center.ml-6.leading-6.text-lab-black.flex-grow.font-semibold Летний интенсив
+                +bookmark(false)
+            img(src="dynamic-img/camp1.png", alt="").w-full.pt-4
+            div.grid.grid-cols-1.gap-6.mt-6(class="text-[15px] sm:grid-cols-2")
+                .flex.gap-2.justify-between.items-center
+                    div.flex.flex-col.gap-3
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/calendar.svg' alt='Дата')
+                            span 18–22 июля 2024 г.
+
+                        .flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/price.svg' alt='Цена')
+                            span от 4500₽ / сутки
+
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/player.svg' alt='Игроки')
+                            span 3/16
+                    
+
+                div.grid.grid-cols-1(class="xs:grid-cols-2").gap-4
+                    div.flex.flex-col.gap-2.text-sm
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/administrator.svg' alt='Клуб')
+                            a(href="") NATEN, Ларченко Елена
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/location-icon.svg' alt='Адрес')
+                            span Пансионат 'Клязьма', г. Мытищи
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/phone.svg' alt='Контакты')
+                            a(href="tel:79262004022") +7-926-200-40-22
+                    div.h-full.max-h-40
+                        img(src="dynamic-img/map.png" class="object-cover h-full w-full")
+
+
+
+            +button('Регистрация', 'default', 'white', 'bg-avatar-gradient grow my-4', '', 'registerButton') 
+            +button('Оплатить', 'default', 'white', 'bg-avatar-gradient grow', '', 'registerButton') 
+                    
+
+                
+                div.flex.flex-grow.justify-between.items-center.gap-2
+                    .inline-flex.gap-2
+                        img.w-5.aspect-square.shrink-0(src='img/checkmark.svg' alt='Галочка')
+                        span Вы зарегистрированы
+                    +button('Отменить', "text", 'lab-red', 'bg-lab-color')
+
+                div.w-full.text-center.bg-avatar-gradient.bg-clip-text.text-transparent.mb-4
+                    div Регистрация откроется 
+                    div.font-bold 12 сентября в 13:00
+
+        +block('Информация о сборах')
+            +filterButtonsRow([
+                    { label: 'Общая информация', active: true},
+                    { label: 'Программа', active: false},
+                    { label: 'Тренеры', active: false},
+                ], '')
+            p.mt-4 Информация о сборах
+
+        +block('Зарегистрированные участники')
+            div(class="-ml-4 -mr-4")
+                   
+                - 
+                    var players = [
+                        { "firstName": "Алексей", "lastName": "Николаев", "rating": 945, "paymentStatus": "Оплачено", "regNumber": 1, "regDate": "2023-01-01 10:00" },
+                        { "firstName": "Михаил", "lastName": "Дмитриев", "rating": 876, "paymentStatus": "Оплачено", "regNumber": 2, "regDate": "2023-01-02 11:00" },
+                        { "firstName": "Егор", "lastName": "Иванов", "rating": 789, "paymentStatus": "Не оплачено", "regNumber": 3, "regDate": "2023-01-03 12:00" },
+                        { "firstName": "Антон", "lastName": "Петров", "rating": 654, "paymentStatus": "Не оплачено", "regNumber": 4, "regDate": "2023-01-04 13:00" },
+                        { "firstName": "Денис", "lastName": "Сергеев", "rating": 832, "paymentStatus": "Оплачено", "regNumber": 5, "regDate": "2023-01-05 14:00" },
+                        { "firstName": "Артем", "lastName": "Александров", "rating": 919, "paymentStatus": "Оплачено", "regNumber": 6, "regDate": "2023-01-06 15:00" },
+                        { "firstName": "Владимир", "lastName": "Михайлов", "rating": 751, "paymentStatus": "Не оплачено", "regNumber": 7, "regDate": "2023-01-07 16:00" },
+                        { "firstName": "Сергей", "lastName": "Романов", "rating": 668, "paymentStatus": "Не оплачено", "regNumber": 8, "regDate": "2023-01-08 17:00" },
+                        { "firstName": "Андрей", "lastName": "Федоров", "rating": 812, "paymentStatus": "Оплачено", "regNumber": 9, "regDate": "2023-01-09 18:00" },
+                        { "firstName": "Никита", "lastName": "Кузнецов", "rating": 900, "paymentStatus": "Не оплачено", "regNumber": 10, "regDate": "2023-01-10 19:00" }
+                    ]
+
+                table.w-full
+                    tr.text-xs.text-lab-color(class="!font-semibold").border-b
+                        th.pr-2 #
+                        th 
+                        th.text-left.py-2 Игрок
+                        th Рейтинг
+                        th(class="sm:table-cell hidden") Дата регистрации
+                    each player in players
+                        tr.text-sm(class="border-b border-lab-black-10")
+                            td.py-2.text-center.text-lab-black.pr-2 #{player.regNumber}
+                            td.py-2.text-center.max-w-16.w-10
+                                +avatar('bg-lab-color', player.firstName[0] + player.lastName[0], 28, player.avatar)
+                            td.py-2 
+                                div
+                                    span.font-semibold.text-lab-color #{player.firstName + ' ' + player.lastName}
+                                    div.text-xs(class=(player.paymentStatus == 'Оплачено' ? 'text-lab-green' : 'text-red-500')) #{player.paymentStatus}
+                            td.py-2.text-center
+                                +userRating(player.rating, true)
+                            
+                            td.text-center.hidden(class="sm:table-cell text-lab-black-50")= player.regDate
+
+            
+                
+
+        +comments
+
+
+        +tabBar('Турниры')
+
+
+

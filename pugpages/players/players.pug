@@ -1,0 +1,313 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Игроки
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +topBar
+
+    - var tabs = ['Рейтинг ЛАБ', 'Статистика']
+    - var images = ['img/star-lab-color.svg', 'img/ratings.svg']
+    - var tabIds = ['rating', 'stats']
+    - var activeTab = 'Рейтинг ЛАБ'
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+      each tab, index in tabs
+        - var isActive = tab === activeTab
+        .players-panel-tab.tab(
+          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex w-1/2 grow cursor-pointer items-center justify-center gap-1.5 py-3 `,
+          data-tab=`${tabIds[index]}`
+        )
+          img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
+          .py-1.leading-none= tab
+
+    // Статистика Buttons
+    - var statOptions = ['★ S', '★★ D', 'Team']
+    .stat-buttons.fixed.z-30.w-full.bottom-24.mb-4
+      .flex.justify-center.border-lab-color.border-2.w-fit.mx-auto.rounded-full.overflow-hidden.drop-shadow-around.transform-gpu
+        button.stat-btn.bg-white.pr-3.pl-4.py-1.text-lab-color.text-sm ★ S
+        button.stat-btn.px-2.py-2.text-white.bg-lab-color.border-x.text-sm ★★ D
+        button.stat-btn.bg-white.pr-4.pl-3.py-1.text-lab-color.text-sm ★★★ T
+
+    .tab-content.hidden#stats
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.players-panel-tab')
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', function () {
+            tabs.forEach((t) => {
+              const img = t.querySelector('img')
+              if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
+              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              t.classList.add('opacity-75', 'saturate-50')
+              if (img) {
+                img.classList.add('opacity-75', 'saturate-50')
+              }
+            })
+            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.remove('opacity-75', 'saturate-50')
+            const img = this.querySelector('img')
+            if (img) {
+              img.classList.remove('opacity-75', 'saturate-50')
+            }
+            const tabId = this.getAttribute('data-tab')
+            const tabContent = document.querySelectorAll('.tab-content')
+            tabContent.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove('hidden')
+              } else {
+                content.classList.add('hidden')
+              }
+            })
+          })
+        })
+      })
+
+
+
+
+
+    #rating.tab-content.mx-auto.w-screen
+      .flex.items-center.justify-between.px-4.pt-4
+        h1 Рейтинг ЛАБ
+        #toggleButtons.flex
+          button.w-12.rounded-l-md.py-1.bg-white.font-bold.text-sm.text-lab-color ★ S
+          button.w-14.rounded-r-md.bg-lab-color.border.py-1.text-sm.text-white ★★ D
+      script.
+        document.getElementById('toggleButtons').addEventListener('click', function (event) {
+          if (event.target.tagName === 'BUTTON' || event.target.parentNode.tagName === 'BUTTON') {
+            const buttons = document.querySelectorAll('#toggleButtons button')
+            buttons.forEach((button) => {
+              button.classList.remove('bg-lab-color', 'text-white', 'font-bold')
+              button.classList.add('text-lab-color', 'bg-white', 'border')
+            })
+            const targetButton = event.target.tagName === 'BUTTON' ? event.target : event.target.parentNode
+            targetButton.classList.add('bg-lab-color', 'text-white', 'font-bold')
+            targetButton.classList.remove('text-lab-color', 'bg-white', 'border')
+          }
+        })
+
+      +searchAndFilterButton('Имя, логин или город', true, 'p-4')
+      -
+        const users = [
+          { name: "Пухов Станислав", username: "StanPuhov", location: "Москва", color: "bg-lab-blue", initials: "ПС", singleRating: 870, pairRating: 1014, singleRatingChange: '+14.2', doubleRatingChange: '+5.7', lastChange: '04.05.2024' },
+          { name: "Мальков Владимир", username: "VladMalk", location: "Санкт-Петербург", color: "bg-lab-red", initials: "МВ", singleRating: 863, pairRating: 998, singleRatingChange: '+24.2', doubleRatingChange: '+15.7', lastChange: '03.05.2024' },
+          { name: "Жданов Илья", username: "IlyaZhd", location: "Казань", color: "bg-lab-yellow", initials: "ЖИ", singleRating: 856, pairRating: 996, singleRatingChange: '+12.8', doubleRatingChange: '+12.7', lastChange: '02.05.2024' },
+          { name: "Матазов Николай", username: "NikMatz", location: "Новосибирск", color: "bg-lab-green", initials: "МН", singleRating: 849, pairRating: 993, singleRatingChange: '+11.5', doubleRatingChange: '+9.6', lastChange: '01.05.2024' },
+          { name: "Федоткин Григорий", location: "Екатеринбург", color: "bg-lab-blue", initials: "ФГ", singleRating: 842, pairRating: 987, singleRatingChange: '+10.9', doubleRatingChange: '+7.5', lastChange: '30.04.2024' },
+          { name: "Ицков Вадим", username: "VadItsk", location: "Нижний Новгород", color: "bg-lab-red", initials: "ИВ", singleRating: 835, pairRating: 982, singleRatingChange: '+4.8', doubleRatingChange: '+6.4', lastChange: '29.04.2024' },
+          { name: "Ярославцев Степан", username: "StepYar", location: "Самара", color: "bg-lab-yellow", initials: "ЯС", singleRating: 828, pairRating: 980, singleRatingChange: '+3.7', doubleRatingChange: '+4.3', lastChange: '28.04.2024' },
+          { name: "Иванов Антон", username: "AntIvan", location: "Омск", color: "bg-lab-green", initials: "ИА", singleRating: 821, pairRating: 981, singleRatingChange: '+1.2', doubleRatingChange: '+3.2', lastChange: '27.04.2024' },
+          { name: "Архангельская Ольга", username: "OlgaArkh", location: "Челябинск", color: "bg-lab-blue", initials: "АО", singleRating: 814, pairRating: 979, singleRatingChange: '+0.5', doubleRatingChange: '+2.1', lastChange: '26.04.2024' },
+          { name: "Макишев Константин", username: "KonMak", location: "Ростов-на-Дону", color: "bg-lab-red", initials: "МК", singleRating: 807, pairRating: 976, singleRatingChange: '0', doubleRatingChange: '+1.0', lastChange: '25.04.2024' },
+          { name: "Никитин Иван", username: "IvanNik", location: "Уфа", color: "bg-lab-yellow", initials: "НИ", singleRating: 800, pairRating: 973, singleRatingChange: '-0.5', doubleRatingChange: '-1.2', lastChange: '24.04.2024' },
+          { name: "Супрунок Дмитрий", username: "DimSupr", location: "Пермь", color: "bg-lab-green", initials: "СД", singleRating: 793, pairRating: 971, singleRatingChange: '-1.5', doubleRatingChange: '-2.5', lastChange: '23.04.2024' },
+          { name: "Слободянюк Виктория", username: "VikaSlob", location: "Волгоград", color: "bg-lab-blue", initials: "СВ", singleRating: 786, pairRating: 970, singleRatingChange: '+1.2', doubleRatingChange: '+3.2', lastChange: '27.04.2024' }
+        ]
+
+      +filtersPanel(true)
+        .p-4
+          +playerRating
+          label.mb-3.mt-4.block.font-bold Пол
+          +filterButtonsRow([ { label: 'Все', active: true }, { label: 'Мужчины', active: false }, { label: 'Женщины', active: false } ])
+        +tags('Регион/город')
+
+      .flex.gap-2.px-4.pb-4
+        +filterButton('★ 400—800', false, '', true, 'text-sm')
+        +filterButton('Москва', false, '', true, 'text-sm')
+        +filterButton('Мужчины', false, '', true, 'text-sm')
+
+      table.hidden.w-full.bg-white
+        thead
+          tr.border-y.text-xxs.font-semibold.uppercase.text-lab-color
+            th.py-2.pl-3.text-left №▼
+            th 
+            th.px-2.text-left Имя/город
+            th.hidden.px-2.text-left(class='sm:table-cell') Логин
+            th.text-lab-black 🧍
+            th.relative.text-lab-black
+              span 🧍
+              span.-ml-2 🧍
+            th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
+
+        each user, index in users
+          tr.border-b.text-lab-black
+            td.px-2.text-center.text-sm= index + 1
+            td: +avatar(user.color, user.initials, 32)
+            td.w-auto.px-2
+              a.inline-block.font-semibold(
+                href='pages/others/profile.html',
+                class='text-[13px] xs:text-sm'
+              )= user.name
+              .text-xs.text-lab-black-50= user.location
+            td.hidden.w-auto.px-2.text-sm.text-lab-black-50(class='sm:table-cell')= user.username
+            td.px-2.py-1.text-center
+              +userRating(user.singleRating)
+              div(
+                class=(user.singleRatingChange > 0 ? 'text-lab-green' : user.singleRatingChange < 0 ? 'text-lab-red' : 'text-lab-black-50') + ' mt-1 text-xs'
+              )= user.singleRatingChange
+            td.px-2.text-center
+              +userRating(user.pairRating, true)
+              div(
+                class=(user.doubleRatingChange > 0 ? 'text-lab-green' : user.doubleRatingChange < 0 ? 'text-lab-red' : 'text-lab-black-50') + ' mt-1 text-xs'
+              )= user.doubleRatingChange
+            td.hidden.px-2.text-center.text-sm.text-lab-black-50(class='sm:table-cell')= user.lastChange
+
+      table.w-full.bg-white
+        thead
+          tr.border-y.text-xxs.font-semibold.uppercase.text-lab-color
+            th.py-2.pl-3.text-left №▼
+            th 
+            th.px-2.text-left Имя/город
+            th.hidden.px-2.text-left(class='430:table-cell') Логин
+            th.text-lab-color Рейтинг
+            th.text-lab-color Изм.
+            th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
+
+        each user, index in users
+          tr.border-b.text-lab-black
+            td.px-2.text-center.text-sm= index + 1
+            td: +avatar(user.color, user.initials, 32)
+            td.px-2.py-1
+              a.inline-block.font-semibold(
+                href='pages/others/profile.html',
+                class='text-[13px] xs:text-sm'
+              )= user.name
+              .text-xs.text-lab-black-50= user.location
+            td.hidden.px-2.text-sm.text-lab-black-50(class='430:table-cell')= user.username
+            td.px-2.py-1.text-center
+              +userRating(user.singleRating)
+            td.px-3.py-1.text-center
+              div(
+                class=(user.singleRatingChange > 0 ? 'text-lab-green' : user.singleRatingChange < 0 ? 'text-lab-red' : 'text-lab-black-50') + ' text-[13px] leading-none'
+              )= user.singleRatingChange
+            td.hidden.px-2.text-center.leading-none.text-lab-black-50(class='text-[13px] sm:table-cell')= user.lastChange
+
+    #stats.tab-content.mx-auto.hidden.w-screen.bg-page-background.p-4
+      .flex.items-center.justify-between.py-4.sticky.top-12.bg-page-background.-mt-4.z-30
+        h1 Статистика
+        #toggleButtonsStats.flex
+          button.w-12.rounded-l-md.py-1.bg-white.font-bold.text-sm.text-lab-color ★ S
+          button.w-14.rounded-r-md.bg-lab-color.border.py-1.text-sm.text-white ★★ D
+      script.
+        document.getElementById('toggleButtonsStats').addEventListener('click', function (event) {
+          if (event.target.tagName === 'BUTTON' || event.target.parentNode.tagName === 'BUTTON') {
+            const buttons = document.querySelectorAll('#toggleButtonsStats button')
+            buttons.forEach((button) => {
+              button.classList.remove('bg-lab-color', 'text-white', 'font-bold')
+              button.classList.add('text-lab-color', 'bg-white', 'border')
+            })
+            const targetButton = event.target.tagName === 'BUTTON' ? event.target : event.target.parentNode
+            targetButton.classList.add('bg-lab-color', 'text-white', 'font-bold')
+            targetButton.classList.remove('text-lab-color', 'bg-white', 'border')
+          }
+        })
+      +block('Лидеры роста')
+        +filterButtonsRow([ { label: 'Неделя', active: true}, { label: 'Месяц', active: false}, { label: 'Год', active: false}, { label: 'Всё время', active: false }, ], 'padding', '-mx-4')
+        .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4.pt-6
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-blue', 'НП', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Никита Полянский
+            +userRating(620)
+            span.pt-2.text-15.font-semibold.text-lab-green +35.4
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-green', 'ГД', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Григорий Державин
+            +userRating(643)
+            span.pt-2.text-15.font-semibold.text-lab-green +32.7
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-yellow', 'КБ', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Константин Барышников
+            +userRating(493)
+            span.pt-2.text-15.font-semibold.text-lab-green +31.4
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-yellow', 'ЛК', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Людмила Кошелева
+            +userRating(493)
+            span.pt-2.text-15.font-semibold.text-lab-green +30.9
+
+      +bestWinsBlock(true, true)
+
+      +block('Победные серии')
+        +filterButtonsRow([ { label: 'Месяц', active: false}, { label: 'Год', active: false}, { label: 'Всё время', active: false }, ], 'padding', '-mx-4')
+        .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4.pt-6
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-blue', 'НП', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Никита Полянский
+            +userRating(620)
+            span.pt-2.text-15.font-semibold.text-lab-yellow 21 победа
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-green', 'ГД', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Григорий Державин
+            +userRating(643)
+            span.pt-2.text-15.font-semibold.text-lab-yellow 19 побед
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-yellow', 'КБ', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Константин Барышников
+            +userRating(493)
+            span.pt-2.text-15.font-semibold.text-lab-yellow 17 побед
+          .flex.min-w-20.flex-col.items-center.gap-2
+            +avatar('bg-lab-yellow', 'ЛК', '48')
+            span.text-center.text-sm.font-semibold.text-lab-color Людмила Кошелева
+            +userRating(493)
+            span.pt-2.text-15.font-semibold.text-lab-yellow 17 побед
+
+      +block('Дни рождения')
+        +filterButtonsRow([ { label: 'Сегодня, 21 мая', active: true}, { label: 'Завтра, 22 мая', active: false}, { label: 'Послезавтра, 23 мая', active: false}, { label: 'Четверг, 24 мая', active: false }, ], 'padding', '-mx-4')
+        -
+          var users = [
+            { bgColor: 'bg-lab-blue', initials: 'НП', rating: 620, name: 'Никита Полянский' },
+            { bgColor: 'bg-lab-green', initials: 'ГД', rating: 643, name: 'Григорий Державин' },
+            { bgColor: 'bg-lab-yellow', initials: 'КБ', rating: 493, name: 'Константин Барышников' },
+            { bgColor: 'bg-lab-yellow', initials: 'ЛК', rating: 493, name: 'Людмила Кошелева' }
+          ]
+
+        .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4.pt-8
+          each user in users
+            .flex.flex-col.items-center.gap-2
+              +avatar(user.bgColor, user.initials, '64', '', '', '', 'z-10', true)
+              span.z-0.text-center.text-sm.font-semibold.text-lab-color= user.name
+              +userRating(user.rating)
+              button.mt-2.rounded-lg.bg-lab-color-10.px-2.py-1.text-15 Поздравить
+
+    +tabBar('Игроки')

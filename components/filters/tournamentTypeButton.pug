@@ -1,0 +1,37 @@
+mixin tournamentTypeButton(type, gender, active)
+  -
+    let emojis = []
+    let typeText = ''
+
+    switch (gender) {
+      case 'all':
+        emojis = ['🧍🏽']
+        break
+      case 'male':
+        emojis = ['👨🏻']
+        break
+      case 'female':
+        emojis = ['👩🏼']
+        break
+      case 'mixed':
+        emojis = ['👩🏼', '👨🏻']
+        break
+    }
+
+    if (type === 'team') {
+      emojis = ['🧑🏽', '👨🏻', '👩🏼']
+      typeText = 'Team'
+    } else {
+      typeText = (type === 'single' ? (gender === 'all' ? 'S' : (gender === 'male' ? 'MS' : 'WS')) :
+        (type === 'double' ? (gender === 'all' ? 'D' : (gender === 'male' ? 'MD' : (gender === 'female' ? 'WD' : 'XD'))) : ''))
+      if (type === 'double' && gender !== 'mixed') {
+        emojis = [emojis[0], emojis[0]]
+      }
+    }
+
+    
+
+  div(class=`${active ? 'bg-lab-color' : 'bg-lab-color-10'} px-2.5 py-1.5`).rounded-lg.cursor-pointer.text-nowrap.text-sm 
+    each emoji, index in emojis
+      span(class=index === 0 ? '' : '-ml-2')= emoji
+    span(class=active ? 'text-white font-semibold' : '').ml-2= typeText

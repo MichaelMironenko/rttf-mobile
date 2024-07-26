@@ -1,0 +1,328 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/forumRow.pug
+include /components/poll.pug
+include /components/market/productCard.pug
+include /components/articleRow.pug
+include /components/profileTournamentCard.pug
+include /components/tournamentsPanel
+include /components/tournamentLiveCard
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title ЛАБ - Любительская ассоциация бадминтона
+    link(href='../../styles.css', rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-16.pt-12
+    +topBar
+
+    .p-2
+      +block('Турниры', {href: 'pages/tournaments/tournaments.html', text: 'Все'}, '', true, 'pb-0')
+        .-mx-4 
+            +tournamentsPanel("Регистрация", true)
+            #registration.tab-content.bg-slate-200.px-2
+                +citySelect(true, '', 'ml-3 py-4')
+                .flex.flex-col.items-center
+                    +date("Вторник, 25 ноября")
+                    +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
+                    +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+                    +date("Четверг, 27 ноября")
+                    +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
+            #live.tab-content.hidden.py-4.px-2.bg-red-100
+                .flex.flex-col.items-center
+                    +tournamentLiveCard('11:30', 'A', '12', '2', true, true, 'Майский фестиваль Микстов в Сколково')
+                    +tournamentLiveCard('11:30', 'B', '12', '0', false, true, 'Турнир Ленинского района')
+                    +tournamentLiveCard('11:30', 'C', '24', '11', false, false, "Khimki BC. Men's Day")
+            #results.tab-content.hidden.py-4.px-2(class="bg-[#d1e3d7]")
+                .flex.flex-wrap.justify-center.gap-2
+                    +tournamentResultCard('11:30', 'XDF', 'Сколково', 12, 2)
+                    +tournamentResultCard('11:30', 'XDB', 'Сколково', 10, 0)
+                    +tournamentResultCard('11:30', 'XDC', 'Сколково', 22, 1)
+      script.
+        document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {
+            tab.addEventListener('click', function () {
+            let activeTab = this.getAttribute('data-tab')
+
+            // Скрываем все контенты
+            document.querySelectorAll('.tab-content').forEach((content) => {
+                content.classList.add('hidden')
+            })
+
+            // Показываем контент активной вкладки
+            document.getElementById(activeTab).classList.remove('hidden')
+
+            // Удаляем класс active-tab у всех вкладок
+            document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {
+                tab.classList.remove('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-lab-color')
+            })
+
+            // Добавляем класс active-tab к активной вкладке
+            this.classList.add('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-lab-color')
+            })
+        })
+
+      +videoSlider(true, true, 'Трансляции')
+
+
+      
+      +block('Опросы', {href: 'pages/aroundgame/polls.html', text: 'Все'})
+        .no-scrollbar.-m-4.flex.gap-3.overflow-x-auto.p-4
+          +poll('Вы знаете правила бадминтона?', [{text: 'Реально их прочитал(а) и раз в несколько лет перечитываю', percent: 36}, {text: 'Думаю, что знаю, потому что я давно играю', percent: 48}, {text: 'Я их не знаю, но знаю, что они есть', percent: 13}, {text: 'Я их не знаю, но знаю того, кто их знает и каждый раз спрашиваю', percent: 3}], false)
+          +poll('Какой формат игры в бадминтон предпочитаете?', [{text: 'Одиночные', percent: 30}, {text: 'Парные', percent: 45, selected: true}, {text: 'Командные', percent: 25}], 'poll1')
+          +poll('Любите ли вы играть в бадминтон зимой?', [{text: 'Да', percent: 20, selected: true}, {text: 'Нет', percent: 80}], 'poll2')
+          +poll('Лучший бренд ракеток для бадминтона?', [{text: 'Yonex', percent: 60, selected: true}, {text: 'Li-Ning', percent: 25}, {text: 'Victor', percent: 15}], 'poll3')
+
+      +block('Новости', { href:"pages/aroundgame/news.html", text:'Все'})
+        .sm.grid.grid-cols-1.gap-8(class='sm:grid-cols-2 lg:grid-cols-3')
+          .flex.flex-col.gap-4
+            +newsCard('23 мая состоится студенческий турнир Москвы', 'dynamic-img/club-1.jpg', 'Naten ЮГ Ярославль', '4 апреля 16:30', 'pages/aroundgame/singleNews.html')
+            +newsCard('Открытые тренировки для всех желающих', '', 'Спартак М', '12 мая 18:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Финал городского чемпионата по бадминтону', 'dynamic-img/club-3.jpg', 'Динамо СПб', '20 июня 20:00', 'pages/aroundgame/singleNews.html')
+
+          .hidden(class='sm:flex sm:flex-col sm:gap-4')
+            +newsCard('Запуск новой школы бадминтона в Петербурге', 'dynamic-img/photo-1.jpg', 'БК Невский', '15 июня 10:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Летний кубок по бадминтону для детей', 'dynamic-img/club-1.jpg', 'БК Москва', '25 июля 14:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Международный турнир по бадминтону стартует в августе', '', 'БК Интернационал', '1 августа 09:00', 'pages/aroundgame/singleNews.html')
+
+          .hidden(class='lg:flex lg:flex-col lg:gap-4')
+            +newsCard('Семинар по тактике игры в бадминтон', 'dynamic-img/club-2.jpg', 'БК Лидер', '3 сентября 12:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Турнир памяти выдающихся игроков', '', 'БК Виктория', '10 сентября 15:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Бадминтонный фестиваль для всей семьи', 'dynamic-img/photo-2.jpg', 'БК Семья', '17 сентября 10:00', 'pages/aroundgame/singleNews.html')
+      
+      +block('Маркет', { href: 'pages/market/market.html', text: 'Все товары'})
+          -
+            var inventory = [ 
+              { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, comments: 2, price: 12800, shop: 'Lining center', name: 'Yonex Astrox 100 Game (KURENAI)', newItem: true, liked: false }, 
+              { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, comments: 0, price: 8990, shop: 'Rackets.ru', name: 'Yonex 65Х 3 (Navy/Blue)', newItem: false, liked: true }, 
+              { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, comments: 1, price: 1800, shop: 'Badm Store', name: 'KUMPOO KW-0101 (RED)', newItem: false, liked: false } 
+            ]        
+          .no-scrollbar.-mx-4.-my-4.flex.gap-2.overflow-x-auto.p-4
+            each item in inventory
+              +productCard(item)
+          
+      -
+        var topics = [
+            {
+                title: 'Игровые тренировки в Москве',
+                author: 'Pakhomych',
+                date: 'Сегодня 22:16',
+                commentsCount: '25',
+                newComments: 2,
+                link: '/training-moscow',
+                theme: 'Тренировки',
+                themeClass: 'bg-lab-color'
+            },
+            {
+                title: 'Правила расчета рейтинга',
+                author: 'retverd',
+                date: '08-26-2022 13:53',
+                commentsCount: '44',
+                newComments: 3,
+                link: '/rating-rules',
+                theme: 'Статьи',
+                themeClass: 'bg-lab-blue'
+            },
+            {
+                title: 'Чемпионат мира среди смешанных команд в разгаре',
+                author: 'Надежда P',
+                date: '08-26-2021 16:22',
+                commentsCount: '37',
+                newComments: 5,
+                link: '/world-championship',
+                theme: 'Новости',
+                themeClass: 'bg-lab-yellow'
+            },
+            {
+                title: 'Провоз ракеток в самолете',
+                author: 'retverd',
+                date: '08-26-2022 13:53',
+                commentsCount: '44',
+                newComments: 3,
+                link: '/rating-rules',
+                theme: 'Статьи',
+                themeClass: 'bg-lab-blue'
+            },
+            {
+                title: 'Розыгрыш волана в третьем гейме',
+                author: 'Надежда P',
+                date: '08-26-2021 16:22',
+                commentsCount: '37',
+                newComments: 5,
+                link: '/world-championship',
+                theme: 'Новости',
+                themeClass: 'bg-lab-yellow'
+            },
+            {
+                title: 'Синхронизация профилей',
+                author: 'retverd',
+                date: '08-26-2022 13:53',
+                commentsCount: '44',
+                newComments: 3,
+                link: '/rating-rules',
+                theme: 'Статьи',
+                themeClass: 'bg-lab-blue'
+            },
+            {
+                title: 'пожелания к допускам по рейтингу',
+                author: 'Надежда P',
+                date: '08-26-2021 16:22',
+                commentsCount: '37',
+                newComments: 5,
+                link: '/world-championship',
+                theme: 'Новости',
+                themeClass: 'bg-lab-yellow'
+            },
+        ];
+          
+        
+
+      +block('Последние комментарии', { href: 'pages/aroundgame/forum.html', text: 'Все' })
+        +filterButtonsRow([ { label: 'Жизнь на сайте', active: true }, { label: 'Новости', active: false }, { label: 'Турниры', active: false }, { label: 'Статьи', active: false }], 'padding', '-mx-4 mb-2')
+
+        .mt-4.grid.grid-cols-1.gap-8(class='md:grid-cols-2 lg:grid-cols-3')
+          // На всех экранах показываем первые 3 темы
+          .flex.flex-col.gap-4
+              each topic, index in topics
+                  if index < 3
+                      +forumRow(topic)
+
+          // На экранах от 640px показываем следующие 3 темы (итого 6)
+          .hidden(class='md:flex md:flex-col md:gap-4')
+              each topic, index in topics
+                  if index >= 3 && index < 6
+                      +forumRow(topic)
+
+          // На экранах от 1024px показываем еще 3 темы (итого 9)
+          .hidden(class='lg:flex lg:flex-col lg:gap-4')
+              each topic, index in topics
+                  if index >= 6 && index < 9
+                      +forumRow(topic)
+
+
+      +block('Клубы', { href:"pages/courts/clubs.html", text:'Все'})  
+        - 
+            var clubs = [
+            { image: 'dynamic-img/club-1.jpg', rating: '4.4', reviewsCount: '22', title: 'Территория мяча и грача', location: {city: 'Нижний Новгород'}, courtsCount: '14', services: ['wifi', 'shower', 'cafe'] },
+            { image: 'dynamic-img/club-2.jpg', rating: '4.7', reviewsCount: '18', title: 'Короли корта', location: {metro: 'Славянский бульвар', metroColor: 'blue-700'}, courtsCount: '8', services: ['wifi', 'ac', 'parking'] },
+            { image: 'dynamic-img/club-3.jpg', rating: '4.5', reviewsCount: '34', title: 'Ракетка и мяч', location: {city: 'Санкт-Петербург'}, courtsCount: '12', services: ['market', 'wifi', 'water'] },
+            { image: 'dynamic-img/club-4.jpg', rating: '4.9', reviewsCount: '29', title: 'Сет и матч', location: {metro: 'Чертановская', metroColor: 'slate-300'}, courtsCount: '10', services: ['ac', 'shower', 'cafe'] },
+            { image: 'dynamic-img/club-1.jpg', rating: '4.6', reviewsCount: '15', title: 'Волейбольная лига', location: {city: 'Казань'}, courtsCount: '9', services: ['wifi', 'water', 'parking'] }
+            ]
+
+        .flex.overflow-x-auto.no-scrollbar.-m-4.p-4.gap-2
+            each club in clubs
+                +clubCard(club.image, club.rating, club.reviewsCount, club.title, club.location, club.courtsCount, club.services)
+        div.text-sm.text-lab-black-50.mt-4.leading-tight Вашего зала нет в списке? 
+            a(href="addclub.html") Добавьте его бесплатно
+
+      +block('Тренеры клуба', {href: 'pages/trainings/trainers.html', text:'Все'})
+        .no-scrollbar.-m-4.flex.overflow-x-auto.p-4.flex.gap-2
+            +trainerCard('bg-lab-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800')
+            +trainerCard('bg-lab-red', 'Ирина Васильева', 210, 4.7, 5, '900', true)
+            +trainerCard('bg-lab-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750')
+            +trainerCard('bg-lab-green', 'Ольга Кузнецова', 234, 4.8, 4, '850')
+
+      +block('Групповые тренировки', {href: 'pages/trainings/trainingsList.html', text:'Все'}, true)
+        
+        +filterButtonsRow([
+                { label: 'Вт, 23.09', active: true},
+                { label: 'Ср, 24.09', active: false},
+                { label: 'Пт, 25.09', active: false}
+            ], '', 'pb-4' )
+
+        -
+            const trainings = [
+                { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-lab-green', img: '', players: '5/10' },
+                { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-lab-blue', img: '', players: '5/10' },
+                { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
+                { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-lab-green', img: '', players: '5/10' },
+                { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+            ];
+            
+            
+        .-mx-4
+            each training in trainings
+                +trainingLine({
+                    time: training.time,
+                    duration: training.duration + ' ч',
+                    title: training.title,
+                    initials: training.initials,
+                    trainerName: training.trainerName,
+                    club: training.club,
+                    color: training.color,
+                    img: training.img,
+                    players: training.players
+                })
+
+      +photoSlider('Последние фото', false)
+      +videoSlider(false, false, 'Последние видео')
+      
+      footer.bg-white.p-4.text-center.rounded.overflow-hidden
+        a(href="#").flex.items-center.justify-center.mb-6
+          img(src="img/desktop.svg")
+          span.text-lab-color.text-sm.font-semibold.ml-2 Полная версия
+  
+        a(href="#").text-center.text-sm Правила сайта
+        br
+        a(href="#").text-center.text-sm Правила расчёта и получения рейтинга
+        div.flex.justify-around.mt-6
+          div.text-left
+            h3.font-bold.text-lab-black Сотрудничество
+            ul.mt-2.text-sm
+              li.mb-2
+                a(href="#") Реклама на сайте
+              li.mb-2
+                a(href="#") Магазинам
+              li.mb-2
+                a(href="#") Тренерам и стрингерам
+              li.mb-2
+                a(href="#") Представителям залов
+          div.text-left
+            h3.font-bold.text-lab-black Контакты
+            ul.text-blue-700.mt-2
+              li.mb-2.text-sm
+                a(href="mailto:info@rttf.ru") info@rttf.ru
+        div.text-sm.mt-6.text-lab-black
+          | Все права защищены © RTTF 2008-2024
+
+
+    +tabBar('')

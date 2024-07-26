@@ -1,0 +1,187 @@
+
+<script>
+  function toggleHint(icon) {
+    const hintBox = icon.nextElementSibling
+    const allHints = document.querySelectorAll('.hint-box')
+    allHints.forEach((hint) => {
+      if (hint !== hintBox) {
+        hint.classList.add('hidden')
+      }
+    })
+    hintBox.classList.toggle('hidden')
+  }
+  
+  document.addEventListener('click', function (event) {
+    const isClickInsideHint = event.target.closest('.hint-box') !== null
+    const isClickOnIcon = event.target.closest('.info-icon') !== null
+    if (!isClickInsideHint && !isClickOnIcon) {
+      document.querySelectorAll('.hint-box').forEach((hint) => {
+        hint.classList.add('hidden')
+      })
+    }
+  })
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.hint-box').forEach((hint) => {
+      hint.addEventListener('click', function (event) {
+        event.stopPropagation()
+        this.classList.add('hidden')
+      })
+    })
+  })
+</script>
+<script>
+  function toggleHint(icon) {
+    const hintBox = icon.nextElementSibling
+    const allHints = document.querySelectorAll('.hint-box')
+    allHints.forEach((hint) => {
+      if (hint !== hintBox) {
+        hint.classList.add('hidden')
+      }
+    })
+    hintBox.classList.toggle('hidden')
+  }
+  
+  document.addEventListener('click', function (event) {
+    const isClickInsideHint = event.target.closest('.hint-box') !== null
+    const isClickOnIcon = event.target.closest('.info-icon') !== null
+    if (!isClickInsideHint && !isClickOnIcon) {
+      document.querySelectorAll('.hint-box').forEach((hint) => {
+        hint.classList.add('hidden')
+      })
+    }
+  })
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.hint-box').forEach((hint) => {
+      hint.addEventListener('click', function (event) {
+        event.stopPropagation()
+        this.classList.add('hidden')
+      })
+    })
+  })
+</script><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование отменено</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="mt-12 bg-white pb-32">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="p-4">
+      <div class="grow pb-4 text-center text-lg font-bold text-lab-black">Бронирование №123456 отменено</div><img class="inline align-middle saturate-50 opacity-50" src="img/home.svg" alt=""/><a class="inline align-middle ml-2" href="pages/courts/singleClub.html">Натен-Юг</a>
+      <div class="flex gap-2 items-center mt-4 mb-3"><img class="saturate-50 opacity-60" src="img/calendar.svg"/><span class="leading-none">11 сентября, четверг</span></div>
+      <div class="flex justify-between gap-3 py-2 max-w-sm items-center">
+        <div class="inline"><img class="inline align-middle saturate-50 opacity-50" src="img/time.svg" alt="Время"/><span class="inline align-middle leading-none ml-2">11:00-12:30</span></div>
+        <div class="court"><img class="inline align-middle saturate-50 opacity-50" src="img/court.svg" alt="Корт"/><span class="inline align-middle ml-2 text-lab-color">Корт 5</span></div>
+        <div> <img class="inline align-middle saturate-50 opacity-50" src="img/price.svg" alt="Цена"/><span class="inline align-middle ml-2">1800&#8202;₽</span></div>
+      </div>
+      <div class="flex justify-between gap-3 py-2 max-w-sm items-center">
+        <div class="inline"><img class="inline align-middle saturate-50 opacity-50" src="img/time.svg" alt="Время"/><span class="inline align-middle leading-none ml-2">11:00-12:30</span></div>
+        <div class="court"> <img class="inline align-middle saturate-50 opacity-50" src="img/court.svg" alt="Корт"/><span class="inline align-middle ml-2 text-lab-color">Корт 6</span></div>
+        <div> <img class="inline align-middle saturate-50 opacity-50" src="img/price.svg" alt="Цена"/><span class="inline align-middle ml-2">1800&#8202;₽</span></div>
+      </div>
+      <div class="modal-container fixed inset-0 bg-gray-900  bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden" id="court-modal">
+        <div class="relative top-1/2 -translate-y-1/2 bg-white rounded-xl shadow w-full max-w-sm mx-auto my-auto">
+          <button class="close-modal absolute top-3 right-3 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" type="button"><img src="img/close-round.svg" alt=""/><span class="sr-only">Закрыть</span></button>
+          <div class="p-4 text-center md:p-5"> 
+            <h2>Корт №5</h2>
+            <p class="text-lab-black-50 text-sm pt-0 pb-2">Стандартный  </p><img class="mt-2 rounded-sm pb-2" src="dynamic-img/court5.jpg" alt=""/>
+            <div class="relative flex items-center justify-between gap-2 py-2 text-sm"><span class="text-lab-black-50">Размер зала</span>
+              <div class="h-3 grow border-b-2 border-dotted"></div><span class="text-right">17x10 м</span>
+            </div>
+            <div class="relative flex items-center justify-between gap-2 py-2 text-sm"><span class="text-lab-black-50">Высота потолков</span>
+              <div class="h-3 grow border-b-2 border-dotted"></div><span class="text-right">8 м</span>
+            </div>
+            <div class="relative flex items-center justify-between gap-2 py-2 text-sm"><span class="text-lab-black-50">Покрытие</span>
+              <div class="h-3 grow border-b-2 border-dotted"></div><span class="text-right">Тарафлекс</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeButton = document.querySelector('.close-modal');
+            closeButton?.addEventListener('click', function() {
+                document.getElementById('court-modal').style.display = 'none';
+            });
+        
+            document.getElementById('court-modal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+      </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const courtDivs = document.querySelectorAll('.court');
+        
+            courtDivs.forEach(function(div) {
+                div.addEventListener('click', function() {
+                    const modal = document.getElementById('court-modal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+        });
+      </script>
+      <div class="py-2"><img class="inline align-middle saturate-50 opacity-50" src="img/player.svg" alt=""/><span class="inline align-middle ml-2">Константин</span></div>
+      <div class="py-2"><img class="inline align-middle saturate-50 opacity-50" src="img/phone.svg" alt=""/><a class="inline align-middle ml-2">+7 (093) 232-52-25</a></div>
+      <div class="pt-2 pb-4"><img class="inline align-middle saturate-50 opacity-50" src="img/racket.svg" alt=""/><span class="inline align-middle ml-2">2 полупрофессиональные ракетки</span></div>
+      <div class="text-wrap pb-4"><img class="inline-block align-middle opacity-50 saturate-50" src="img/price.svg" alt=""><span class="ml-2 inline-block align-middle">2000₽</span><span class="ml-2 inline-block rounded-md bg-lab-green px-2 py-1 align-middle text-sm font-semibold text-white">Оплачено</span><span class="ml-2 inline-block text-nowrap rounded-md bg-lab-yellow px-2 py-1 align-middle text-sm font-semibold text-white">Оплата в клубе</span><span class="ml-2 inline-block rounded-md bg-lab-color px-2 py-1 align-middle text-sm font-semibold text-white">Абонемент</span></div>
+      <p>Возврат средств в размере 50% будет осуществлен на ваш счет в течение 3 рабочих дней, но обычно быстрее.</p>
+      <p>
+        В случае возникновения вопросов, обращайтесь в нашу службу поддержки:<a href="mailto:info@badminton4u.ru">info@badminton4u.ru</a></p><a class="block w-full p-4 text-center font-bold" href="pages/courts/rentCourt.html">Забронировать другой корт</a>
+    </div>
+  </body>
+</html>

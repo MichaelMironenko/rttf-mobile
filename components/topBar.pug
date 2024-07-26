@@ -1,0 +1,40 @@
+include userMenu.pug
+include /components/atoms/avatar.pug
+
+mixin topBar
+  .fixed.inset-x-0.top-0.z-30.flex.items-center.justify-between.border-b.bg-white.px-3.py-2
+    a.min-w-30.flex.flex-shrink.items-center.space-x-2(href='index.html')
+      img.h-8(src='img/lab-logo.svg' alt='logo')
+      .flex.min-w-0.flex-shrink.flex-col.items-start.gap-1
+        //- img(src="img/lab-logo-text.svg" alt="ЛАБ" class="h-4 shrink-0 hidden xs:block")
+        span.w-full.whitespace-normal.text-xs.leading-4.tracking-tight.text-slate-500(
+          class='xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none'
+        ) Нижний Новгород
+    .ml-4.flex.shrink-0.flex-grow.items-center.justify-end.gap-4
+      a.relative.shrink-0(href='pages/others/notifications.html')
+        img.h-6.w-6.shrink-0(src='img/notification-icon.svg' alt='Notifications')
+        span.absolute.-right-1.-top-1.inline-block.rounded-full.bg-lab-red.px-1.text-center.text-xxs.text-white 99
+      a.relative.shrink-0(href='pages/others/messages.html')
+        img.h-6.w-6.shrink-0(src='img/messages-icon.svg' alt='Messages')
+        span.absolute.-right-1.-top-1.inline-block.rounded-full.bg-lab-red.px-1.text-center.text-xxs.text-white 99
+      a.inline-flex.gap-2
+        .hidden.text-right(class='xs:block')
+          .text-xs.font-semibold.text-lab-color nikpol
+          .flex.items-center.justify-end
+            img.relative.z-10.h-3.w-3(src='img/gradient-star.svg' alt='Rating')
+            img.relative.-ml-4.h-3.w-3(src='img/gradient-star.svg' alt='Rating')
+            span.ml-1.text-xs.font-bold.text-lab-color 1376
+        +avatar('bg-lab-blue', 'НП', 32)
+    #userMenu.hidden
+      +userMenu
+        // Если есть аватар - показываем его
+        //  <img src="../dynamic-img/user2.jpg" alt="avatar" class="h-full w-full rounded-full"/> 
+
+  script.
+    document.addEventListener('DOMContentLoaded', function () {
+      var avatar = document.getElementById('avatarContainer')
+      var userMenu = document.getElementById('userMenu')
+      avatar.addEventListener('click', function () {
+        userMenu.classList.toggle('hidden')
+      })
+    })

@@ -1,0 +1,63 @@
+include /components/atoms/date.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Все призовые турниры - Кудайбердиев Адилет Кудайбердиевич
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background.pt-12.pb-32
+        +topBar
+        h1.text-lg.px-4.py-4.sticky.top-12.bg-page-background Все призовые турниры
+        
+        - 
+            var tournaments = [
+                { date: '2024-01-01 13:30', typeBadge: 'XD', link: '/tournament1', clubName: 'Club 1', finalPosition: '1', finalChange: '+10.5', rating: 650 },
+                { date: '2024-02-01 20:00', typeBadge: 'MS', link: '/tournament2', clubName: 'Club 2', finalPosition: '2', finalChange: '+15.2', rating: 670 },
+                { date: '2024-03-01 11:00', typeBadge: 'MD', link: '/tournament3', clubName: 'Club 3', finalPosition: '3', finalChange: '+6.3', rating: 690 },
+                { date: '2024-04-01 15:00', typeBadge: 'XD', link: '/tournament4', clubName: 'Club 4', finalPosition: '4', finalChange: '+12.0', rating: 510 },
+                { date: '2024-05-01 15:00', typeBadge: 'MS', link: '/tournament5', clubName: 'Club 5', finalPosition: '5', finalChange: '+17.5', rating: 530 },
+                { date: '2024-06-01 15:30', typeBadge: 'MD', link: '/tournament6', clubName: 'Club 6', finalPosition: '1', finalChange: '+9.1', rating: 550 },
+                { date: '2024-07-01 18:00', typeBadge: 'XD', link: '/tournament7', clubName: 'Club 7', finalPosition: '2', finalChange: '+11.3', rating: 570 },
+                { date: '2024-08-01 11:30', typeBadge: 'MS', link: '/tournament8', clubName: 'Club 8', finalPosition: '3', finalChange: '+14.8', rating: 590 },
+                { date: '2024-09-01 12:00', typeBadge: 'MD', link: '/tournament9', clubName: 'Club 9', finalPosition: '4', finalChange: '+18.2', rating: 610 },
+                { date: '2024-10-01 16:00', typeBadge: 'XD', link: '/tournament10', clubName: 'Club 10', finalPosition: '5', finalChange: '+5.7', rating: 630 }
+            ]
+        div
+            table.table-auto.w-full.text-xs
+                thead.tr.bg-page-background.sticky.top-24.text-lab-black-50.uppercase.border-b
+                    th.text-left.pl-4.p-2 Турнир
+                    th.text-center.p-2 Место
+                    th.text-center.p-2 ★ +/- 
+                    th.text-center.p-2 ★ после
+                tbody
+                    for tournament in tournaments
+                        tr.bg-white.border-b
+                            td.py-2.pl-4
+                                span.text-sm.text-lab-black-50 #{tournament.date}
+                                div(class="flex items-center pt-1")
+                                    +tournamentTypeBadge(tournament.typeBadge)
+                                    a(href=tournament.link).text-sm.px-2.font-semibold.text-ellipsis #{tournament.clubName}
+                            td.text-center(class="pb-0.5")
+                                if tournament.finalPosition == '1'
+                                    div.bg-gold.rounded-full.text-sm.font-semibold.size-5.text-center.border.mx-auto #{tournament.finalPosition}
+                                else if tournament.finalPosition == '2'
+                                    div.bg-silver.rounded-full.text-sm.font-semibold.size-5.text-center.border.mx-auto #{tournament.finalPosition}
+                                else if tournament.finalPosition == '3'
+                                    div.bg-bronze.rounded-full.text-sm.font-semibold.size-5.text-center.border.mx-auto #{tournament.finalPosition}
+                                else
+                                    span.text-sm.text-lab-black.font-semibold.size-5.text-center #{tournament.finalPosition} 
+                            td.text-sm.font-semibold.h-5.text-center(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
+                            td.text-center
+                                +userRating(tournament.rating)
+        +tabBar

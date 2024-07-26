@@ -1,0 +1,68 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/forumRow.pug
+include /components/poll.pug
+include /components/articleRow.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Новости
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+        .p-4.bg-white 
+          div.flex.gap-2.items-center
+            h2.leading-tight Новости
+            img(src="img/plus-button.svg" class="size-5")
+          +searchAndFilterButton('Текст или заголовок', true, 'mt-4')  
+          +filterButtonsRow([ { label: 'Горячие темы', active: true}, { label: 'Новости клубов', active: false}, { label: 'Мировые новости', active: false}, { label: 'Турниры', active: false } ], '', '-mx-4 p-4', 'text-sm', '', false)
+  
+          div(class="grid gap-x-6 gap-y-4 pt-2" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));")
+            +newsCard('23 мая состоится студенческий турнир Москвы', 'dynamic-img/club-1.jpg', 'Турниры', '4 апреля 16:30', 'pages/aroundgame/singleNews.html')
+            +newsCard('Открытые тренировки для всех желающих', '', 'Новости клубов', '12 мая 18:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Финал городского чемпионата по бадминтону', 'dynamic-img/club-3.jpg', 'Турниры', '20 июня 20:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Запуск новой школы бадминтона в Петербурге', 'dynamic-img/photo-1.jpg', 'Новости клубов', '15 июня 10:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Летний кубок по бадминтону для детей', 'dynamic-img/club-1.jpg', 'Турниры', '25 июля 14:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Международный турнир по бадминтону стартует в августе', '', 'Мировые новости', '1 августа 09:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Семинар по тактике игры в бадминтон', 'dynamic-img/club-2.jpg', 'Новости клубов', '3 сентября 12:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Турнир памяти выдающихся игроков', '', 'Турниры', '10 сентября 15:00', 'pages/aroundgame/singleNews.html')
+            +newsCard('Бадминтонный фестиваль для всей семьи', 'dynamic-img/photo-2.jpg', 'Турниры', '17 сентября 10:00', 'pages/aroundgame/singleNews.html')
+        +tabBar('Вокруг игры')

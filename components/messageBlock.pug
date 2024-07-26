@@ -1,0 +1,13 @@
+mixin messageBlock(background='bg-promo-background')
+  div(class=`${background}`).message-block.p-4.rounded-lg.flex.justify-between.border.items-start.text-lab-black.gap-2.shadow-md
+    block
+    button(type="button" @click="removeElement" class="mt-0.5").delete-button.leading-none.text-lab-black-50 ✕
+  script.
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            this.closest('.message-block').remove();
+        });
+        });
+    });

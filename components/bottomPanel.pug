@@ -1,0 +1,11 @@
+mixin bottomPanel(id) 
+    div(id=id class="modal-container fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden" onclick="hideOnClickOutside(event, this)")
+        .fixed.bottom-0.left-0.right-0.w-full.z-40.p-4.rounded-t-2xl.overflow-hidden.bg-white.drop-shadow-top.pb-safe-16
+            .w-20.top-0.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute
+            block
+    script.
+        function hideOnClickOutside(event, element) {
+            if (event.target === element) {
+                element.classList.add('hidden');
+            }
+        }

@@ -1,0 +1,47 @@
+mixin rentCard(clubInfo, slots, onMap, id)
+    .w-full.bg-white(class=`${onMap ? 'rounded-t-2xl' : 'rounded-xl'}`).shadow-md.p-4.flex.flex-col.justify-between.border
+        .flex.gap-3.items-center 
+            img(src=`${clubInfo.photo}`, alt="").size-24.object-cover.rounded-md
+            div.w-full
+                .flex.items-center.mb-2
+                    if clubInfo.logo
+                        img.h-5.w-5.mr-2.rounded-sm(src=clubInfo.logo, alt="Logo")
+                    h2.text-base.font-semibold #{clubInfo.name}
+                div.flex.items-center.text-sm.mb-2
+                    span= clubInfo.stars
+                    img.h-4.ml-1(src="img/star.svg")
+                    span.text-lab-black-50.ml-2= clubInfo.reviews + ' отзывов'
+                .flex.items-center.mb-1.gap-3.flex-wrap
+                    if clubInfo.address
+                        div.flex
+                            img.opacity-50.saturate-50.mr-1(src="img/location-icon.svg")
+                            span.text-lab-black-50.text-sm.h-4= clubInfo.address
+                    else if clubInfo.metro
+                        div.flex.items-center
+                            div(class=`bg-${clubInfo.metroColor}`).size-2.rounded-full.mr-1.shrink-0
+                            span(class=`text-lab-black-50 leading-none text-sm`)= clubInfo.metro
+                    div.flex.items-center
+                        img(src="img/location-arrow.svg").size-4.mr-1
+                        span.text-sm.leading-none.text-lab-black-50 #{clubInfo.distance} км
+                 
+                    
+                .flex.items-center
+                    div
+                        img.inline.size-4.mr-1.align-middle.saturate-50.opacity-75(src="img/court.svg")
+                        span.inline.text-sm.align-middle.leading-none #{clubInfo.courts}
+                    div.inline.ml-3
+                        each service in clubInfo.services
+                            img.inline.h-4.w-4.ml-1(src=`img/${service}.svg`, alt=service)
+        if slots
+            div.my-3
+                img.inline.size-4.mr-1.opacity-50.saturate-50(src='img/warning.svg')
+                .text-sm.inline.text-lab-black-50 Указана полная стоимость за 1,5 часа
+        
+            .flex.flex-wrap.gap-2.grow
+                each slot in slots
+                    a.text-center.w-14.h-12.py-1.border.rounded-lg(class=slot.lastCourt && 'animate-pulse' || 'opacity-100' href="pages/courts/bookingConfirm.html")
+                        div.font-semibold.text-lab-color.text-sm.mb-1 #{slot.time}
+                        div.text-lab-black-50.text-xs #{slot.price}&#8202;₽
+            div.flex.items-center.pt-4.mt-auto.selectTable(id=id)
+                img(src="img/choose-table.svg").size-6.mr-2
+                .text-sm.text-lab-black-50.leading-none Выбрать стол (опционально)

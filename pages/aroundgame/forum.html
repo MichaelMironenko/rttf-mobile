@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форум</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background pb-28 pt-12">
+    <div class="py-4 flex gap-3 items-center justify-between px-2"><a href="pages/aroundgame/aroundGame.html"> <img class="rotate-90 shrink-0" src="img/expand-arrow.svg" alt=""/></a>
+      <h1 class="text-lg text-center grow mr-8 max-w-[calc(100%-24px)]">Форум</h1>
+    </div>
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="px-4">
+      <div class="flex items-center justify-between gap-4   ">
+        <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-lab-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search"/>
+          <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Поиск"/>
+        </div>
+      </div>
+      <div class="flex overflow-x-auto items-center space-x-2 no-scrollbar scroll-smooth  -mx-4 my-4 px-4">
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color text-white font-semibold">
+          <div>Жизнь на сайте</div>
+        </div>
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Новости</div>
+        </div>
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Турниры</div>
+        </div>
+        <div class="px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap text-sm flex items-center justify-center space-x-2 bg-lab-color-10 text-lab-black">
+          <div>Статьи</div>
+        </div>
+      </div>
+      <button class="w-full border border-lab-color bg-transparent rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-text-lab-black leading-none ease-in-out" id="undefined" onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick="">+ Новая тема</button>
+      <div class="flex flex-col gap-2 mt-4">
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Игровые тренировки в Москве</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-color px-1.5">Тренировки</div><a class="block text-xs !leading-none">Pakhomych</a>
+              <div class="text-xs leading-none text-lab-black-50">Сегодня 22:16</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">25</div><span class="-ml-1 text-xs">+2</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Правила расчета рейтинга</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-blue px-1.5">Статьи</div><a class="block text-xs !leading-none">retverd</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2022 13:53</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">44</div><span class="-ml-1 text-xs">+3</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Чемпионат мира среди смешанных команд в разгаре</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-yellow px-1.5">Новости</div><a class="block text-xs !leading-none">Надежда P</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2021 16:22</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">37</div><span class="-ml-1 text-xs">+5</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Провоз ракеток в самолете</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-blue px-1.5">Статьи</div><a class="block text-xs !leading-none">retverd</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2022 13:53</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">44</div><span class="-ml-1 text-xs">+3</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Розыгрыш волана в третьем гейме</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-yellow px-1.5">Новости</div><a class="block text-xs !leading-none">Надежда P</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2021 16:22</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">37</div><span class="-ml-1 text-xs">+5</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Синхронизация профилей</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-blue px-1.5">Статьи</div><a class="block text-xs !leading-none">retverd</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2022 13:53</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">44</div><span class="-ml-1 text-xs">+3</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">пожелания к допускам по рейтингу</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-yellow px-1.5">Новости</div><a class="block text-xs !leading-none">Надежда P</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2021 16:22</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">37</div><span class="-ml-1 text-xs">+5</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+        <div class="min-h-12  px-4 py-3 bg-white rounded-lg border flex justify-between items-center gap-4">
+          <div> <a class="text-15 font-medium text-lab-black block" href="pages/aroundgame/topic.html">Правила расчета рейтинга</a>
+            <div class="mt-2 flex flex-wrap items-center gap-2 leading-none">
+              <div class="rounded py-1 text-xxs font-medium text-white bg-lab-blue px-1.5">Статьи</div><a class="block text-xs !leading-none">retverd</a>
+              <div class="text-xs leading-none text-lab-black-50">08-26-2022 13:53</div>
+              <div class="flex items-center gap-1"><img class="size-4" src="img/comment-outlined.svg"/>
+                <div class="text-xs leading-none text-lab-black-50">44</div><span class="-ml-1 text-xs">+3</span>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-80 md:block hidden">
+            <div class="text-xs text-lab-black-50">
+              Последний комментарий от <a class="text-xs inline" href="pages/others/profile.pug">Gorbachev </a><span class="text-lab-black-50">сегодня в 21:53</span></div><a class="border bg-lab-color-10 mt-1 text-lab-black rounded-md text-xs px-2 py-1 line-clamp-2" href="pages/aroundgame/topic.html">Когда мы играли в прошлом месяце в Москве, было много игроков с низким рейтингом, но было весело и интересно</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

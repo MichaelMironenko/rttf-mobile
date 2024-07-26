@@ -1,0 +1,17 @@
+mixin citySelect(image, extraClass, containerClass)
+  .flex.items-center.gap-1.py-2(class=`${containerClass}`)
+    if image
+      img.h-4.w-4(src='img/location-icon.svg')
+    select.w-fit.appearance-none.rounded-2xl.border-none.bg-transparent.bg-none.p-0.text-sm.font-semibold.leading-none.text-lab-color(
+      class=`${extraClass} focus-visible:outline-none`
+    )
+      option(value='0', selected) Все города
+      option(value='781') Алексин
+      option(value='38') Казань
+      option(value='120') Калининград
+      option(value='197') Калуга
+      option(value='35') Кемерово
+      option(value='8') Красногорск
+      option(value='1') Москва
+      option(value='67') Новосибирск
+      option(value='312') Одинцово

@@ -1,0 +1,144 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/atoms/button.pug
+include /components/modal.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Календарь официальных турниров
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    .sticky.top-12.w-screen.border-b.bg-white.p-4.shadow-lg
+      h1.pb-4.leading-tight Календарь официальных турниров
+
+      .no-scrollbar.-mx-4.flex.gap-2.overflow-x-auto.px-4
+        - var years = ['2020', '2021', '2022', '2023', '2024']
+        - var months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+        script.
+          document.addEventListener('DOMContentLoaded', () => {
+            const activeMonth = document.querySelector('.active-month')
+            if (activeMonth) {
+              const container = document.querySelector('.no-scrollbar')
+              container.scrollLeft = activeMonth.offsetLeft - container.offsetWidth / 2 + activeMonth.offsetWidth / 2
+            }
+            document.querySelectorAll('.july-button').forEach((button) => {
+              button.addEventListener('click', () => {
+                const eventsContainer = document.querySelector('#events-container')
+                const julyEvents = document.querySelector('#july-events')
+                const scrollPosition = julyEvents.offsetTop - eventsContainer.offsetTop + eventsContainer.scrollTop
+                console.log(julyEvents.offsetTop, eventsContainer.offsetTop)
+
+                eventsContainer.scrollTo({
+                  top: julyEvents.offsetTop - eventsContainer.offsetTop,
+                  behavior: 'smooth',
+                })
+              })
+            })
+          })
+        each year in years
+          .flex-shrink-0
+            span.sticky.left-0.z-10.py-2.text-sm.text-lab-black-50= year
+            .mt-2.flex.gap-2
+              - var displayMonths = year === '2024' ? months.slice(0, 8) : months
+              each month in displayMonths
+                - var isActive = month === 'Июнь' && year === '2024'
+                button.flex.flex-col.items-center.justify-center.rounded-lg.p-2(
+                  class=[isActive ? 'bg-lab-color active-month' : 'bg-lab-color-10'],
+                  class=month === 'Июль' ? 'july-button' : '',
+                  data-month=month
+                )
+                  div(class=isActive ? 'text-xs text-white' : 'text-xs text-lab-black')= month
+
+      -
+        var events = [
+            { title: 'Danish Junior Cup 2023', date: '1–4 июня', place: 'Дания, Видовре', level: 'U17', logo: 'img/euro.png', org: 'Badminton Europe' },
+            { title: 'Чемпионат Крыма среди ветеранов 2023', date: '2-4 июня', place: 'Евпатория, Россия', level: 'U17', logo: 'img/nfbr.png', org: 'НФБР' },
+            { title: 'Самарское лето 2023', date: '4–6 июня', place: 'Самара, Россия', level: 'U17', logo: 'img/nfbr.png', org: 'НФБР' },
+            { title: 'Чемпионат России среди ветеранов 2023', date: '8–11 июня', place: 'Евпатория, Россия', level: 'U17', logo: 'img/nfbr.png', org: 'НФБР' },
+            { title: 'Белые ночи 2023', date: '10–13 июня', place: 'Гатчина, Россия', level: 'U17', logo: 'img/nfbr.png', org: 'НФБР' },
+
+        ]
+    #events-container.no-scrollbar.max-h-screen.w-full.overflow-y-auto.bg-white.p-4
+      h2.pb-2.pt-2 Июнь 2024
+      each event in events
+        .mt-2.flex.items-center.justify-between.gap-4.rounded-lg.border-b.pb-2(
+          class='last:border-b-0 last:pb-0 sm:hidden'
+        )
+          .w-20.shrink-0.text-center
+            .whitespace-nowrap.text-sm.text-lab-black #{ event.date }
+            img.mx-auto.mt-2.size-6(src=event.logo, alt='logo')
+
+          .grow.items-center
+            h3.text-sm.font-bold #{ event.title }
+            .pb-2.pt-1.text-sm.text-lab-black-50 #{ event.place }
+            .w-fit.rounded.bg-lab-color-10.px-1.text-xs.text-lab-black #{ event.level }
+      table.hidden.w-full(class='sm:table')
+        thead.border-b.text-sm.text-lab-black-50
+          tr
+            th.p-2.text-left.font-semibold Дата
+            th.px-2.text-left.font-semibold Название
+            th.px-2.text-left.font-semibold Место
+            th.px-2.text-left.text-center.font-semibold Организатор
+
+            th.px-2.text-center.font-semibold Уровень
+        tbody.text-lab-black
+          each event in events
+            tr.border-b.text-sm(class='last:border-b-0')
+              td.whitespace-nowrap.p-2.text-lab-black #{ event.date }
+              td.px-2 #{ event.title }
+              td.px-2 #{ event.place }
+              td.px-2.text-center #{ event.org }
+              td.px-2.text-center #{ event.level } 
+      h2#july-events.pb-2.pt-4 Июль 2024
+      each event in events
+        .mt-2.flex.items-center.justify-between.gap-4.rounded-lg.border-b.pb-2(
+          class='last:border-b-0 last:pb-0 sm:hidden'
+        )
+          .w-20.shrink-0.text-center
+            .whitespace-nowrap.text-sm.text-lab-black #{ event.date }
+            img.mx-auto.mt-2.size-6(src=event.logo, alt='logo')
+
+          .grow.items-center
+            h3.text-sm.font-bold #{ event.title }
+            .pb-2.pt-1.text-sm.text-lab-black-50 #{ event.place }
+            .w-fit.rounded.bg-lab-color-10.px-1.text-xs.text-lab-black #{ event.level }
+      table.hidden.w-full(class='sm:table')
+        thead.border-b.text-sm.text-lab-black-50
+          tr
+            th.p-2.text-left.font-semibold Дата
+            th.px-2.text-left.font-semibold Название
+            th.px-2.text-left.font-semibold Место
+            th.px-2.text-left.text-center.font-semibold Организатор
+
+            th.px-2.text-center.font-semibold Уровень
+        tbody
+          each event in events
+            tr.border-b.text-sm(class='last:border-b-0')
+              td.whitespace-nowrap.p-2.text-lab-black #{ event.date }
+              td.px-2 #{ event.title }
+              td.px-2 #{ event.place }
+              td.px-2.text-center #{ event.org }
+              td.px-2.text-center #{ event.level } 
+    +tabBar('Вокруг игры')

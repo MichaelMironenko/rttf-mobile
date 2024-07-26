@@ -1,0 +1,23 @@
+mixin trainingLine(training, card=false)
+    a.flex(href="pages/trainings/singleTraining.html" class=`${card ? ' rounded-lg overflow-hidden shadow-md mb-2 border' : 'border-b'}`)
+        .flex.flex-col.gap-3.bg-lab-color.p-3.items-center.shrink-0.w-14
+            .text-sm.text-white.text-center.font-semibold= training.time 
+            .text-xs.text-white.opacity-50.text-center= training.duration
+        .flex.flex-col.gap-2.p-3.bg-white.w-full
+            .flex.gap-4.items-center
+                if training.img 
+                    img(src="img/lesenka.svg").h-4
+                h3.text-lab-color.font-semibold.leading-tight.text-sm= training.title 
+            .flex.gap-x-3.gap-y-2.items-center.flex-wrap
+                .flex.gap-1.items-center
+                    if training.title != 'Лесенка'
+                        +avatar(training.color, training.initials, '24', '', 'тренер')
+                    if training.trainerName
+                        .text-xs.text-lab-black= training.trainerName 
+                .flex.gap-1.items-center
+                    img(src="img/home.svg", alt="").saturate-50.opacity-50
+                    span.text-xs.text-lab-black= training.club
+                .flex.gap-1.items-center 
+                    img(src="img/player.svg", alt="").saturate-50.opacity-50
+                    span.text-xs.text-lab-black= training.players  
+

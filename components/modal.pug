@@ -1,0 +1,36 @@
+include /components/atoms/button.pug
+
+mixin modal(message, buttons, id, closeButton)
+    div(id=id class="modal-container fixed inset-0 bg-gray-900  bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden" )
+        .relative(class="top-1/2 -translate-y-1/2").bg-white.rounded-xl.shadow.w-full.max-w-sm.mx-auto.my-auto
+            if closeButton
+                button.close-modal.absolute.top-3.right-3.text-gray-400.bg-transparent.rounded-lg.text-sm.w-8.h-8.ms-auto.inline-flex.justify-center.items-center(type='button')
+                    img(src="img/close-round.svg", alt="")
+                    span.sr-only Закрыть
+            .p-4.text-center(class="md:p-5")
+                if message  
+                    div.mt-8.mb-8.text-lg.font-medium.text-gray-800 #{message}
+                block
+                if buttons
+                    .flex.justify-between
+                        each button, index in buttons
+                            +button(button.text, button.variant, button.color, button.bgColor, button.extraClasses, button.id, button.href)
+
+    script.
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeButton = document.querySelector('.close-modal');
+            closeButton?.addEventListener('click', function() {
+                document.getElementById('#{id}').style.display = 'none';
+            });
+
+            document.getElementById('#{id}').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+
+
+
+
+

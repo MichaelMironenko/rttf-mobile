@@ -1,0 +1,95 @@
+include /components/atoms/date.pug
+include /components/inputs/switch.pug
+include /components/inputs/input.pug
+include /components/atoms/button.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filtersPanelButton.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Финансы - Кудайбердиев Адилет Кудайбердиевич
+    link(href='../../styles.css' rel='stylesheet')
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.bg-white.px-4.pb-32.pt-14
+    +topBar
+    h1.py-2.text-lg Финансы
+    .flex.items-center.gap-2.py-4
+      h2 Счёт
+      img.plus-button(
+        src='img/plus-button.svg',
+        alt='Пополнить счёт',
+        onclick='toggleVisibility()'
+      )
+      .grow.text-right.text-lg.font-semibold 12 830 ₽
+    .add-money.hidden
+      .pb-4.leading-none Пополнить счёт через
+        |
+        img.inline.w-20.align-middle(src='dynamic-img/logo-black.svg' alt='Ю-kassa')
+      .mb-6.flex.items-center.justify-between.gap-2
+        .flex.items-center.gap-2
+          +input('Сумма', 'w-20 !h-10', '')
+          span ₽
+        +button('Перейти к оплате', 'default', 'white', 'bg-lab-color', '!w-fit', '', '', '', 'numeric')
+
+      script.
+        function toggleVisibility() {
+          var element = document.querySelector('.add-money')
+          element.classList.toggle('hidden')
+        }
+
+    .flex.items-center.justify-between.gap-2.border-t.py-4
+      .flex.gap-2
+        +filterButton('Пополнения', true, '', true, 'text-sm', 'current')
+        +filterButton('Расходы', false, '', '', 'text-sm', 'past')
+
+      +filtersPanelButton
+    .flex.items-center.justify-between.py-4
+      span.text-sm.font-bold 11 июня
+      span.whitespace-nowrap.text-xs.text-lab-black-50 Остаток 12 456 ₽
+    .mb-4.flex.items-center.justify-between.gap-4
+      span.text-sm.text-lab-black-50 12:01
+      .grow.rounded-lg.border.border-lab-color.bg-lab-color-10.px-3.py-2
+        .flex.items-center.justify-between.gap-2.text-xs
+          span.text-lab-black-50 11 сентября 19:00
+          span.text-lab-black-50 Турнир
+        .flex.items-center.gap-2.pt-2.text-sm
+          +tournamentTypeBadge('XDF')
+          span.font-medium Макс Арена
+      .ml-auto.min-w-14.shrink-0.text-right
+        .span.text-sm.font-bold -500 ₽
+        .text-xs.text-lab-black-50 Анонс
+    +date('10 июня')
+    .mb-4.flex.items-center.justify-between.gap-4
+      span.text-sm.text-lab-black-50 12:01
+      .grow.rounded-lg.border.border-lab-color.bg-lab-color-10.px-2.py-2
+        .flex.items-center.justify-between.gap-2.text-xs
+          span.text-lab-black-50 11 сентября 19:00
+          span.text-lab-black-50 Тренировка
+
+        .pt-2.text-sm.font-medium.text-lab-black Макс Арена
+      .ml-auto.min-w-14.shrink-0.text-right
+        .span.text-sm.font-bold.text-lab-green +1500 ₽
+        .text-xs.text-lab-black-50 Возврат
+    .mb-4.flex.items-center.justify-between.gap-4
+      span.text-sm.text-lab-black-50 12:01
+      span.text-sm.font-medium Покупка рекламного баннера до 23.07.2023
+      .ml-auto.min-w-14.shrink-0.text-right
+        span.text-sm.font-bold 2000 ₽
+    .flex.items-center.justify-between.gap-4
+      span.text-sm.text-lab-black-50 12:01
+      span.text-sm.font-medium Пополнение счёта
+      .ml-auto.min-w-14.shrink-0.text-right
+        span.text-sm.font-bold.text-lab-green +2000 ₽
+    +tabBar

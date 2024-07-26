@@ -1,0 +1,13 @@
+
+mixin timezoneMessage
+    div(class="w-full h-14 px-3 py-2 bg-amber-100 border-blue-950 border-opacity-10 justify-start items-center gap-2 inline-flex")
+        div(class="w-4 h-4 justify-center shrink-0 items-center flex")
+            img(src="/img/warning.svg" alt="Предупреждение").w-4.h-4
+        div(class="grow shrink text-blue-950 text-xxs leading-3")
+            | Время турниров и тренировок показывается в часовом поясе региона 
+            span(class="font-bold") Нижний Новгород
+        div(class="px-2 py-1 rounded border border-blue-950 border-opacity-10 justify-start items-center gap-2 flex")
+            div(class="text-blue-950 text-xxs  leading-3") Местное время
+            div(class="flex-col justify-center items-center inline-flex")
+                div(class="text-center text-lab-color text-xs font-bold") 10:41
+                div(class="text-center text-slate-900 text-opacity-50 text-xxs leading-none") (UTC+4)

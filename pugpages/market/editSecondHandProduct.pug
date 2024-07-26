@@ -1,0 +1,74 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/editBlock.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/phototiles.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Создание нового объявления
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+        base(href="../../")
+    body.bg-page-background.mt-12.pb-32
+        +topBar
+        h1.p-4 Создание нового объявления
+        div(class="flex flex-col items-center w-full mx-auto 430:w-fit")
+            +editBlock('Основная информация')
+                +editLabel('Категория')    
+                +select('Выберите категорию...', 'w-full', '', '', '', '', '')
+                +editLabel('Товар')    
+                +input('Yonex BS-4', 'w-full mb-4', '', '', '', '', '', '')
+                +editLabel('Название объявления', '', true)    
+                div.text-lab-black-50.text-xs.mb-2 (можно не заполнять, если заполнено поле товар)
+                +input('Продам ракетку...', 'w-full', '', '', '', '', '', 'Ошибка')
+                +editLabel('Состояние товара')    
+                div.flex.w-full.rounded-lg.overflow-hidden.mb-4
+                    button#tabBooking.grow.text-sm.p-2.bg-lab-color.text-white.border-none.outline-none Новый 
+                    button#tabPrices.grow.text-sm.p-2.bg-lab-color-10.text-gray-500.border-none.outline-none Б/У
+                
+                +editLabel('Описание в свободной форме', '')
+                +textarea('', 'w-full mb-4')
+                .flex.items-center.gap-2
+                    +editLabel('Цена', '', true)
+                    +input('', 'w-20')
+            +editBlock('Фотографии')
+                -
+                    const images = ['dynamic-img/club-1.jpg', 'dynamic-img/club-2.jpg', 'dynamic-img/club-3.jpg', 'dynamic-img/club-4.jpg', 'dynamic-img/photo-2.jpg']
+                .grid.grid-cols-3
+                    each image in images
+                        div.relative
+                            a(href='pages/aroundgame/photo.html')
+                                img.aspect-square.object-cover(src=image)
+                            div.absolute.right-2.bottom-2
+                                div.bg-white.bg-opacity-75.rounded-full.p-2.shadow
+                                    img.w-4.h-4(src='img/delete.svg')
+                   
+                    div.aspect-square.flex.justify-center.items-center.bg-lab-color-10(onclick="toggleActionMenu()")
+                        img(src="img/simple-plus.svg", alt="")
+
+
+            +editBlock('Контакты')
+                +editLabel('Адрес')    
+                +input('Город, улица, дом', 'w-full', '', '', '', '', '', 'Ошибка')
+                +editLabel('Ближайшие станции метро (необязательно)')  
+                span.text-sm (мультиселект выбора станций)  
+                .flex.items-center.gap-2.mt-4   
+                    +editLabel('Телефон', '', true)
+                    +input('', '', '', 'tel', '', '', 'tel')
+            div.flex.gap-4
+                +button('Снять с продажи', 'default', 'white', 'bg-lab-red', ' whitespace-nowrap', 'deleteButton')
+                +button('Сохранить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'submitButton')

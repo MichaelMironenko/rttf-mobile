@@ -1,0 +1,11 @@
+include /components/inputs/input.pug
+
+mixin playerRating
+  .flex.flex-col.pb-2
+    label.pb-3.font-bold Рейтинг игрока
+
+    .flex.items-center.gap-2
+      span.text-sm От
+      +input('', 'w-14')
+      span.ml-2.text-sm до
+      +input('', 'w-14')

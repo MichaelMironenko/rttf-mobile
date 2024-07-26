@@ -1,0 +1,184 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/comments.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Кудайбердиев Адилет Кудайбердиевич
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+    base(href='../../')
+  body.bg-page-background.px-2.pb-32.pt-14(class='xs:px-3 sm:px-4')
+    +topBar
+
+    +block
+      .flex.gap-4
+        .flex.flex-col.items-center.-space-y-4
+          +avatar('bg-lab-blue', 'НП', '80')
+          +userStatusBadge('Тренер')
+        .flex.flex-col.gap-2
+          h1.text-base Кудайбердиев Адилет Кудайбердиевич
+          span.text-sm.text-lab-color @Adiko_Adiko
+          .flex.items-center.text-sm
+            img.h-4(src='img/star.svg')
+            span.ml-1.font-semibold= 4.4
+            a(href="#comments" class="scroll-to-comments").ml-4.text-lab-black-50 6 отзывов
+          .flex.flex-wrap.gap-2.items-center
+            +userRating(323)
+            +userRating(633, true)
+            span.text-xs.text-lab-black-50.underline.decoration-dotted Показать рейтинги MS, MD, XD
+
+        script.
+            document.addEventListener('DOMContentLoaded', () => {
+                const link = document.querySelector('.scroll-to-comments');
+                const target = document.getElementById('comments');
+
+                link.addEventListener('click', (e) => {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+      .mt-4.flex.items-center.gap-2
+        .grow.flex-1.rounded-lg.border.bg-lab-color-10.p-2.text-center.flex.flex-col
+          .text-xs.text-lab-black-50.grow.h-7.leading-none Возраст
+          .font-semibold 38 лет
+        .grow.flex-1.rounded-lg.border.bg-lab-color-10.p-2.text-center.flex.flex-col
+          .text-xs.text-lab-black-50.grow.h-7.leading-none Опыт
+          .font-semibold 5 лет
+        .grow.flex-1.rounded-lg.border.bg-lab-color-10.p-2.text-center
+          .text-xs.text-lab-black-50.h-7.leading-none Цена в час (без аренды)
+          .font-semibold от 600₽
+      .flex.flex-col.gap-4.py-4(class='text-[15px]')
+        .flex.items-start.gap-4
+          img.aspect-square.w-4.opacity-60.saturate-50(
+            src='img/location-icon.svg',
+            alt='Город',
+            class='mt-[3px]'
+          )
+          a(href='pages/players/players.html') Нижний Новгород
+        .flex.items-start.gap-4
+          img.aspect-square.w-4.opacity-60.saturate-50(src='img/home.svg', alt='Клубы', class='mt-[3px]')
+          span 
+            |
+            a(href='pages/courts/singleClub.html') Крылья
+            span ,
+            |
+            |
+            a(href='pages/courts/singleClub.html') Space-Химки
+            span ,
+            |
+            |
+            a(href='pages/courts/singleClub.html') Naten-Юг
+        .inline-flex.items-start.gap-4
+          img.aspect-square.h-4.w-4.opacity-60.saturate-50(
+            src='img/calendar.svg',
+            alt='На сайте',
+            class='mt-[3px]'
+          )
+          span На сайте с 22.08.2021 (2 года 7 месяцев)
+        .inline-flex.items-start.gap-4
+          img.aspect-square.h-4.w-4.opacity-60.saturate-50(
+            src='img/students.svg',
+            alt='На сайте',
+            class='mt-[2px]'
+          )
+          a(href='pages/trainings/singleTrainer.html') Новоселов Вадим
+        .inline-flex.items-start.gap-4
+          img.aspect-square.h-4.w-4.opacity-60.saturate-50(
+            src='img/cup.svg',
+            alt='На сайте',
+            class='mt-[3px]'
+          )
+          .flex.flex-wrap.gap-x-4.gap-y-1
+            span Трехкратный победитель кубка RTTF
+            span Чемпион России 2018 г.
+            span Чемпион ЛАБ 2023
+        
+      div
+        .mb-2.text-center.text-xs.text-lab-black-50 Был онлайн 12.06.2023
+
+        +button('Написать тренеру', 'default', 'white', 'bg-lab-color', 'mb-4', '', 'pages/others/chat.html')
+          
+        +button('img/edit.svg', 'imageText', 'lab-color', 'bg-white', 'px-2 py-1.5 w-full mb-4 border border-lab-color', '', '', 'Редактировать профиль') 
+      
+    +block('Информация о тренере')
+               
+
+                p.mt-4 Информация о тренере
+
+    +block('Групповые тренировки', {href: 'pages/trainings/trainingsList.html', text:'Все'}, true)
+                
+        +filterButtonsRow([
+                { label: 'Вт, 23.09', active: true},
+                { label: 'Ср, 24.09', active: false},
+                { label: 'Пт, 25.09', active: false}
+            ], '', 'pb-4' )
+
+        -
+            const trainings = [
+                { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Кудайбердиев А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Кудайбердиев А', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Кудайбердиев А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Кудайбердиев А', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Кудайбердиев А', club: 'TTL-Savel', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Кудайбердиев А', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Кудайбердиев А', club: 'ЛуЦентр', color: 'bg-lab-color', img: '', players: '5/10' },
+                { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Кудайбердиев А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+            ];
+
+            
+            
+        .-mx-4
+            each training in trainings
+                +trainingLine({
+                    time: training.time,
+                    duration: training.duration + ' ч',
+                    title: training.title,
+                    initials: training.initials,
+                    trainerName: training.trainerName,
+                    club: training.club,
+                    color: training.color,
+                    img: training.img,
+                    players: training.players
+                })
+
+    +photoSlider('Фото тренера', true, 'pages/trainings/trainerAlbum.html')
+    +videoSlider(false, false, 'Видео  тренера', '', 'pages/trainings/trainerVideos.html')
+    +comments(true)
+    +tabBar

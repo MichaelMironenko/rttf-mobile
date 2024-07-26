@@ -1,0 +1,14 @@
+include filterButton.pug
+
+mixin filterButtonsRow(buttons, padding, extraClass, fontSize, scroll, plusButton)
+  div(class=`flex overflow-x-auto items-center space-x-2 no-scrollbar scroll-smooth  ${extraClass}` + (padding ? ' px-4' : '') )
+    each button in buttons
+      +filterButton(button.label, button.active, button.number, button.deleteButton, fontSize)
+    if plusButton 
+      img(src="img/plus-button.svg", alt="").size-6#plusButton
+    
+  if scroll
+    script.
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelector('.flex.overflow-x-auto').scrollLeft = document.querySelector('.flex.overflow-x-auto').scrollWidth;
+        });

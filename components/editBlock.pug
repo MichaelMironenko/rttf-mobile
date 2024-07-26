@@ -1,0 +1,29 @@
+include /components/modal.pug
+
+mixin editBlock(title, hint, subtitle)
+    .flex.flex-col.w-full.mb-4(class="sm:flex-row")
+        div.w-full.max-w-420(class="sm:max-w-64 sm:py-4").shrink-0
+            div.text-lab-black-50.px-4(class=`${ subtitle ? '' : 'py-2' }`)= title
+                if hint 
+                    img(id=hint, src="img/info.svg").inline.align-middle.ml-2
+            if subtitle
+                div.text-xs.text-lab-black-50.px-4.pb-2.w-full= subtitle
+        .bg-white.p-4.max-w-420.rounded-lg.w-full.shrink-0
+            block
+    +modal('', [], "modal-template-info")
+            h3.font-bold.mb-3 Шаблоны турниров
+            p.text-sm.text-left.leading-tight Шаблоны позволяют быстро создавать новые турниры. 
+            p.text-sm.text-left.leading-tight Введите имя шаблона внизу страницы. После сохранения он добавится в список шаблонов сверху страницы. 
+            p.text-sm.text-left.leading-tight Кликните по названию шаблона, чтобы заполнить данные турнира на основе шаблона. 
+    script.
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const blockInfoButton = document.querySelector('#templateHint'); // Убедитесь, что используете правильный селектор
+            const modalInfo = document.querySelector('#modal-template-info'); // Используем идентификатор
+
+
+
+            blockInfoButton.addEventListener('click', () => {
+                modalInfo.style.display = 'block'; 
+            });
+        });

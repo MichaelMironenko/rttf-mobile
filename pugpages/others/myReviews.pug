@@ -1,0 +1,98 @@
+include /components/atoms/date.pug
+include /components/atoms/button.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/inputs/textarea.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+include /components/actionMenu.pug
+include /components/filters/filterButtonsRow.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Мои отзывы 
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-white.pt-12.pb-32
+        +topBar
+
+        h1.text-lg.p-4 Мои отзывы
+        +searchAndFilterButton('Текст отзыва', false, 'pb-4 px-4')
+        +filterButtonsRow([
+                { label: 'Все', active: true},
+                { label: 'Маркет', active: false},
+                { label: 'Клубы', active: false},
+                { label: 'Тренеры', active: false},
+                { label: 'Продавцы', active: false}
+            ], true, 'pb-4')
+        
+        +filterButtonsRow([
+                { label: '2024', active: true},
+                { label: '2023', active: false},
+                { label: '2022', active: false},
+                { label: '2021', active: false},
+                { label: '2020', active: false},
+            ], true, 'py-4 border-t', 'text-xs')
+
+        .bg-white.p-4.mb-1.border-b
+            .flex.gap-3.items-center.mb-2.justify-between.items-center
+                span.text-xs Вчера 12:30
+                span.text-xs.px-1(class="py-0.5").border.border-lab-yellow.rounded.text-lab-yellow.font-semibold Маркет 
+                .flex.shrink-0.items-center.grow.justify-end
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+            a.text-sm.font-semibold(href='#') Воланы перьевые 5 шт.
+            span.mt-2.line-clamp-3 Играл этими воланчиками, топ за свою цену
+            
+            
+        
+        .bg-white.p-4.mb-1.border-b
+            .flex.gap-3.items-center.mb-2.justify-between.items-center
+                span.text-xs Вчера 12:30
+                span.text-xs.px-1(class="py-0.5").border.border-lab-color.rounded.text-lab-color.font-semibold Клубы 
+                .flex.shrink-0.items-center.grow.justify-end
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-empty.svg").h-4
+            a.text-sm.font-semibold(href='#') Naten-ЮГ 
+            span.mt-2.line-clamp-3 Клуб хороший, звезду снял за то что проиграл в турнире, уж такой я человек
+
+        .bg-white.p-4.mb-1.border-b
+            .flex.gap-3.items-center.mb-2.justify-between.items-center
+                span.text-xs 7 апреля 12:30
+                span.text-xs.px-1(class="py-0.5").border-lab-red.border.rounded.text-lab-red.font-semibold Тренеры 
+                .flex.shrink-0.items-center.grow.justify-end
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-full.svg").h-4
+            a.text-sm.font-semibold(href='#') Семён Савельев
+            span.mt-2.line-clamp-3 Отличный тренер, научил меня играть в бадминтон, сквош, теннис, баскетбол, шахматы, помог сделать ремонт в квартире, подарил банку солёных огурцов
+
+        .bg-white.p-4.mb-1
+            .flex.gap-3.items-center.mb-2.justify-between.items-center
+                span.text-xs 7 апреля 12:30
+                span.text-xs.px-1(class="py-0.5").border.text-lab-blue.border-lab-blue.rounded.font-semibold Продавцы 
+                .flex.shrink-0.items-center.grow.justify-end
+                        img(src="img/yellow-star-full.svg").h-4
+                        img(src="img/yellow-star-empty.svg").h-4
+                        img(src="img/yellow-star-empty.svg").h-4
+                        img(src="img/yellow-star-empty.svg").h-4
+                        img(src="img/yellow-star-empty.svg").h-4
+            a.text-sm.font-semibold(href='#') Егор Горячев
+            span.mt-2.line-clamp-3 Продал мне сломанную ракетку, понял только когда начал играть. Деньги возвращать отказывается, на звонки не отвечает. 
+
+        +tabBar

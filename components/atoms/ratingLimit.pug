@@ -1,0 +1,28 @@
+mixin ratingLimit(rating, type, gender)
+  -
+    const emojiMale = '👨🏻'
+    const emojiFemale = '👩'
+    let colorClass = ''
+    switch (gender) {
+      case 'male':
+        colorClass = 'bg-blue-500'
+        break
+      case 'female':
+        colorClass = 'bg-pink-500'
+        break
+      case 'mixed':
+        colorClass = 'bg-gradient-to-r from-pink-500 to-blue-500'
+        break
+    }
+    const badgeClass = `w-[52px] h-6 flex items-center justify-evenly rounded-md text-white !text-[11px] flex-shrink-0 font-semibold ${colorClass}`
+
+  div(class=badgeClass)
+    if type === 'double' && gender !== 'mixed'
+      span= gender === 'female' ? emojiFemale : emojiMale
+      span.-ml-3= gender === 'female' ? emojiFemale : emojiMale
+    else if gender === 'mixed'
+      span= emojiFemale
+      span.-ml-3= emojiMale
+    else if type === 'single'
+      span= gender === 'male' ? emojiMale : emojiFemale
+    span.text-white= rating 

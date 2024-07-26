@@ -1,0 +1,338 @@
+include /components/atoms/date.pug
+include /components/inputs/switch.pug
+include /components/atoms/userRating.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/accordionProfileTournamentCard.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Турниры - Кудайбердиев Адилет Кудайбердиевич
+        link(href="../../styles.css" rel="stylesheet")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+        base(href="../../")
+    body.bg-page-background.pt-14.pb-32.px-4.bg-lab-color-10
+        +topBar
+        h1.text-lg.py-2 Турниры
+
+        +searchAndFilterButton('Название турнира, фамилия, клуб', true, 'py-2')
+
+
+        div.flex.space-x-3.py-2.items-center.justify-between
+
+            +switch('Только призовые', '', 'text-sm text-lab-black')
+            div.grow
+            img#viewCards(src="img/cards.svg" alt="").size-5
+            img#viewTable(src="img/table.svg" alt="").size-5.saturate-50.opacity-50
+
+
+
+
+        -
+            let doublesTournamentData = {
+                date: '15.04.2023 14:45',
+                typeBadge: 'MD',
+                link: 'pages/courts/doublesClub.html',
+                clubName: 'Двойной Удар',
+                playerIcon: 'img/player.svg',
+                playersCount: 12,
+                players: [
+                    { stage: '1/16', names: ['Савельев А.', 'Иванов С.'], link: 'players/doublePlayer.html', flag: true, rating: '400', score: '2 : 0', change: '+3.2' },
+                    { stage: '1/8', names: ['Артемьев Б.', 'Косолапенко Р.'], link: 'players/doublePlayer.html', flag: false, rating: '380', score: '2 : 1', change: '+2.1' },
+                    { stage: '1/4', names: ['Джабраилов К.', 'Савельев А.'], link: 'players/doublePlayer.html', flag: true, rating: '420', score: '0 : 2', change: '-4.8' },
+                    { stage: '1/2', names: ['Кузнецов П.', 'Новиков Д.'], link: 'players/doublePlayer.html', flag: false, rating: '410', score: '2 : 1', change: '+1.4' },
+                    { stage: 'Фин', names: ['Смирнов М.', 'Козлов Ю.'], link: 'players/doublePlayer.html', flag: false, rating: '430:', score: '2 : 0', change: '+5.6' }
+                ],
+                finalPosition: '1',
+                wins: 5,
+                losses: 0,
+                finalChange: '+7.3',
+                ratingBefore: '350',
+                ratingAfter: '357'
+            }
+
+            let tournamentData = {
+                date: '02.12.2022 12:30',
+                typeBadge: 'XDF',
+                link: 'pages/courts/singleClub.html',
+                clubName: 'Naten-Юг',
+                playerIcon: 'img/player.svg',
+                playersCount: 6,
+                players: [
+                    { stage: '1/32', names: ['Савельев А.'], link: 'players/singlePlayer.html', flag: true, rating: '376', score: '2 : 1', change: '+2.8' },
+                    { stage: '1/16', names: ['Иванов С.'], link: 'players/singlePlayer.html', flag: false, rating: '386', score: '2 : 1', change: '-6.2' },
+                    { stage: '1/8', names: ['Артемьев Б.'], link: 'players/singlePlayer.html', flag: false, rating: '345', score: '2 : 1', change: '+1.6' },
+                    { stage: '1/4', names: ['Косолапенко Р.'], link: 'players/singlePlayer.html', flag: false, rating: '453', score: '1 : 2', change: '-5.4' },
+                    { stage: '1/2', names: ['Джабраилов К.'], link: 'players/singlePlayer.html', flag: true, rating: '462', score: '1 : 2', change: '-13.8' },
+                    { stage: 'Фин', names: ['Савельев А.'], link: 'players/singlePlayer.html', flag: false, rating: '491', score: '2 : 0', change: '+6.8' }
+                ],
+                finalPosition: '4',
+                wins: 6,
+                losses: 2,
+                finalChange: '+6.6',
+                ratingBefore: '324',
+                ratingAfter: '331'
+            }
+
+        div.cards-container
+            .grid.grid-cols-1(class="sm:grid-cols-2 lg:grid-cols-3 ").gap-2
+                +accordionProfileTournamentCard(doublesTournamentData, 1)
+                //- +accordionProfileTournamentCard(tournamentData, 2)
+                +block('Корректировка рейтинга', '', '', false, 'max-w-96 h-fit border')
+                    .flex.justify-between.gap-2
+                        span.grow 2 декабря 2023
+                        +userRating('376', true, 'saturate-0')
+                        span.text-lab-green.font-bold &#8594;
+                        +userRating('386', true)
+                    div.text-lab-black-50.text-xs.pt-2.pb-4 Причина: за красивые глазки
+                    .flex.justify-between.gap-2
+                        span.grow 13 апреля 2023
+                        +userRating('386', true, 'saturate-0')
+                        span.text-lab-red.font-bold &#8594;
+                        +userRating('367', true)
+                    div.text-lab-black-50.text-xs.pt-2.pb-4 Причина: перерыв в турнирах более года
+                    .flex.justify-between.gap-2
+                        span.grow 2 декабря 2023
+                        +userRating('354', true, 'saturate-0')
+                        span.text-lab-green.font-bold &#8594;
+                        +userRating('359', true)
+                    div.text-lab-black-50.text-xs.pt-2.py-0 Причина: взятка организатору
+                +accordionProfileTournamentCard(doublesTournamentData, 3)
+                +accordionProfileTournamentCard(tournamentData, 2)
+
+            -
+                let tournamentsData = [
+                    {
+                        date: '15.04.23 14:45',
+                        typeBadge: 'MD',
+                        clubName: 'Двойной Удар',
+                        playersCount: 12,
+                        ratingAfter: '357',
+                        wins: 5,
+                        losses: 0,
+                        finalChange: '+7.3',
+                        finalPosition: '1',
+                        players: [
+                            { stage: '1/32', names: ['Савельев А.'], link: 'players/singlePlayer.html', flag: true, rating: '376', score: '2 : 1', change: '+2.8' },
+                            { stage: '1/16', names: ['Иванов С.'], link: 'players/singlePlayer.html', flag: false, rating: '386', score: '2 : 1', change: '-6.2' },
+                            { stage: '1/8', names: ['Артемьев Б.'], link: 'players/singlePlayer.html', flag: false, rating: '345', score: '2 : 1', change: '+1.6' },
+                            { stage: '1/4', names: ['Косолапенко Р.'], link: 'players/singlePlayer.html', flag: false, rating: '453', score: '1 : 2', change: '-5.4' },
+                            { stage: '1/2', names: ['Джабраилов К.'], link: 'players/singlePlayer.html', flag: true, rating: '462', score: '1 : 2', change: '-13.8' },
+                            { stage: 'Фин', names: ['Савельев А.'], link: 'players/singlePlayer.html', flag: false, rating: '491', score: '2 : 0', change: '+6.8' }
+                        ],
+                    },
+                    {
+                        date: '02.12.22 12:30',
+                        typeBadge: 'XDF',
+                        clubName: 'Naten-Юг',
+                        playersCount: 6,
+                        ratingAfter: '331',
+                        wins: 6,
+                        losses: 2,
+                        finalChange: '+6.6',
+                        finalPosition: '4'
+                    },
+                    {
+                        date: '24.10.23 11:00',
+                        typeBadge: 'WD',
+                        clubName: 'Метеор',
+                        playersCount: 8,
+                        ratingAfter: '402',
+                        wins: 4,
+                        losses: 0,
+                        finalChange: '+8.4',
+                        finalPosition: '1'
+                    },
+                    {
+                        date: '15.11.23 14:00',
+                        typeBadge: 'MS',
+                        clubName: 'Спартак',
+                        playersCount: 16,
+                        ratingAfter: '368',
+                        wins: 5,
+                        losses: 1,
+                        finalChange: '+5.2',
+                        finalPosition: '2'
+                    },
+                    {
+                        date: '29.09.23 09:30',
+                        typeBadge: 'XD',
+                        clubName: 'Локомотив',
+                        playersCount: 10,
+                        ratingAfter: '389',
+                        wins: 5,
+                        losses: 1,
+                        finalChange: '+3.5',
+                        finalPosition: '3'
+                    },
+                    {
+                        date: '21.08.23 15:00',
+                        typeBadge: 'SS',
+                        clubName: 'Чемпион',
+                        playersCount: 14,
+                        ratingAfter: '364',
+                        wins: 7,
+                        losses: 0,
+                        finalChange: '+10.0',
+                        finalPosition: '1'
+                    },
+                    {
+                        date: '13.07.23 18:20',
+                        typeBadge: 'MD',
+                        clubName: 'Олимп',
+                        playersCount: 12,
+                        ratingAfter: '345',
+                        wins: 4,
+                        losses: 1,
+                        finalChange: '+4.0',
+                        finalPosition: '2'
+                    },
+                    {
+                        date: '05.06.23 20:45',
+                        typeBadge: 'MS',
+                        clubName: 'Фортуна',
+                        playersCount: 18,
+                        ratingAfter: '330',
+                        wins: 2,
+                        losses: 2,
+                        finalChange: '-1.8',
+                        finalPosition: '8'
+                    },
+                    {
+                        date: '22.05.23 10:00',
+                        typeBadge: 'WD',
+                        clubName: 'Бриз',
+                        playersCount: 7,
+                        ratingAfter: '357',
+                        wins: 3,
+                        losses: 2,
+                        finalChange: '+2.3',
+                        finalPosition: '4'
+                    },
+                    {
+                        date: '17.04.23 13:00',
+                        typeBadge: 'XD',
+                        clubName: 'Виктория',
+                        playersCount: 9,
+                        ratingAfter: '362',
+                        wins: 5,
+                        losses: 1,
+                        finalChange: '+6.5',
+                        finalPosition: '2'
+                    }
+                ]
+
+
+        div.table-container
+            table(class="min-w-screen w-screen divide-y divide-gray-300 -ml-4 -mr-4 bg-white")
+                thead
+                    tr.text-xs.text-center.p-2.text-lab-color
+                        th.p-2.pl-3.text-left.font-bold.max-w-20 Дата ▼
+                        th.p-2(class="!font-normal") Тип
+                        th.text-left(class="!font-normal") Турнир
+                        th.p-2(class="hidden sm:table-cell")
+                            img(src="img/player.svg" alt="").size-3.mx-auto
+                        th.p-2(class="!font-normal") ✯
+
+                        th.p-2(class="!font-normal") ✯ +/-
+                        th.p-2(class="!font-normal hidden 430:table-cell") Игр
+                        th.p-2.pr-3(class="!font-normal whitespace-nowrap") Место
+                tbody(class="bg-white divide-y divide-gray-200")
+                    each item in tournamentsData
+                        - const medalClass = item.finalPosition === '1' ? 'bg-gold' : item.finalPosition === '2' ? 'bg-silver' : item.finalPosition === '3' ? 'bg-bronze' : ''
+                        - const changeColor = item.finalChange > 0 ? 'text-lab-green' : 'text-lab-red'
+                        tr.text-xs.text-lab-black.text-center(class="even:bg-white odd:bg-lab-color-10").px-2
+                            td.p-2.pl-3.text-left.max-w-20.text-lab-black-50= item.date
+                            td
+                                .bg-lab-color-10.rounded-sm.font-medium(class="px-1").w-fit.mx-auto= item.typeBadge
+                            td.p-2.text-left= item.clubName
+                            td.p-2(class="hidden sm:table-cell")= item.playersCount
+                            td
+                                +userRating(item.ratingAfter)
+                            td.p-1(class=`${changeColor}`)= item.finalChange
+                            td.p-2(class="hidden 430:table-cell")
+                                span(class="text-lab-green")= item.wins 
+                                span.text-lab-black-50 –
+                                span(class="text-lab-red")= item.losses
+
+                            td(class="pr-3  text-center font-semibold w-7")
+                                if item.finalPosition < '4'
+                                    div(class="h-4 w-4 flex items-center border border-lab-black-10 justify-center rounded-full mx-auto " + medalClass)= item.finalPosition
+                                else
+                                    = item.finalPosition
+                        if item.players 
+                            tr
+                                td(colspan="8")
+                                    table.w-full
+                                        thead
+                                            tr.border-b.text-lab-black-50.text-xxs.font-semibold.uppercase
+                                                th.py-2.text-center Этап
+                                                th.py-2.text-left Соперники
+                                                th.py-2.text-center.min-w-14 ★
+                                                th.py-2.text-center.min-w-8 Счёт
+                                                th.py-2.text-center.min-w-10  - / +
+                                        tbody
+                                            each player in item.players
+                                                tr.text-lab-black(class="text-[13px]")
+                                                    td.py-2.text-lab-black-50.px-2.text-center #{player.stage}
+                                                    td.py-2
+                                                        each name in player.names
+                                                            .flex.gap-1.items-center
+                                                                a(href=player.link).leading-none #{name} 
+                                                                if player.flag 
+                                                                    img(src="img/note.svg" alt="").size-3
+                                                                br
+                                                    td.text-center
+                                                        +userRating(player.rating)
+                                                    td.text-center.tracking-tighter #{player.score}
+                                                    td.text-center.px-2(class=player.change[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{player.change}
+                                            tr 
+                                                td(colspan="8").text-center.py-2
+                                                    a(href="pages/tournaments/singleTournament.html").text-xs Перейти к странице турнира
+
+
+        script.
+            document.addEventListener('DOMContentLoaded', function () {
+                const cards = document.querySelector('.cards-container');
+                const table = document.querySelector('.table-container');
+                const viewCardsIcon = document.getElementById('viewCards');
+                const viewTableIcon = document.getElementById('viewTable');
+
+                function updateIconStyles() {
+                if (cards.style.display === 'block') {
+                    viewCardsIcon.classList.remove('saturate-50', 'opacity-50');
+                    viewTableIcon.classList.add('saturate-50', 'opacity-50');
+                } else {
+                    viewTableIcon.classList.remove('saturate-50', 'opacity-50');
+                    viewCardsIcon.classList.add('saturate-50', 'opacity-50');
+                }
+                }
+
+                function showCards() {
+                    cards.style.display = 'block';
+                    table.style.display = 'none';
+                    updateIconStyles();
+                }
+
+                function showTable() {
+                    cards.style.display = 'none';
+                    table.style.display = 'block';
+                    updateIconStyles();
+                }
+
+                viewCardsIcon.addEventListener('click', showCards);
+                viewTableIcon.addEventListener('click', showTable);
+
+                // Инициализация начального вида и стилей иконок
+                showCards();
+            });
+
+
+        +tabBar

@@ -1,0 +1,19 @@
+include /components/selectedCourts.pug
+
+mixin bookingData(club=true)
+    if club 
+        img(src="img/home.svg", alt="").inline.align-middle.saturate-50.opacity-50
+        a(href="pages/courts/singleClub.html").inline.align-middle.ml-2 Натен-Юг
+    .flex.gap-2.items-center.mt-4.mb-3
+        img(src="img/calendar.svg").saturate-50.opacity-60
+        span.leading-none 11 сентября, четверг
+    +selectedCourts
+    div.py-2
+        img(src="img/player.svg", alt="").inline.align-middle.saturate-50.opacity-50
+        span.inline.align-middle.ml-2 Константин
+    div.py-2
+        img(src="img/phone.svg", alt="").inline.align-middle.saturate-50.opacity-50
+        a.inline.align-middle.ml-2 +7 (093) 232-52-25
+    div.pt-2.pb-4
+        img(src="img/racket.svg", alt="").inline.align-middle.saturate-50.opacity-50
+        span.inline.align-middle.ml-2 2 полупрофессиональные ракетки

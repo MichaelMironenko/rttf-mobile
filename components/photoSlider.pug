@@ -1,0 +1,49 @@
+include /components/block.pug
+include /components/atoms/tournamentTypeBadge.pug
+-
+  var photos = [
+  { time: '19:30', rating: 'XDF+', tournamentName: 'Сколково', title: '', likes: 13, comments: 2173, views: 3 }, { time: '20:00', rating: 'ADF', tournamentName: 'Open Space ZP', title: 'Иванов / Петров — Сидоров / Медведев', likes: 8, comments: 1024, views: 1 }]
+
+mixin photoSlider(title, plusButton, href='pages/aroundgame/photos.html')
+  +block(title, { href: href, text: 'Все'}, plusButton)
+    .no-scrollbar.-ml-4.-mr-4.flex.gap-2.overflow-x-auto.px-4
+      each photo, index in photos
+        a.flex.flex-shrink-0.flex-col.gap-2(href="pages/aroundgame/photo.html" class='w-[60%] max-w-[180px]')
+          img.aspect-square.rounded-lg.object-cover(
+            src=`dynamic-img/photo-${index + 1}.jpg`,
+            alt=`photo ${index + 1}`
+          )
+
+          //- if tournamentLine
+          //-     .flex.items-center.text-xs.font-bold.gap-2.text-lab-black-50
+          //-         span.text-lab-black-50= photo.time
+          //-         span.text-lab-black-50= photo.rating
+          //-         span.text-lab-black-50= photo.tournamentName
+
+          .flex.items-center.gap-3.text-sm
+            .flex.items-center.gap-1
+              img.size-5.cursor-pointer.opacity-50.saturate-50(
+                src='img/heart-empty.svg',
+                onclick='toggleHeart(this)'
+              )
+              span #{ photo.likes }
+            .flex.items-center.gap-1
+              img.size-5.opacity-50.saturate-50(src='img/views.svg')
+              span #{ photo.comments }
+            .flex.items-center.gap-1
+              img.size-5.opacity-50.saturate-50(src='img/comment.svg')
+              span #{ photo.views }
+          if photo.title
+            .text-sm.font-semibold.text-lab-black  #{ photo.title }
+  script.
+    function toggleHeart(img) {
+      const heartEmpty = 'img/heart-empty.svg'
+      const heartFill = 'img/heart-fill.svg'
+      if (img.src.includes(heartEmpty)) {
+        img.src = heartFill
+        img.classList.remove('opacity-50', 'saturate-50') // Удаляем классы для heart-empty
+      } else {
+        img.src = heartEmpty
+        img.classList.add('opacity-50', 'saturate-50') // Добавляем классы обратно для heart-empty
+      }
+    }

@@ -1,0 +1,23 @@
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/filters/filtersPanel.pug
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Responsive Panel
+    link(href='../../styles.css' rel='stylesheet')
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body
+    +topBar
+    +filtersPanel
+      .p-4
+        +ratingFilter
+      +tournamentType
+      +dayOfWeek
+      +tags('Регион/город')
+
+    +tabBar

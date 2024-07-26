@@ -1,0 +1,169 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/bottomPanel.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/photoTiles.pug
+include /components/actionMenu.pug
+include /components/atoms/backButtonTitle.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Видео с тренером
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +topBar
+    +backButtonTitle('Видео с тренером Кудайбердиевым А.', 'pages/trainings/singleTrainer.html', 'px-2')
+    a.block.mx-auto.text-center(href="pages/trainings/editTrainerVideos.html") Редактировать
+    .px-4.pt-4
+      +searchAndFilterButton('Название', true)
+      .flex.justify-between.gap-4.items-center.pt-4
+        +sortButton('По новизне', [{text: 'По новизне'}, {text: 'По популярности'}, {text: 'По количеству просмотров'}], '')
+        div.text-lab-color.text-sm#add-video-btn(data-action="showModal") + Добавить видео
+    - 
+      const bottomVideos = [
+          {
+              title: "1000% веселых моментов в бадминтоне",
+              date: "Сегодня, 10:34",
+              views: 371,
+              likes: 13,
+              url: "https://www.youtube.com/watch?v=T40FmAJKIP0"
+          },
+          {
+              title: "Эпические навыки - Кевин Санджая Сукамульджо",
+              date: "Вчера",
+              views: 25,
+              likes: 10,
+              url: "https://www.youtube.com/watch?v=hUO0jn7TvNw"
+          },
+          {
+              title: "Match point - Viktor Axelsen vs Toma Junior Popov - MS, SF - EC 2024",
+              date: "3 дня назад",
+              views: 8645,
+              likes: 43,
+              url: "https://www.youtube.com/watch?v=iBbTqVTq8qk"
+          },
+          {
+              title: "1000% веселых моментов в бадминтоне",
+              date: "2 месяца назад",
+              views: 371,
+              likes: 7,
+              url: "https://www.youtube.com/watch?v=T40FmAJKIP0"
+          },
+          {
+              title: "Эпические навыки - Кевин Санджая Сукамульджо",
+              date: "8 месяцев назад",
+              views: 25,
+              likes: 2,
+              url: "https://www.youtube.com/watch?v=hUO0jn7TvNw"
+          },
+          {
+              title: "Match point - Viktor Axelsen vs Toma Junior Popov - MS, SF - EC 2024",
+              date: "2 года назад",
+              views: 8645,
+              likes: 34,
+              url: "https://www.youtube.com/watch?v=iBbTqVTq8qk"
+          }
+      ];
+
+    div.p-4.bg-white.mt-4.flex-col.gap-4.flex
+      each video, index in bottomVideos
+        a.flex.gap-4(href="pages/aroundgame/video.html")
+          div(class="shrink-0 w-1/3 max-w-40 min-h-20 h-auto relative rounded-md overflow-hidden", data-url=video.url)
+            if video.url.includes('youtube') || video.url.includes('youtu.be')
+              - const youtubeId = video.url.split('v=')[1] || video.url.split('youtu.be/')[1]
+              div(class="w-full h-full relative")
+                img(src=`http://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` alt=video.title class="absolute top-0 left-0 w-full h-full object-cover")
+
+          div(class="flex flex-col justify-center items-start")
+            div(class="text-sm font-bold text-lab-black line-clamp-2") #{video.title}
+            div(class="flex items-center gap-3 mt-2 text-xs")
+              div(class="flex items-center gap-1")
+                img(src="img/heart-empty.svg" class="size-5 opacity-50 saturate-50")
+                span(class="text-lab-black-50") #{video.likes}
+              div(class="flex items-center gap-1")
+                img(src="img/views.svg" class="size-5 opacity-50 saturate-50")
+                span(class="text-lab-black-50") #{video.views}
+              span(class="text-lab-black-50")= video.date
+              
+            button(class="text-red-500").mt-2.text-xs Убрать из профиля тренера
+
+    +bottomPanel('add-video-modal')
+      h3.font-semibold.leading-tight.text-center.py-2 Выберите видео для добавления в свой профиль тренера
+      div.text-xs.leading-tight.text-lab-black-50.text-center.mb-2 Ранее добавленные видео не показываются
+      div(class="max-h-[60vh] h-full overflow-y-auto" onclick="togglePhotoSelection(this)")
+        div.bg-white.mt-4.flex-col.gap-4.flex
+          each video, index in bottomVideos
+            div.flex.gap-4
+              div(class="shrink-0 w-1/3 max-w-40 min-h-20 h-auto relative rounded-md overflow-hidden", data-url=video.url)
+                if video.url.includes('youtube') || video.url.includes('youtu.be')
+                  - const youtubeId = video.url.split('v=')[1] || video.url.split('youtu.be/')[1]
+                  div(class="w-full h-full relative")
+                    img(src=`http://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` alt=video.title class="absolute top-0 left-0 w-full h-full object-cover")
+                  div.absolute.inset-0.bg-black.bg-opacity-25.hidden(class="checkmark")
+                    img.w-8.h-8(src='img/checkmark-white.svg').absolute.right-1.bottom-1
+              div(class="flex flex-col justify-center items-start")
+                div(class="text-sm font-bold text-lab-black line-clamp-2") #{video.title}
+                div(class="flex items-center gap-3 mt-2 text-xs")
+                  div(class="flex items-center gap-1")
+                    img(src="img/heart-empty.svg" class="size-5 opacity-50 saturate-50")
+                    span(class="text-lab-black-50") #{video.likes}
+                  div(class="flex items-center gap-1")
+                    img(src="img/views.svg" class="size-5 opacity-50 saturate-50")
+                    span(class="text-lab-black-50") #{video.views}
+                  span(class="text-lab-black-50")= video.date
+                  
+      +button('Добавить выделенные видео', 'default', 'white', 'bg-lab-color', 'mt-4')
+
+
+    script.
+      document.getElementById('add-video-btn').addEventListener('click', function() {
+        var modal = document.getElementById('add-video-modal');
+        if (modal) {
+          modal.classList.remove('hidden');
+        }
+      });
+
+      function toggleVideoSelection(el) {
+        const checkmark = el.querySelector('.checkmark');
+        checkmark.classList.toggle('hidden');
+      }
+
+
+
+    +tabBar('Тренировки')

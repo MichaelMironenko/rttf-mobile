@@ -1,0 +1,48 @@
+include /components/block.pug
+include /components/atoms/tournamentTypeBadge.pug
+- 
+  var videos = [
+  { date: '2 дня назад', time: '19:30', rating: 'XDF+', tournamentName: 'Сколково', playerNames: 'Демченко / Семенов — Стеженский / Богомольная', likes: 13, comments: 0, views: 2173 }, {date: '14 октября', time: '20:00', rating: 'ADF', tournamentName: 'Open Space ZP', playerNames: 'Иванов / Петров — Сидоров / Медведев', likes: 8, comments: 12, views: '23K' }]
+
+mixin videoSlider(isLive, tournamentLine, title, plusButton, allLink)
+  +block(title, allLink ? { href: allLink, text: 'Все' } : { href: 'pages/aroundgame/videoCollection.html', text: 'Все' }, plusButton)
+    .flex.overflow-x-auto.-ml-4.-mr-4.px-4.gap-2.no-scrollbar
+      each video, index in videos
+        .flex.flex-col.gap-2.flex-shrink-0(class="w-[80%] max-w-[300px]")
+          .relative
+            img(src=`dynamic-img/video-${index + 1}.jpg` alt=`Video ${index + 1}` class="w-full rounded-lg")
+            if isLive
+              span(class="absolute text-xs font-bold bg-lab-red text-white px-2 py-1 rounded right-2 bottom-2") LIVE
+          if tournamentLine
+            .flex.items-center.text-xs.font-bold.gap-2.text-lab-black-50
+              span.text-lab-black-50= video.time
+              span.text-lab-black-50= video.rating
+              span.text-lab-black-50= video.tournamentName
+          .text-sm.font-bold #{video.playerNames}
+          .flex.items-center.gap-3.text-sm
+            //- .flex.items-center.gap-1
+            //-     img(src="img/heart-empty.svg" onclick="toggleHeart(this)" class="cursor-pointer size-5 opacity-50 saturate-50")
+            //-     span #{video.likes}
+            .flex.items-center.gap-1
+              img(src="img/views.svg").size-5.opacity-50.saturate-50
+              span.text-lab-black-50 #{video.views}
+            //- .flex.items-center.gap-1
+            //-     img(src="img/comment.svg").size-5.opacity-50.saturate-50
+            //-     span #{video.comments}
+            span.text-lab-black-50= video.date
+  script.
+    function toggleHeart(img) {
+      const heartEmpty = 'img/heart-empty.svg';
+      const heartFill = 'img/heart-fill.svg';
+      if(img.src.includes(heartEmpty)) {
+        img.src = heartFill;
+        img.classList.remove('opacity-50', 'saturate-50'); // Удаляем классы для heart-empty
+      } else {
+        img.src = heartEmpty;
+        img.classList.add('opacity-50', 'saturate-50'); // Добавляем классы обратно для heart-empty
+      }
+    }
+
+
+
+

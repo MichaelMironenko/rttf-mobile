@@ -1,0 +1,10 @@
+mixin buyCard(category, title, user, date)
+  - var categoryColor = category === 'Ракетки' ? 'lab-color' : 'lab-green'
+  a(href="pages/market/buySecondHandProduct.html").rounded-lg.border.bg-white.p-3
+    .mb-2.font-semibold #{ title }
+    .flex.flex-wrap.items-center.gap-3.text-xs.text-lab-black-50
+      div(class=`border-${categoryColor} text-${categoryColor} w-fit rounded border px-1 text-xs`) #{ category }
+      .flex.items-center.gap-1
+        img.size-4(src='img/player.svg')
+        | #{ user }
+      | #{ date }

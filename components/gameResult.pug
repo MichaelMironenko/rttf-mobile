@@ -1,0 +1,34 @@
+mixin gameResult({date, tournament, stage, duration, border, players, numOfPlayers})
+  div.pt-2(class=border ? 'border-b border-lab-black-10' : '' )
+    .flex.items-center.gap-3.text-xs(class='430:text-sm')
+      if date
+        span.text-lab-black-50(class="!pt-0")= date
+      if tournament
+        a.flex.items-center.gap-1.block(href="pages/tournaments/singleTournament.html")
+          span.font-semibold.text-lab-black-50 XDF
+          span.font-semibold.text-lab-black-50= tournament
+      span.text-lab-black-50 #{ stage }
+      if duration
+        span.whitespace-nowrap.text-lab-black-50 #{ duration } мин
+    .flex.w-full.flex-shrink.flex-grow.flex-col.justify-center.gap-3.py-3
+      each player, index in players
+        .flex.items-center.justify-between.gap-2
+          if numOfPlayers == 2
+            .flex.-space-x-2
+              +avatar(players[0].avatarBg, players[0].initials, 24)
+              +avatar(players[1].avatarBg, players[1].initials, 24)
+          else if numOfPlayers == 1
+            +avatar(players[0].avatarBg, players[0].initials, 24)
+
+          a.inline-flex.min-w-0.flex-shrink.flex-grow.flex-wrap.items-center.gap-1.text-sm(href="pages/others/profile.html" 
+            class=player.score > player.opponentScore ? 'font-semibold' : '' 
+          ) #{ player.name } 
+            +userRating(player.rating)
+            span.flex-shrink-0.text-center.text-xs.leading-none(
+              class=player.ratingChange > 0 ? 'text-lab-green' : 'text-lab-red'
+            ) #{ player.ratingChange > 0 ? `${player.ratingChange}` : player.ratingChange }
+
+          span.w-4.flex-shrink-0.text-center.text-sm(
+            class=player.score > player.opponentScore ? 'font-semibold' : 'text-slate-500'
+          ) #{ player.score }
+    

@@ -1,0 +1,40 @@
+mixin dottedLine(title, value, hint)
+  .relative.flex.items-center.justify-between.gap-2.py-2.text-sm
+    span.text-lab-black-50= title
+    if hint
+      img.info-icon.h-4.w-4(src='img/info.svg', alt='', onclick='toggleHint(this)')
+      .hint-box.absolute.left-1.top-8.z-10.hidden.-translate-x-1.rounded-lg.bg-white.px-3.drop-shadow-around transform-gpu
+        p.text-sm= hint
+    .h-3.grow.border-b-2.border-dotted
+    span.text-right= value
+
+script.
+  function toggleHint(icon) {
+    const hintBox = icon.nextElementSibling
+    const allHints = document.querySelectorAll('.hint-box')
+    allHints.forEach((hint) => {
+      if (hint !== hintBox) {
+        hint.classList.add('hidden')
+      }
+    })
+    hintBox.classList.toggle('hidden')
+  }
+
+  document.addEventListener('click', function (event) {
+    const isClickInsideHint = event.target.closest('.hint-box') !== null
+    const isClickOnIcon = event.target.closest('.info-icon') !== null
+    if (!isClickInsideHint && !isClickOnIcon) {
+      document.querySelectorAll('.hint-box').forEach((hint) => {
+        hint.classList.add('hidden')
+      })
+    }
+  })
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.hint-box').forEach((hint) => {
+      hint.addEventListener('click', function (event) {
+        event.stopPropagation()
+        this.classList.add('hidden')
+      })
+    })
+  })

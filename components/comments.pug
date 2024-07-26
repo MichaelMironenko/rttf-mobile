@@ -1,0 +1,97 @@
+include /components/block.pug
+include /components/atoms/avatar.pug
+include /components/reactions.pug
+include /components/atoms/userRating.pug
+include /components/atoms/starRating.pug
+include /components/atoms/userStatusBadge.pug
+include /components/comment.pug
+
+mixin comments(isReview = false)
+  +block(isReview ? "3 отзыва" : "3 комментария", '', '', false)
+    #comments.flex.items-center.gap-3.pb-3
+      +avatar('bg-lab-blue', 'НП', '32')
+
+      .relative.flex.flex-grow.flex-col.gap-3
+        if isReview
+          .flex.items-center.justify-end.gap-3(class='430:ml-4 430:justify-start')
+            span.text-sm.text-lab-black-50 Ваша оценка
+            +starRating(0)
+        textarea#commentTextArea.hidden.resize-none.overflow-hidden.rounded-md.border.border-gray-300.p-2.transition-all.duration-300.ease-in-out(
+          ,
+          class='focus:border-blue-500 focus:outline-none',
+          style='scrollbar-width: none; -ms-overflow-style: none',
+          rows='1',
+          placeholder='Напишите отзыв (опционально)...'
+        )
+
+        .flex.hidden.items-center.gap-4
+          img#pasteButton.size-6(src='img/paste.svg', alt='Вставить')
+          +button('Отмена', 'text', 'lab-black-50', '', 'w-1/2', 'cancelButton')
+          +button('Отправить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'commentSubmitButton')
+
+      script.
+        const textArea = document.getElementById('commentTextArea')
+        const submitButton = document.getElementById('commentSubmitButton')
+        const cancelButton = document.getElementById('cancelButton')
+        const pasteButton = document.getElementById('pasteButton')
+        const starContainer = document.querySelector('#comments .flex.items-center.justify-end.gap-3')
+        const buttonContainer = document.querySelector('#comments .flex.items-center.gap-4')
+
+        function showElements() {
+          textArea.classList.remove('hidden')
+          buttonContainer.classList.remove('hidden')
+          submitButton.classList.remove('hidden')
+          cancelButton.classList.remove('hidden')
+          pasteButton.classList.remove('hidden')
+          submitButton.disabled = true
+        }
+
+        textArea.addEventListener('focus', function () {
+          this.rows = 3
+          this.style.overflow = 'hidden'
+          showElements()
+        })
+
+        textArea.addEventListener('input', function () {
+          submitButton.disabled = this.value.trim().length <= 1
+          this.style.height = ''
+          this.style.height = this.scrollHeight + 'px'
+          if (this.value.trim().length) {
+            showElements()
+          } else {
+            submitButton.classList.add('hidden')
+            cancelButton.classList.add('hidden')
+            pasteButton.classList.add('hidden')
+          }
+        })
+
+        textArea.addEventListener('blur', function () {
+          if (!this.value.trim()) {
+            this.rows = 1
+            this.style.height = 'auto'
+            this.style.overflow = 'hidden'
+            submitButton.classList.add('hidden')
+            cancelButton.classList.add('hidden')
+            pasteButton.classList.add('hidden')
+          }
+        })
+
+        if (#{ isReview }) {
+          const stars = document.querySelectorAll('#comments img[alt="Star"]')
+          stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+              stars.forEach((s, i) => {
+                s.src = i <= index ? 'img/yellow-star-full.svg' : 'img/yellow-star-empty.svg'
+              })
+              showElements()
+            })
+          })
+        }
+
+    +comment('1', 'Александр Семёнов', 'asemenov', '', 'У меня сломалась ракетка, кто может одолжить запасную? 🙏🏼', isReview ? null : [ { count: 3, emoji: '👍' }, { count: 2, emoji: '👎' }, { count: 1, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-lab-green', 'dynamic-img/user-1.jpg', isReview ? 4 : null)
+
+    .border-l.border-lab-black-10.pl-6
+      +comment('2', 'Никита Полянский', 'nikpol', 'Админ', 'У меня есть, но на ней нужно подтянуть струны', isReview ? null : [ { count: 2, emoji: '👏' }, { count: 2, emoji: '👍' }, { count: 1, emoji: '🙏🏼' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '😲' }, ], 'bg-lab-blue', null, isReview ? 3 : null)
+    .border-l.border-lab-black-10.pl-6
+      .border-l.border-lab-black-10.pl-6
+        +comment('3', '', 'asemenov', '', 'Подтянуть не проблема, спасибо! Когда можно с тобой встретиться?', isReview ? null :[ { count: 0, emoji: '👍' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-lab-green', 'dynamic-img/user-1.jpg', isReview ? 5 : null)

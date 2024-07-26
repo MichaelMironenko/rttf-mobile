@@ -1,0 +1,77 @@
+include /components/market/productCard.pug
+include /components/market/buyCard.pug
+include /components/market/secondHandCard.pug
+include /components/market/articleCard.pug
+include /components/market/stringerCard.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/atoms/backButtonTitle.pug
+include /components/atoms/sortButton.pug
+include /components/atoms/citySelect.pug
+include /components/editBlock.pug
+include /components/comments.pug
+include /components/editLabel.pug
+include /components/filters/filterButtonsRow.pug
+include /components/atoms/breadcrumbs.pug
+include /components/filters/tournamentTypeButton.pug
+include /components/inputs/select.pug
+include /components/inputs/input.pug
+include /components/inputs/switch.pug
+include /components/inputs/textarea.pug
+include /components/searchAndFilterButton
+include /components/atoms/button.pug
+include /components/modal.pug
+include /components/block.pug
+include /components/dottedLine.pug
+include /components/atoms/userStatusBadge
+include /components/atoms/starRating
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Бренды
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+
+    base(href='../../')
+  body.bg-page-background.py-12.pb-32
+    +topBar
+
+    -
+      const companies = [
+          { name: 'Adidas', logo: 'adidas.png', products: 123, country: 'Германия' },
+          { name: 'Black Knight', logo: 'black-knight.png', products: 44, country: 'Германия' },
+          { name: 'Kawasaki', logo: 'kawasaki.png', products: 52, country: 'Япония' },
+          { name: 'LI-NING', logo: 'li-ning.png', products: 64, country: 'Китай' },
+          { name: 'YONEX', logo: 'yonex.png', products: 23, country: 'Япония' },
+          { name: 'Wilson', logo: 'wilson.png', products: 121, country: 'США' },
+          { name: 'Kumpoo', logo: 'kumpoo.png', products: 123, country: 'Япония' },
+          { name: 'Carlton', logo: 'carlton.png', products: 123, country: 'Великобритания' }
+      ];
+
+      function getProductText(num) {
+        if (num % 10 === 1 && num % 100 !== 11) return 'товар';
+        if (num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)) return 'товара';
+        return 'товаров';
+      }
+
+    .p-4
+      h1 Бренды
+      +searchAndFilterButton('Бренд', '', 'py-4')
+      each item in companies
+        a.mb-2.flex.items-center.gap-4.rounded-lg.bg-white.p-4.shadow(
+          href='pages/market/brand.html'
+        )
+          img.h-16.w-16.object-contain(src=`dynamic-img/${item.logo}`, alt=item.name)
+          .w-full
+            .mb-2.flex.items-center.justify-between
+              .text-lg.font-bold.text-lab-color= item.name
+              span.text-sm.text-lab-black-50= item.country
+            .w-fit.rounded-lg.bg-lab-color-10.px-2.py-1.text-xs.text-lab-black-50= `${item.products} ${getProductText(item.products)}`
+
+    +tabBar('Маркет')

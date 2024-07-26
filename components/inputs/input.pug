@@ -1,0 +1,4 @@
+mixin input(placeholder, width, id, type, extraClass, value, inputMode, error)
+  input(id=id class=`border p-2 ${width} rounded-lg ${extraClass} focus:outline-none focus:ring-1 focus:ring-lab-color bg-white leading-none shadow-sm max-w-sm` + (error ? ' border-lab-red' : ' border-lab-black-30'), type=type, value=value, inputmode=inputMode, placeholder=placeholder)
+  if error
+    div.text-xs.text-lab-red.text-right.w-full.mt-1= error

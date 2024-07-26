@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корты</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background pb-32 pt-16 px-2 xs:px-3 sm:px-4">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/lab-logo.svg" alt="logo"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><span class="w-full whitespace-normal text-xs leading-4 tracking-tight text-slate-500 xs:overflow-visible xs:truncate xs:text-ellipsis xs:whitespace-nowrap xs:leading-none">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Notifications"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Messages"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-lab-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-lab-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt="Rating"/><span class="ml-1 text-xs font-bold text-lab-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-lab-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-lab-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/><img class="h-3 w-3 -ml-2" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center"><img class="h-3 w-3" src="img/rating-star-aqua.svg"/>
+                <div class="text-center text-lab-black text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg"/>
+              <div class="text-lab-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg"/>
+            <div class="text-lab-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="flex items-center justify-between pb-2">
+      <h1>Клубы</h1><a class="text-sm">+ Добавить клуб</a>
+    </div>
+    <div class="flex items-center justify-between gap-4  undefined ">
+      <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-lab-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search"/>
+        <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Название клуба, станция метро"/>
+      </div><img class="filters-panel-button h-6 w-6" src="img/filters-icon.svg"/>
+    </div>
+    <div class="flex flex-wrap gap-2 py-3">
+      <div class="px-2 py-1.5 font-semibold text-xs bg-lab-red text-white rounded-lg shadow-sm leading-none border border-lab-black border-opacity-50 w-fit">Нижний Новгород<span class="ml-2 text-white">✕</span>
+      </div>
+    </div>
+    <div class="relative"><img class="object-cover -mx-[3vw] aspect-[2/1] max-w-[100vw]" src="dynamic-img/map.png" alt="">
+      <div class="absolute right-0 top-2 rounded-lg border border-lab-color bg-white px-2 py-1 text-sm font-semibold text-lab-color shadow-md">Открыть карту</div>
+      <button class="sort-button   py-2  " type="button"><img class="inline align-middle size-4" src="img/sort.svg"/><span class="inline align-middle text-lab-color text-sm ml-1">По популярности</span></button>
+      <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="undefined" data-action="hide">
+        <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">По рейтингу</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">По новизне</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Сначала дешевые</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-lab-black-10" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">Сначала дорогие</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><span class="flex-1 text-center  text-lab-color">По удаленности</span></a>
+        </div>
+        <script>
+          document.addEventListener('click', function (e) {
+            if (e.target.dataset.action === 'hide') {
+              var menuContainer = document.querySelector('.menu-container'); 
+              if (menuContainer) {
+                menuContainer.style.display = 'none';
+              }
+            }
+          });
+        </script>
+      </div>
+      <script>
+        document.querySelector('.sort-button').addEventListener('click', function () {
+            var menuContainer = document.querySelector('.menu-container'); 
+            if (menuContainer.style.display === 'none' || menuContainer.style.display === '') {
+                menuContainer.style.display = 'block';
+            } else {
+                menuContainer.style.display = 'none';
+            }
+        });
+      </script>
+    </div>
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"><a class="flex w-full flex-col justify-between border bg-white p-4 shadow-md rounded-xl" href="pages/courts/singleClub.html">
+        <div class="flex items-center gap-3"><img class="size-24 rounded-md object-cover" src="dynamic-img/club-placeholder.svg" alt=""/>
+          <div class="w-full">
+            <div class="mb-2 flex items-center">
+              <h2 class="text-base font-semibold">Naten-СЕВЕР</h2>
+            </div>
+            <div class="mb-2 flex items-center text-sm"><img class="h-4" src="img/star.svg"/><span class="ml-1 font-semibold">4.2</span><span class="ml-3 text-lab-black-50">8 отзывов</span></div>
+            <div class="mb-1 flex flex-wrap items-center gap-3">
+              <div class="flex items-center">
+                <div class="mr-1 size-2 shrink-0 rounded-full bg-lab-black-30"></div><span class="text-sm leading-none text-lab-black-50">Северная</span>
+              </div>
+              <div class="flex items-center"><img class="mr-1 size-4" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">2,5 км</span></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-4">
+              <div><img class="mr-1 inline size-4 align-middle opacity-75 saturate-50" src="img/court.svg"/><span class="inline align-middle text-sm leading-none">4</span></div>
+              <div class="inline"><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/wifi.svg" alt="wifi"/><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/parking.svg" alt="parking"/>
+              </div><span class="text-sm text-lab-color">₽₽<span class="text-lab-black-30">₽</span></span>
+            </div>
+          </div>
+        </div></a><a class="flex w-full flex-col justify-between border bg-white p-4 shadow-md rounded-xl" href="pages/courts/singleClub.html">
+        <div class="flex items-center gap-3"><img class="size-24 rounded-md object-cover" src="dynamic-img/club-1.jpg" alt=""/>
+          <div class="w-full">
+            <div class="mb-2 flex items-center"><img class="mr-2 h-5 w-5 rounded-sm" src="dynamic-img/naten-logo.png" alt="Logo"/>
+              <h2 class="text-base font-semibold">Naten-ЮГ</h2>
+            </div>
+            <div class="mb-2 flex items-center text-sm"><img class="h-4" src="img/star.svg"/><span class="ml-1 font-semibold">4.4</span><span class="ml-3 text-lab-black-50">12 отзывов</span></div>
+            <div class="mb-1 flex flex-wrap items-center gap-3">
+              <div class="flex items-center">
+                <div class="mr-1 size-2 shrink-0 rounded-full bg-lab-red"></div><span class="text-sm leading-none text-lab-black-50">Юго-Западная</span>
+              </div>
+              <div class="flex items-center"><img class="mr-1 size-4" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">1,8 км</span></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-4">
+              <div><img class="mr-1 inline size-4 align-middle opacity-75 saturate-50" src="img/court.svg"/><span class="inline align-middle text-sm leading-none">6</span></div>
+              <div class="inline"><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/wifi.svg" alt="wifi"/><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/shower.svg" alt="shower"/><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/parking.svg" alt="parking"/>
+              </div><span class="text-sm text-lab-color">₽₽<span class="text-lab-black-30">₽</span></span>
+            </div>
+          </div>
+        </div></a><a class="flex w-full flex-col justify-between border bg-white p-4 shadow-md rounded-xl" href="pages/courts/singleClub.html">
+        <div class="flex items-center gap-3"><img class="size-24 rounded-md object-cover" src="dynamic-img/club-placeholder.svg" alt=""/>
+          <div class="w-full">
+            <div class="mb-2 flex items-center"><img class="mr-2 h-5 w-5 rounded-sm" src="dynamic-img/club-placeholder.svg" alt="Logo"/>
+              <h2 class="text-base font-semibold">Naten-ВОСТОК</h2>
+            </div>
+            <div class="mb-2 flex items-center text-sm"><img class="h-4" src="img/star.svg"/><span class="ml-1 font-semibold">4.6</span><span class="ml-3 text-lab-black-50">20 отзывов</span></div>
+            <div class="mb-1 flex flex-wrap items-center gap-3">
+              <div class="flex items-center">
+                <div class="mr-1 size-2 shrink-0 rounded-full bg-lab-yellow"></div><span class="text-sm leading-none text-lab-black-50">Восточная</span>
+              </div>
+              <div class="flex items-center"><img class="mr-1 size-4" src="img/location-arrow.svg"/><span class="text-sm leading-none text-lab-black-50">1,2 км</span></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-4">
+              <div><img class="mr-1 inline size-4 align-middle opacity-75 saturate-50" src="img/court.svg"/><span class="inline align-middle text-sm leading-none">8</span></div>
+              <div class="inline"><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/wifi.svg" alt="wifi"/><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/shower.svg" alt="shower"/><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/parking.svg" alt="parking"/><img class="ml-1 inline h-4 w-4 opacity-75 saturate-50" src="img/ac.svg" alt="ac"/>
+              </div><span class="text-sm text-lab-color">₽₽<span class="text-lab-black-30">₽</span></span>
+            </div>
+          </div>
+        </div></a>
+    </div>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tournaments.svg" alt="Турниры"/><span class=" text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt="Тренировки"/><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/courts/courts.html"><img class="mx-auto h-7 w-7" src="img/tabbar/courts-active.svg" alt="Корты"/><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Корты</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt="Игроки"/><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/around-game.svg" alt="Вокруг игры"/><span class=" text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-lab-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/market.svg" alt="Маркет"/><span class=" text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

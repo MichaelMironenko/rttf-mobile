@@ -1,0 +1,25 @@
+mixin productCard(item, horizontalScroll=true)
+  a.relative.flex.w-40.shrink-0.flex-col.overflow-hidden.rounded-lg.bg-white.transform-gpu.drop-shadow-around-light(
+    href='pages/market/product.html',
+    class=horizontalScroll ? 'w-40' : 'w-full'
+  )
+    if item.newItem
+      .absolute.rounded-br-lg.bg-lab-color.px-2.pt-1.text-xs.text-white(class='pb-1.5') Новинка
+    img.mx-auto.size-40.object-cover(src=`dynamic-img/${item.image}`)
+    .flex.flex-grow.flex-col.items-center.gap-3.p-2
+      .flex.items-center.gap-1
+        img.size-3(src='img/star.svg')
+        span.text-xs= item.rating
+        img.ml-2.size-3(src='img/comment.svg')
+        span.text-xs= item.comments
+        img.ml-2.size-3(src='img/player.svg')
+        span.text-xs= item.players
+      .line-clamp-3.flex-grow.text-center.text-sm.font-medium.leading-tight.text-lab-black= item.name
+    .mt-auto.flex.w-full.items-center.justify-between.px-3.pb-3.pt-2
+      span.text-xs.text-lab-black-50= item.shop
+      .shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+    .absolute.right-0.top-0
+      button.flex.h-8.w-8.items-center.justify-center.rounded-full.bg-white.bg-opacity-50(
+        onclick='event.preventDefault(); event.stopPropagation(); var img = this.querySelector("img"); img.src.includes("heart-empty") ? img.src="img/heart-fill.svg" : "img/heart-empty.svg"'
+      )
+        img.size-6(src=liked ? 'img/heart-fill.svg' : 'img/heart-empty.svg')

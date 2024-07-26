@@ -1,0 +1,9 @@
+mixin starRating(rating, size=6, typ)
+  .flex(class='gap-0.5')
+    each val in [1, 2, 3, 4, 5]
+      div
+        img(
+          class=`h-${size} w-${size}`,
+          src=val <= rating ? 'img/yellow-star-full.svg' : val - rating < 1 && val - rating > 0.3 ? 'img/yellow-star-half.svg' : 'img/yellow-star-empty.svg',
+          alt='Star'
+        )

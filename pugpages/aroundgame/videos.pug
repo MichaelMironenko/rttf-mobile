@@ -1,0 +1,95 @@
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/comments.pug
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/breadcrumbs.pug
+include /components/photoTiles.pug
+include /components/searchAndFilterButton.pug
+include /components/videoSlider
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Видео
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+  base(href='../../')
+  body.bg-page-background.pb-16.pt-12
+    +topBar
+    .px-4.pt-4
+      .flex.items-center.justify-between.gap-3
+        h1 Видео
+        img.size-6(src='img/plus-button.svg' alt='')
+      +searchAndFilterButton('Название','', 'py-4')
+      +videoSlider(true, true, 'Трансляции', false, false)
+      +videoSlider(true, false, 'Новинки', false, false)
+      +videoSlider(true, false, 'Обзоры товаров', false, false)
+      +videoSlider(true, false, 'Официальные соревнования', false, false)
+      +videoSlider(true, false, 'Уроки', false, false)
+
+    - 
+      const bottomVideos = [
+        {
+          title: "1000% веселых моментов в бадминтоне",
+          date: "Сегодня, 10:34",
+          views: 371,
+          url: "https://www.youtube.com/watch?v=T40FmAJKIP0"
+        },
+        {
+          title: "Эпические навыки - Кевин Санджая Сукамульджо",
+          date: "Вчера",
+          views: 25,
+          url: "https://www.youtube.com/watch?v=hUO0jn7TvNw"
+        },
+        {
+          title: "Match point - Viktor Axelsen vs Toma Junior Popov - MS, SF - EC 2024",
+          date: "3 дня назад",
+          views: 8645,
+          url: "https://www.youtube.com/watch?v=iBbTqVTq8qk"
+        },
+        {
+          title: "1000% веселых моментов в бадминтоне",
+          date: "2 месяца назад",
+          views: 371,
+          url: "https://www.youtube.com/watch?v=T40FmAJKIP0"
+        },
+        {
+          title: "Эпические навыки - Кевин Санджая Сукамульджо",
+          date: "8 месяцев назад",
+          views: 25,
+          url: "https://www.youtube.com/watch?v=hUO0jn7TvNw"
+        },
+        {
+          title: "Match point - Viktor Axelsen vs Toma Junior Popov - MS, SF - EC 2024",
+          date: "2 года назад",
+          views: 8645,
+          url: "https://www.youtube.com/watch?v=iBbTqVTq8qk"
+        }
+      ];
+
+    div.grid.grid-cols-1.bg-white(class="576:grid-cols-2 576:p-4 md:grid-cols-3 lg:grid-cols-4  gap-4")
+      each video, index in bottomVideos
+        a.flex.flex-col.gap-2.flex-shrink-0.w-full(href="pages/aroundgame/video.html")
+          .video-preview(data-url=video.url).w-full
+            if video.url.includes('youtube') || video.url.includes('youtu.be')
+              - const youtubeId = video.url.split('v=')[1] || video.url.split('youtu.be/')[1]
+              img(src=`http://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` alt=video.title).w-full.h-full
+          div(class="px-4 576:px-0")  
+            .text-sm.font-bold.text-lab-black #{video.title}
+            .flex.items-center.gap-3.text-sm.mt-2
+              .flex.items-center.gap-1
+                img(src="img/views.svg").size-5.opacity-50.saturate-50
+                span.text-lab-black-50 #{video.views}
+              span.text-lab-black-50= video.date
+
+
+
+
+
+
+
+
+
+    +tabBar('Вокруг игры')

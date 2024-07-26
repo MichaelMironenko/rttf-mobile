@@ -1,0 +1,50 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/trainerCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Тренеры
+    link(href='../../styles.css', rel='stylesheet')
+    link(
+      rel='stylesheet',
+      href='https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap'
+    )
+    base(href='../../')
+  body.bg-page-background.pb-32.pt-16.px-2(class='xs:px-3 sm:px-4')
+    +topBar
+    .flex.items-center.justify-between.pb-2
+      h1 Тренеры
+      a.text-sm + Стать тренером на сайте
+    +searchAndFilterButton('Имя тренера, клуб', true)
+    .flex.flex-wrap.gap-2.py-3
+      +tag('lab-red', 'white', 'Нижний Новгород')
+    .relative
+      img.object-cover(src='dynamic-img/map.png', alt='', class='-mx-[3vw] aspect-[3/1] max-w-[100vw] max-h-80')
+      .absolute.right-0.top-2.rounded-lg.border.border-lab-color.bg-white.px-2.py-1.text-sm.font-semibold.text-lab-color.shadow-md Открыть карту
+      +sortButton('По популярности', [{text: 'По рейтингу'}, {text: 'По новизне'}, {text: 'Сначала дешевые'}, {text: 'Сначала дорогие'}, {text: 'По удаленности'}], ' py-2 ')
+    .grid.grid-cols-2.gap-2(class='480:grid-cols-3 sm:grid-cols-4 768:grid-cols-5')
+        +trainerCard('bg-lab-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800', false, 'Impact')
+        +trainerCard('bg-lab-red', 'Ирина Васильева', 210, 4.7, 5, '900', true, 'Space Химки, Newton')
+        +trainerCard('bg-lab-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750', false, 'NATEN-Юг')
+        +trainerCard('bg-lab-green', 'Ольга Кузнецова', 234, 4.8, 4, '850', false, 'TerBall')
+        +trainerCard('bg-lab-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800', false, 'NL BC')
+        +trainerCard('bg-lab-red', 'Ирина Васильева', 210, 4.7, 5, '900', true, 'Impact-Луж')
+        +trainerCard('bg-lab-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750', false, 'Newton')
+        +trainerCard('bg-lab-green', 'Ольга Кузнецова', 234, 4.8, 4, '850', false, 'ЦРДС Зенит')
+
+    +tabBar('Корты')

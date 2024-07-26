@@ -1,0 +1,144 @@
+include /components/atoms/avatar.pug
+include /components/atoms/button.pug
+include /components/atoms/date.pug
+include /components/comment.pug
+include /components/bet.pug
+include /components/atoms/tag.pug
+include /components/atoms/userRating.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/block.pug
+include /components/filters/filtersPanel.pug
+include /components/filters/playerRating.pug
+include /components/modal.pug
+include /components/atoms/sortButton.pug
+include /components/inputs/select.pug
+include /components/searchAndFilterButton.pug
+include /components/rentCourt.pug
+include /components/clubCard.pug
+include /components/newsCard.pug
+include /components/horizontalClubCard.pug
+include /components/atoms/bookmark.pug
+include /components/adminBar.pug
+include /components/atoms/menuRow.pug
+include /components/trainerCard.pug
+include /components/gameResult.pug
+include /components/bestWinsBlock.pug
+include /components/tournamentRegCard.pug
+include /components/tournamentResultCard.pug
+include /components/photoSlider.pug
+include /components/videoSlider.pug
+include /components/filters/filterButtonsRow.pug
+include /components/filters/filterButton.pug
+include /components/trainingLine.pug
+include /components/atoms/backButtonTitle.pug
+include /components/forumRow.pug
+include /components/poll.pug
+include /components/articleRow.pug
+include /components/profileTournamentCard.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Форум
+    link(href='../../styles.css' rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-page-background.pb-28.pt-12
+    +backButtonTitle('Форум', 'pages/aroundgame/aroundGame.html', 'px-2')
+    +topBar
+
+    -
+      var topics = [
+        {
+          title: 'Игровые тренировки в Москве',
+          author: 'Pakhomych',
+          date: 'Сегодня 22:16',
+          commentsCount: '25',
+          newComments: 2,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Тренировки',
+          themeClass: 'bg-lab-color'
+        },
+        {
+          title: 'Правила расчета рейтинга',
+          author: 'retverd',
+          date: '08-26-2022 13:53',
+          commentsCount: '44',
+          newComments: 3,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Статьи',
+          themeClass: 'bg-lab-blue'
+        },
+        {
+          title: 'Чемпионат мира среди смешанных команд в разгаре',
+          author: 'Надежда P',
+          date: '08-26-2021 16:22',
+          commentsCount: '37',
+          newComments: 5,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Новости',
+          themeClass: 'bg-lab-yellow'
+        },
+        {
+          title: 'Провоз ракеток в самолете',
+          author: 'retverd',
+          date: '08-26-2022 13:53',
+          commentsCount: '44',
+          newComments: 3,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Статьи',
+          themeClass: 'bg-lab-blue'
+        },
+        {
+          title: 'Розыгрыш волана в третьем гейме',
+          author: 'Надежда P',
+          date: '08-26-2021 16:22',
+          commentsCount: '37',
+          newComments: 5,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Новости',
+          themeClass: 'bg-lab-yellow'
+        },
+        {
+          title: 'Синхронизация профилей',
+          author: 'retverd',
+          date: '08-26-2022 13:53',
+          commentsCount: '44',
+          newComments: 3,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Статьи',
+          themeClass: 'bg-lab-blue'
+        },
+        {
+          title: 'пожелания к допускам по рейтингу',
+          author: 'Надежда P',
+          date: '08-26-2021 16:22',
+          commentsCount: '37',
+          newComments: 5,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Новости',
+          themeClass: 'bg-lab-yellow'
+        },
+        {
+          title: 'Правила расчета рейтинга',
+          author: 'retverd',
+          date: '08-26-2022 13:53',
+          commentsCount: '44',
+          newComments: 3,
+          link: 'pages/aroundgame/topic.html',
+          theme: 'Статьи',
+          themeClass: 'bg-lab-blue'
+        },
+      ];
+
+    .px-4
+        +searchAndFilterButton('Поиск', false, '') 
+        +filterButtonsRow([ { label: 'Жизнь на сайте', active: true }, { label: 'Новости', active: false }, { label: 'Турниры', active: false }, { label: 'Статьи', active: false }], 'padding', '-mx-4 my-4')
+        +button('+ Новая тема', 'default', 'text-lab-black', 'bg-transparent', 'border border-lab-color')
+
+        .flex.flex-col.gap-2.mt-4
+          each topic, index in topics
+            +forumRow(topic, true)
