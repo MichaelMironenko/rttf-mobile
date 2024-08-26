@@ -3,7 +3,7 @@ mixin compactCalendar
         div.flex.justify-between.items-center.pt-2.pb-2.px-3
             button
                 img(src="img/expand-arrow.svg" class="rotate-90 h-4 w-4")
-            div.text-lg.font-semibold.text-lab-color Март
+            div.text-lg.font-semibold.text-rttf-color Март
             button
                 img(src="img/expand-arrow.svg" class="-rotate-90 h-4 w-4")
 
@@ -23,12 +23,12 @@ mixin compactCalendar
                         if dayCounter < totalDays
                             - var isReg = Math.random() < 0.3 && Math.random() < 0.3
                             div.flex.flex-col.items-center.justify-center
-                                div.text-sm(class=index >= 5 ? "text-lab-red opacity-50" : "text-lab-black-50" class=dayDate === 16 ? "font-bold" : "") #{day}
+                                div.text-sm(class=index >= 5 ? "text-rttf-red opacity-50" : "text-rttf-black-50" class=dayDate === 16 ? "font-bold" : "") #{day}
                                 div.w-10.h-10.flex.justify-center
-                                    div.w-9.h-9.flex.items-center.justify-center.rounded-full(class=currentDay === dayDate ? (index >= 5 ? "bg-lab-red text-white" : "bg-lab-color text-white") : index >= 5 ? "text-lab-red" : "text-gray-700" class=dayDate === 16 ? "font-bold" : "")= dayDate
+                                    div.w-9.h-9.flex.items-center.justify-center.rounded-full(class=currentDay === dayDate ? (index >= 5 ? "bg-rttf-red text-white" : "bg-rttf-color text-white") : index >= 5 ? "text-rttf-red" : "text-gray-700" class=dayDate === 16 ? "font-bold" : "")= dayDate
                                 div.flex.h-2.mt-1.justify-center(class="gap-0.5")
                                     - var events = Math.floor(Math.random() * 5)
                                     while events--
                                         - var isEventReg = Math.random() < 0.10
-                                        span(class="w-1.5 h-1.5 rounded-full" class=isEventReg ? "bg-lab-color opacity-100 ring-2 ring-offset-2 ring-lab-color " : " bg-lab-black-50 opacity-50")
+                                        span(class="w-1.5 h-1.5 rounded-full" class=isEventReg ? "bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color " : " bg-rttf-black-50 opacity-50")
                         - dayCounter++

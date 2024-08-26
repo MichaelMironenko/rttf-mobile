@@ -54,7 +54,7 @@ html(lang='ru')
       +searchAndFilterButton('Название', true)
       .flex.justify-between.gap-4.items-center.pt-4
         +sortButton('По новизне', [{text: 'По новизне'}, {text: 'По популярности'}, {text: 'По количеству просмотров'}], '')
-        div.text-lab-color.text-sm#add-video-btn(data-action="showModal") + Добавить видео
+        div.text-rttf-color.text-sm#add-video-btn(data-action="showModal") + Добавить видео
     - 
       const bottomVideos = [
           {
@@ -111,21 +111,21 @@ html(lang='ru')
                 img(src=`http://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` alt=video.title class="absolute top-0 left-0 w-full h-full object-cover")
 
           div(class="flex flex-col justify-center items-start")
-            div(class="text-sm font-bold text-lab-black line-clamp-2") #{video.title}
+            div(class="text-sm font-bold text-rttf-black line-clamp-2") #{video.title}
             div(class="flex items-center gap-3 mt-2 text-xs")
               div(class="flex items-center gap-1")
                 img(src="img/heart-empty.svg" class="size-5 opacity-50 saturate-50")
-                span(class="text-lab-black-50") #{video.likes}
+                span(class="text-rttf-black-50") #{video.likes}
               div(class="flex items-center gap-1")
                 img(src="img/views.svg" class="size-5 opacity-50 saturate-50")
-                span(class="text-lab-black-50") #{video.views}
-              span(class="text-lab-black-50")= video.date
+                span(class="text-rttf-black-50") #{video.views}
+              span(class="text-rttf-black-50")= video.date
               
             button(class="text-red-500").mt-2.text-xs Убрать из профиля тренера
 
     +bottomPanel('add-video-modal')
       h3.font-semibold.leading-tight.text-center.py-2 Выберите видео для добавления в свой профиль тренера
-      div.text-xs.leading-tight.text-lab-black-50.text-center.mb-2 Ранее добавленные видео не показываются
+      div.text-xs.leading-tight.text-rttf-black-50.text-center.mb-2 Ранее добавленные видео не показываются
       div(class="max-h-[60vh] h-full overflow-y-auto" onclick="togglePhotoSelection(this)")
         div.bg-white.mt-4.flex-col.gap-4.flex
           each video, index in bottomVideos
@@ -138,17 +138,17 @@ html(lang='ru')
                   div.absolute.inset-0.bg-black.bg-opacity-25.hidden(class="checkmark")
                     img.w-8.h-8(src='img/checkmark-white.svg').absolute.right-1.bottom-1
               div(class="flex flex-col justify-center items-start")
-                div(class="text-sm font-bold text-lab-black line-clamp-2") #{video.title}
+                div(class="text-sm font-bold text-rttf-black line-clamp-2") #{video.title}
                 div(class="flex items-center gap-3 mt-2 text-xs")
                   div(class="flex items-center gap-1")
                     img(src="img/heart-empty.svg" class="size-5 opacity-50 saturate-50")
-                    span(class="text-lab-black-50") #{video.likes}
+                    span(class="text-rttf-black-50") #{video.likes}
                   div(class="flex items-center gap-1")
                     img(src="img/views.svg" class="size-5 opacity-50 saturate-50")
-                    span(class="text-lab-black-50") #{video.views}
-                  span(class="text-lab-black-50")= video.date
+                    span(class="text-rttf-black-50") #{video.views}
+                  span(class="text-rttf-black-50")= video.date
                   
-      +button('Добавить выделенные видео', 'default', 'white', 'bg-lab-color', 'mt-4')
+      +button('Добавить выделенные видео', 'default', 'white', 'bg-rttf-color', 'mt-4')
 
 
     script.

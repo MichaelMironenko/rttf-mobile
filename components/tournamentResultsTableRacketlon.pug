@@ -1,0 +1,58 @@
+include /components/atoms/userRating.pug
+
+mixin tournamentResultsTableRacketlon(showPlace)
+    table(class="w-[calc(100vw-6vw)] -mr-4 -ml-4 -mb-2")
+        thead
+            tr(class="p-2 text-xs text-rttf-blue")
+                if showPlace
+                    th(class="pl-2 text-center max-w-10") #
+                th(class="pl-4 p-2 text-left") Игрок
+                th(class="p-2 text-center") Игры
+                th(class="p-2 text-center hidden sm:table-cell") 
+                    img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
+
+                th(class="p-2 text-center hidden sm:table-cell") 
+                    img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
+
+                th(class="p-2 text-center hidden sm:table-cell") 
+                    img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
+                th(class="p-2 text-center hidden sm:table-cell") 
+                    img(src="/img/tennis.svg", class="mx-auto" alt="Большой теннис").size-4
+
+                th(class="p-2 text-center hidden sm:table-cell") ★ до
+                th(class="p-2 text-center") ★ +/-
+                th(class="p-2 text-center") ★ после
+                
+        tbody
+            each player, index in players
+                - const medalClass = index === 0 ? 'bg-gold' : index === 1 ? 'bg-silver' : index === 2 ? 'bg-bronze' : ''
+                - const changeColor = player.change > 0 ? 'text-rttf-green' : 'text-rttf-red'
+                - const playerRowClass = player.me ? "bg-orange-100" : "even:bg-white odd:bg-slate-100"
+                tr.text-rttf-black(class=playerRowClass + ' text-[13px]')
+                    if showPlace
+                        td(class="pl-2 text-center font-semibold w-7")
+                            if index < 3
+                                div(class="h-5 w-5 flex items-center border border-rttf-black-10 justify-center rounded-full " + medalClass)= player.place
+                            else
+                                = player.place
+                    td(class="pl-4 p-2 text-left leading-5 text-rttf-blue")= player.name
+                    td(class="p-2 text-center")= player.overallGames
+                    td(class="p-2 text-center hidden sm:table-cell")= player.tableTennis
+                    td(class="p-2 text-center hidden sm:table-cell")= player.badminton
+                    td(class="p-2 text-center hidden sm:table-cell")= player.tennis
+                    td(class="p-2 text-center hidden sm:table-cell")= player.squash
+                    td(class="p-2 text-center hidden sm:table-cell saturate-25 ")
+                        +userRating(player.ratingBefore)
+                    td(class="p-2 text-center " + changeColor)= player.change
+                    td(class="p-2 text-center align-middle")
+                        +userRating(player.ratingAfter)
+
+- 
+    var players = [
+        { place: 1, name: 'Артамошкин Сергей', overallGames: '6-1', tableTennis: '2-0', badminton: '1-1', tennis: '2-0', squash: '1-0', ratingBefore: 411, change: '+7.6', ratingAfter: 418 },
+        { place: 2, name: 'Вознесенский Андрей', overallGames: '5-2', tableTennis: '1-1', badminton: '2-0', tennis: '1-1', squash: '1-0', ratingBefore: 357, change: '+6.3', ratingAfter: 363 },
+        { place: 3, name: 'Бероев Егор', overallGames: '4-3', tableTennis: '0-2', badminton: '2-0', tennis: '1-1', squash: '1-0', ratingBefore: 263, change: '+5.8', ratingAfter: 269 },
+        { place: 4, name: 'Гаспарян Артур', overallGames: '3-4', tableTennis: '1-1', badminton: '0-2', tennis: '1-1', squash: '1-0', ratingBefore: 256, change: '+5.2', me: true, ratingAfter: 261 },
+        { place: 5, name: 'Глебов Юрий', overallGames: '2-5', tableTennis: '1-1', badminton: '0-2', tennis: '1-1', squash: '0-1', ratingBefore: 264, change: '+3.1', ratingAfter: 267 },
+        { place: 6, name: 'Голубев Виктор', overallGames: '1-6', tableTennis: '0-2', badminton: '1-1', tennis: '0-2', squash: '0-1', ratingBefore: 414, change: '-0.6', ratingAfter: 413 }
+    ]

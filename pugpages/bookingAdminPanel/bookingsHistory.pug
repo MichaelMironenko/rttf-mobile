@@ -40,11 +40,11 @@ html(lang="ru")
         
         - 
             var bookings = [
-                { id: '#145152', dateTime: 'Сегодня, 13:32', status: 'Забронировано', statusColor: 'lab-green', name: 'Сергей Макаров', phone: '79051271542', phoneFormatted: '+7 (905) 127-15-42', bookingDate: '11 сентября, четверг', courts: [{ time: '11:00-12:30', name: 'Корт 5' }], price: '1800\u202F₽', paymentStatus: 'Оплачено', paymentStatusColor: 'lab-green' },
-                { id: '#145153', dateTime: 'Завтра, 14:00', status: 'Идёт игра', statusColor: 'lab-yellow', name: 'Анна Иванова', phone: '79061234567', phoneFormatted: '+7 (906) 123-45-67', bookingDate: '12 сентября, пятница', courts: [{ time: '14:00-15:30', name: 'Корт 6' }, { time: '15:30-17:00', name: 'Корт 3' }], price: '2000\u202F₽', paymentStatus: 'Абонемент', paymentStatusColor: 'lab-yellow' },
-                { id: '#145154', dateTime: '11 сентября 16:45', status: 'Завершено', statusColor: 'lab-blue', name: 'Петр Сидоров', phone: '79073456789', phoneFormatted: '+7 (907) 345-67-89', bookingDate: '11 сентября, четверг', courts: [{ time: '16:00-17:30', name: 'Корт 4' }], price: '1500\u202F₽', paymentStatus: 'Не оплачено', paymentStatusColor: 'lab-red' },
-                { id: '#145155', dateTime: '10 сентября, 18:00', status: 'Отменено', statusColor: 'lab-black-50', name: 'Екатерина Смирнова', phone: '79081234567', phoneFormatted: '+7 (908) 123-45-67', bookingDate: '11 сентября, четверг', courts: [{ time: '18:00-19:30', name: 'Корт 3' }, { time: '19:30-21:00', name: 'Корт 1' }], price: '2500\u202F₽', paymentStatus: 'Оплачено', paymentStatusColor: 'lab-green' },
-                { id: '#145156', dateTime: '10 сентября, 09:00', status: 'Забронировано', statusColor: 'lab-green', name: 'Дмитрий Павлов', phone: '79091234567', phoneFormatted: '+7 (909) 123-45-67', bookingDate: '12 сентября, пятница', courts: [{ time: '09:00-10:30', name: 'Корт 2' }], price: '1800\u202F₽', paymentStatus: 'Абонемент', paymentStatusColor: 'lab-yellow' }
+                { id: '#145152', dateTime: 'Сегодня, 13:32', status: 'Забронировано', statusColor: 'rttf-green', name: 'Сергей Макаров', phone: '79051271542', phoneFormatted: '+7 (905) 127-15-42', bookingDate: '11 сентября, четверг', courts: [{ time: '11:00-12:30', name: 'Стол 5' }], price: '1800\u202F₽', paymentStatus: 'Оплачено', paymentStatusColor: 'rttf-green' },
+                { id: '#145153', dateTime: 'Завтра, 14:00', status: 'Идёт игра', statusColor: 'rttf-yellow', name: 'Анна Иванова', phone: '79061234567', phoneFormatted: '+7 (906) 123-45-67', bookingDate: '12 сентября, пятница', courts: [{ time: '14:00-15:30', name: 'Стол 6' }, { time: '15:30-17:00', name: 'Стол 3' }], price: '2000\u202F₽', paymentStatus: 'Абонемент', paymentStatusColor: 'rttf-yellow' },
+                { id: '#145154', dateTime: '11 сентября 16:45', status: 'Завершено', statusColor: 'rttf-blue', name: 'Петр Сидоров', phone: '79073456789', phoneFormatted: '+7 (907) 345-67-89', bookingDate: '11 сентября, четверг', courts: [{ time: '16:00-17:30', name: 'Стол 4' }], price: '1500\u202F₽', paymentStatus: 'Не оплачено', paymentStatusColor: 'rttf-red' },
+                { id: '#145155', dateTime: '10 сентября, 18:00', status: 'Отменено', statusColor: 'rttf-black-50', name: 'Екатерина Смирнова', phone: '79081234567', phoneFormatted: '+7 (908) 123-45-67', bookingDate: '11 сентября, четверг', courts: [{ time: '18:00-19:30', name: 'Стол 3' }, { time: '19:30-21:00', name: 'Стол 1' }], price: '2500\u202F₽', paymentStatus: 'Оплачено', paymentStatusColor: 'rttf-green' },
+                { id: '#145156', dateTime: '10 сентября, 09:00', status: 'Забронировано', statusColor: 'rttf-green', name: 'Дмитрий Павлов', phone: '79091234567', phoneFormatted: '+7 (909) 123-45-67', bookingDate: '12 сентября, пятница', courts: [{ time: '09:00-10:30', name: 'Стол 2' }], price: '1800\u202F₽', paymentStatus: 'Абонемент', paymentStatusColor: 'rttf-yellow' }
             ]
         
         .px-4 
@@ -55,24 +55,24 @@ html(lang="ru")
                     .p-4.rounded-lg.bg-white.my-2.shadow-lg
                         .grid.grid-cols-3.items-center.mb-4
                             div.text-xs= booking.id
-                            span(class="text-lab-black-50 text-xs text-center")= booking.dateTime
+                            span(class="text-rttf-black-50 text-xs text-center")= booking.dateTime
                             span(class=`text-sm text-right text-${booking.statusColor}`)= booking.status
                             
                         .my-2.flex.items-end.flex-wrap.gap-3
-                            div.font-semibold.text-lab-black= booking.name
-                            a(href=`tel:${booking.phone}`).text-sm.text-lab-black-50= booking.phoneFormatted
+                            div.font-semibold.text-rttf-black= booking.name
+                            a(href=`tel:${booking.phone}`).text-sm.text-rttf-black-50= booking.phoneFormatted
 
                         .flex.gap-4.items-center.py-3.text-sm
                             img(src="img/calendar.svg").saturate-50.opacity-60
-                            div.leading-none.text-lab-black= booking.bookingDate
+                            div.leading-none.text-rttf-black= booking.bookingDate
                         each court in booking.courts
                             .flex.gap-8.py-2.max-w-sm.items-center.text-sm
                                 div.inline
                                     img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
                                     span.inline.align-middle.leading-none.ml-4= court.time
                                 div.court
-                                    img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
-                                    span.inline.align-middle.ml-2.text-lab-color= court.name
+                                    img(src="img/court.svg", alt="Стол").inline.align-middle.saturate-50.opacity-50
+                                    span.inline.align-middle.ml-2.text-rttf-color= court.name
                                 
                         div.mt-2.text-sm
                             img(src="img/price.svg", alt="Цена").inline.align-middle.saturate-50.opacity-50

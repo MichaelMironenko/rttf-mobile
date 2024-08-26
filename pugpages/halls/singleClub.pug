@@ -32,7 +32,7 @@ html(lang='ru')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Корты
+    title Столы
     link(href='../../styles.css', rel='stylesheet')
     link(
       rel='stylesheet',
@@ -48,7 +48,7 @@ html(lang='ru')
 
     .rounded-b-lg.bg-white.p-4.shadow-md
       .flex.items-center.justify-between.gap-3.pb-3
-        h1.flex-grow.text-lg.font-bold.leading-6.text-lab-black Naten на Проспекте Вернадского
+        h1.flex-grow.text-lg.font-bold.leading-6.text-rttf-black Naten на Проспекте Вернадского
         +bookmark(false)
 
       .flex.items-center.gap-3
@@ -58,7 +58,7 @@ html(lang='ru')
             img.mr-1.h-4(src='img/yellow-star-full.svg')
             span.font-semibold.leading-none 4.2
 
-            span.ml-2.leading-none.text-lab-black-50 15 отзывов
+            span.ml-2.leading-none.text-rttf-black-50 15 отзывов
 
           div
             - let services = ['wifi', 'shower', 'water', 'ac']
@@ -72,8 +72,8 @@ html(lang='ru')
       - var blocks = [{ title: 'Расположение', value: 4.8 }, { title: 'Игровое пространство', value: 4.6 }, { title: 'Уровень сервиса', value: 4.8 } ]
         .mt-4.grid.w-full.grid-cols-3.gap-2
           each block in blocks
-            .flex.flex-col.justify-between.gap-2.rounded-lg.bg-lab-color-10.px-2.py-2
-              .h-7.text-center.text-xxs.leading-tight.text-lab-black(class='xs:h-9 xs:text-xs')= block.title
+            .flex.flex-col.justify-between.gap-2.rounded-lg.bg-rttf-color-10.px-2.py-2
+              .h-7.text-center.text-xxs.leading-tight.text-rttf-black(class='xs:h-9 xs:text-xs')= block.title
               .flex.items-center.justify-center.gap-1
                 img.h-4(src='img/yellow-star-full.svg')
                 span.font-bold= block.value
@@ -84,36 +84,36 @@ html(lang='ru')
             span г. Москва, пр-т Вернадского, д. 78, стр. 5
             .mt-2.flex.items-center
               img.mr-1.size-4(src='img/location-arrow.svg')
-              span.text-sm.leading-none.text-lab-black-50 1.5 км
+              span.text-sm.leading-none.text-rttf-black-50 1.5 км
 
         .flex.items-start.gap-4
           img.mt-1.h-4.opacity-50.saturate-50(src='img/metro.svg')
           div
             .inline-block
-              .mr-1.inline-block.shrink-0.rounded-full.bg-lab-red.align-middle(class='mr-1.5 size-2.5')
+              .mr-1.inline-block.shrink-0.rounded-full.bg-rttf-red.align-middle(class='mr-1.5 size-2.5')
               span.mr-4.inline.align-middle.leading-none Юго-Западная
 
             .inline-block
-              .mr-1.inline-block.shrink-0.rounded-full.bg-lab-red.align-middle(class='mr-1.5 size-2.5')
+              .mr-1.inline-block.shrink-0.rounded-full.bg-rttf-red.align-middle(class='mr-1.5 size-2.5')
               span.mr-4.inline.align-middle.leading-none Проспект Вернадского
 
             .inline-block
-              .mr-1.inline-block.shrink-0.rounded-full.bg-lab-yellow.align-middle(class='mr-1.5 size-2.5')
+              .mr-1.inline-block.shrink-0.rounded-full.bg-rttf-yellow.align-middle(class='mr-1.5 size-2.5')
               span.mr-4.inline.align-middle.leading-none Озерная
 
         .flex.items-start.gap-4
           img.mt-1.h-4.opacity-50.saturate-50(src='img/time.svg')
           div
             .flex.items-center.gap-4
-              span.w-20.text-lab-black-50 Будни:
+              span.w-20.text-rttf-black-50 Будни:
               span 9:00 — 23:00
             .mt-2.flex.items-center.gap-4
-              span.w-20.text-lab-black-50 Выходные:
+              span.w-20.text-rttf-black-50 Выходные:
               span 10:00 — 0:00
 
         .flex.items-center.gap-4
           img.size-4.opacity-50.saturate-50(src='img/court.svg')
-          span 15 кортов
+          span 15 столов
 
         .flex.items-center.gap-4
           img.size-4.opacity-50.saturate-50(src='img/price.svg')
@@ -145,19 +145,19 @@ html(lang='ru')
         each fastLink in fastLinks
           .flex.flex-col.items-center.justify-center.gap-2.rounded-lg.bg-white.p-2.shadow-md
             img.size-7(src=`img/${fastLink.image}.svg`)
-            .flex.grow.items-center.justify-center.text-center.text-xxs.leading-3.text-lab-black(
+            .flex.grow.items-center.justify-center.text-center.text-xxs.leading-3.text-rttf-black(
               class='xs:text-xs'
             )!= fastLink.title
 
     +block
       .flex.items-center.justify-between.pb-2
-        h2.leading-tight Аренда кортов в клубе
+        h2.leading-tight Аренда столов в клубе
 
         a(href='pages/courts/myBookings.html') 
-          img.size-8.rounded-md.bg-lab-color-10.p-2(src='img/booking.svg')
+          img.size-8.rounded-md.bg-rttf-color-10.p-2(src='img/booking.svg')
       .no-scrollbar.-mx-4.flex.gap-2.overflow-x-auto.px-4
         .flex-shrink-0
-          span.sticky.left-0.py-2.text-sm.text-lab-black-50 Март
+          span.sticky.left-0.py-2.text-sm.text-rttf-black-50 Март
           - var marchDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт']
           - var marchDates = [27, 28, 29, 30, 31]
           .mt-2.flex.gap-2
@@ -165,17 +165,17 @@ html(lang='ru')
               - var isWeekend = day === 'Вс' || day === 'Сб'
               - var isActive = day === 'Вт' && marchDates[index] === 29
                 .flex.h-12.w-12.flex-col.items-center.justify-center.rounded-2xl.p-2(
-                  class=isActive && isWeekend ? 'bg-lab-red' : isActive ? 'bg-lab-color' : 'bg-lab-color-10'
+                  class=isActive && isWeekend ? 'bg-rttf-red' : isActive ? 'bg-rttf-color' : 'bg-rttf-color-10'
                 )
                   div(
-                    class=isActive ? 'text-xs opacity-50' : isWeekend ? 'text-xs opacity-50' : 'text-xs text-lab-black-50 text-lab-red text-white opacity-50'
+                    class=isActive ? 'text-xs opacity-50' : isWeekend ? 'text-xs opacity-50' : 'text-xs text-rttf-black-50 text-rttf-red text-white opacity-50'
                   )= day
                   div(
-                    class=isActive ? 'text-base font-semibold' : isWeekend ? 'text-base text-lab-red' : 'text-base text-lab-black text-white'
+                    class=isActive ? 'text-base font-semibold' : isWeekend ? 'text-base text-rttf-red' : 'text-base text-rttf-black text-white'
                   )= marchDates[index]
 
         .flex-shrink-0
-          span.sticky.left-0.py-2.text-sm.text-lab-black-50 Апрель
+          span.sticky.left-0.py-2.text-sm.text-rttf-black-50 Апрель
           - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
           - var aprilDates = [1, 2, 3, 4, 5, 6]
           .mt-2.flex.gap-2
@@ -183,38 +183,38 @@ html(lang='ru')
               - var isWeekend = day === 'Вс' || day === 'Сб'
               - var isActive = false
               .flex.h-12.w-12.shrink-0.flex-col.items-center.justify-center.rounded-2xl.p-2(
-                class=isActive && isWeekend ? 'bg-lab-red' : isActive ? 'bg-lab-color' : 'bg-lab-color-10'
+                class=isActive && isWeekend ? 'bg-rttf-red' : isActive ? 'bg-rttf-color' : 'bg-rttf-color-10'
               )
                 div(
-                  class=isActive ? 'text-xs opacity-50' : isWeekend ? 'text-xs opacity-50' : 'text-xs text-lab-black-50 text-lab-red text-white opacity-50'
+                  class=isActive ? 'text-xs opacity-50' : isWeekend ? 'text-xs opacity-50' : 'text-xs text-rttf-black-50 text-rttf-red text-white opacity-50'
                 )= day
                 div(
-                  class=isActive ? 'text-base font-semibold' : isWeekend ? 'text-base text-lab-red' : 'text-base text-lab-black text-white'
+                  class=isActive ? 'text-base font-semibold' : isWeekend ? 'text-base text-rttf-red' : 'text-base text-rttf-black text-white'
                 )= aprilDates[index]
 
       .flex.items-end.gap-4.py-4
         div
-          .py-2.text-sm.text-lab-black-50 Кортов
-          .flex.items-center.rounded-lg.bg-lab-color-10
-            button#decrease-courts.size-10.text-xl.text-lab-black-50 –
+          .py-2.text-sm.text-rttf-black-50 Столов
+          .flex.items-center.rounded-lg.bg-rttf-color-10
+            button#decrease-courts.size-10.text-xl.text-rttf-black-50 –
             span#courts-count.w-4.text-center.leading-none(class='h-3.5') 2
-            button#increase-courts.size-10.text-xl.text-lab-black-50 +
+            button#increase-courts.size-10.text-xl.text-rttf-black-50 +
 
         div
           .py-2.text-sm.text-gray-500 Буду играть
-          .flex.items-center.rounded-lg.bg-lab-color-10
-            button#decrease-time.size-10.text-xl.leading-none.text-lab-black-50 –
+          .flex.items-center.rounded-lg.bg-rttf-color-10
+            button#decrease-time.size-10.text-xl.leading-none.text-rttf-black-50 –
             span#play-time.flex.items-center.justify-center.space-x-1
               span.hours.w-2.shrink-0.text-right.leading-none(class='h-3.5') 1
-              span.leading-none.text-lab-black-50(class='h-3.5') ч
+              span.leading-none.text-rttf-black-50(class='h-3.5') ч
               span.minutes.w-6.shrink-0.text-right.leading-none(class='h-3.5') 30
-              span.leading-none.text-lab-black-50(class='h-3.5') м
-            button#increase-time.size-10.text-xl.leading-none.text-lab-black-50 +
+              span.leading-none.text-rttf-black-50(class='h-3.5') м
+            button#increase-time.size-10.text-xl.leading-none.text-rttf-black-50 +
 
         +button('img/refresh.svg', 'image')
       .my-3
         img.mr-1.inline.size-4.opacity-50.saturate-50(src='img/warning.svg')
-        .inline.text-sm.text-lab-black-50 Указана полная стоимость за 1,5 часа
+        .inline.text-sm.text-rttf-black-50 Указана полная стоимость за 1,5 часа
 
       -
         let slots = []
@@ -229,34 +229,34 @@ html(lang='ru')
             class=(slot.lastCourt && 'animate-pulse') || 'opacity-100',
             href='pages/courts/bookingConfirm.html'
           )
-            .mb-1.text-sm.font-semibold.text-lab-color #{ slot.time }
-            .text-xs.text-lab-black-50 #{ slot.price }&#8202;₽
+            .mb-1.text-sm.font-semibold.text-rttf-color #{ slot.time }
+            .text-xs.text-rttf-black-50 #{ slot.price }&#8202;₽
       .selectTable.mt-auto.flex.items-center.pt-4(id=id)
         img.mr-2.size-6(src='img/choose-table.svg')
-        .text-sm.leading-none.text-lab-black-50 Выбрать стол (опционально)
+        .text-sm.leading-none.text-rttf-black-50 Выбрать стол (опционально)
 
     +block('О клубе')
       p Описание клуба
 
     +block('Тренеры клуба', {href: 'pages/trainings/trainers.html', text:'Все'})
       .no-scrollbar.-m-4.flex.overflow-x-auto.p-4
-        +trainerCard('bg-lab-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800')
-        +trainerCard('bg-lab-red', 'Ирина Васильева', 210, 4.7, 5, '900', true)
-        +trainerCard('bg-lab-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750')
-        +trainerCard('bg-lab-green', 'Ольга Кузнецова', 234, 4.8, 4, '850')
+        +trainerCard('bg-rttf-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800')
+        +trainerCard('bg-rttf-red', 'Ирина Васильева', 210, 4.7, 5, '900', true)
+        +trainerCard('bg-rttf-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750')
+        +trainerCard('bg-rttf-green', 'Ольга Кузнецова', 234, 4.8, 4, '850')
 
     +block('Групповые тренировки', {href:"pages/trainings/trainings.html", text: "Все"}, true)
       +filterButtonsRow([ { label: 'Сб, 24.03', active: true}, { label: 'Вс, 25.03', active: false}, { label: 'Пн, 26.03', active: false} ], 'padding', '-mx-4 mb-4')
       -
         const trainings = [
-          { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
-          { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
-          { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-lab-green', img: '', players: '5/10' },
-          { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
-          { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-lab-blue', img: '', players: '5/10' },
-          { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
-          { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-lab-green', img: '', players: '5/10' },
-          { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+          { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-rttf-color', img: '', players: '5/10' },
+          { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-rttf-red', img: '', players: '5/10' },
+          { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-rttf-green', img: '', players: '5/10' },
+          { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-rttf-color', img: '', players: '5/10' },
+          { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-rttf-blue', img: '', players: '5/10' },
+          { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-rttf-red', img: '', players: '5/10' },
+          { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-rttf-green', img: '', players: '5/10' },
+          { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-rttf-color', img: '', players: '5/10' }
         ];
 
       .-mx-4.-mb-4
@@ -279,12 +279,12 @@ html(lang='ru')
 
     +block('Отзывы')
       .flex.items-center.justify-between.gap-3.pb-5
-        +avatar('bg-lab-blue', 'НП', '32')
-        span.text-lab-black-50 Оцените клуб по параметрам
+        +avatar('bg-rttf-blue', 'НП', '32')
+        span.text-rttf-black-50 Оцените клуб по параметрам
       .mb-4.flex.justify-between.gap-4
         .grow
-          .text-lab-black Расположение
-          .text-xs.text-lab-black-50 Насколько удобно добираться до клуба
+          .text-rttf-black Расположение
+          .text-xs.text-rttf-black-50 Насколько удобно добираться до клуба
         .flex.shrink-0.gap-1
           img.h-6(src='img/yellow-star-full.svg')
           img.h-6(src='img/yellow-star-full.svg')
@@ -293,8 +293,8 @@ html(lang='ru')
           img.h-6(src='img/yellow-star-empty.svg')
       .mb-4.flex.justify-between.gap-4
         .grow
-          .text-lab-black Игровое пространство
-          .text-xs.text-lab-black-50 Насколько удобно играть
+          .text-rttf-black Игровое пространство
+          .text-xs.text-rttf-black-50 Насколько удобно играть
         .flex.shrink-0.gap-1
           img.h-6(src='img/yellow-star-full.svg')
           img.h-6(src='img/yellow-star-full.svg')
@@ -303,8 +303,8 @@ html(lang='ru')
           img.h-6(src='img/yellow-star-empty.svg')
       .mb-4.flex.justify-between.gap-4
         .grow
-          .text-lab-black Уровень сервиса
-          .text-xs.text-lab-black-50 Насколько комфортно находиться в клубе
+          .text-rttf-black Уровень сервиса
+          .text-xs.text-rttf-black-50 Насколько комфортно находиться в клубе
         .flex.shrink-0.gap-1
           img.h-6(src='img/yellow-star-full.svg')
           img.h-6(src='img/yellow-star-full.svg')
@@ -322,16 +322,16 @@ html(lang='ru')
         )
 
         .flex.items-center.gap-4
-          +button('Отмена', 'text', 'lab-black-50', '', ' w-1/2', 'cancelButton')
-          +button('Отправить', 'default', 'white', 'bg-lab-color', ' w-1/2', 'commentSubmitButton')
+          +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
+          +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
 
-      +comment('1', 'Александр Семёнов', 'asemenov', '', 'У меня сломалась ракетка, кто может одолжить запасную? 🙏🏼', [ { count: 3, emoji: '👍' }, { count: 2, emoji: '👎' }, { count: 1, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-lab-green', 'dynamic-img/user-1.jpg', true)
+      +comment('1', 'Александр Семёнов', 'asemenov', '', 'У меня сломалась ракетка, кто может одолжить запасную? 🙏🏼', [ { count: 3, emoji: '👍' }, { count: 2, emoji: '👎' }, { count: 1, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-rttf-green', 'dynamic-img/user-1.jpg', true)
 
-      .border-l.border-lab-black-10.pl-6
-        +comment('2', 'Никита Полянский', 'nikpol', 'Админ', 'У меня есть, но на ней нужно подтянуть струны', [ { count: 2, emoji: '👏' }, { count: 2, emoji: '👍' }, { count: 1, emoji: '🙏🏼' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '😲' }, ], 'bg-lab-blue', '', true)
-      .border-l.border-lab-black-10.pl-6
-        .border-l.border-lab-black-10.pl-6
-          +comment('3', '', 'asemenov', '', 'Подтянуть не проблема, спасибо! Когда можно с тобой встретиться?', [ { count: 0, emoji: '👍' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-lab-green', 'dynamic-img/user-1.jpg', true)
+      .border-l.border-rttf-black-10.pl-6
+        +comment('2', 'Никита Полянский', 'nikpol', 'Админ', 'У меня есть, но на ней нужно подтянуть струны', [ { count: 2, emoji: '👏' }, { count: 2, emoji: '👍' }, { count: 1, emoji: '🙏🏼' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '😲' }, ], 'bg-rttf-blue', '', true)
+      .border-l.border-rttf-black-10.pl-6
+        .border-l.border-rttf-black-10.pl-6
+          +comment('3', '', 'asemenov', '', 'Подтянуть не проблема, спасибо! Когда можно с тобой встретиться?', [ { count: 0, emoji: '👍' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-rttf-green', 'dynamic-img/user-1.jpg', true)
     +block('Последние результаты', {href: 'pages/tournaments/tournaments.html', text: 'Все'})
       .-mx-4.bg-slate-100
         +date("Вторник, 25 ноября")
@@ -345,25 +345,25 @@ html(lang='ru')
       +filterButtonsRow([ { label: 'Неделя', active: true}, { label: 'Месяц', active: false}, { label: 'Год', active: false}, { label: 'Всё время', active: false }, ], 'padding', '-mx-4')
       .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4.pt-4
         .flex.min-w-20.flex-col.items-center.gap-2
-          +avatar('bg-lab-blue', 'НП', '48')
-          span.text-center.text-sm.font-semibold.text-lab-color Никита Полянский
+          +avatar('bg-rttf-blue', 'НП', '48')
+          span.text-center.text-sm.font-semibold.text-rttf-color Никита Полянский
           +userRating(620)
-          span.pt-2.text-lab-green 21 победа
+          span.pt-2.text-rttf-green 21 победа
         .flex.min-w-20.flex-col.items-center.gap-2
-          +avatar('bg-lab-green', 'ГД', '48')
-          span.text-center.text-sm.font-semibold.text-lab-color Григорий Державин
+          +avatar('bg-rttf-green', 'ГД', '48')
+          span.text-center.text-sm.font-semibold.text-rttf-color Григорий Державин
           +userRating(643)
-          span.pt-2.text-lab-green 19 побед
+          span.pt-2.text-rttf-green 19 побед
         .flex.min-w-20.flex-col.items-center.gap-2
-          +avatar('bg-lab-yellow', 'КБ', '48')
-          span.text-center.text-sm.font-semibold.text-lab-color Константин Барышников
+          +avatar('bg-rttf-yellow', 'КБ', '48')
+          span.text-center.text-sm.font-semibold.text-rttf-color Константин Барышников
           +userRating(493)
-          span.pt-2.text-lab-green 17 побед
+          span.pt-2.text-rttf-green 17 побед
         .flex.min-w-20.flex-col.items-center.gap-2
-          +avatar('bg-lab-yellow', 'ЛК', '48')
-          span.text-center.text-sm.font-semibold.text-lab-color Людмила Кошелева
+          +avatar('bg-rttf-yellow', 'ЛК', '48')
+          span.text-center.text-sm.font-semibold.text-rttf-color Людмила Кошелева
           +userRating(493)
-          span.pt-2.text-lab-green 17 побед
+          span.pt-2.text-rttf-green 17 побед
     +bestWinsBlock(false, true)
     +block('Лучшие игроки клуба')
       +filterButtonsRow([ { label: 'Одиночки', active: true}, { label: 'Пары', active: false}, { label: 'Команды', active: false} ], 'padding', '-mx-4 mb-4')
@@ -382,7 +382,7 @@ html(lang='ru')
         ];
       table.-mb-2.-ml-4.-mr-4(class='w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]')
         thead
-          tr.p-2.text-xs.text-lab-color
+          tr.p-2.text-xs.text-rttf-color
             th.max-w-10.pl-2.text-center #
             th.max-w-24.p-2.text-left Имя
             th.p-2.text-center ★
@@ -397,9 +397,9 @@ html(lang='ru')
         tbody
           each player, index in players
             - const playerRowClass = player.me ? 'bg-orange-100' : 'even:bg-white odd:bg-slate-100'
-            tr.text-sm.text-lab-black(class=playerRowClass)
+            tr.text-sm.text-rttf-black(class=playerRowClass)
               td.w-7.pl-2.text-center.font-semibold= player.place
-              td.max-w-24.p-2.text-left.leading-5.text-lab-color= player.name
+              td.max-w-24.p-2.text-left.leading-5.text-rttf-color= player.name
               td.p-2.text-center
                 +userRating(player.rating)
               td.p-2.text-center= player.gold
@@ -407,4 +407,4 @@ html(lang='ru')
               td.p-2.text-center= player.bronze
               td.p-2.text-center= player.total
 
-    +tabBar('Корты')
+    +tabBar('Столы')

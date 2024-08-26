@@ -41,7 +41,7 @@ html(lang='ru')
         .flex.items-center.gap-2
           +input('Сумма', 'w-20 !h-10', '')
           span ₽
-        +button('Перейти к оплате', 'default', 'white', 'bg-lab-color', '!w-fit', '', '', '', 'numeric')
+        +button('Перейти к оплате', 'default', 'white', 'bg-rttf-color', '!w-fit', '', '', '', 'numeric')
 
       script.
         function toggleVisibility() {
@@ -57,39 +57,39 @@ html(lang='ru')
       +filtersPanelButton
     .flex.items-center.justify-between.py-4
       span.text-sm.font-bold 11 июня
-      span.whitespace-nowrap.text-xs.text-lab-black-50 Остаток 12 456 ₽
+      span.whitespace-nowrap.text-xs.text-rttf-black-50 Остаток 12 456 ₽
     .mb-4.flex.items-center.justify-between.gap-4
-      span.text-sm.text-lab-black-50 12:01
-      .grow.rounded-lg.border.border-lab-color.bg-lab-color-10.px-3.py-2
+      span.text-sm.text-rttf-black-50 12:01
+      .grow.rounded-lg.border.border-rttf-color.bg-rttf-color-10.px-3.py-2
         .flex.items-center.justify-between.gap-2.text-xs
-          span.text-lab-black-50 11 сентября 19:00
-          span.text-lab-black-50 Турнир
+          span.text-rttf-black-50 11 сентября 19:00
+          span.text-rttf-black-50 Турнир
         .flex.items-center.gap-2.pt-2.text-sm
           +tournamentTypeBadge('XDF')
           span.font-medium Макс Арена
       .ml-auto.min-w-14.shrink-0.text-right
         .span.text-sm.font-bold -500 ₽
-        .text-xs.text-lab-black-50 Анонс
+        .text-xs.text-rttf-black-50 Анонс
     +date('10 июня')
     .mb-4.flex.items-center.justify-between.gap-4
-      span.text-sm.text-lab-black-50 12:01
-      .grow.rounded-lg.border.border-lab-color.bg-lab-color-10.px-2.py-2
+      span.text-sm.text-rttf-black-50 12:01
+      .grow.rounded-lg.border.border-rttf-color.bg-rttf-color-10.px-2.py-2
         .flex.items-center.justify-between.gap-2.text-xs
-          span.text-lab-black-50 11 сентября 19:00
-          span.text-lab-black-50 Тренировка
+          span.text-rttf-black-50 11 сентября 19:00
+          span.text-rttf-black-50 Тренировка
 
-        .pt-2.text-sm.font-medium.text-lab-black Макс Арена
+        .pt-2.text-sm.font-medium.text-rttf-black Макс Арена
       .ml-auto.min-w-14.shrink-0.text-right
-        .span.text-sm.font-bold.text-lab-green +1500 ₽
-        .text-xs.text-lab-black-50 Возврат
+        .span.text-sm.font-bold.text-rttf-green +1500 ₽
+        .text-xs.text-rttf-black-50 Возврат
     .mb-4.flex.items-center.justify-between.gap-4
-      span.text-sm.text-lab-black-50 12:01
+      span.text-sm.text-rttf-black-50 12:01
       span.text-sm.font-medium Покупка рекламного баннера до 23.07.2023
       .ml-auto.min-w-14.shrink-0.text-right
         span.text-sm.font-bold 2000 ₽
     .flex.items-center.justify-between.gap-4
-      span.text-sm.text-lab-black-50 12:01
+      span.text-sm.text-rttf-black-50 12:01
       span.text-sm.font-medium Пополнение счёта
       .ml-auto.min-w-14.shrink-0.text-right
-        span.text-sm.font-bold.text-lab-green +2000 ₽
+        span.text-sm.font-bold.text-rttf-green +2000 ₽
     +tabBar

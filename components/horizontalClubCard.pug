@@ -13,19 +13,19 @@ mixin horizontalClubCard(clubInfo)
         .mb-2.flex.items-center.text-sm
           img.h-4(src='img/star.svg')
           span.ml-1.font-semibold= clubInfo.stars
-          span.ml-3.text-lab-black-50= clubInfo.reviews + ' отзывов'
+          span.ml-3.text-rttf-black-50= clubInfo.reviews + ' отзывов'
         .mb-1.flex.flex-wrap.items-center.gap-3
           if clubInfo.address
             .flex
               img.mr-1.opacity-50.saturate-50(src='img/location-icon.svg')
-              span.h-4.text-sm.text-lab-black-50= clubInfo.address
+              span.h-4.text-sm.text-rttf-black-50= clubInfo.address
           else if clubInfo.metro
             .flex.items-center
               .mr-1.size-2.shrink-0.rounded-full(class=`bg-${clubInfo.metroColor}`)
-              span.text-sm.leading-none.text-lab-black-50= clubInfo.metro
+              span.text-sm.leading-none.text-rttf-black-50= clubInfo.metro
           .flex.items-center
             img.mr-1.size-4(src='img/location-arrow.svg')
-            span.text-sm.leading-none.text-lab-black-50 #{ clubInfo.distance } км
+            span.text-sm.leading-none.text-rttf-black-50 #{ clubInfo.distance } км
 
         .flex.flex-wrap.items-center.gap-x-4
           div
@@ -34,5 +34,5 @@ mixin horizontalClubCard(clubInfo)
           .inline
             each service in clubInfo.services
               img.ml-1.inline.h-4.w-4.opacity-75.saturate-50(src=`img/${service}.svg`, alt=service)
-          span.text-sm.text-lab-color ₽₽
-            span.text-lab-black-30 ₽
+          span.text-sm.text-rttf-color ₽₽
+            span.text-rttf-black-30 ₽

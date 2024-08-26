@@ -31,7 +31,7 @@ mixin tournamentTypeButton(type, gender, active)
 
     
 
-  div(class=`${active ? 'bg-lab-color' : 'bg-lab-color-10'} px-2.5 py-1.5`).rounded-lg.cursor-pointer.text-nowrap.text-sm 
+  div(class=`${active ? 'bg-rttf-color' : 'bg-rttf-color-10'} px-2.5 py-1.5`).rounded-lg.cursor-pointer.text-nowrap.text-sm 
     each emoji, index in emojis
       span(class=index === 0 ? '' : '-ml-2')= emoji
     span(class=active ? 'text-white font-semibold' : '').ml-2= typeText

@@ -62,7 +62,7 @@ html(lang='ru')
           newComments: 2,
           link: '/training-moscow',
           theme: 'Тренировки',
-          themeClass: 'bg-lab-color'
+          themeClass: 'bg-rttf-color'
         },
         {
           title: 'Правила расчета рейтинга',
@@ -72,7 +72,7 @@ html(lang='ru')
           newComments: 3,
           link: '/rating-rules',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
         {
           title: 'Чемпионат мира среди смешанных команд в разгаре',
@@ -82,7 +82,7 @@ html(lang='ru')
           newComments: 5,
           link: '/world-championship',
           theme: 'Новости',
-          themeClass: 'bg-lab-yellow'
+          themeClass: 'bg-rttf-yellow'
         },
         {
           title: 'Провоз ракеток в самолете',
@@ -92,7 +92,7 @@ html(lang='ru')
           newComments: 3,
           link: '/rating-rules',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
         {
           title: 'Розыгрыш волана в третьем гейме',
@@ -102,7 +102,7 @@ html(lang='ru')
           newComments: 5,
           link: '/world-championship',
           theme: 'Новости',
-          themeClass: 'bg-lab-yellow'
+          themeClass: 'bg-rttf-yellow'
         },
         {
           title: 'Синхронизация профилей',
@@ -112,7 +112,7 @@ html(lang='ru')
           newComments: 3,
           link: '/rating-rules',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
         {
           title: 'пожелания к допускам по рейтингу',
@@ -122,7 +122,7 @@ html(lang='ru')
           newComments: 5,
           link: '/world-championship',
           theme: 'Новости',
-          themeClass: 'bg-lab-yellow'
+          themeClass: 'bg-rttf-yellow'
         },
       ];
       var articles = [
@@ -246,14 +246,14 @@ html(lang='ru')
             class='last:border-b-0 last:pb-0'
           )
             .w-20.shrink-0.text-center
-              .whitespace-nowrap.text-sm.text-lab-black #{ event.date }
+              .whitespace-nowrap.text-sm.text-rttf-black #{ event.date }
               img.mx-auto.mt-2.size-6(src=event.logo, alt='logo')
 
             .grow.items-center
               h3.text-sm.font-bold #{ event.title }
-              .pb-2.pt-1.text-sm.text-lab-black-50 #{ event.place }
+              .pb-2.pt-1.text-sm.text-rttf-black-50 #{ event.place }
 
-              .w-fit.rounded.bg-lab-color-10.px-1.text-xs.text-lab-black #{ event.level }
+              .w-fit.rounded.bg-rttf-color-10.px-1.text-xs.text-rttf-black #{ event.level }
       +photoSlider('Последние фото', false)
       +videoSlider(false, false, 'Последние видео', '', 'pages/aroundgame/videos.html')
       +block('Рейтинги игроков на сайте')
@@ -282,20 +282,20 @@ html(lang='ru')
           })
         each rating in ratings
           .mb-2.flex.items-center
-            .w-20.shrink-0.whitespace-nowrap.text-sm.text-lab-black= rating.range
+            .w-20.shrink-0.whitespace-nowrap.text-sm.text-rttf-black= rating.range
             .relative.h-6.w-full.overflow-hidden
-              .absolute.left-0.h-full.rounded-l.bg-lab-purple(class=`w-[${rating.relativeWomen}%]`) 
+              .absolute.left-0.h-full.rounded-l.bg-rttf-purple(class=`w-[${rating.relativeWomen}%]`) 
               div(
-                class=`left-[${rating.relativeWomen}%] absolute h-full rounded-r bg-lab-blue`,
+                class=`left-[${rating.relativeWomen}%] absolute h-full rounded-r bg-rttf-blue`,
                 class=`w-[${rating.relativeMen}%]`
               )
-            .ml-2.w-12.text-right.text-sm.text-lab-black= `${rating.total}%`
+            .ml-2.w-12.text-right.text-sm.text-rttf-black= `${rating.total}%`
         .mt-4.flex.justify-start
           .mr-4.flex.items-center
-            .mr-2.h-4.w-4.rounded.bg-lab-purple
+            .mr-2.h-4.w-4.rounded.bg-rttf-purple
             span.text-sm.text-gray-700 Женщины
           .flex.items-center
-            .mr-2.h-4.w-4.rounded.bg-lab-blue
+            .mr-2.h-4.w-4.rounded.bg-rttf-blue
             span.text-sm.text-gray-700 Мужчины
 
         //- script.

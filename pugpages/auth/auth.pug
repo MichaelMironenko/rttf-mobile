@@ -51,7 +51,7 @@ html(lang='ru')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
     base(href='../../')
   body.bg-white.pt-8
-    img(src="img/lab-logo.svg", alt="").size-24.mx-auto.my-4
+    img(src="img/rttf-logo.svg", alt="").size-24.mx-auto.my-4
     h1.font-semibold.text-center Вход на сайт ЛАБ
     
     .p-4.max-w-420.mx-auto.mt-8
@@ -62,11 +62,11 @@ html(lang='ru')
         +input('Введите пароль', 'w-full', 'password', 'password', 'pr-10', '', '', '')
         button.absolute.right-2.top-2(type="button" onclick="togglePasswordVisibility()")
           img(src="img/eye.svg" alt="Toggle visibility").h-6
-        a(href="pages/auth/resetPassword.html").block.text-sm.text-lab-black-50.mt-2.text-right.w-full Забыли пароль?
-      +button('Войти', 'default', 'white', 'bg-lab-color', 'mt-4', 'editButton', '')
+        a(href="pages/auth/resetPassword.html").block.text-sm.text-rttf-black-50.mt-2.text-right.w-full Забыли пароль?
+      +button('Войти', 'default', 'white', 'bg-rttf-color', 'mt-4', 'editButton', '')
 
       div.p-4.text-center
-        p.text-lab-black-50 или войдите через
+        p.text-rttf-black-50 или войдите через
         .flex.items-center.gap-4.justify-center
           img(src="img/vk-round.svg", alt="").size-10
           img(src="img/google-round.svg", alt="").size-10

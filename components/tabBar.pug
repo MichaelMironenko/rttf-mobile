@@ -1,13 +1,13 @@
 mixin tabBar(activeTab)
   nav.pb-safe.fixed.inset-x-0.bottom-0.z-10.border-t.bg-white
     .flex.justify-between
-      - var tabs = [{"href":"pages/tournaments/tournaments.html","icon":"img/tabbar/tournaments.svg","label":"Турниры"}, {"href":"pages/trainings/trainings.html","icon":"img/tabbar/trainings.svg","label":"Тренировки"}, {"href":"pages/courts/courts.html","icon":"img/tabbar/courts.svg","label":"Корты"}, {"href":"pages/players/players.html","icon":"img/tabbar/players.svg","label":"Игроки"}, {"href":"pages/aroundgame/aroundGame.html","icon":"img/tabbar/around-game.svg","label":"Вокруг игры"}, {"href":"pages/market/market.html","icon":"img/tabbar/market.svg","label":"Маркет"}]
+      - var tabs = [{"href":"pages/tournaments/tournaments.html","icon":"img/tabbar/tournaments.svg","label":"Турниры"}, {"href":"pages/trainings/trainings.html","icon":"img/tabbar/trainings.svg","label":"Тренировки"}, {"href":"pages/halls/halls.html","icon":"img/tabbar/tables.svg","label":"Залы"}, {"href":"pages/players/players.html","icon":"img/tabbar/players.svg","label":"Игроки"}, {"href":"pages/aroundgame/aroundGame.html","icon":"img/tabbar/around-game.svg","label":"Вокруг игры"}, {"href":"pages/market/market.html","icon":"img/tabbar/market.svg","label":"Маркет"}]
       each tab in tabs
         - var iconPath = tab.label === activeTab ? tab.icon.replace('.svg', '-active.svg') : tab.icon
-        a.flex.flex-col.gap-1.py-1.text-center.text-lab-black-50(class='w-1/6', href=tab.href)
+        a.flex.flex-col.gap-1.py-1.text-center.text-rttf-black-50(class='w-1/6', href=tab.href)
           img.mx-auto.h-7.w-7(
             src=iconPath,
-            alt=tab.label,
+            alt='',
             class=`${tab.label === activeTab ? '' : 'opacity-80'}`
           )
           span(

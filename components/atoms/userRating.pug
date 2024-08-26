@@ -1,22 +1,51 @@
-mixin userRating(rating, double, extraClasses)
-    div(class=`${extraClasses} items-center inline-flex px-1.5 py-1 bg-lab-color-10-solid border border-lab-color-10 gap-px w-12 shrink-0 align-middle rounded justify-center`)
+mixin userRating(rating, double, extraClasses, type = 'default')
+    -
+        const typeSettings = {
+            chesspong: {
+                background: "bg-[url('/img/chess-bg.svg')] bg-cover",
+                textColor: "text-rttf-black",
+                icon: "chesspong-black.svg",
+                alt: "Рейтинг игрока в шахпонге"
+            },
+            ligapro: {
+                background: "bg-rttf-black",
+                textColor: "text-white",
+                icon: "ligapro-white.svg",
+                alt: "Рейтинг игрока в Лиге Про"
+            },
+            racketlon: {
+                background: "bg-rttf-color-10",
+                textColor: "text-rttf-black",
+                icon: "racketlon.svg",
+                alt: "Рейтинг игрока в ракетлоне"
+            },
+            fntr: {
+                background: "bg-rttf-color-10",
+                textColor: "text-rttf-black",
+                icon: "fntr.svg",
+                alt: "Рейтинг игрока в ФНТР"
+            },
+            pingpong: {
+                background: "bg-rttf-color-10",
+                textColor: "text-rttf-black",
+                icon: "pingpong-black.svg",
+                alt: "Рейтинг игрока в пинг-понге"
+            },
+            default: {
+                background: "bg-rttf-color-10-solid",
+                textColor: "text-rttf-black",
+                icon: "rating-star-aqua.svg",
+                alt: "Рейтинг игрока в настольном теннисе"
+            }
+        };
+
+        const settings = typeSettings[type] || typeSettings.default;
+
+    div(class=`${extraClasses} items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 ${settings.background}`)
         if double 
-            //- При double=true отображаем две звезды, одна из которых сдвинута
-            img(src="img/rating-star-aqua.svg" class="h-3 w-3")
-            img(src="img/rating-star-aqua.svg" class="h-3 w-3 -ml-2")
+            .flex.items-center
+                img(src="img/rating-star-aqua.svg" class="h-3 w-3 shrink-0" alt=settings.alt)
+                img(src="img/rating-star-aqua.svg" class="h-3 w-3 -ml-1.5 shrink-0" alt='')
         else
-            //- При double=false отображаем одну звезду
-            img(src="img/rating-star-aqua.svg" class="h-3 w-3")
-        div(class="text-center text-lab-black text-xs font-semibold leading-none")= rating
-
-
-//- mixin userRating(rating, double)
-//-     div(class="w-12 h-5 bg-avatar-gradient rounded justify-center items-center gap-px inline-flex shrink-0")
-//-         if double 
-//-             //- При double=true отображаем две звезды, одна из которых сдвинута
-//-             img(src="img/rating-star.svg" class="h-3 w-3")
-//-             img(src="img/rating-star.svg" class="h-3 w-3 -ml-2")
-//-         else
-//-             //- При double=false отображаем одну звезду
-//-             img(src="img/rating-star.svg" class="h-3 w-3 mr-0.5")
-//-         div(class="text-center text-stone-50 text-xs font-semibold leading-none")= rating
+            img(src=`img/${settings.icon}` class="h-3.5 w-3.5" alt=settings.alt)
+        div(class=`${settings.textColor} text-center text-xs font-semibold leading-none`)= rating

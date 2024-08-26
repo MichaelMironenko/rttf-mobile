@@ -53,13 +53,13 @@ html(lang='ru')
 
     .p-4.bg-white
         .flex.gap-3.justify-between.items-center 
-            +tag('lab-green', 'white', 'Всякое разное', false)
+            +tag('rttf-green', 'white', 'Всякое разное', false)
             +bookmark
         h1.py-4.leading-tight.text-lg Ищем тренера для мини-группы
         .flex.gap-2.items-center.justify-between
-            +avatar('bg-lab-blue', 'АИ', '32')
+            +avatar('bg-rttf-blue', 'АИ', '32')
             a(href="pages/others/profile.html").block.text-xs.leading-none GrayCardinal
-            span.text-xs.text-lab-black-50.leading-none.grow 24 апреля 12:42
+            span.text-xs.text-rttf-black-50.leading-none.grow 24 апреля 12:42
             img(src="img/three-dots.svg", alt="")
         p Разыскивается тренер для минигруппы (4 человека) на 1 раз в неделю ВТ или СР (возможно рассмотреть и другие дни) Вечером, идеально в 19:30 или 20:00 на 2 часа. Исключительно отработка техники и тактики. территориально ЮГ Москвы условно от Серпуховской до Пражской (плюс соседние ветки метро). Пишите, звоните +7 916 812 75 93. Павел.
 
@@ -77,7 +77,7 @@ html(lang='ru')
             div(class="relative inline-flex gap-2 items-center")
                 img(src="img/reactions.svg" alt="Reactions" class="cursor-pointer" id=`reactions-trigger`)
                 div(class="absolute bottom-6 -left-2 hidden max-w-[80vw]" id=`reactions-popup`)
-                    div(class="flex p-2 bg-white rounded-full overflow-x-auto no-scrollbar gap-2 border border-lab-black-10 text-xl shadow-lg")
+                    div(class="flex p-2 bg-white rounded-full overflow-x-auto no-scrollbar gap-2 border border-rttf-black-10 text-xl shadow-lg")
                         each reaction in reactions
                             button(class="px-2 bg-slate-100 rounded-full" onclick=`togglePopup()`) #{reaction.emoji}    
             

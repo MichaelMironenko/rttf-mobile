@@ -25,27 +25,27 @@ html(lang="ru")
         +topBar
         .py-4.px-2.flex.gap-3
             img(src="img/expand-arrow.svg", alt="").rotate-90
-            div.text-lg.text-center.grow.font-bold.text-lab-black.-ml-6 Мои бронирования
+            div.text-lg.text-center.grow.font-bold.text-rttf-black.-ml-6 Мои бронирования
         .px-4.pt-4
             +filterButtonsRow([
                     { label: '2024', active: true},
                     { label: '2023', active: false},
                     { label: '2022', active: false},
                 ])
-        div.text-lab-black-50.px-4.pt-6.pb-1 Актуальные
+        div.text-rttf-black-50.px-4.pt-6.pb-1 Актуальные
         .bg-white.w-full.px-4
             mixin bookingCard(border, current)   
                 a.flex.gap-3.justify-between.items-center.pt-3.pb-3(class=`${border ? ' border-b ' : ''}` href=`${current ? 'pages/courts/singleBooking.html' : 'pages/courts/pastBooking.html'}`)
                     img(src="dynamic-img/naten-logo.png").size-10.rounded-md
                     div.grow    
                         h3.font-bold Naten-ЮГ
-                        span.text-lab-black-50.text-sm 10:00-11:30
+                        span.text-rttf-black-50.text-sm 10:00-11:30
                     div.text-right    
-                        div.leading-6.text-sm.text-lab-black 11 сентября
-                        span.text-lab-black-50.text-sm 1300₽
+                        div.leading-6.text-sm.text-rttf-black 11 сентября
+                        span.text-rttf-black-50.text-sm 1300₽
 
             +bookingCard('', true)
-        div.text-lab-black-50.px-4.pt-6.pb-1 Прошедшие
+        div.text-rttf-black-50.px-4.pt-6.pb-1 Прошедшие
         .bg-white.w-full.px-4
             +bookingCard(true)
             +bookingCard(true)

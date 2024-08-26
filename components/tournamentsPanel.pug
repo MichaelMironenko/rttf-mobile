@@ -6,7 +6,7 @@ mixin tournamentsPanel(activeTab, mainPage)
     each tab, index in tabs
       unless (mainPage && tab === "Календарь")
         - var isActive = tab === activeTab
-        div(class=`tournaments-panel-tab inline-flex cursor-pointer gap-1 items-center justify-between py-2 ${isActive ? "font-bold border-t-2 border-t-transparent border-b-2 border-solid text-blue-950 border-lab-color" : ""}` data-tab=`${tabIds[index]}`)
+        div(class=`tournaments-panel-tab inline-flex cursor-pointer gap-1 items-center justify-between py-2 ${isActive ? "font-bold border-t-2 border-t-transparent border-b-2 border-solid text-blue-950 border-rttf-color" : ""}` data-tab=`${tabIds[index]}`)
           img(src=images[index] class=`w-4 h-5 aspect-square ${tab === 'Live' ? 'animate-pulse' : ''}`)
           if tab === 'Календарь'
             div(class="grow hidden sm:block")= "Календарь турниров"

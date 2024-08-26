@@ -16,49 +16,49 @@ mixin comment(commentID, userName, userID, status, commentText, reactions, color
 
         .flex.items-center.gap-2
           +userStatusBadge(status)
-          span.text-xs.text-lab-black-50 @#{ userID }
-          span.text-xs.text-lab-black-50 12 ноября 16:43
+          span.text-xs.text-rttf-black-50 @#{ userID }
+          span.text-xs.text-rttf-black-50 12 ноября 16:43
 
         if review
           .flex.shrink-0.items-center(class='mt-0.5')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-empty.svg')
+            img.h-4(src='img/yellow-star-full.svg' alt="Рейтинг")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
+            img.h-4(src='img/yellow-star-empty.svg' alt="")
       else
         .flex.items-center.gap-2
           a.text-sm.font-semibold.leading-none(href='') @#{ userID }
           +userRating(342)
         .flex.items-center.gap-2
           +userStatusBadge(status)
-          span.text-xs.text-lab-black-50 12 ноября 16:43
+          span.text-xs.text-rttf-black-50 12 ноября 16:43
         if review
           .flex.shrink-0.items-center.mt-1
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-full.svg')
-            img.h-4(src='img/yellow-star-empty.svg')
-  .mb-2.mt-1.flex.w-fit.items-center.gap-1.rounded-lg.bg-lab-color-10.px-2.py-1
-    img.size-3.opacity-75.saturate-50(src='img/reply.svg')
-    span.text-xs.text-lab-black-50 Ответ на комментарий @semenov
+            img.h-4(src='img/yellow-star-full.svg' alt="Рейтинг")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
+            img.h-4(src='img/yellow-star-empty.svg' alt="")
+  .mb-2.mt-1.flex.w-fit.items-center.gap-1.rounded-lg.bg-rttf-color-10.px-2.py-1
+    img.size-3.opacity-75.saturate-50(src='img/reply.svg'  alt="")
+    span.text-xs.text-rttf-black-50 Ответ на комментарий @semenov
   p #{ commentText }
   if reactions
     +reactions(reactions, 0)
   .flex.justify-between.pb-3.pt-1
     .relative.inline-flex.items-center.gap-2
-      img.cursor-pointer(src='img/reactions.svg', alt='Reactions', id=`reactions-trigger-${commentID}`)
-      button.text-sm.text-lab-black-50(onclick=`toggleCommentForm('${commentID}')`) Ответить
+      img.cursor-pointer(src='img/reactions.svg', alt='Реакции', id=`reactions-trigger-${commentID}`)
+      button.text-sm.text-rttf-black-50(onclick=`toggleCommentForm('${commentID}')`) Ответить
       .absolute.-left-2.bottom-6.hidden(class='max-w-[80vw]', id=`reactions-popup-${commentID}`)
-        .no-scrollbar.flex.gap-2.overflow-x-auto.rounded-full.border.border-lab-black-10.bg-white.p-2.text-xl.shadow-lg
+        .no-scrollbar.flex.gap-2.overflow-x-auto.rounded-full.border.border-rttf-black-10.bg-white.p-2.text-xl.shadow-lg
           if reactions
             each reaction in reactions
               button.rounded-full.bg-slate-100.px-2(onclick=`togglePopup(${commentID})`) #{ reaction.emoji }
-    img.cursor-pointer(src='img/three-dots.svg', onclick=`toggleCommentMenu('${commentID}')`)
+    img.cursor-pointer(src='img/three-dots.svg'  alt="Действия с комментарием" onclick=`toggleCommentMenu('${commentID}')`)
     //- Меню комментария
     .absolute.bottom-0(id=`commentMenu-${commentID}`)
-      +actionMenu([ { text: 'Редактировать', icon: 'img/edit.svg', color: ' text-lab-color' }, { text: 'Скопировать', icon: 'img/copy.svg', color: ' text-lab-color' }, { text: 'Вырезать', icon: 'img/cut.svg', color: ' text-lab-color'}, { text: 'Игнорировать', icon: 'img/hide.svg', color: ' text-lab-color' }, { text: 'Скрыть', icon: 'img/hide.svg', color: ' text-lab-color' }, { text: 'Пожаловаться', icon: 'img/warning.svg', color: ' text-lab-color' }, { text: 'Удалить', icon: 'img/delete.svg', color: ' text-lab-red', last: true } ], 'action-menu-container')
+      +actionMenu([ { text: 'Редактировать', icon: 'img/edit.svg', color: ' text-rttf-color' }, { text: 'Скопировать', icon: 'img/copy.svg', color: ' text-rttf-color' }, { text: 'Вырезать', icon: 'img/cut.svg', color: ' text-rttf-color'}, { text: 'Игнорировать', icon: 'img/hide.svg', color: ' text-rttf-color' }, { text: 'Скрыть', icon: 'img/hide.svg', color: ' text-rttf-color' }, { text: 'Пожаловаться', icon: 'img/warning.svg', color: ' text-rttf-color' }, { text: 'Удалить', icon: 'img/delete.svg', color: ' text-rttf-red', last: true } ], 'action-menu-container')
   .mb-3.flex.hidden.flex-grow.flex-col.gap-3(id=`commentForm-${commentID}`)
     textarea.resize-none.overflow-hidden.rounded-md.border.border-gray-300.p-2.transition-all.duration-300.ease-in-out(
       class='focus:border-blue-500 focus:outline-none',
@@ -70,8 +70,8 @@ mixin comment(commentID, userName, userID, status, commentText, reactions, color
       onblur='if(!this.value.trim()) {this.rows=1; this.style.height = \'auto\'; this.style.overflow=\'hidden\'; document.getElementById(\'commentSubmitButton-${commentID}\').classList.add(\'hidden\'); document.getElementById(\'cancelButton-${commentID}\').classList.add(\'hidden\');}'
     )
     .flex.items-center.gap-4
-      +button('Отмена', 'text', 'lab-black-50', '', ' w-1/2', 'cancelButton')
-      +button('Отправить', 'default', 'white', 'bg-lab-color', ' w-1/2', 'commentSubmitButton')
+      +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
+      +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
   script.
     function togglePopup(commentID) {
       var popup = document.getElementById(`reactions-popup-${commentID}`)

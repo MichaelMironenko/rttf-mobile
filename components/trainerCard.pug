@@ -5,7 +5,7 @@ mixin trainerCard(avatarColor, fullName, gameRating, coachRating, reviewsCount, 
   )
     - const initials = fullName.split(' ').map(name => name[0]).join('')
     if superTrainer
-      .absolute.right-0.top-0.rounded-bl.rounded-tr-md.bg-lab-color.z-10.px-1.py-1.shadow-md
+      .absolute.right-0.top-0.rounded-bl.rounded-tr-md.bg-rttf-color.z-10.px-1.py-1.shadow-md
         .no-wrap.text-xxs.font-semibold.leading-none.text-white Супер-тренер
 
     +avatar(avatarColor, initials, 64, '', 'тренер')
@@ -19,5 +19,5 @@ mixin trainerCard(avatarColor, fullName, gameRating, coachRating, reviewsCount, 
     if club 
       .flex.items-center.gap-1.justify-center
         img(src="img/location-icon.svg", alt="").opacity-75
-        div.text-xs.opacity-75(class=`${superTrainer  ? 'text-white' : 'text-lab-black'}`) #{club}
-    span.rounded.bg-lab-light-yellow.px-2.py-1.text-xs.font-bold от #{ pricePerHour }₽/ч
+        div.text-xs.opacity-75(class=`${superTrainer  ? 'text-white' : 'text-rttf-black'}`) #{club}
+    span.rounded.bg-rttf-light-yellow.px-2.py-1.text-xs.font-bold от #{ pricePerHour }₽/ч

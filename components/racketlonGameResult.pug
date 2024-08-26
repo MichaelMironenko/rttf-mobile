@@ -1,0 +1,45 @@
+mixin racketlonGameResult(time, stage, player1, score1, score2, score3, score4, total1, rating1, ratingChange1, player2, score5, score6, score7, score8, total2, rating2, ratingChange2)
+  .relative.-mx-4 
+    table(class="border-collapse border mb-4 w-full")
+      thead(class="bg-rttf-color-10 text-xs text-rttf-black-50")
+        tr
+          th(class="px-2  text-left border w-4/12")
+            span.text-rttf-black-50 #{time}
+            span.text-rttf-black-50.ml-3 #{stage}
+          th(class="border w-1/12")
+            img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
+          th(class="border w-1/12")
+            img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
+          th(class="border w-1/12")
+            img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
+          th(class="border w-1/12")
+            img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
+          th(class="px-2 py-1 border w-1/12 text-base font-normal leading-none") Σ
+          th(class="px-2 border w-3/12") ★ после 
+
+      tbody(class="text-[13px] text-rttf-black")
+        tr.text-center
+          td(class="p-2 border text-left w-4/12" + (total1 > total2 ? " text-rttf-blue font-bold" : " text-rttf-blue")) #{player1}
+          td(class="py-2 border" + (score1 > score5 ? " text-rttf-black" : " text-rttf-black-50")) #{score1}
+          td(class="py-2 border" + (score2 > score6 ? " text-rttf-black" : " text-rttf-black-50")) #{score2}
+          td(class="py-2 border" + (score3 > score7 ? " text-rttf-black" : " text-rttf-black-50")) #{score3}
+          td(class="py-2 border" + (score4 > score8 ? " text-rttf-black" : " text-rttf-black-50")) #{score4}
+          td(class="py-2 text-sm font-bold border w-1/12" + (total1 > total2 ? " text-rttf-green" : " text-rttf-red")) #{total1}
+          td(class="p-1 text-gray-600 border w-3/12")
+            img(src="/img/racketlon.svg", class="inline-block mr-1 size-3" alt="Ракетлон-рейтинг")
+            | #{rating1}
+            span(class=(ratingChange1 > 0 ? "text-green-600" : "text-red-600"))
+              sup.whitespace-nowrap.inline-block #{ratingChange1 > 0 ? "+" + ratingChange1 : ratingChange1}
+
+        tr.text-center
+          td(class="p-2 border text-left w-4/12" + (total2 > total1 ? " text-rttf-blue font-bold" : " text-rttf-blue")) #{player2}
+          td(class="py-2 border" + (score5 > score1 ? " text-rttf-black" : " text-rttf-black-50")) #{score5}
+          td(class="py-2 border" + (score6 > score2 ? " text-rttf-black" : " text-rttf-black-50")) #{score6}
+          td(class="py-2 border" + (score7 > score3 ? " text-rttf-black" : " text-rttf-black-50")) #{score7}
+          td(class="py-2 border" + (score8 > score4 ? " text-rttf-black" : " text-rttf-black-50")) #{score8}
+          td(class="py-2 text-sm font-bold border w-1/12" + (total2 > total1 ? " text-rttf-green" : " text-rttf-red")) #{total2}
+          td(class="p-1 text-gray-600 border w-3/12")
+            img(src="/img/racketlon.svg", class="inline-block mr-1 size-3" alt="Ракетлон-рейтинг")
+            | #{rating2}
+            span(class=(ratingChange2 > 0 ? "text-green-600" : "text-red-600"))
+              sup.whitespace-nowrap.inline-block #{ratingChange2 > 0 ? "+" + ratingChange2 : ratingChange2}

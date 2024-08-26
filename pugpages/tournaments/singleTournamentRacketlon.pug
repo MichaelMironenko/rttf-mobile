@@ -1,0 +1,429 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/bookmark.pug
+include /components/atoms/ratingLimit.pug
+include /components/atoms/button.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/bet.pug
+include /components/racketlonGameResult.pug
+include /components/block.pug
+include /components/videoSlider.pug
+include /components/photoSlider.pug
+include /components/playerRow.pug
+include /components/comments.pug
+include /components/adminBar.pug
+include /components/tournamentResultsTableRacketlon.pug
+include /components/filters/filterButtonsRow.pug
+include /components/modal.pug
+include /components/registrationProcessPanel.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Страница турнира
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body
+        +topBar
+        +registrationProcessPanel
+        //- +modal('Are you sure you want to delete this item?', [
+        //-     {text: 'Yes, delete', variant: 'default', color: 'white', bgColor: 'red-600', extraClasses: 'mr-2', id: 'deleteButton'},
+        //-     {text: 'Cancel', variant: 'text', color: 'gray-500', id: 'cancelButton'}
+        //- ])
+        div.bg-page-background.min-h-screen.w-full.fixed.top-0.left-0(class="z-[-1]")
+        - var tabs = ["О турнире", "Прямой эфир", "Результаты"]
+        - var images = ["img/registration.svg", "img/live.svg", "img/results.svg"]
+        - var tabIds = ["information", "live", "results"]
+        - var activeTab = "О турнире" 
+        div(class="fixed pb-safe-extra-panel w-full z-20 flex justify-between bg-white text-rttf-black overflow-hidden rounded-t-2xl border-b drop-shadow-top")
+            each tab, index in tabs
+                - var isActive = tab === activeTab
+                div.tournaments-panel-tab.tab(class=`flex grow cursor-pointer gap-1.5 w-1/2 items-center  ${isActive ? "font-bold bg-rttf-color-10" : "opacity-75"} justify-center py-3 ` data-tab=`${tabIds[index]}`)
+                    img(src=images[index] class=`w-4 h-4 aspect-square ${tab === 'Прямой эфир' ? 'animate-pulse' : ''}` alt="")
+                    div= tab
+
+        script. 
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabs = document.querySelectorAll('.tournaments-panel-tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // Убираем активный класс со всех вкладок
+                        tabs.forEach(t => {
+                            ['font-bold', 'bg-rttf-color-10', 'opacity-50'].forEach(className => t.classList.remove(className));
+                            t.classList.add('opacity-75'); // Добавляем полупрозрачность всем вкладкам
+                        });
+
+                        // Добавляем активный класс к нажатой вкладке
+                        ['font-bold', 'bg-rttf-color-10'].forEach(className => this.classList.add(className));
+                        this.classList.remove('opacity-75'); // Удаляем полупрозрачность с активной вкладки
+
+                        // Обновляем контент в соответствии с выбранной вкладкой
+                        const tabId = this.getAttribute('data-tab');
+                        const tabContent = document.querySelectorAll('.tab-content');
+                        tabContent.forEach(content => {
+                            if(content.id === tabId) {
+                                content.classList.remove('hidden');
+                            } else {
+                                content.classList.add('hidden');
+                            }
+                        });
+                    });
+                });
+            });
+
+
+
+
+
+        div#information.tab-content.hidden.scroll-smooth.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
+            +adminBar({
+                edit: true,
+                addPhoto: true,
+                addVideo: true,
+                copy: true,
+                logs: true,
+                hide: true,
+                close: true,
+                delete: true,
+
+                })
+            div.p-4.bg-white.rounded-lg
+                .flex.justify-between.gap-2.items-center
+                    .flex.items-center.gap-2.justify-center.grow
+                        +ratingLimit('откр', '', '', 'racketlon')
+                        img(src="img/racketlon.svg" alt="Ракетлон")
+                        h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
+                    +bookmark(false)
+
+                div.grid.grid-cols-1.gap-6.mt-6(class="text-[15px] sm:grid-cols-2")
+                    div.flex.flex-col.gap-3
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/calendar.svg' alt='Дата')
+                            span 11 сентября, четверг
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/time.svg' alt='Время')
+                            span 12:30
+                            span.text-rttf-black-50 Разминка с 12:00
+                        div.flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/player.svg' alt='Игроки')
+                            span 3/16
+                        div.inline-flex.gap-4.items-center
+                            img.w-4.h-4.aspect-square.opacity-60.saturate-50(src='img/star-rttf-color.svg' alt='Рейтинг')
+                            span.inline-flex.flex-wrap.gap-2 Рейтинг игрока не более 520 
+                        .flex.gap-4.items-center
+                            img.w-4.aspect-square.opacity-60.saturate-50(src='img/price.svg' alt='Цена')
+                            span 800 ₽
+                    div.grid.grid-cols-1(class="xs:grid-cols-2").gap-4
+                        div.flex.flex-col.gap-2.text-sm
+                            div.flex.gap-4.items-center
+                                img.w-4.aspect-square.opacity-60.saturate-50(src='img/home.svg' alt='Клуб')
+                                a(href="") Сколково
+                            div.flex.gap-4.items-center
+                                img.w-4.aspect-square.opacity-60.saturate-50(src='img/location-icon.svg' alt='Адрес')
+                                span г. Москва, ул. Ярославское шоссе, д. 21, корп. 12
+                            div.flex.gap-4.items-center
+                                img.w-4.aspect-square.opacity-60.saturate-50(src='img/phone.svg' alt='Контакты')
+                                span +7-926-200-40-22
+                        div.h-full.max-h-40
+                            img(src="dynamic-img/map.png" class="object-cover h-full w-full" alt="Клуб на карте")
+
+
+
+                    .flex.justify-between.gap-2.grow.w-full
+                        +button('Регистрация', 'default', 'white', 'bg-avatar-gradient grow', '', 'registerButton') 
+                        +button('Ищу пару', 'default', 'rttf-color', 'bg-white', 'border-2 border-rttf-color !py-2')
+                        script. 
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const registerButton = document.getElementById('registerButton');
+                                const registrationPanel = document.querySelector('.registrationProcessPanel'); // Убедитесь, что класс/селектор соответствует вашему миксину
+                                registerButton.addEventListener('click', function() {
+                                    registrationPanel.classList.toggle('hidden');
+                                });
+                            });
+
+
+                    
+                    div.flex.flex-grow.justify-between.items-center.gap-2
+                        .inline-flex.gap-2
+                            img.w-5.aspect-square.shrink-0(src='img/checkmark.svg' alt='')
+                            span Вы зарегистрированы
+                        +button('Отменить', "text", 'rttf-red', 'bg-rttf-color')
+
+                   
+
+                    div.w-full.text-center.bg-avatar-gradient.bg-clip-text.text-transparent
+                        div Регистрация откроется 
+                        div.font-bold 12 сентября в 13:00
+
+            +block('Информация о турнире')
+                +filterButtonsRow([
+                    { label: 'Описание', active: true},
+                    { label: 'Положение', active: false},
+                ])
+
+                p.mt-4 Информация о турнире
+
+            +block('Зарегистрированные игроки')
+                div(class="-ml-4 -mr-4")
+                    +filterButtonsRow([
+                        { label: 'Участники', active: true, number: 16},
+                        { label: 'Ищут пару', active: false, number: 2},
+                        { label: 'Резерв', active: false, number: 2},
+                        { label: 'Снявшиеся', active: false },
+                    ], 'padding')
+                -
+                    var players = [
+                        [
+                            { "number": 1, "firstName": "Алексей", "lastName": "Николаев", "rating": 945, "avatar": "", "coefficient": "2.5", "dateTime": "11 марта 14:30", "medal": "bronze", "ratingType": "racketlon" }
+                        ],
+                        [
+                            { "number": 2, "firstName": "Михаил", "lastName": "Дмитриев", "rating": 876, "avatar": "", "byPhone": true, "coefficient": "1.8", "dateTime": "11 марта 15:00", "ratingType": "racketlon" }
+                        ],
+                       
+                        [
+                            { "number": 3, "firstName": "Сергей", "lastName": "Романов", "rating": 668, "avatar": "", "warning": 'true', "coefficient": "3.9", "dateTime": "11 марта 18:20", "medal": "silver", "ratingType": "racketlon" }
+                        ],
+                        [
+                            { "number": 4, "firstName": "Андрей", "lastName": "Федоров", "rating": 812, "avatar": "", "coefficient": "1.7", "dateTime": "11 марта 12:34", "ratingType": "racketlon" }
+                        ],
+                        [
+                            { "number": 5, "firstName": "Никита", "lastName": "Кузнецов", "rating": 900, "avatar": "", "coefficient": "2.4", "dateTime": "11 марта 18:22", "ratingType": "racketlon" }
+                        ],
+                        // Добавление нового игрока для chesspong
+                        [
+                            { "number": 6, "firstName": "Владислав", "lastName": "Кириллов", "rating": 870, "avatar": "", "coefficient": "2.1", "dateTime": "11 марта 19:00", "ratingType": "racketlon" }
+                        ],
+                        // Добавление нового игрока для racketlon
+                        [
+                            { "number": 7, "firstName": "Иван", "lastName": "Сидоров", "rating": 850, "avatar": "", "coefficient": "1.9", "dateTime": "11 марта 19:30", "ratingType": "racketlon" }
+                        ]
+                    ];
+
+                div.flex.items-center.cursor-pointer.py-4.justify-between.gap-2
+                    label.flex.items-center(for="playerToggle").gap-3.text-sm.leading-tight.text-rttf-black.justify-center Показать коэффициенты и кнопки прогноза
+                        input#playerToggle.sr-only.peer(type="checkbox" value="")
+                        div.relative.w-12.h-7.flex-shrink-0.bg-gray-200.rounded-full(class="peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color")
+
+                // Список с true
+                table#playersTrue.w-full.hidden
+                    .inline-flex.gap-2.items-center
+                        img(src="img/warning.svg" alt="Подсказка").w-4.h-4.saturate-50.opacity-75
+                        span.text-xs.text-rttf-black-50.leading-tight Нажимайте на кружок справа строки для выбора места или сброса голоса. После выбора трех мест нажмите кнопку "Сделать прогноз"
+                    +button("Сделать прогноз", "default", "white", 'bg-rttf-color', 'border-2 border-white my-2')    
+                    tr.text-xs.text-rttf-color.font-semibold.border-b
+                        th.text-left.py-2 Игрок
+                        
+                        th Рейтинг
+                        th Х
+                        th #  
+                    each team in players
+                        - var teamName = team[0].teamName ? team[0].teamName : ''
+                        - var dateTime = team[0].dateTime
+                        - var medal = team[0].medal  
+                        +playerRow(team, true, teamName, dateTime, medal, ratingType)
+
+                // Список с false
+                table#playersFalse.w-full
+                    tr.text-xs.text-rttf-color(class="!font-semibold").border-b
+                        th.text-left # ▲
+                        th.text-left.py-2 Игрок
+                        th Рейтинг   
+                        th(class="sm:table-cell").hidden Регистрация                  
+                    each team in players
+                        - var teamName = team[0].teamName ? team[0].teamName : ''
+                        - var dateTime = team[0].dateTime
+
+                        +playerRow(team, false, teamName, dateTime, '', ratingType)
+                
+                    
+
+                script.
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var toggle = document.getElementById('playerToggle');
+                        var playersTrue = document.getElementById('playersTrue');
+                        var playersFalse = document.getElementById('playersFalse');
+                        toggle.addEventListener('change', function() {
+                        if(toggle.checked) {
+                            playersTrue.classList.remove('hidden');
+                            playersFalse.classList.add('hidden');
+                        } else {
+                            playersTrue.classList.add('hidden');
+                            playersFalse.classList.remove('hidden');
+                        }
+                        });
+                        const addFriendButton = document.querySelector('.js-add-friend');
+                        const requestSentBlock = document.querySelector('.js-request-sent');
+                        const cancelRequestButton = document.querySelector('.js-cancel-request');
+
+                        addFriendButton.addEventListener('click', function() {
+                        addFriendButton.classList.add('hidden');
+                        requestSentBlock.classList.remove('hidden');
+                        });
+
+                        cancelRequestButton.addEventListener('click', function() {
+                        requestSentBlock.classList.add('hidden');
+                        addFriendButton.classList.remove('hidden');
+                        });
+                    });
+            +block('Прогнозы')
+                div(class="flex flex-row overflow-x-auto scroll-smooth gap-2 no-scrollbar p-4 -m-4") 
+                    +bet(class="m-2") 
+                    +bet(class="m-2")
+                    +bet(class="m-2")           
+                - 
+                    var forecastPlayers = [
+                        "Иванов (★500)  x2.00",
+                        "Петров / Сидоров (★450)  x1.85",
+                        "Команда Волки (★525)  x2.10",
+                        "Михайлов (★480)  x1.95",
+                        "Васильев / Леонов (★470)  x2.05",
+                        "Команда Орлы (★550)  x2.15",
+                        "Александров (★510)  x2.00",
+                        "Николаевский / Дмитриевазян (★445)  x1.90",
+                        "Команда Тигры (★530) x2.20",
+                        "Кузнецов (★495)  x1.85"
+                    ]
+
+                .flex.flex-col(class="sm:flex-row sm:gap-6").mt-6
+                    div.bg-avatar-gradient.p-4.rounded-lg.shadow-lg(class="sm:w-1/2")
+                        div.text-lg.font-semibold.text-white.mb-4 Сделайте ваш прогноз
+
+                        // Цикл для создания трех селектов
+                        each _, index in [1, 2, 3]
+                            label.block.text-white.text-sm.font-semibold.mb-2 #{index + 1} место
+                            select.block.appearance-none.bg-white.mb-4.text-sm.pr-10.rounded.shadow.leading-tight(class="focus:outline-none focus:shadow-outline")
+                                option(value="" disabled selected hidden) Выберите игрока/пару
+                                each player in forecastPlayers
+                                    option(class="truncate w-10") #{player}
+
+                        +button("Сделать прогноз", "default", "white", 'bg-rttf-color', 'border-2 border-white mt-2')
+
+                    .flex.flex-col.justify-between.py-4(class="sm:w-1/2 sm:py-0")
+                        span.font-bold Правила начисления очков                
+                        .flex.flex-col.flex-grow.gap-3.py-3
+                            .flex.justify-between.items-center.gap-2
+                                img(src="img/checkmark.svg" size-4 alt="")
+                                span.text-sm.flex-grow Угадывание призера 
+                                span.text-sm 1
+                            .flex.justify-between.items-center.gap-2
+                                img(src="img/forecast-win.svg" size-4 alt="")
+                                span.text-sm.flex-grow Угадывание призера и занятого им места 
+                                span.text-sm 5
+                            .flex.justify-between.items-center.gap-2
+                                img(src="img/forecast-bonus.svg" size-4 alt="")
+                                span.text-sm.flex-grow Бонус за угадывание всех призеров и их мест 
+                                span.text-sm 15
+                        span.text-sm.text-rttf-black-50 * прогнозы принимаются до 09.07.2024 10:30
+                        span.text-sm.text-rttf-black-50 ** в недельный зачет очки идут только при участии 10 и более игроков в турнире
+
+            +comments
+
+        div#live.tab-content.scroll-smooth.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
+            div.p-4.bg-white.rounded-lg
+                .flex.justify-between.gap-2.items-center
+                    .flex.items-center.gap-2.justify-center.grow
+                        +ratingLimit('<', 520)
+                        h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
+                    +bookmark(false)
+                div.flex.gap-2.items-center.pt-3.justify-center.text-sm
+                    img.w-4.aspect-square(src='img/calendar.svg' alt='')
+                    span 11 сентября, четверг
+                    span 12:30
+            +videoSlider(true, false, 'Трансляции')
+
+            +block('Последние результаты')
+                img(src="dynamic-img/group-table.jpg" alt="").w-full.mb-2
+                img(src="dynamic-img/tournament-grid.jpg" alt="").w-full
+
+            +block('Последние игры', { href: '/pages/tournaments/allGamesRacketlon.html', text: 'Все игры' })
+                +racketlonGameResult('10:36', 'Финал', 'Вознесенский А.', 21, 21, 8, 17, 67, 376, 37.5, 'Калитников Ю.', 12, 17, 21, 21, 60, 402, -37.5)
+                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 22, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
+                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 22, 66, 390, -25.0)
+                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 23, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
+            +block('Промежуточная таблица')
+                +tournamentResultsTableRacketlon(false)
+            +comments
+
+
+
+        div#results.tab-content.scroll-smooth.hidden.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
+            div.p-4.bg-white.rounded-lg
+                .flex.justify-between.gap-2.items-center
+                    .flex.items-center.gap-2.justify-center.grow
+                        +ratingLimit('<', 520)
+                        h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
+                    +bookmark(false)
+                div.flex.gap-2.items-center.pt-3.justify-center.text-sm
+                    img.w-4.aspect-square(src='img/calendar.svg' alt='')
+                    span 11 сентября, четверг
+                    span 12:30
+                - var blocks = [{ title: 'Игроков', value: 23 }, { title: 'Матчей', value: 88 }, { title: 'Средний рейтинг', value: 319 }, { title: 'Коэффи&shy;циент', value: 0.25 } ]
+
+                div.grid.grid-cols-4.gap-2.w-full.mt-4
+                    each block in blocks
+                        div.text-center.bg-rttf-color-10.p-2.rounded-lg
+                            div.h-8.text-rttf-black.text-xxs(class="xs:text-xs").leading-3!= block.title
+                            div.font-bold.text-rttf-black.mt-2= block.value
+
+            +block('Призеры')
+                mixin winnersList(winners, isPair, isTeam)
+                    div.flex.flex-row.justify-between.overflow-x-auto.no-scrollbar.-mx-4.px-4
+                        each winner, index in winners
+                            - var medal = ['gold', 'silver', 'bronze'][index % 3]
+                            div.flex.flex-col.items-center.gap-3.flex-shrink-0(class="w-1/3 max-w-40")
+
+                                img.h-6(src=`img/medal-${medal}.svg`, alt=`${index+1} место`)
+
+                                if !isPair && !isTeam
+                                    +avatar(winner.color, winner.initials, 60)
+                                    a(class="text-center text-xs s:text-s font-bold flex-grow" ) #{winner.name}
+
+                                +userRating(winner.rate, '', '', 'racketlon')
+                +winnersList([
+                    {
+                        id: 'player1',
+                        initials: 'ЕН',
+                        color: 'bg-rttf-blue',
+                        name: 'Егор Неряхин',
+                        avatarURL: '/path/to/avatar1.jpg',
+                        rate: 276
+                    },
+                    {
+                        id: 'player2',
+                        initials: 'ФН',
+                        color: 'bg-rttf-green',
+                        name: 'Скоробогатов Константин',
+                        avatarURL: '/path/to/avatar2.jpg',
+                        rate: 272
+                    },
+                    {
+                        id: 'player3',
+                        initials: 'БЗ',
+                        color: 'bg-rttf-yellow',
+                        name: 'Борис Золотухин',
+                        avatarURL: '/path/to/avatar3.jpg',
+                        rate: 268
+                    }
+                ], false, false)
+
+
+            +block('Итоговые результаты')
+                img(src="dynamic-img/group-table.jpg" alt="").w-full.mb-2
+                img(src="dynamic-img/tournament-grid.jpg" alt="").w-full
+            +block('Итоговая таблица')
+                +tournamentResultsTableRacketlon(true)
+            +block('Лучшие игры турнира', { href: '/pages/tournaments/allGames.html', text: 'Все игры' })
+                +racketlonGameResult('10:36', 'Финал', 'Вознесенский А.', 21, 21, 8, '17^1', 67, 376, 37.5, 'Калитников Ю.', 12, 17, 21, 21, 60, 402, -37.5)
+                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 22, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
+                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 22, 66, 390, -25.0)
+                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 23, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
+            +photoSlider('Фото с турнира')
+            +videoSlider(false, false, 'Видео с турнира')
+            +comments
+
+        +tabBar('Турниры')
+
+
+

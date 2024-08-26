@@ -3,14 +3,14 @@ mixin accordionProfileTournamentCard(tournament, id)
         .pl-4.pr-4.py-3.top-part(data-accordion-id=id)
             .flex.items-center.justify-between.mb-2.gap-4
                 div.grow
-                    span.text-sm.text-lab-black-50 #{tournament.date}
+                    span.text-sm.text-rttf-black-50 #{tournament.date}
                     div(class="flex items-center gap-0.5 pt-1")
                         +tournamentTypeBadge(tournament.typeBadge)
                         a(href=tournament.link).text-sm.px-2.font-semibold.text-ellipsis #{tournament.clubName}
                         img(src=tournament.playerIcon).saturate-50.opacity-50.hidden.detail-section
                         span.text-sm.hidden.detail-section #{tournament.playersCount}
                 .flex.flex-col.items-center.gap-2.pt-1.detail-section.text-center
-                    div.text-xxs.uppercase.text-lab-black-50 Место
+                    div.text-xxs.uppercase.text-rttf-black-50 Место
                     if tournament.finalPosition == '1'
                         div.bg-gold.rounded-full.text-sm.font-semibold.size-5.border #{tournament.finalPosition}
                     else if tournament.finalPosition == '2'
@@ -18,22 +18,22 @@ mixin accordionProfileTournamentCard(tournament, id)
                     else if tournament.finalPosition == '3'
                         div.bg-bronze.rounded-full.text-sm.font-semibold.size-5.border #{tournament.finalPosition}
                     else
-                        div.text-sm.text-lab-black.font-semibold.size-5 #{tournament.finalPosition} 
+                        div.text-sm.text-rttf-black.font-semibold.size-5 #{tournament.finalPosition} 
                 .flex.flex-col.items-center.gap-2.pt-1.detail-section  
-                    div.text-xxs.uppercase.text-lab-black-50 В / П
-                    span.text-lab-green.font-semibold.text-sm.h-5 #{tournament.wins}
-                        span.text-lab-black-30(class="mx-0.5") /
-                        span.text-lab-red #{tournament.losses}
+                    div.text-xxs.uppercase.text-rttf-black-50 В / П
+                    span.text-rttf-green.font-semibold.text-sm.h-5 #{tournament.wins}
+                        span.text-rttf-black-30(class="mx-0.5") /
+                        span.text-rttf-red #{tournament.losses}
                 .flex.flex-col.items-center.gap-2.pt-1.detail-section  
-                    div.text-xxs.uppercase.text-lab-black-50 ★ +/-
-                    div.text-sm.font-semibold.h-5(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
-            button.toggle-details.text-sm.text-lab-black-50.underline.decoration-dotted.text-center.w-full(data-target=id)
-                span.text.text-lab-black-50 Показать подробности
+                    div.text-xxs.uppercase.text-rttf-black-50 ★ +/-
+                    div.text-sm.font-semibold.h-5(class=tournament.finalChange[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{tournament.finalChange}
+            button.toggle-details.text-sm.text-rttf-black-50.underline.decoration-dotted.text-center.w-full(data-target=id)
+                span.text.text-rttf-black-50 Показать подробности
                 img(src="img/expand-arrow.svg").inline.align-middle.size-4.ml-2.arrow      
-        div.border-lab-black-10.pl-4.pr-3.hidden.detail-section(data-accordion-id=id)
+        div.border-rttf-black-10.pl-4.pr-3.hidden.detail-section(data-accordion-id=id)
             table.w-full
                 thead
-                    tr.border-b.text-lab-black-50.text-xxs.font-semibold.uppercase
+                    tr.border-b.text-rttf-black-50.text-xxs.font-semibold.uppercase
                         th(class="hidden xs:table-cell").py-2.text-left Этап
                         th.py-2.text-left Соперники
                         th.py-2.text-center.min-w-14 ★
@@ -41,8 +41,8 @@ mixin accordionProfileTournamentCard(tournament, id)
                         th.py-2.text-center.min-w-10  - / +
                 tbody
                 each player in tournament.players
-                    tr.text-lab-black(class="text-[13px]")
-                        td(class="hidden xs:table-cell").py-2.text-lab-black-50 #{player.stage}
+                    tr.text-rttf-black(class="text-[13px]")
+                        td(class="hidden xs:table-cell").py-2.text-rttf-black-50 #{player.stage}
                         td.py-2
                             each name in player.names
                                 .flex.gap-1.items-center
@@ -53,8 +53,8 @@ mixin accordionProfileTournamentCard(tournament, id)
                         td.text-center
                             +userRating(player.rating)
                         td.text-center.tracking-tighter #{player.score}
-                        td.text-center(class=player.change[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{player.change}
-                tr.font-semibold.border-t.text-lab-black(class="text-[13px] xs:hidden")
+                        td.text-center(class=player.change[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{player.change}
+                tr.font-semibold.border-t.text-rttf-black(class="text-[13px] xs:hidden")
                     td.text-left.py-2(colspan="2")
                         if tournament.finalPosition == '1'
                             div.flex.items-center.gap-2
@@ -72,22 +72,22 @@ mixin accordionProfileTournamentCard(tournament, id)
                             | #{tournament.finalPosition} место
 
                     td.text-center
-                        span.text-lab-green #{tournament.wins}
-                        span.text-lab-black-30(class="mx-0.5") /
-                        span.text-lab-red #{tournament.losses}
-                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
+                        span.text-rttf-green #{tournament.wins}
+                        span.text-rttf-black-30(class="mx-0.5") /
+                        span.text-rttf-red #{tournament.losses}
+                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{tournament.finalChange}
 
-                tr.font-semibold.border-t.text-lab-black(class="hidden text-[13px] xs:table-row")
+                tr.font-semibold.border-t.text-rttf-black(class="hidden text-[13px] xs:table-row")
                     td.py-2.text-left(colspan="3") #{tournament.finalPosition} 
                         span место
                     td.text-center
-                        span.text-lab-green #{tournament.wins}
-                        span.text-lab-black-30(class="mx-0.5") /
-                        span.text-lab-red #{tournament.losses}
-                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
+                        span.text-rttf-green #{tournament.wins}
+                        span.text-rttf-black-30(class="mx-0.5") /
+                        span.text-rttf-red #{tournament.losses}
+                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{tournament.finalChange}
                     
             .flex.gap-1.items-center.gap.justify-between.pt-2.pb-4
-                span.text-sm.text-lab-black-50.mr-2.leading-none.grow Рейтинг до/после
+                span.text-sm.text-rttf-black-50.mr-2.leading-none.grow Рейтинг до/после
                 +userRating(tournament.ratingBefore, '', 'saturate-0')
                 img(src="img/expand-arrow.svg", alt="").-rotate-90.size-4 
                 +userRating(tournament.ratingAfter)

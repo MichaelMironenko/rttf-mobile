@@ -86,7 +86,7 @@ html(lang='ru')
                 .flex.flex-shrink-0.flex-col.gap-2.bg-white.pb-3(class="576:overflow-hidden 576:rounded-lg")
 
                     .flex.justify-between.gap-3.pt-3.px-3.pb-1  
-                        span.text-xs.text-lab-black-50= photo.time
+                        span.text-xs.text-rttf-black-50= photo.time
                         img(src='img/three-dots.svg', onclick=`toggleCommentMenu('${photoID}')`).size-4
 
                     a(href="pages/aroundgame/photo.html")
@@ -112,29 +112,29 @@ html(lang='ru')
 
                         if photo.title
                             .font-semibold.py-2.leading-tight #{ photo.title }
-                            //- .flex.items-center.text-xs.font-bold.gap-2.text-lab-black-50.pb-2
-                            //-   span.text-lab-black-50= photo.time
-                            //-   span.text-lab-black-50= photo.rating
-                            //-   span.text-lab-black-50= photo.tournamentName
+                            //- .flex.items-center.text-xs.font-bold.gap-2.text-rttf-black-50.pb-2
+                            //-   span.text-rttf-black-50= photo.time
+                            //-   span.text-rttf-black-50= photo.rating
+                            //-   span.text-rttf-black-50= photo.tournamentName
                         if photo.winners || photo.players
                             .flex.flex-wrap.gap-2.inline.pt-1
                                 if photo.winners 
                                     each player in photo.winners.gold
-                                        a.text-xxs.text-lab-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(150deg,#FFCE31_0%,#FFCA21_25%,#FFE287_48%,#EAC039_78%)]" href="pages/others/profile.html").rounded-md= player
+                                        a.text-xxs.text-rttf-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(150deg,#FFCE31_0%,#FFCA21_25%,#FFE287_48%,#EAC039_78%)]" href="pages/others/profile.html").rounded-md= player
                                     each player in photo.winners.silver
-                                        a.text-xxs.text-lab-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(150deg,#BFCACD_0%,#F2F9FB_40%,#C8D4D8_71%,#CAE8F0_100%)]" href="pages/others/profile.html").rounded-md= player
+                                        a.text-xxs.text-rttf-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(150deg,#BFCACD_0%,#F2F9FB_40%,#C8D4D8_71%,#CAE8F0_100%)]" href="pages/others/profile.html").rounded-md= player
                                     each player in photo.winners.bronze
-                                        a.text-xxs.text-lab-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)]" href="pages/others/profile.html").rounded-md= player
+                                        a.text-xxs.text-rttf-black.font-medium(class="px-1.5 py-1 bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)]" href="pages/others/profile.html").rounded-md= player
                                 if photo.players 
                                     each player in photo.players
-                                        span.text-xxs.font-medium(class="px-1.5 py-0.5 bg-lab-color-10").rounded-md= player
+                                        span.text-xxs.font-medium(class="px-1.5 py-0.5 bg-rttf-color-10").rounded-md= player
 
         div(id=`commentMenu-${photoID}`, class="absolute bottom-0")
         +actionMenu([
-            { text: 'Редактировать', color: ' text-lab-color' },
-            { text: 'Убрать своё имя с фото', color: ' text-lab-color' },
-            { text: 'Меня нет на фото', color: ' text-lab-color' },
-            { text: 'Пожаловаться', color: ' text-lab-red', last: true }
+            { text: 'Редактировать', color: ' text-rttf-color' },
+            { text: 'Убрать своё имя с фото', color: ' text-rttf-color' },
+            { text: 'Меня нет на фото', color: ' text-rttf-color' },
+            { text: 'Пожаловаться', color: ' text-rttf-red', last: true }
 
         ], 'action-menu-container')
 

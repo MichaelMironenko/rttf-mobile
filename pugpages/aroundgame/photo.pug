@@ -90,10 +90,10 @@ html(lang='ru')
 
       div(id=`photomenu-${photoID}`, class="absolute bottom-0")
         +actionMenu([
-          { text: 'Редактировать', color: ' text-lab-color', link:'pages/aroundgame/editPhoto.html' },
-          { text: 'Убрать своё имя с фото', color: ' text-lab-color' },
-          { text: 'Меня нет на фото', color: ' text-lab-color' },
-          { text: 'Пожаловаться', color: ' text-lab-red', last: true, action: 'report'}
+          { text: 'Редактировать', color: ' text-rttf-color', link:'pages/aroundgame/editPhoto.html' },
+          { text: 'Убрать своё имя с фото', color: ' text-rttf-color' },
+          { text: 'Меня нет на фото', color: ' text-rttf-color' },
+          { text: 'Пожаловаться', color: ' text-rttf-red', last: true, action: 'report'}
 
         ], 'action-menu-container')
 
@@ -102,22 +102,22 @@ html(lang='ru')
         div(class="bg-white rounded-lg p-4 w-11/12 max-w-md")
           h2.text-lg.font-semibold Выберите тему жалобы
           form.flex.flex-col.gap-4.pt-4.pb-0.mb-0
-            label.flex.items-center.gap-4.text-lab-black
+            label.flex.items-center.gap-4.text-rttf-black
               input(type="radio" name="issue" value="sold").size-5
               | Непристойное содержание
-            label.flex.items-center.gap-4.text-lab-black
+            label.flex.items-center.gap-4.text-rttf-black
               input(type="radio" name="issue" value="wrong_info").size-5
               | Не нравится как выгляжу на фото
-            label.flex.items-center.gap-4.text-lab-black
+            label.flex.items-center.gap-4.text-rttf-black
               input(type="radio" name="issue" value="fraud").size-5
               | Спам
-            label.flex.items-center.gap-4.text-lab-black
+            label.flex.items-center.gap-4.text-rttf-black
               input(type="radio" name="issue" value="mass_sale").size-5
               | Фото не относится к турниру
             textarea.p-2.border.border-gray-300.rounded-md(placeholder="Кратко опишите суть жалобы")
             div.flex.gap-2
-                +button('Отмена', 'text', 'lab-black-50', '', ' w-1/2', 'cancelButton')
-                +button('Отправить', 'default', 'white', 'bg-lab-color', ' w-1/2', 'commentSubmitButton')
+                +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
+                +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
 
 
       script.
@@ -176,7 +176,7 @@ html(lang='ru')
               a.inline(href='pages/others/profile.html') Артур Скобелев, 
               |
               a.inline(href='pages/others/profile.html') Игорь Маслов 
-            button.flex.items-center.gap-2.bg-lab-color-10.px-2.border.rounded-lg(onclick="addPlayerModal()") +  Отметить игрока
+            button.flex.items-center.gap-2.bg-rttf-color-10.px-2.border.rounded-lg(onclick="addPlayerModal()") +  Отметить игрока
         .flex.items-center.gap-3.text-sm
           img.size-4.opacity-50.saturate-50(src='img/camera.svg' alt='')
           a(href='pages/others/profile.html') Юрий Любимов
@@ -186,9 +186,9 @@ html(lang='ru')
         div.mb-4 Введите имя игрока, которого еще нет на фото
         input.p-2.border.rounded.mb-4(type="text" placeholder="Имя игрока").w-full
         div.flex.gap-2
-          +button('Отмена', 'text', 'lab-black-50', '', ' w-1/2', 'cancelButton')
-          +button('Отправить', 'default', 'white', 'bg-lab-color', ' w-1/2', 'commentSubmitButton')
-        button.absolute.top-2.right-4.text-2xl.text-lab-black(onclick="closeAddPlayerModal()") &times;
+          +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
+          +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
+        button.absolute.top-2.right-4.text-2xl.text-rttf-black(onclick="closeAddPlayerModal()") &times;
 
     script.
       function addPlayerModal() {

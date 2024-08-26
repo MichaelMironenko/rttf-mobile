@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Столы</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background pt-16 pb-32 px-[3vw]">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/rttf-logo.svg" alt="Логотип"/>
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><img class="h-4 shrink-0 mt-0.5" src="img/rttf-logo-text.svg" alt="РТТФ"/><span class="w-full whitespace-normal text-xs leading-none tracking-tight text-slate-500 overflow-visible truncate text-ellipsis whitespace-nowrap">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Уведомления"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Соообщения"/><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-rttf-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Рейтинг"/><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt=""/><span class="ml-1 text-xs font-bold text-rttf-color">1376</span></div>
+          </div>
+          <div class="cursor-pointer p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-rttf-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"/><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""/></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"/>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg" alt=""/>
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt=""/>
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg" alt=""/>
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg" alt=""/>
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg" alt=""/>
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg" alt=""/>
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg" alt=""/>
+            <div class="text-rttf-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="p-4 bg-white rounded-lg overflow-hidden mb-3 undefined"> 
+      <div class="flex justify-between items-center pb-2">
+        <div class="flex items-center flex-wrap">
+          <h2 class="leading-tight">Аренда столов в&nbsp;</h2>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1 undefined">
+              <select class="w-fit appearance-none rounded-2xl border-none bg-transparent bg-none p-0 text-sm font-semibold leading-none text-rttf-color  !underline !text-lg text-rttf-color !rounded-none !underline-offset-4 !decoration-dotted  focus-visible:outline-none">
+                <option value="0" selected="selected">Все города</option>
+                <option value="781">Алексин</option>
+                <option value="38">Казань</option>
+                <option value="120">Калининград</option>
+                <option value="197">Калуга</option>
+                <option value="35">Кемерово</option>
+                <option value="8">Красногорск</option>
+                <option value="1">Москва</option>
+                <option value="67">Новосибирск</option>
+                <option value="312">Одинцово</option>
+              </select>
+            </div>
+          </div>
+        </div><a href="pages/courts/myBookings.html"><img class="size-8 p-2 bg-rttf-color-10 rounded-md" src="img/booking.svg"/></a>
+      </div>
+      <div class="flex overflow-x-auto -mx-4 px-4 gap-2 no-scrollbar">
+        <div class="flex-shrink-0"><span class="sticky left-0 text-sm  text-rttf-black-50 py-2 z-10">Март</span>
+          <div class="flex gap-2 mt-2">
+            <div class="font-semibold bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-red opacity-50 font-semibold">Вс</div>
+              <div class="text-base text-rttf-red">27</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-black-50 opacity-50">Пн</div>
+              <div class="text-base text-rttf-black">28</div>
+            </div>
+            <div class="bg-rttf-color flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-white opacity-50">Вт</div>
+              <div class="text-base text-white font-semibold">29</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-black-50 opacity-50">Ср</div>
+              <div class="text-base text-rttf-black">30</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-black-50 opacity-50">Чт</div>
+              <div class="text-base text-rttf-black">31</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 text-sm  text-rttf-black-50 py-2 z-10">Апрель</span>
+          <div class="flex gap-2 mt-2">
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-rttf-black-50 opacity-50">Пт</div>
+              <div class="text-base text-rttf-black">1</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-rttf-red opacity-50">Сб</div>
+              <div class="text-base text-rttf-red">2</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-rttf-red opacity-50">Вс</div>
+              <div class="text-base text-rttf-red">3</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-rttf-black-50 opacity-50">Пн</div>
+              <div class="text-base text-rttf-black">4</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-rttf-black-50 opacity-50">Вт</div>
+              <div class="text-base text-rttf-black">5</div>
+            </div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+              <div class="text-xs text-rttf-black-50 opacity-50">Ср</div>
+              <div class="text-base text-rttf-black">6</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4 py-4 items-end">
+        <div>
+          <div class="text-sm text-rttf-black-50 py-2">Столов</div>
+          <div class="flex items-center bg-rttf-color-10 rounded-lg">
+            <button class="size-10 text-xl text-rttf-black-50" id="decrease-courts">–</button><span class="w-4 h-3.5 text-center leading-none" id="courts-count">2</span>
+            <button class="size-10 text-xl text-rttf-black-50" id="increase-courts">+</button>
+          </div>
+        </div>
+        <div>
+          <div class="text-sm text-gray-500 py-2">Буду играть</div>
+          <div class="flex items-center bg-rttf-color-10 rounded-lg">
+            <button class="size-10  text-xl text-rttf-black-50 leading-none" id="decrease-time">–</button><span class="flex items-center justify-center space-x-1" id="play-time"><span class="w-2 h-3.5 hours shrink-0 text-right leading-none">1</span><span class="text-rttf-black-50 h-3.5 leading-none">ч</span><span class="w-6 h-3.5 minutes shrink-0 text-right leading-none">30</span><span class="text-rttf-black-50 h-3.5 leading-none">м</span></span>
+            <button class="size-10 text-xl text-rttf-black-50 leading-none" id="increase-time">+</button>
+          </div>
+        </div>
+      </div>
+      <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out" id="" onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick="window.location.href='pages/courts/rentCourt.html'">Найти столы</button>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Степпер для количества столов
+            const courtsCount = document.querySelector('#courts-count');
+            const decreaseCourtsButton = document.querySelector('#decrease-courts');
+            const increaseCourtsButton = document.querySelector('#increase-courts');
+        
+            decreaseCourtsButton.addEventListener('click', () => {
+                const currentCount = parseInt(courtsCount.textContent, 10);
+                courtsCount.textContent = currentCount > 1 ? currentCount - 1 : 1;
+            });
+        
+            increaseCourtsButton.addEventListener('click', () => {
+                const currentCount = parseInt(courtsCount.textContent, 10);
+                courtsCount.textContent = currentCount + 1;
+            });
+        
+            // Степпер для времени игры
+            const playTimeHours = document.querySelector('#play-time .hours');
+            const playTimeMinutes = document.querySelector('#play-time .minutes');
+            const decreaseTimeButton = document.querySelector('#decrease-time');
+            const increaseTimeButton = document.querySelector('#increase-time');
+            let timeInMinutes = 90; // Начальное значение 1 ч 30 м
+        
+            const updateTimeText = () => {
+                const hours = Math.floor(timeInMinutes / 60);
+                const minutes = timeInMinutes % 60;
+                playTimeHours.textContent = `${hours} `;
+                playTimeMinutes.textContent = `${minutes} `;
+            };
+        
+            decreaseTimeButton.addEventListener('click', () => {
+                timeInMinutes = timeInMinutes > 30 ? timeInMinutes - 30 : 30;
+                updateTimeText();
+            });
+        
+            increaseTimeButton.addEventListener('click', () => {
+                timeInMinutes += 30;
+                updateTimeText();
+            });
+        });
+      </script>
+    </div>
+    <div class="p-4 bg-white rounded-lg overflow-hidden mb-3 undefined">
+      <div class="flex justify-between items-center mb-4 gap-4">
+        <div class="flex gap-2 items-center">
+          <h2 class="leading-tight">Клубы</h2>
+        </div><a class=" leading-none" href="pages/courts/clubs.html">Все</a>
+      </div> 
+      <div class="flex overflow-x-auto no-scrollbar -m-4 p-4 gap-2"><a class="w-48 rounded-lg overflow-hidden shadow-lg shrink-0" href="pages/courts/clubs.html">
+          <div class="w-full h-32 bg-center bg-cover" style="background-image: url('dynamic-img/club-1.jpg')"></div>
+          <div class="p-3 flex flex-col gap-2 justify-between h-fit">
+            <div class="font-semibold leading-tight">Территория мяча и грача</div>
+            <div class="flex items-center text-sm"><span class="font-semibold">4.4</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-rttf-black-50 ml-2">22 отзыва</span></div>
+            <div><img class="inline opacity-50 saturate-50 mr-1" src="img/location-icon.svg"/><span class="inline text-rttf-black-50 text-sm h-4">Нижний Новгород</span></div>
+            <div class="flex items-center grow justify-self-stretch">
+              <div class="inline"><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">14</span></div>
+              <div class="inline ml-2"><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/wifi.svg" alt="wifi"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/shower.svg" alt="shower"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/cafe.svg" alt="cafe"/>
+              </div>
+            </div>
+          </div></a><a class="w-48 rounded-lg overflow-hidden shadow-lg shrink-0" href="pages/courts/clubs.html">
+          <div class="w-full h-32 bg-center bg-cover" style="background-image: url('dynamic-img/club-2.jpg')"></div>
+          <div class="p-3 flex flex-col gap-2 justify-between h-fit">
+            <div class="font-semibold leading-tight">Короли стола</div>
+            <div class="flex items-center text-sm"><span class="font-semibold">4.7</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-rttf-black-50 ml-2">18 отзыва</span></div>
+            <div>
+              <div class="bg-blue-700 inline-block size-2 rounded-full mr-1 shrink-0 align-middle"></div><span class="inline text-rttf-black-50 leading-tight align-middle text-sm">Славянский бульвар</span>
+            </div>
+            <div class="flex items-center grow justify-self-stretch">
+              <div class="inline"><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">8</span></div>
+              <div class="inline ml-2"><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/wifi.svg" alt="wifi"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/ac.svg" alt="ac"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/parking.svg" alt="parking"/>
+              </div>
+            </div>
+          </div></a><a class="w-48 rounded-lg overflow-hidden shadow-lg shrink-0" href="pages/courts/clubs.html">
+          <div class="w-full h-32 bg-center bg-cover" style="background-image: url('dynamic-img/club-3.jpg')"></div>
+          <div class="p-3 flex flex-col gap-2 justify-between h-fit">
+            <div class="font-semibold leading-tight">Ракетка и мяч</div>
+            <div class="flex items-center text-sm"><span class="font-semibold">4.5</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-rttf-black-50 ml-2">34 отзыва</span></div>
+            <div><img class="inline opacity-50 saturate-50 mr-1" src="img/location-icon.svg"/><span class="inline text-rttf-black-50 text-sm h-4">Санкт-Петербург</span></div>
+            <div class="flex items-center grow justify-self-stretch">
+              <div class="inline"><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">12</span></div>
+              <div class="inline ml-2"><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/market.svg" alt="market"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/wifi.svg" alt="wifi"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/water.svg" alt="water"/>
+              </div>
+            </div>
+          </div></a><a class="w-48 rounded-lg overflow-hidden shadow-lg shrink-0" href="pages/courts/clubs.html">
+          <div class="w-full h-32 bg-center bg-cover" style="background-image: url('dynamic-img/club-4.jpg')"></div>
+          <div class="p-3 flex flex-col gap-2 justify-between h-fit">
+            <div class="font-semibold leading-tight">Сет и матч</div>
+            <div class="flex items-center text-sm"><span class="font-semibold">4.9</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-rttf-black-50 ml-2">29 отзыва</span></div>
+            <div>
+              <div class="bg-slate-300 inline-block size-2 rounded-full mr-1 shrink-0 align-middle"></div><span class="inline text-rttf-black-50 leading-tight align-middle text-sm">Чертановская</span>
+            </div>
+            <div class="flex items-center grow justify-self-stretch">
+              <div class="inline"><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">10</span></div>
+              <div class="inline ml-2"><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/ac.svg" alt="ac"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/shower.svg" alt="shower"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/cafe.svg" alt="cafe"/>
+              </div>
+            </div>
+          </div></a><a class="w-48 rounded-lg overflow-hidden shadow-lg shrink-0" href="pages/courts/clubs.html">
+          <div class="w-full h-32 bg-center bg-cover" style="background-image: url('dynamic-img/club-1.jpg')"></div>
+          <div class="p-3 flex flex-col gap-2 justify-between h-fit">
+            <div class="font-semibold leading-tight">Волейбольная лига</div>
+            <div class="flex items-center text-sm"><span class="font-semibold">4.6</span><img class="h-4 ml-1" src="img/star.svg"/><span class="text-rttf-black-50 ml-2">15 отзыва</span></div>
+            <div><img class="inline opacity-50 saturate-50 mr-1" src="img/location-icon.svg"/><span class="inline text-rttf-black-50 text-sm h-4">Казань</span></div>
+            <div class="flex items-center grow justify-self-stretch">
+              <div class="inline"><img class="inline size-4 mr-1 align-middle saturate-50 opacity-75" src="img/court.svg"/><span class="inline text-sm align-middle leading-none">9</span></div>
+              <div class="inline ml-2"><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/wifi.svg" alt="wifi"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/water.svg" alt="water"/><img class="inline saturate-50 opacity-75 size-3.5 mr-0.5" src="img/parking.svg" alt="parking"/>
+              </div>
+            </div>
+          </div></a>
+      </div>
+      <div class="text-sm text-rttf-black-50 mt-4 leading-tight">Вашего зала нет в списке? <a href="addclub.html">Добавьте его бесплатно</a></div>
+    </div>
+    <div class="p-4 bg-white rounded-lg overflow-hidden mb-3 undefined">
+      <div class="flex justify-between items-center mb-4 gap-4">
+        <div class="flex gap-2 items-center">
+          <h2 class="leading-tight">Новости клубов</h2>
+        </div><a class=" leading-none" href="pages/aroundgame/news.html">Все</a>
+      </div>
+      <div class="flex flex-col gap-4"><a class="flex items-center gap-3 min-h-16" href="#"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-1.jpg"/>
+          <div class="flex flex-col gap-1">
+            <h3 class="line-clamp-2 text-15 font-medium leading-tight">23 мая состоится студенческий турнир Москвы</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">Naten ЮГ Ярославль</span><span class="text-rttf-black-50">4 апреля 16:30</span></span>
+          </div></a><a class="flex items-center gap-3 min-h-16" href="#">
+          <div class="flex flex-col gap-1">
+            <h3 class="line-clamp-2 text-15 font-medium leading-tight">Открытые тренировки для всех желающих</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">Спартак М</span><span class="text-rttf-black-50">12 мая 18:00</span></span>
+          </div></a><a class="flex items-center gap-3 min-h-16" href="#"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-3.jpg"/>
+          <div class="flex flex-col gap-1">
+            <h3 class="line-clamp-2 text-15 font-medium leading-tight">Финал городского чемпионата по баскетболу</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">Динамо СПб</span><span class="text-rttf-black-50">20 июня 20:00</span></span>
+          </div></a>
+      </div>
+    </div>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tournaments.svg" alt=""/><span class=" text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt=""/><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/halls/halls.html"><img class="mx-auto h-7 w-7" src="img/tabbar/tables-active.svg" alt=""/><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Залы</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt=""/><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/around-game.svg" alt=""/><span class=" text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/market.svg" alt=""/><span class=" text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

@@ -1,8 +1,8 @@
 mixin citySelect(image, extraClass, containerClass)
-  .flex.items-center.gap-1.py-2(class=`${containerClass}`)
+  .flex.items-center.gap-1(class=`${containerClass}`)
     if image
       img.h-4.w-4(src='img/location-icon.svg')
-    select.w-fit.appearance-none.rounded-2xl.border-none.bg-transparent.bg-none.p-0.text-sm.font-semibold.leading-none.text-lab-color(
+    select.w-fit.appearance-none.rounded-2xl.border-none.bg-transparent.bg-none.p-0.text-sm.font-semibold.leading-none.text-rttf-color(
       class=`${extraClass} focus-visible:outline-none`
     )
       option(value='0', selected) Все города

@@ -1,17 +1,17 @@
 mixin profileTournamentCard(tournament)
     .drop-shadow-around transform-gpu-light.rounded-lg.border.bg-white.min-w-72(class="w-[80%] max-w-md").overflow-hidden.h-fit
-        .px-4.py-3.bg-lab-color-10
-            span.text-sm.text-lab-black-50 #{tournament.date}
+        .px-4.py-3.bg-rttf-color-10
+            span.text-sm.text-rttf-black-50 #{tournament.date}
             div(class="flex items-center gap-0.5 pt-1")
                 +tournamentTypeBadge(tournament.typeBadge)
                 a(href=tournament.link).text-sm.px-2.font-semibold #{tournament.clubName}
                 img(src=tournament.playerIcon).saturate-50.opacity-50
                 span.text-sm #{tournament.playersCount}
 
-        div.border-lab-black-10.px-4
+        div.border-rttf-black-10.px-4
             table.w-full
                 thead
-                    tr.border-b.text-lab-black-50.text-xxs.font-semibold.uppercase
+                    tr.border-b.text-rttf-black-50.text-xxs.font-semibold.uppercase
                         th(class="hidden sm:table-cell").py-2.text-left Этап
                         th.py-2.text-left Соперники
                         th.py-2.text-center.min-w-14 ★
@@ -19,8 +19,8 @@ mixin profileTournamentCard(tournament)
                         th.py-2.text-center.min-w-10  - / +
                 tbody
                 each player in tournament.players
-                    tr.text-lab-black(class="text-[13px]")
-                        td(class="hidden sm:table-cell").py-2.text-lab-black-50 #{player.stage}
+                    tr.text-rttf-black(class="text-[13px]")
+                        td(class="hidden sm:table-cell").py-2.text-rttf-black-50 #{player.stage}
                         td.py-2
                             each name in player.names
                                 .flex.gap-1.items-center
@@ -31,25 +31,25 @@ mixin profileTournamentCard(tournament)
                         td.text-center
                             +userRating(player.rating)
                         td.text-center.tracking-tighter #{player.score}
-                        td.text-center(class=player.change[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{player.change}
-                tr.font-semibold.border-t.text-lab-black(class="text-[13px] sm:hidden")
+                        td.text-center(class=player.change[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{player.change}
+                tr.font-semibold.border-t.text-rttf-black(class="text-[13px] sm:hidden")
                     td.py-2.text-left(colspan="2") #{tournament.finalPosition}
                     td.text-center
-                        span.text-lab-green #{tournament.wins}
-                        span.text-lab-black-30(class="mx-0.5") /
-                        span.text-lab-red #{tournament.losses}
-                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
+                        span.text-rttf-green #{tournament.wins}
+                        span.text-rttf-black-30(class="mx-0.5") /
+                        span.text-rttf-red #{tournament.losses}
+                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{tournament.finalChange}
 
-                tr.font-semibold.border-t.text-lab-black(class="hidden text-[13px] sm:table-row")
+                tr.font-semibold.border-t.text-rttf-black(class="hidden text-[13px] sm:table-row")
                     td.py-2.text-left(colspan="3") #{tournament.finalPosition}
                     td.text-center
-                        span.text-lab-green #{tournament.wins}
-                        span.text-lab-black-30(class="mx-0.5") /
-                        span.text-lab-red #{tournament.losses}
-                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
+                        span.text-rttf-green #{tournament.wins}
+                        span.text-rttf-black-30(class="mx-0.5") /
+                        span.text-rttf-red #{tournament.losses}
+                    td.text-center(class=tournament.finalChange[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{tournament.finalChange}
                     
         .flex.gap-1.items-center.gap.justify-between.pt-2.pb-4.px-4
-            span.text-sm.text-lab-black-50.mr-2.leading-none.grow Рейтинг до/после
+            span.text-sm.text-rttf-black-50.mr-2.leading-none.grow Рейтинг до/после
             +userRating(tournament.ratingBefore, '', 'saturate-0')
             img(src="img/expand-arrow.svg", alt="").-rotate-90.size-4 
             +userRating(tournament.ratingAfter)

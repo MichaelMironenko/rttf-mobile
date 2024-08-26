@@ -1,0 +1,55 @@
+mixin chessTournamentGameResult(group, round, time, player1, player2, player1Win, player1Rating, player2Rating, player1Points, player2Points, ratingChange1, ratingChange2, duration)
+  div.card.bg-white.-mx-4
+    div.flex.items-center.px-4.pt-4.pb-2.text-rttf-black.text-xs
+      div= `Группа ${group}, тур ${round}`
+      div.ml-4 🕓 #{time}
+
+    table.w-full.text-left.border-b.mb-2(class="text-[13px]")
+      thead.border-y
+        tr.text-xs.text-rttf-black-50
+          th.py-1.px-4  Игрок
+          th
+            img(src="img/chess.svg").size-4.mx-auto
+          th
+            img(src="img/tt-racket.svg").size-4.mx-auto
+          th.px-2.text-center Итог
+          th.py-1.text-center Рейтинг
+          th.px-2.py-1.text-center +/-
+      tbody
+        tr(class=(player1Win ? 'bg-rttf-color-10' : ''))
+          td.py-1.pl-4.pr-1
+            a(href="pages/others/profile.html")= player1.name
+          td.px-1.text-center.min-w-12
+            if player1Win
+              span 1
+              br
+              span.text-rttf-black-50 ⏱&nbsp;#{duration}
+            else
+              span 0
+          td.text-center.px-2.text-rttf-black= player1Points
+          td.px-1.text-center.font-semibold
+            span(class=(player1Win ? 'text-rttf-green' : 'text-rttf-red'))= player1Win ? '1' : '0'
+          td.text-center.py-2
+            +userRating(player1Rating, '', '', 'chesspong')
+          td.px-2.text-center
+            span(class=(ratingChange1 > 0 ? 'text-rttf-green' : 'text-rttf-red'))= player1Win ? `+${ratingChange1}` : ratingChange1
+
+        tr(class=(!player1Win ? 'bg-rttf-color-10' : ''))
+          td.py-1.pl-4.pr-1
+            a(href="pages/others/profile.html")= player2.name
+          td.px-1.text-center.min-w-12
+            if !player1Win
+              span 1
+              br
+              span.text-rttf-black-50 ⏱&nbsp;#{duration}
+            else
+              span 0
+          td.text-center.px-2.text-rttf-black= player2Points
+          td.px-1.text-center.font-semibold
+            span(class=(!player1Win ? 'text-rttf-green' : 'text-rttf-red'))= !player1Win ? '1' : '0'
+          td.text-center.py-2
+            +userRating(player2Rating, '', '', 'chesspong')
+          td.px-2.py-2.text-center
+            span(class=(ratingChange2 > 0 ? 'text-rttf-green' : 'text-rttf-red'))= !player1Win ? `+${ratingChange2}` : ratingChange2
+
+// Вызовы миксина с разными данными

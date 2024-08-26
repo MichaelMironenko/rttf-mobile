@@ -1,0 +1,231 @@
+include /components/atoms/userRating.pug
+
+mixin tournamentResultsTableChess(showPlace)
+    - 
+        var players = [
+            { 
+                place: 1, 
+                name: 'Петров Алексей', 
+                games: '6-1', 
+                tennis: '4-3', 
+                chess: '6-1', 
+                buchholz: 29, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['В', 'В', 'В', 'П', 'В', 'В', 'В']
+            },
+            { 
+                place: 2, 
+                name: 'Иванов Дмитрий', 
+                games: '5-2', 
+                tennis: '4-3', 
+                chess: '5-2', 
+                buchholz: 27, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['В', 'В', 'П', 'В', 'В', 'П', 'В']
+            },
+            { 
+                place: 3, 
+                name: 'Смирнов Сергей', 
+                games: '5-2', 
+                tennis: '4-3', 
+                chess: '5-2', 
+                buchholz: 26, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['П', 'В', 'В', 'В', 'П', 'В', 'В']
+            },
+            { 
+                place: 4, 
+                name: 'Кузнецов Олег', 
+                games: '4-3', 
+                tennis: '4-3', 
+                chess: '4-3', 
+                buchholz: 24, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['В', 'П', 'П', 'В', 'В', 'В', 'П']
+            },
+            { 
+                place: 5, 
+                name: 'Попов Андрей', 
+                games: '4-3', 
+                tennis: '4-3', 
+                chess: '4-3', 
+                buchholz: 23, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['П', 'В', 'П', 'В', 'В', 'В', 'П']
+            },
+            { 
+                place: 6, 
+                name: 'Соколов Виктор', 
+                games: '4-2', 
+                tennis: '4-3', 
+                chess: '4-2', 
+                buchholz: 22, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['В', 'В', 'В', 'В', 'П', 'П', 'В']
+            },
+            { 
+                place: 7, 
+                name: 'Морозов Александр', 
+                games: '3-3', 
+                tennis: '4-3', 
+                chess: '3-3', 
+                buchholz: 21, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['П', 'В', 'П', 'В', 'В', 'П', 'В']
+            },
+            { 
+                place: 8, 
+                name: 'Павлов Илья', 
+                games: '3-2', 
+                tennis: '4-3', 
+                chess: '3-2', 
+                buchholz: 20, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['В', 'П', 'В', 'П', 'В', 'В', 'П']
+            },
+            { 
+                place: 9, 
+                name: 'Романов Евгений', 
+                games: '2-3', 
+                tennis: '4-3', 
+                chess: '2-3', 
+                buchholz: 19, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['П', 'П', 'В', 'В', 'П', 'П', 'В']
+            },
+            { 
+                place: 10, 
+                name: 'Волков Алексей', 
+                games: '2-5', 
+                tennis: '4-3', 
+                chess: '2-5', 
+                buchholz: 18, 
+                ratingBefore: 414, 
+                change: '+7.6', 
+                ratingAfter: 421,
+                rounds: ['П', 'П', 'В', 'П', 'П', 'В', 'П']
+            }
+        ]
+    
+    script.
+        function toggleDetails(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    
+    table(class="w-[calc(100vw-32px)] -mr-4 -ml-4 -mb-2")
+        thead
+            tr(class="p-2 text-xs text-rttf-black-50")
+                if showPlace
+                    th(rowspan="2", class="pl-2 text-center max-w-10 align-middle") #
+                else
+                    th(rowspan="2", class="pl-4 p-2 text-left align-middle") Имя
+                if showPlace
+                    th(rowspan="2", class="p-2 text-left align-middle") Имя
+                th(colspan="7", class="p-1 hidden sm:table-cell text-center") Туры
+                th(rowspan="2", class="p-2 pl-4 text-center align-middle") Игры
+                th(rowspan="2", class="p-2 hidden sm:table-cell text-center align-middle") 
+                    img(src="img/chess.svg" alt="Шахматы").size-4.mx-auto
+                th(rowspan="2", class="p-2 hidden sm:table-cell text-center align-middle") 
+                    img(src="img/tt-racket.svg" alt="Теннис").size-4.mx-auto
+                th(rowspan="2", class="p-2 hidden sm:table-cell text-center align-middle") Бухг
+                th(rowspan="2", class="p-2 text-center align-middle") ★ до
+                th(rowspan="2", class="p-2 text-center align-middle") ★ +/-
+                th(rowspan="2", class="p-2 hidden sm:table-cell text-center align-middle") ★ после
+            tr(class="text-xs hidden sm:table-row text-rttf-black-50")
+                each i in [1, 2, 3, 4, 5, 6, 7]
+                    th(class="text-center")= i
+                
+        tbody
+            each player, index in players
+                - const medalClass = index === 0 ? 'bg-gold' : index === 1 ? 'bg-silver' : index === 2 ? 'bg-bronze' : ''
+                - const changeColor = player.change > 0 ? 'text-rttf-green' : 'text-rttf-red'
+                - const playerRowClass = player.me ? "bg-orange-100" : ""
+                tr.text-rttf-black.border-t(class=`${playerRowClass} text-[13px]`  onclick=`toggleDetails('details-${index}')`)
+                    if showPlace
+                        td(class="pl-2 text-center font-semibold w-7")
+                            if index < 3
+                                div(class="h-5 w-5 flex items-center border border-rttf-black-10 justify-center rounded-full " + medalClass)= player.place
+                            else
+                                = player.place
+                    else
+                        td(class="pl-4 p-2 text-left leading-5 text-rttf-blue")= player.name
+                    if showPlace
+                        td(class="p-2 text-left leading-5 text-rttf-blue")= player.name
+                    each round in player.rounds
+                        td(class="hidden sm:table-cell text-center")
+                            span(class=round === 'В' ? 'text-rttf-green' : 'text-rttf-red')= round
+                    td(class="p-2  pl-4 text-center whitespace-nowrap")
+                        - const [wins, losses] = player.games.split('-')
+                        span(class="text-rttf-green")= wins
+                        span(class="text-rttf-black opacity-50 ml-0.5") –
+                        span(class="text-rttf-red ml-0.5")= losses
+                    td(class="p-2 text-center hidden sm:table-cell whitespace-nowrap")
+                        - const [chessWins, chessLosses] = player.chess.split('-')
+                        span(class="text-rttf-green")= chessWins
+                        span(class="text-rttf-black opacity-50 ml-0.5") –
+                        span(class="text-rttf-red ml-0.5")= chessLosses
+                    td(class="p-2 text-center hidden sm:table-cell")
+                        - const [tennisWins, tennisLosses] = player.tennis.split('-')
+                        span(class="text-rttf-green")= tennisWins
+                        span(class="text-rttf-black opacity-50 ml-0.5") –
+                        span(class="text-rttf-red ml-0.5")= tennisLosses
+                    td(class="p-2 text-center hidden sm:table-cell")= player.buchholz
+                    td(class="p-2 text-center saturate-25")
+                        +userRating(player.ratingBefore, false, '', 'chesspong')
+                    td(class="p-2 text-center " + changeColor)= player.change
+                    td(class="p-2 text-center hidden sm:table-cell align-middle")
+                        +userRating(player.ratingAfter, false, '', 'chesspong')
+
+                //- Дополнительная информация для мобильных устройств
+                tr.hidden.text-sm.text-rttf-black(id=`details-${index}`)
+                    td(colspan=showPlace ? 9 : 8).px-3
+                        table(class="w-full sm:hidden")
+                            thead
+                                tr(class="text-xxs text-rttf-black-50")
+                                    each i in [1, 2, 3, 4, 5, 6, 7]
+                                        th(class="px-1 text-center")= i
+                                    th(class="px-2 text-center") 
+                                        img(src="img/chess.svg" alt="Шахматы").size-4.mx-auto
+                                    th(class="px-2 text-center") 
+                                        img(src="img/tt-racket.svg" alt="Теннис").size-4.mx-auto
+                                    th(class="pl-2 text-center") Бухгольц
+                            tbody 
+                                tr
+                                    each round, roundIndex in player.rounds
+                                        td(class="text-center")
+                                            span(class=round === 'В' ? 'text-rttf-green' : 'text-rttf-red')= round
+                                    td(class="px-2 text-center")
+                                        - const [chessWins2, chessLosses2] = player.chess.split('-')
+                                        span(class="text-rttf-green")= chessWins2
+                                        span(class="text-rttf-black opacity-50 ml-0.5") –
+                                        span(class="text-rttf-red ml-0.5")= chessLosses2
+                                    td(class="px-2 text-center")
+                                        - const [tennisWins2, tennisLosses2] = player.tennis.split('-')
+                                        span(class="text-rttf-green")= tennisWins2
+                                        span(class="text-rttf-black opacity-50 ml-0.5") –
+                                        span(class="text-rttf-red ml-0.5")= tennisLosses2
+                                    td(class="pl-2 text-center")= player.buchholz
+    

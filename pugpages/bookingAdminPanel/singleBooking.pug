@@ -32,7 +32,7 @@ html(lang="ru")
         .px-4
             +bookingData(false)
             .flex.justify-between.pb-4.pt-4.border-t
-                span Аренда кортов
+                span Аренда столов
                 span 1400&#8202;₽
             .flex.justify-between.pb-4
                 span Аренда ракеток
@@ -42,22 +42,22 @@ html(lang="ru")
                 span 2000&#8202;₽
             .flex.justify-between.pb-2.items-center
                 span.grow Статус
-                div.py-1.px-2.bg-lab-green.text-white.text-sm.rounded-md.font-semibold Оплачено
-            .text-sm.py-2.text-lab-black-50 Бронирование оформил 
+                div.py-1.px-2.bg-rttf-green.text-white.text-sm.rounded-md.font-semibold Оплачено
+            .text-sm.py-2.text-rttf-black-50 Бронирование оформил 
                 a(href="pages/others/profile.html") Евгений Ловченко
 
             .flex.gap-2.items-center
-                +button('Редактировать', 'default', 'white', 'bg-lab-color','my-4', 'editButton')
-                +button('Отменить', 'default', 'white', 'bg-lab-red','', 'cancelBooking')
+                +button('Редактировать', 'default', 'white', 'bg-rttf-color','my-4', 'editButton')
+                +button('Отменить', 'default', 'white', 'bg-rttf-red','', 'cancelBooking')
         +modal('Отменить бронирование?', [
-            {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-lab-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'}
+            {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-rttf-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'}
         ], "modal-delete", true)
             span До игры осталось менее 24 часов, будет возвращено 50% стоимости
 
         div(id='editBooking' class="modal-container fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden lg:static lg:max-w-96 lg:w-full lg:backdrop-blur-none  lg:border lg:bg-transparent lg:p-0 lg:shadow-none")
             .fixed.bottom-0.left-0.right-0.w-full.z-40.p-4.rounded-t-2xl.overflow-hidden.bg-white.drop-shadow-top.pb-safe-16(class="lg:absolute lg:rounded-none lg:border lg:bottom-auto lg:w-96 lg:-mx-4 lg:drop-shadow-none")
 
-                .w-20.top-0.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
+                .w-20.top-0.left-0.right-0.h-1.bg-rttf-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
                 img(src="img/close-round.svg", alt="").top-2.right-2.absolute#closeButton
                 .max-w-96.mx-auto
                     
@@ -65,7 +65,7 @@ html(lang="ru")
                     .flex.items-center.gap-2.pt-6
                         +editLabel('Имя', '', true)
                         +input('')
-                    .text-right.text-xs.text-lab-red Заполните имя
+                    .text-right.text-xs.text-rttf-red Заполните имя
                     .flex.items-center.gap-2.pt-2
                         +editLabel('Телефон', '', true)
                         +input('', '', '', 'phone')
@@ -73,7 +73,7 @@ html(lang="ru")
                     .flex.items-center.gap-2.pt-2
                         +editLabel('Email', '', true)
                         +input('', '', '', 'email')
-                    .text-right.text-xs.text-lab-red Введите корректный email
+                    .text-right.text-xs.text-rttf-red Введите корректный email
 
                     +editLabel('Бронь', '', true, 'py-2')
                     +selectedCourts(true, false)
@@ -85,12 +85,12 @@ html(lang="ru")
                         .flex.items-center.justify-between.gap-3
                             div
                                 span.text-sm Любительская
-                                .text-sm.text-lab-black-50 150₽/шт
+                                .text-sm.text-rttf-black-50 150₽/шт
                             +stepper(0)
                         .flex.items-center.justify-between.gap-3.pt-4
                             div
                                 span.text-sm Полупрофи
-                                .text-sm.text-lab-black-50 200₽/шт
+                                .text-sm.text-rttf-black-50 200₽/шт
                             +stepper(0)
                     
                     .flex.items-center.gap-2.py-4.justify-between
@@ -101,8 +101,8 @@ html(lang="ru")
                             span.text-sm Оплачено
                     
                     div.flex.gap-2
-                        +button('Удалить бронь', 'text', 'lab-red', '', 'w-1/2 shrink-0', 'deleteButton')
-                        +button('Сохранить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'submitButton')        
+                        +button('Удалить бронь', 'text', 'rttf-red', '', 'w-1/2 shrink-0', 'deleteButton')
+                        +button('Сохранить', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'submitButton')        
 
         script.
             document.addEventListener('DOMContentLoaded', function() {

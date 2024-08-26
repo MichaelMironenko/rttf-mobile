@@ -33,12 +33,12 @@ html(lang="ru")
                 +editLabel('Товар')    
                 +input('Yonex BS-4', 'w-full mb-4', '', '', '', '', '', '')
                 +editLabel('Название объявления', '', true)    
-                div.text-lab-black-50.text-xs.mb-2 (можно не заполнять, если заполнено поле товар)
+                div.text-rttf-black-50.text-xs.mb-2 (можно не заполнять, если заполнено поле товар)
                 +input('Продам ракетку...', 'w-full', '', '', '', '', '', 'Ошибка')
                 +editLabel('Состояние товара')    
                 div.flex.w-full.rounded-lg.overflow-hidden.mb-4
-                    button#tabBooking.grow.text-sm.p-2.bg-lab-color.text-white.border-none.outline-none Новый 
-                    button#tabPrices.grow.text-sm.p-2.bg-lab-color-10.text-gray-500.border-none.outline-none Б/У
+                    button#tabBooking.grow.text-sm.p-2.bg-rttf-color.text-white.border-none.outline-none Новый 
+                    button#tabPrices.grow.text-sm.p-2.bg-rttf-color-10.text-gray-500.border-none.outline-none Б/У
                 
                 +editLabel('Описание в свободной форме', '')
                 +textarea('', 'w-full mb-4')
@@ -57,7 +57,7 @@ html(lang="ru")
                                 div.bg-white.bg-opacity-75.rounded-full.p-2.shadow
                                     img.w-4.h-4(src='img/delete.svg')
                    
-                    div.aspect-square.flex.justify-center.items-center.bg-lab-color-10(onclick="toggleActionMenu()")
+                    div.aspect-square.flex.justify-center.items-center.bg-rttf-color-10(onclick="toggleActionMenu()")
                         img(src="img/simple-plus.svg", alt="")
 
 
@@ -70,5 +70,5 @@ html(lang="ru")
                     +editLabel('Телефон', '', true)
                     +input('', '', '', 'tel', '', '', 'tel')
             div.flex.gap-4
-                +button('Снять с продажи', 'default', 'white', 'bg-lab-red', ' whitespace-nowrap', 'deleteButton')
-                +button('Сохранить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'submitButton')
+                +button('Снять с продажи', 'default', 'white', 'bg-rttf-red', ' whitespace-nowrap', 'deleteButton')
+                +button('Сохранить', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'submitButton')

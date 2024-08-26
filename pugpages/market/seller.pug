@@ -46,11 +46,11 @@ html(lang='ru')
     - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
     - var tabIds = ['market', 'used', 'stringers']
     - var activeTab = 'Б/У'
-    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
         .players-panel-tab.tab(
-          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
           data-tab=`${tabIds[index]}`
         )
           img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
@@ -64,13 +64,13 @@ html(lang='ru')
             tabs.forEach((t) => {
               const img = t.querySelector('img')
               if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
-              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              if (t.classList.contains('bg-rttf-color-10')) t.classList.remove('bg-rttf-color-10')
               t.classList.add('opacity-75', 'saturate-50')
               if (img) {
                 img.classList.add('opacity-75', 'saturate-50')
               }
             })
-            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.add('font-bold', 'bg-rttf-color-10')
             this.classList.remove('opacity-75', 'saturate-50')
             const img = this.querySelector('img')
             if (img) {
@@ -91,12 +91,12 @@ html(lang='ru')
 
     .border-b.bg-white.p-4
       .flex.items-center.gap-3
-        +avatar('bg-lab-blue', 'АС', '64')
+        +avatar('bg-rttf-blue', 'АС', '64')
         .flex.flex-col.gap-1
           .flex.items-center.gap-2
             a.font-semibold.leading-none(href='') Александр Семёнов
             +userRating(342)
-          span.mb-1.text-sm.text-lab-black-50 @asemenov
+          span.mb-1.text-sm.text-rttf-black-50 @asemenov
           .flex.shrink-0.items-center
             img.h-4(src='img/yellow-star-full.svg')
             img.h-4(src='img/yellow-star-full.svg')
@@ -104,13 +104,13 @@ html(lang='ru')
             img.h-4(src='img/yellow-star-full.svg')
             img.h-4(src='img/yellow-star-half.svg')
             span.ml-1.text-sm.font-semibold.leading-tight 4.4
-            a.ml-4.text-sm.text-lab-black-50 12 отзывов
-      .my-4.text-sm.text-lab-black-50 На сайте 3 года 2 месяца
+            a.ml-4.text-sm.text-rttf-black-50 12 отзывов
+      .my-4.text-sm.text-rttf-black-50 На сайте 3 года 2 месяца
       .my-4.flex.items-center.gap-4
         a.text-sm(href='pages/market/sellerProducts.html') 115 продаж
         a.text-sm(href='pages/market/sellerProducts.html') 23 объявления
       .mt-4.flex.items-center.justify-between.gap-2
-        button.w-full.rounded-lg.bg-lab-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
+        button.w-full.rounded-lg.bg-rttf-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
           id=`${id}`,
           onmousedown='this.classList.add(\'scale-97\')',
           onmouseup='this.classList.remove(\'scale-97\')',
@@ -123,7 +123,7 @@ html(lang='ru')
           .mt-1.flex.items-center.justify-center.gap-1
             .size-2.rounded-full.bg-green-300
             span.text-xs.font-normal.text-white Онлайн
-        button.w-full.rounded-lg.bg-lab-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
+        button.w-full.rounded-lg.bg-rttf-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
           id=`${id}`,
           onmousedown='this.classList.add(\'scale-97\')',
           onmouseup='this.classList.remove(\'scale-97\')',
@@ -136,7 +136,7 @@ html(lang='ru')
           .mt-1.text-center.text-xs.font-normal +7 (963) 123-45-67
       .mt-4.flex.items-center.gap-1
         img.opacity-50.saturate-50(src='img/warning.svg', alt='')
-        span.text-sm.text-lab-black-50 Пожаловаться
+        span.text-sm.text-rttf-black-50 Пожаловаться
 
     .border-b.bg-white.p-4
       h2.pb-4 Объявления продавца
@@ -149,7 +149,7 @@ html(lang='ru')
         +secondHandCard('victorthrustrer.webp', 'Victor Thruster K 9900', 13000, 'Казань', 'metro', 'Площадь Тукая', '#00ff00', '5 мая', false)
         +secondHandCard('yonexzforce.jpg', 'Yonex Voltric Z-Force II', 15000, 'Новосибирск', 'metro', 'Площадь Ленина', '#ffdd00', '2 декабря 2023 г.', false)
         +secondHandCard('ziggler.jpg', 'Apacs Z Ziggler', 8000, 'Екатеринбург', 'metro', 'Геологическая', '#ff0000', '1 мая', false)
-        .flex.items-center.justify-center.text-center.text-sm.font-semibold.text-lab-color Показать больше объявлений
+        .flex.items-center.justify-center.text-center.text-sm.font-semibold.text-rttf-color Показать больше объявлений
 
     +comments(true)
 

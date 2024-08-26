@@ -46,11 +46,11 @@ html(lang='ru')
     - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
     - var tabIds = ['market', 'used', 'stringers']
     - var activeTab = 'Б/У'
-    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
         .players-panel-tab.tab(
-          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
           data-tab=`${tabIds[index]}`
         )
           img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
@@ -64,13 +64,13 @@ html(lang='ru')
             tabs.forEach((t) => {
               const img = t.querySelector('img')
               if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
-              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              if (t.classList.contains('bg-rttf-color-10')) t.classList.remove('bg-rttf-color-10')
               t.classList.add('opacity-75', 'saturate-50')
               if (img) {
                 img.classList.add('opacity-75', 'saturate-50')
               }
             })
-            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.add('font-bold', 'bg-rttf-color-10')
             this.classList.remove('opacity-75', 'saturate-50')
             const img = this.querySelector('img')
             if (img) {
@@ -99,22 +99,22 @@ html(lang='ru')
             +breadcrumbs([{name: 'Б/У маркет', href: 'pages/market/products.html'}, {name: 'Yonex Astrox 99'}], 'px-0 pb-4')
             h1.leading-tight Ракетка Yonex Astrox 99
             .my-2.flex.items-center.space-x-4
-              span.text-lab-black-50.line-through 14 500₽
-              span.text-xl.font-bold.text-lab-red 12 900₽
+              span.text-rttf-black-50.line-through 14 500₽
+              span.text-xl.font-bold.text-rttf-red 12 900₽
             .mb-8.flex.items-center.justify-between
-              span.text-sm.text-lab-black-50 4 июля 2023 09:16
-              span.text-sm.text-lab-black-50 Состояние: Б/У
+              span.text-sm.text-rttf-black-50 4 июля 2023 09:16
+              span.text-sm.text-rttf-black-50 Состояние: Б/У
 
           div
             h2 Продавец
             a(href="pages/market/seller.html")
               .flex.items-center.gap-3.pb-2.pt-2
-                +avatar('bg-lab-blue', 'АС', '64')
+                +avatar('bg-rttf-blue', 'АС', '64')
                 .flex.flex-col.gap-1
                   .flex.items-center.gap-2
                     .text-sm.font-semibold.leading-none Александр Семёнов
                     +userRating(342)
-                  span.mb-1.text-sm.text-lab-black-50 @asemenov
+                  span.mb-1.text-sm.text-rttf-black-50 @asemenov
                   .flex.shrink-0.items-center
                     img.h-4(src='img/yellow-star-full.svg')
                     img.h-4(src='img/yellow-star-full.svg')
@@ -122,11 +122,11 @@ html(lang='ru')
                     img.h-4(src='img/yellow-star-full.svg')
                     img.h-4(src='img/yellow-star-half.svg')
                     span.ml-1.text-sm.font-semibold.leading-tight 4.4
-                    .ml-4.text-sm.text-lab-black-50 12 отзывов
-            .my-2.text-sm.text-lab-black-50 На сайте 3 года 2 месяца
+                    .ml-4.text-sm.text-rttf-black-50 12 отзывов
+            .my-2.text-sm.text-rttf-black-50 На сайте 3 года 2 месяца
             a.text-sm(href='pages/market/seller.html') 23 объявления
             .mt-4.flex.items-center.justify-between.gap-2
-              button.w-full.rounded-lg.bg-lab-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
+              button.w-full.rounded-lg.bg-rttf-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
                 id=`${id}`,
                 onmousedown='this.classList.add(\'scale-97\')',
                 onmouseup='this.classList.remove(\'scale-97\')',
@@ -139,7 +139,7 @@ html(lang='ru')
                 .mt-1.flex.items-center.justify-center.gap-1
                   .size-2.rounded-full.bg-green-300
                   span.text-xs.font-normal.text-white Онлайн
-              button.w-full.rounded-lg.bg-lab-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
+              button.w-full.rounded-lg.bg-rttf-color.px-4.py-2.text-center.font-semibold.leading-none.text-white.transition-transform.duration-150.ease-in-out(
                 id=`${id}`,
                 onmousedown='this.classList.add(\'scale-97\')',
                 onmouseup='this.classList.remove(\'scale-97\')',
@@ -151,11 +151,11 @@ html(lang='ru')
               ) Позвонить
                 .mt-1.text-center.text-xs.font-normal +7 (963) 123-45-67
             .mt-4.flex.items-center.justify-between.gap-2
-              +button('Редактировать', 'default', 'white', 'bg-lab-color', 'w-1/2', 'editButton')
-              +button('Закрыть', 'default', 'white', 'bg-lab-color', 'w-1/2', 'editButton')
+              +button('Редактировать', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'editButton')
+              +button('Закрыть', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'editButton')
             .mt-4.flex.items-center.gap-1
               img.opacity-50.saturate-50(src='img/warning.svg', alt='')
-              span.text-sm.text-lab-black-50 Пожаловаться
+              span.text-sm.text-rttf-black-50 Пожаловаться
 
         div(class='sm:col-span-2')
           h2.pb-2 Описание
@@ -172,7 +172,7 @@ html(lang='ru')
               .size-2.rounded-full.bg-green-300
               span Петровско-Разумовская
             .flex.items-center(class='gap-1.5')
-              .size-2.rounded-full.bg-lab-black-50
+              .size-2.rounded-full.bg-rttf-black-50
               span Тимирязевская
           img(src='dynamic-img/used-map.png', alt='')
 

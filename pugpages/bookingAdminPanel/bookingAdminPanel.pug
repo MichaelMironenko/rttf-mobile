@@ -42,13 +42,13 @@ html(lang="ru")
                         img(src="img/history.svg", class="xs:hidden" alt="").shrink-0
                         a(class="xs:block" href="pages/bookingAdminPanel/bookingsHistory.html").hidden.text-sm.shrink-0 Список броней
                 div.flex.w-full.rounded-lg.overflow-hidden(class="lg:justify-self-end lg:mb-0")
-                    button#tabBooking.flex-1.text-sm.p-2.bg-lab-color.text-white.border-none.outline-none Бронирования
-                    button#tabPrices.flex-1.text-sm.p-2.bg-lab-color-10.text-gray-500.border-none.outline-none Расписание цен
+                    button#tabBooking.flex-1.text-sm.p-2.bg-rttf-color.text-white.border-none.outline-none Бронирования
+                    button#tabPrices.flex-1.text-sm.p-2.bg-rttf-color-10.text-gray-500.border-none.outline-none Расписание цен
             
             div#bookingContent
                 div(class="flex overflow-x-auto  px-4 gap-2 no-scrollbar").mb-2
                     div(class="flex-shrink-0")
-                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Март
+                        span(class="sticky left-0 text-sm text-rttf-black-50 py-2 z-10") Март
                         - var marchDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт']
                         - var marchDates = [27, 28, 29, 30, 31]
                         .flex.gap-2.my-2
@@ -56,20 +56,20 @@ html(lang="ru")
                                 - var isWeekend = day === 'Вс' || day === 'Сб'
                                 - var isActive = day === 'Вт' && marchDates[index] === 29
                                 - var isCurrent = day === 'Вс' && marchDates[index] === 27
-                                    div(class=isCurrent && isWeekend ? "font-semibold bg-lab-color-10" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
-                                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50 font-semibold" : "text-xs text-lab-black-50 opacity-50")= day
-                                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= marchDates[index]
+                                    div(class=isCurrent && isWeekend ? "font-semibold bg-rttf-color-10" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
+                                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50 font-semibold" : "text-xs text-rttf-black-50 opacity-50")= day
+                                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= marchDates[index]
                     div(class="flex-shrink-0")
-                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Апрель
+                        span(class="sticky left-0 text-sm text-rttf-black-50 py-2 z-10") Апрель
                         - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
                         - var aprilDates = [1, 2, 3, 4, 5, 6]
                         .flex.gap-2.mt-2
                             each day, index in aprilDays
                                 - var isWeekend = day === 'Вс' || day === 'Сб'
                                 - var isActive = false 
-                                div(class=isActive && isWeekend ? "bg-lab-red" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
-                                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50" : "text-xs text-lab-black-50 opacity-50")= day
-                                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= aprilDates[index]
+                                div(class=isActive && isWeekend ? "bg-rttf-red" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
+                                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50" : "text-xs text-rttf-black-50 opacity-50")= day
+                                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= aprilDates[index]
                 
                 div(class="lg:flex ")#events
                     div(class="lg:w-96 lg:order-2 lg:border").px-4.shrink-0
@@ -77,7 +77,7 @@ html(lang="ru")
                         div(id='personalBooking' class="modal-container fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden lg:static lg:max-w-96 lg:w-full lg:backdrop-blur-none  lg:border lg:bg-transparent lg:p-0 lg:shadow-none")
                             .fixed.bottom-0.left-0.right-0.w-full.z-40.p-4.rounded-t-2xl.overflow-hidden.bg-white.drop-shadow-top.pb-safe-16(class="lg:absolute lg:rounded-none lg:border lg:bottom-auto lg:w-96 lg:-mx-4 lg:drop-shadow-none")
 
-                                .w-20.top-0.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
+                                .w-20.top-0.left-0.right-0.h-1.bg-rttf-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
                                 img(src="img/close-round.svg", alt="").top-2.right-2.absolute#closeButton
                                 .max-w-96.mx-auto
                                     .w-full.text-center.my-4
@@ -86,22 +86,22 @@ html(lang="ru")
 
                                     .flex.gap-4.items-center.py-2
                                         img(src="img/calendar.svg").saturate-50.opacity-60
-                                        div.leading-none.text-lab-black 11 сентября, четверг
+                                        div.leading-none.text-rttf-black 11 сентября, четверг
                                     .flex.gap-8.py-2.max-w-sm.items-center
                                         div.inline
                                             img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
                                             span.inline.align-middle.leading-none.ml-4 11:00-12:30
                                         div.court
-                                            img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
-                                            span.inline.align-middle.ml-2.text-lab-color Корт 5
+                                            img(src="img/court.svg", alt="Стол").inline.align-middle.saturate-50.opacity-50
+                                            span.inline.align-middle.ml-2.text-rttf-color Стол 5
                                         
                                     .flex.gap-8.py-2.max-w-sm.items-center
                                         div.inline
                                             img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
                                             span.inline.align-middle.leading-none.ml-4 11:00-12:30
                                         div.court 
-                                            img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
-                                            span.inline.align-middle.ml-2.text-lab-color Корт 6
+                                            img(src="img/court.svg", alt="Стол").inline.align-middle.saturate-50.opacity-50
+                                            span.inline.align-middle.ml-2.text-rttf-color Стол 6
                                     
                                     div.pt-2.pb-4
                                         img(src="img/racket.svg", alt="").inline.align-middle.saturate-50.opacity-50
@@ -110,14 +110,14 @@ html(lang="ru")
                                     div 
                                         img(src="img/price.svg", alt="Цена").inline.align-middle.saturate-50.opacity-50
                                         span.inline.align-middle.ml-4 1800&#8202;₽
-                                        span.inline.align-middle.ml-4.text-lab-green.font-semibold Оплачено 
+                                        span.inline.align-middle.ml-4.text-rttf-green.font-semibold Оплачено 
 
-                                    +button('Редактировать', 'default', 'white', 'bg-lab-color', 'mt-4', 'editButton', '')
+                                    +button('Редактировать', 'default', 'white', 'bg-rttf-color', 'mt-4', 'editButton', '')
                         
                         div(id='editBooking' class="modal-container fixed inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4 z-30 hidden lg:static lg:max-w-96 lg:w-full lg:backdrop-blur-none  lg:border lg:bg-transparent lg:p-0 lg:shadow-none")
                             .fixed.bottom-0.left-0.right-0.w-full.z-40.p-4.rounded-t-2xl.overflow-hidden.bg-white.drop-shadow-top.pb-safe-16(class="lg:absolute lg:rounded-none lg:border lg:bottom-auto lg:w-96 lg:-mx-4 lg:drop-shadow-none")
 
-                                .w-20.top-0.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
+                                .w-20.top-0.left-0.right-0.h-1.bg-rttf-black-10.rounded-xl.mx-auto.mt-2.absolute(class="lg:hidden")
                                 img(src="img/close-round.svg", alt="").top-2.right-2.absolute#closeButton
                                 .max-w-96.mx-auto
                                     
@@ -125,7 +125,7 @@ html(lang="ru")
                                     .flex.items-center.gap-2.pt-6
                                         +editLabel('Имя', '', true)
                                         +input('')
-                                    .text-right.text-xs.text-lab-red Заполните имя
+                                    .text-right.text-xs.text-rttf-red Заполните имя
                                     .flex.items-center.gap-2.pt-2
                                         +editLabel('Телефон', '', true)
                                         +input('', '', '', 'phone')
@@ -133,7 +133,7 @@ html(lang="ru")
                                     .flex.items-center.gap-2.pt-2
                                         +editLabel('Email', '', true)
                                         +input('', '', '', 'email')
-                                    .text-right.text-xs.text-lab-red Введите корректный email
+                                    .text-right.text-xs.text-rttf-red Введите корректный email
 
                                     +editLabel('Бронь', '', true, 'py-2')
                                     +selectedCourts(true, false)
@@ -145,12 +145,12 @@ html(lang="ru")
                                         .flex.items-center.justify-between.gap-3
                                             div
                                                 span.text-sm Любительская
-                                                .text-sm.text-lab-black-50 150₽/шт
+                                                .text-sm.text-rttf-black-50 150₽/шт
                                             +stepper(0)
                                         .flex.items-center.justify-between.gap-3.pt-4
                                             div
                                                 span.text-sm Полупрофи
-                                                .text-sm.text-lab-black-50 200₽/шт
+                                                .text-sm.text-rttf-black-50 200₽/шт
                                             +stepper(0)
                                     
                                     .flex.items-center.gap-2.py-4.justify-between
@@ -161,8 +161,8 @@ html(lang="ru")
                                             span.text-sm Оплачено
                                     
                                     div.flex.gap-2
-                                        +button('Удалить бронь', 'text', 'lab-red', '', 'w-1/2 shrink-0', 'deleteButton')
-                                        +button('Сохранить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'submitButton')
+                                        +button('Удалить бронь', 'text', 'rttf-red', '', 'w-1/2 shrink-0', 'deleteButton')
+                                        +button('Сохранить', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'submitButton')
 
 
                         div#dayEvents
@@ -197,33 +197,33 @@ html(lang="ru")
                                 .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mx-4.px-4
 
                                     each tournament in tournaments
-                                        div(class=`${tournament.status === 'past' ? 'opacity-50' : tournament.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center`)
-                                            div(class="text-lab-color text-sm font-medium")= tournament.time
+                                        div(class=`${tournament.status === 'past' ? 'opacity-50' : tournament.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center`)
+                                            div(class="text-rttf-color text-sm font-medium")= tournament.time
                                             span.text-sm= tournament.name
-                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center")
-                                        div.text-2xl.text-lab-black(class="font-[100]") +
+                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center")
+                                        div.text-2xl.text-rttf-black(class="font-[100]") +
 
                             .flex.gap-2.flex-col.mt-6    
                                 +editLabel('Групповые тренировки ЛАБ', true, true, 'text-sm ')
                                 .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mx-4.px-4
 
                                     each training in trainings
-                                        div(class=`${training.status === 'past' ? 'opacity-50' : training.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center`)
-                                            div(class="text-lab-color text-sm font-medium")= training.time
+                                        div(class=`${training.status === 'past' ? 'opacity-50' : training.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center`)
+                                            div(class="text-rttf-color text-sm font-medium")= training.time
                                             span.text-sm= training.name
-                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center")
-                                        div.text-2xl.text-lab-black(class="font-[100]") +
+                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center")
+                                        div.text-2xl.text-rttf-black(class="font-[100]") +
                                         
                             .flex.gap-2.flex-col.mt-6.mb-6  
                                 +editLabel('Мероприятия', true, true, 'text-sm ')
                                 .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mr-4
 
                                     each activity in activities
-                                        div(class=`${activity.status === 'past' ? 'opacity-50' : activity.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center`)
-                                            div(class="text-lab-color text-sm font-medium")= activity.time
+                                        div(class=`${activity.status === 'past' ? 'opacity-50' : activity.status === 'selected' ? '' : ' border-dashed'} px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center`)
+                                            div(class="text-rttf-color text-sm font-medium")= activity.time
                                             span.text-sm= activity.name
-                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-lab-black-30 rounded-md flex flex-col items-center justify-center")
-                                        div.text-2xl.text-lab-black(class="font-[100]") +
+                                    div(class="w-12 h-12 shrink-0 border-dashed px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center")
+                                        div.text-2xl.text-rttf-black(class="font-[100]") +
                         
                         
                     - const startTime = 9; // Start time 9 AM
@@ -240,20 +240,20 @@ html(lang="ru")
                         table.table-fixed.w-full.border
                             thead.sticky.top-0.bg-white.z-10.h-10.mb-4
                                 tr
-                                    th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Корт
+                                    th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Стол
                                     each _, index in Array(6)
                                         th.text-sm.min-w-32.w-32.text-center.align-middle.sticky.pt-2.top-0.h-8(class="text-center")
                                             div #{index + 1}
-                                            div.text-xs.font-normal.text-lab-black-50.mt-1 Обычный
+                                            div.text-xs.font-normal.text-rttf-black-50.mt-1 Обычный
                             tbody(class="before:content-['@'] before:text-xxs before:block before:leading-none before:text-transparent")
                                 each time, index in timeSlots
-                                    tr.h-8.text-lab-black-50.text-xs
+                                    tr.h-8.text-rttf-black-50.text-xs
                                         td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14
                                             div(class="-mt-2.5 bg-white") #{time}
                                         each _, courtIndex in Array(6)
                                             if time == '11:00' && courtIndex == 2
                                                 td.border.min-w-16.text-center.w-16.z-10.align-middle(rowspan="3")#bookingCell
-                                                    div.font-semibold.text-sm.text-lab-black Сергей М.
+                                                    div.font-semibold.text-sm.text-rttf-black Сергей М.
                                                     div.py-2 8 (915) 124-15-23
                                                     div.flex.justify-center.items-center.gap-1
                                                         img(src="img/trainer.svg", alt="").opacity-50.saturate-50
@@ -265,25 +265,25 @@ html(lang="ru")
                                                 continue
                                             else if time == '15:00' && courtIndex == 2
                                                 td.border.min-w-16.text-center.w-16.align-middle(colspan="3")
-                                                    div.font-semibold.mb-2.text-sm.text-lab-black Турнир 
+                                                    div.font-semibold.mb-2.text-sm.text-rttf-black Турнир 
                                                     span XDE
                                             else if time == '15:00' && (courtIndex == 3 || courtIndex == 4)
                                                 continue
                                             else if time == '16:00' && courtIndex == 0
                                                 td.border.min-w-16.text-center.w-16.align-middle(rowspan="2")
-                                                    div.font-semibold.mb-2.text-sm.text-lab-black Турнир 
+                                                    div.font-semibold.mb-2.text-sm.text-rttf-black Турнир 
                                                     span XDF
                                             else if time == '16:30' && courtIndex == 0
                                                 continue
                                             else if time == '16:00' && courtIndex == 1
                                                 td.border.min-w-16.text-center.w-16.align-middle(rowspan="2")
-                                                    div.font-semibold.mb-2.text-sm.text-lab-black Турнир 
+                                                    div.font-semibold.mb-2.text-sm.text-rttf-black Турнир 
                                                     span XDE
                                             else if time == '16:30' && courtIndex == 1
                                                 continue
                                             else if time == '17:30' && courtIndex == 5
                                                 td.border.min-w-16.text-center.w-16.align-middle(rowspan="2")
-                                                    div.font-semibold.mb-2.text-sm.text-lab-black Тренировка
+                                                    div.font-semibold.mb-2.text-sm.text-rttf-black Тренировка
                                                     .flex.items-center.gap-1.justify-center
                                                         img(src="img/trainer.svg", alt="")
                                                         span Трушкин A.
@@ -294,11 +294,11 @@ html(lang="ru")
                                                 - let bgColor = price === '600' ? 'bg-green-100' : price === '800' ? 'bg-blue-100' : 'bg-red-100'
                                                 td.border.min-w-16.text-center.w-16.align-middle(class=bgColor data-action="show-menu") #{price}
                     +actionMenu([
-                        { text: 'Аренда', link: '#', color: 'text-lab-color' },
-                        { text: 'Турнир ЛАБ', link: '#', color: 'text-lab-color' },
-                        { text: 'Тренировка ЛАБ', link: '#', color: 'text-lab-color' },
-                        { text: 'Мероприятие', link: '#', color: 'text-lab-color' },
-                        { text: 'Закрыть стол', link: '#', color: 'text-lab-color' }
+                        { text: 'Аренда', link: '#', color: 'text-rttf-color' },
+                        { text: 'Турнир ЛАБ', link: '#', color: 'text-rttf-color' },
+                        { text: 'Тренировка ЛАБ', link: '#', color: 'text-rttf-color' },
+                        { text: 'Мероприятие', link: '#', color: 'text-rttf-color' },
+                        { text: 'Закрыть стол', link: '#', color: 'text-rttf-color' }
                         ], 'actionMenuId', 'Создать новое событие')    
                     script.
                         document.addEventListener('click', function (e) {
@@ -342,7 +342,7 @@ html(lang="ru")
             div#pricesContent.hidden.px-4
                 div(class="flex overflow-x-auto -mx-4 px-4 gap-2 no-scrollbar").mb-2
                     div(class="flex-shrink-0")
-                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Март
+                        span(class="sticky left-0 text-sm text-rttf-black-50 py-2 z-10") Март
                         - var marchDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт']
                         - var marchDates = [27, 28, 29, 30, 31]
                         .flex.gap-2.mt-2
@@ -350,20 +350,20 @@ html(lang="ru")
                                 - var isWeekend = day === 'Вс' || day === 'Сб'
                                 - var isActive = day === 'Вт' && marchDates[index] === 29
                                 - var isCurrent = day === 'Вс' && marchDates[index] === 27
-                                    div(class=isCurrent && isWeekend ? "font-semibold bg-lab-color-10" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
-                                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50 font-semibold" : "text-xs text-lab-black-50 opacity-50")= day
-                                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= marchDates[index]
+                                    div(class=isCurrent && isWeekend ? "font-semibold bg-rttf-color-10" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
+                                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50 font-semibold" : "text-xs text-rttf-black-50 opacity-50")= day
+                                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= marchDates[index]
                     div(class="flex-shrink-0")
-                        span(class="sticky left-0 text-sm text-lab-black-50 py-2 z-10") Апрель
+                        span(class="sticky left-0 text-sm text-rttf-black-50 py-2 z-10") Апрель
                         - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
                         - var aprilDates = [1, 2, 3, 4, 5, 6]
                         .flex.gap-2.mt-2
                             each day, index in aprilDays
                                 - var isWeekend = day === 'Вс' || day === 'Сб'
                                 - var isActive = false 
-                                div(class=isActive && isWeekend ? "bg-lab-red" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
-                                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50" : "text-xs text-lab-black-50 opacity-50")= day
-                                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= aprilDates[index]
+                                div(class=isActive && isWeekend ? "bg-rttf-red" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
+                                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50" : "text-xs text-rttf-black-50 opacity-50")= day
+                                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= aprilDates[index]
                 +switch('Бронирование доступно', 'py-4', 'text-sm')
                 
                 .flex.gap-2.justify-start.mb-6.items-center(class="430:justify-start 430:gap-2")
@@ -376,24 +376,24 @@ html(lang="ru")
                     span.shrink-0.mr-4.text-sm Шаблоны цен
                     +filterButtonsRow([ { label: 'Рабочий день', active: true}, { label: 'Выходной', active: false}, { label: 'Пятница', active: false}, { label: 'Турнирный день', active: false } ], '', '-ml-4 pr-4', 'text-sm', '', true)
                 .flex.gap-4.w-full.justify-center.pb-4
-                    .text-lab-color.text-sm Обновить шаблон
-                    .text-lab-red.text-sm Удалить шаблон
+                    .text-rttf-color.text-sm Обновить шаблон
+                    .text-rttf-red.text-sm Удалить шаблон
                     
                         
                 
                 div.w-screen.overflow-auto.no-scrollbar.bg-white.-mx-4
-                    table.table-fixed.w-full.text-lab-black
+                    table.table-fixed.w-full.text-rttf-black
                         thead.sticky.top-0.bg-white.z-20.h-10.mb-4
                             tr
-                                th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Корт
+                                th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Стол
                                 each _, index in Array(10)
                                     th.court.text-sm.min-w-16.w-16.text-center.align-middle.sticky.top-0.h-8(data-court-index=index)
                                         div #{index + 1}
-                                        div.text-xs.font-normal.text-lab-black-50.mt-1 Обычный
+                                        div.text-xs.font-normal.text-rttf-black-50.mt-1 Обычный
                         tbody(class="before:content-['@'] before:text-xxs before:block before:leading-none before:text-transparent")
                             each time, index in timeSlots
-                                tr.h-8.text-sm.text-lab-black-50.text-xs
-                                    td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14.text-lab-black-50
+                                tr.h-8.text-sm.text-rttf-black-50.text-xs
+                                    td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14.text-rttf-black-50
                                         div(class="-mt-2.5 bg-white") #{time}
                                     each _, courtIndex in Array(10)
                                         - let price = time >= '09:00' && time < '13:00' ? '600' : time >= '13:00' && time < '18:00' ? '800' : time >= '18:00' && time < '21:00' ? '1000' : '800'
@@ -401,8 +401,8 @@ html(lang="ru")
                                         td.border.min-w-16.text-center.w-16.z-10.align-middle(class=bgColor) #{price}
 
         +modal('', '', 'court-modal', true)  
-            h2 Корт №5
-            p.text-lab-black-50.text-sm.pt-0.pb-2 Стандартный  
+            h2 Стол №5
+            p.text-rttf-black-50.text-sm.pt-0.pb-2 Стандартный  
             img(src="dynamic-img/court5.jpg", alt="").mt-2.rounded-sm.pb-2
             +dottedLine('Размер зала', '17x10 м')
             +dottedLine('Высота потолков', '8 м')
@@ -410,10 +410,10 @@ html(lang="ru")
             button.mt-4.bg-blue-500.text-white.rounded.px-4.py-2(data-modal-target="edit-court-modal") Редактировать
 
         +modal('', '', 'edit-court-modal', true)
-            h2 Корт №11
+            h2 Стол №11
             form(action="", method="post").space-y-4
                 label.block
-                    span.block.text-sm.font-medium.text-gray-700 Корт №
+                    span.block.text-sm.font-medium.text-gray-700 Стол №
                     input(type="text", name="court-number", value="11", readonly).mt-1.block.w-full
                 div.flex.space-x-4
                     div.flex-grow
@@ -435,7 +435,7 @@ html(lang="ru")
                         span.text-sm.font-medium.text-gray-700.toggle-label Доступен
                         input(type="checkbox", name="available", checked).ml-2.toggle-checkbox
                 div.flex.justify-between.mt-6
-                    button.bg-red-500.text-white.rounded.px-4.py-2 Удалить корт
+                    button.bg-red-500.text-white.rounded.px-4.py-2 Удалить стол
                     button.bg-green-500.text-white.rounded.px-4.py-2 Сохранить
 
         script.
@@ -481,18 +481,18 @@ html(lang="ru")
                 tabBooking.addEventListener('click', function() {
                     bookingContent.classList.remove('hidden');
                     pricesContent.classList.add('hidden');
-                    tabBooking.classList.add('bg-lab-color', 'text-white');
-                    tabBooking.classList.remove('bg-lab-color-10', 'text-gray-500');
-                    tabPrices.classList.add('bg-lab-color-10', 'text-gray-500');
-                    tabPrices.classList.remove('bg-lab-color', 'text-white');
+                    tabBooking.classList.add('bg-rttf-color', 'text-white');
+                    tabBooking.classList.remove('bg-rttf-color-10', 'text-gray-500');
+                    tabPrices.classList.add('bg-rttf-color-10', 'text-gray-500');
+                    tabPrices.classList.remove('bg-rttf-color', 'text-white');
                 });
 
                 tabPrices.addEventListener('click', function() {
                     pricesContent.classList.remove('hidden');
                     bookingContent.classList.add('hidden');
-                    tabPrices.classList.add('bg-lab-color', 'text-white');
-                    tabPrices.classList.remove('bg-lab-color-10', 'text-gray-500');
-                    tabBooking.classList.add('bg-lab-color-10', 'text-gray-500');
-                    tabBooking.classList.remove('bg-lab-color', 'text-white');
+                    tabPrices.classList.add('bg-rttf-color', 'text-white');
+                    tabPrices.classList.remove('bg-rttf-color-10', 'text-gray-500');
+                    tabBooking.classList.add('bg-rttf-color-10', 'text-gray-500');
+                    tabBooking.classList.remove('bg-rttf-color', 'text-white');
                 });
             });

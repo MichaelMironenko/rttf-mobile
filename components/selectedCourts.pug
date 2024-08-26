@@ -7,31 +7,31 @@ mixin selectedCourts(deleteButton, price=true)
             img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
             span.inline.align-middle.leading-none.ml-2 11:00-12:30
         div.court
-            img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
-            span.inline.align-middle.ml-2.text-lab-color Корт 5
+            img(src="img/court.svg", alt="Стол").inline.align-middle.saturate-50.opacity-50
+            span.inline.align-middle.ml-2.text-rttf-color Стол 5
         if price
             div 
                 img(src="img/price.svg", alt="Цена").inline.align-middle.saturate-50.opacity-50
                 span.inline.align-middle.ml-2 1800&#8202;₽
         if deleteButton
-            button(type="button").leading-none.text-lab-black-50 ✕
+            button(type="button").leading-none.text-rttf-black-50 ✕
     .flex.justify-between.gap-3.py-2.max-w-sm.items-center
         div.inline
             img(src="img/time.svg", alt="Время").inline.align-middle.saturate-50.opacity-50
             span.inline.align-middle.leading-none.ml-2 11:00-12:30
         div.court 
-            img(src="img/court.svg", alt="Корт").inline.align-middle.saturate-50.opacity-50
-            span.inline.align-middle.ml-2.text-lab-color Корт 6
+            img(src="img/court.svg", alt="Стол").inline.align-middle.saturate-50.opacity-50
+            span.inline.align-middle.ml-2.text-rttf-color Стол 6
         if price
             div 
                 img(src="img/price.svg", alt="Цена").inline.align-middle.saturate-50.opacity-50
                 span.inline.align-middle.ml-2 1800&#8202;₽
         if deleteButton
-            button(type="button").leading-none.text-lab-black-50 ✕
+            button(type="button").leading-none.text-rttf-black-50 ✕
 
     +modal('', '', 'court-modal', true)  
-        h2 Корт №5
-        p.text-lab-black-50.text-sm.pt-0.pb-2 Стандартный  
+        h2 Стол №5
+        p.text-rttf-black-50.text-sm.pt-0.pb-2 Стандартный  
         img(src="dynamic-img/court5.jpg", alt="").mt-2.rounded-sm.pb-2
         
         +dottedLine('Размер зала', '17x10 м')

@@ -1,9 +1,9 @@
 mixin playersAndComments(players, comments)
-    div.inline-flex.flex-row.gap-1.text-sm
-        div(class="inline-flex gap-0.5 items-center")
-            img(src="img/player.svg", class="opacity-30")
-            span= players
+    div.inline-flex.flex-row.gap-2.text-sm
         if comments > 0
             div(class="inline-flex gap-0.5 items-center ml-2")
-                img(src="img/comment.svg", class="opacity-30")
+                img(src="img/comment.svg", class="opacity-50 saturate-50")
                 span= comments
+        div(class="inline-flex gap-0.5 items-center")
+            img(src="img/player.svg", class="opacity-50 saturate-50")
+            span= players

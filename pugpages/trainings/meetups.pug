@@ -59,17 +59,17 @@ html(lang='ru')
           })
         each year in years
           .flex-shrink-0
-            span.sticky.left-0.z-10.py-2.text-sm.text-lab-black-50= year
+            span.sticky.left-0.z-10.py-2.text-sm.text-rttf-black-50= year
             .mt-2.flex.gap-2
               - var displayMonths = year === '2024' ? months.slice(0, 8) : months
               each month in displayMonths
                 - var isActive = month === 'Июнь' && year === '2024'
                 button.flex.flex-col.items-center.justify-center.rounded-lg.p-2(
-                  class=[isActive ? 'bg-lab-color active-month' : 'bg-lab-color-10'],
+                  class=[isActive ? 'bg-rttf-color active-month' : 'bg-rttf-color-10'],
                   class=month === 'Июль' ? 'july-button' : '',
                   data-month=month
                 )
-                  div(class=isActive ? 'text-xs text-white' : 'text-xs text-lab-black')= month
+                  div(class=isActive ? 'text-xs text-white' : 'text-xs text-rttf-black')= month
 
         - 
             var meetups = [
@@ -86,18 +86,18 @@ html(lang='ru')
                 div.w-32.shrink-0.text-center.rounded.overflow-hidden
                     img.mx-auto(src=`dynamic-img/${meetup.img}`, alt='logo')
                 div.grow.items-center
-                    div.w-fit.text-sm.text-lab-black-50.py-1 #{meetup.dates}
+                    div.w-fit.text-sm.text-rttf-black-50.py-1 #{meetup.dates}
                     h3.font-bold #{meetup.title}
                     
                     .flex.items-center.gap-2.py-1 
                         img(src="img/price.svg", alt="").size-4.opacity-50.saturate-50
-                        div.text-sm.text-lab-black-50 #{meetup.price}
+                        div.text-sm.text-rttf-black-50 #{meetup.price}
                     .flex.items-center.gap-2.py-1
                         img(src="img/player.svg", alt="").size-4.opacity-50.saturate-50
-                        div.text-sm.text-lab-black-50 #{meetup.slots}
+                        div.text-sm.text-rttf-black-50 #{meetup.slots}
 
         table.hidden.w-full(class="sm:table").mt-4
-            thead.border-b.text-sm.text-lab-black-50
+            thead.border-b.text-sm.text-rttf-black-50
                 tr
                     th.px-4.text-left.font-semibold Даты
                     th.p-2.text-left.font-semibold Название
@@ -106,10 +106,10 @@ html(lang='ru')
                     th.px-2.text-center.font-semibold Тренеры
                     th.px-2.text-center.font-semibold Организатор
                     th.px-2.text-center.font-semibold Участвуют
-            tbody.text-lab-black
+            tbody.text-rttf-black
                 each meetup in meetups
                     tr.border-b.text-sm(class='last:border-b-0')
-                        td.whitespace-nowrap.p-4.text-lab-black #{meetup.dates}
+                        td.whitespace-nowrap.p-4.text-rttf-black #{meetup.dates}
                         td.p-2 #{meetup.title}
                         td.p-2 #{meetup.location}
                         td.p-2 #{meetup.price}

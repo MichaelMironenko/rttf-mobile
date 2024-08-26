@@ -1,7 +1,7 @@
 mixin filterButton(label, active, number, deleteButton, fontSize='text-sm', id)
-  div(id=id class=`px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap ${fontSize} flex items-center justify-center space-x-2 ${active ? 'bg-lab-color text-white font-semibold' : 'bg-lab-color-10 text-lab-black'}`)
+  div(id=id class=`px-2 py-2 rounded-lg cursor-pointer leading-none text-nowrap ${fontSize} flex items-center justify-center space-x-2 ${active ? 'bg-rttf-color text-white font-semibold' : 'bg-rttf-color-10 text-rttf-black'}`)
     div= label
     if deleteButton
-      span.mx-2.deleteButton.cursor-pointer(class=`${active ? 'text-white' : 'text-lab-black-50'}`) ✕
+      span.mx-2.deleteButton.cursor-pointer(class=`${active ? 'text-white' : 'text-rttf-black-50'}`) ✕
     if number
-      div.bg-white.text-lab-black.border.font-semibold.text-xs.rounded-full.px-1.min-w-6.text-center= number
+      div.bg-white.text-rttf-black.border.font-semibold.text-xs.rounded-full.px-1.min-w-6.text-center= number

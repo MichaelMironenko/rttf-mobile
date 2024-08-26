@@ -1,0 +1,40 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/ratingLimit.pug
+include /components/atoms/bookmark.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/chessTournamentGameResult.pug
+include /components/inputs/searchBar.pug
+include /components/racketlonGameResult.pug
+
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Игры турнира
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body
+        +topBar
+        div.bg-white.px-4.pt-16.pb-16
+            div.bg-white.rounded-lg
+                .flex.justify-between.gap-2.items-center
+                    .flex.items-center.gap-2.justify-center.grow
+                        +ratingLimit('откр')
+                        img(src="img/racketlon.svg" alt="Ракетлон")
+                        h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
+                    +bookmark(false)
+                div.flex.gap-2.items-center.pt-3.justify-center.text-sm
+                    img.w-4.aspect-square(src='img/calendar.svg' alt='')
+                    span 11 сентября, четверг
+                    span 12:30
+            .py-4
+                +searchBar('Найти игрока')
+            .p-4
+                +racketlonGameResult('10:36', 'Финал', 'Вознесенский А.', 21, 21, 8, 17, 67, 376, 37.5, 'Калитников Ю.', 12, 17, 21, 21, 60, 402, -37.5)
+                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 22, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
+                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 22, 66, 390, -25.0)
+                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 23, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
+        +tabBar('Турниры')

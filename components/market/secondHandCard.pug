@@ -5,15 +5,15 @@ mixin secondHandCard(photo, title, price, city, locationType, locationName, loca
   )
     img.aspect-square.max-h-40.w-full.object-contain(src=`dynamic-img/${photo}`, alt=title)
     .p-3.text-center
-      .line-clamp-3.text-sm.font-semibold.text-lab-color= title
-      .mt-2.text-sm.font-semibold.text-lab-black= `${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`
+      .line-clamp-3.text-sm.font-semibold.text-rttf-color= title
+      .mt-2.text-sm.font-semibold.text-rttf-black= `${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`
       .mt-2.flex.items-center.justify-center.text-xs
         img.mr-1.size-3.opacity-50.saturate-50(src='img/location-icon.svg')
-        span.text-lab-black-50= city
+        span.text-rttf-black-50= city
       .mt-1.flex.items-center.justify-center.text-xs
         if locationType == 'metro'
           span.mr-2.h-2.w-2.rounded-full(style=`background-color:${locationColor}`)
-        span.text-lab-black-50= locationName
+        span.text-rttf-black-50= locationName
       .mt-2.text-xs.text-gray-400= date
     .absolute.right-0.top-0
       button.flex.h-8.w-8.items-center.justify-center.rounded-full.bg-white.bg-opacity-50(

@@ -22,39 +22,39 @@ html(lang="ru")
             div
                 .flex.justify-between.items-center.px-4.mb-2     
                     h3.font-bold 2 марта 
-                    +button('Создать все', 'text', 'lab-color', 'bg-transparent') 
+                    +button('Создать все', 'text', 'rttf-color', 'bg-transparent') 
                 .w-full.bg-white.pt-4.pb-2.px-4
                     .flex.items-center.justify-between.gap-3 
-                        .flex.items-center.py-2.px-3.gap-3.text-sm.border.border-lab-color.rounded-lg.bg-lab-color-10.w-28.flex-shrink-0
+                        .flex.items-center.py-2.px-3.gap-3.text-sm.border.border-rttf-color.rounded-lg.bg-rttf-color-10.w-28.flex-shrink-0
                             span 15:00
                             +tournamentTypeBadge('XDF')
-                        +button('Создать', 'default', 'lab-color', 'bg-page-background', 'max-w-80', 'create-button')
+                        +button('Создать', 'default', 'rttf-color', 'bg-page-background', 'max-w-80', 'create-button')
                         img(src="img/three-dots.svg", alt="" onclick="toggleMenu()").three-dots.h-5.w-5#tournament-dots
 
                         .created.hidden.flex.items-center.gap-3#tournament-created.grow.justify-between
                             div.mx-auto
                                 img.inline(src="img/checkmark.svg", alt="", class="h-6, w-6")
                                 span.text-sm.inline.font-semibold.ml-1 Турнир создан
-                            +button('Отмена', 'text', 'lab-color', 'bg-transparent', 'text-sm', 'cancel-button')
+                            +button('Отмена', 'text', 'rttf-color', 'bg-transparent', 'text-sm', 'cancel-button')
                 .w-full.bg-white.p-4
                     .flex.items-center.justify-between.gap-3 
-                        .flex.items-center.py-2.px-3.gap-3.text-sm.border.border-lab-color.rounded-lg.bg-lab-color-10.w-28.flex-shrink-0
+                        .flex.items-center.py-2.px-3.gap-3.text-sm.border.border-rttf-color.rounded-lg.bg-rttf-color-10.w-28.flex-shrink-0
                             span 18:00
                             +tournamentTypeBadge('XD')
-                        +button('Создать', 'default', 'lab-color', 'bg-page-background', 'max-w-80', 'create-button')
+                        +button('Создать', 'default', 'rttf-color', 'bg-page-background', 'max-w-80', 'create-button')
                         img(src="img/three-dots.svg", alt="" onclick="toggleMenu()").three-dots.h-5.w-5#tournament-dots
 
                         .created.hidden.flex.items-center.gap-3#tournament-created.grow.justify-between
                             div.mx-auto
                                 img.inline(src="img/checkmark.svg", alt="", class="h-6, w-6")
                                 span.text-sm.inline.font-semibold.ml-1 Турнир создан
-                            +button('Отмена', 'text', 'lab-color', 'bg-transparent', 'text-sm', 'cancel-button')
+                            +button('Отмена', 'text', 'rttf-color', 'bg-transparent', 'text-sm', 'cancel-button')
                         div(id=`tournamentMenu`, class="hidden absolute bottom-0")
                             +actionMenu([
-                                { text: 'Не создавать в этот раз', icon: '', color: ' text-lab-color' },
-                                { text: 'Больше не проводить', icon: '', color: ' text-lab-color' },
-                                { text: 'Быстрый просмотр турнира', icon: '', color: ' text-lab-color' },
-                                { text: 'Перейти на страницу турнира', icon: '', color: ' text-lab-color' },
+                                { text: 'Не создавать в этот раз', icon: '', color: ' text-rttf-color' },
+                                { text: 'Больше не проводить', icon: '', color: ' text-rttf-color' },
+                                { text: 'Быстрый просмотр турнира', icon: '', color: ' text-rttf-color' },
+                                { text: 'Перейти на страницу турнира', icon: '', color: ' text-rttf-color' },
                             ])
                         script.
                             document.addEventListener('DOMContentLoaded', function() {

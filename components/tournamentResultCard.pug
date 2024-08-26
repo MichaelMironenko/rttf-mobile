@@ -15,16 +15,16 @@ mixin leaderboardItem(place, names, rating)
 
 
 
-mixin tournamentResultCard(time, group, title, players, comments)
+mixin tournamentResultCard(time, ratingType, ratingValue, title, players, comments)
 
     a.shadow-lg.rounded-lg.overflow-hidden.mb-2.max-w-sm.border(href="pages/tournaments/singleTournament.html")
         div(class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center")
             span.w-10.text-sm.text-center.shrink-0= time
-            +tournamentTypeBadge(group)
+            +ratingLimit(ratingType, ratingValue)
             .inline-flex.gap-2.grow.flex-wrap
                 span.text-sm.font-semibold.leading-sm= title                
             +playersAndComments(players, comments)
-        div.px-3.py-2.bg-slate-100.text-lab-black
+        div.px-3.py-2.bg-slate-100.text-rttf-black
             +leaderboardItem(1, ['А. Баркалов', 'В. Мартынов'], 414)
             +leaderboardItem(2, ['Е. Неряхин', 'М. Клейменов'], 423)
             +leaderboardItem(3, ['У. Константинопольская', 'А. Парфёнов'], 377)

@@ -50,23 +50,23 @@ html(lang='ru')
       ]
 
     section#cart.flex.flex-col.gap-4.rounded-lg.bg-white.p-4
-      header.text-lg.font-bold.text-lab-black Корзина
+      header.text-lg.font-bold.text-rttf-black Корзина
       each item in items
         .flex.gap-4.border-b.pb-2
           img.aspect-square.w-16.shrink-0.self-start(loading='lazy', src=item.img, alt=item.title)
           .flex.grow.flex-col.items-start
             span.text-sm.font-bold= item.title
             if item.handle
-              span.mt-2.text-xs.text-lab-black-50= item.handle
+              span.mt-2.text-xs.text-rttf-black-50= item.handle
             .mt-4.flex.w-full.items-center.justify-between.gap-5
               +stepper(1)
               .flex.items-center.gap-2
                 if item.oldPrice
-                  span.text-sm.text-lab-black-50.line-through= item.oldPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
-                span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+                  span.text-sm.text-rttf-black-50.line-through= item.oldPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+                span.shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
 
-            button.mt-2.text-xs.text-lab-color Удалить
-      button.text-xs.text-lab-red Очистить корзину
+            button.mt-2.text-xs.text-rttf-color Удалить
+      button.text-xs.text-rttf-red Очистить корзину
       .flex.items-center.justify-between.gap-4
         span.text-sm Всего 4 товара на сумму:
         span.font-bold 18 480 ₽
@@ -74,14 +74,14 @@ html(lang='ru')
         span.text-sm Ожидаемая дата доставки
         span.font-bold 12 июня
 
-      +button('Оформить заказ', 'default', 'white', 'bg-lab-color', '', 'toCheckout') 
-      button.self-center.text-sm.leading-5.text-lab-color Продолжить покупки
+      +button('Оформить заказ', 'default', 'white', 'bg-rttf-color', '', 'toCheckout') 
+      button.self-center.text-sm.leading-5.text-rttf-color Продолжить покупки
 
     section#checkout.hidden.flex.flex-col.gap-4.rounded-lg.bg-white
       .container.mx-auto.bg-white.p-4
         a.-ml-1.flex.items-center.gap-1.pb-4(href='#', id='backToCart')
           img.size-5.rotate-90(src='img/expand-arrow.svg', alt='')
-          span.text-sm.text-lab-color Вернуться к корзине
+          span.text-sm.text-rttf-color Вернуться к корзине
         h1.mb-4.font-bold Оформление покупки
         form.border-b
           .mb-6.flex.justify-between.gap-1
@@ -94,7 +94,7 @@ html(lang='ru')
 
           .mb-6.flex.justify-between.gap-1
             +editLabel('Город', '', true, '!w-32')
-            +input('Введите город', 'w-full', 'city', 'text', 'border-lab-red border-2', '', '')
+            +input('Введите город', 'w-full', 'city', 'text', 'border-rttf-red border-2', '', '')
           .mb-6.flex.justify-between.gap-1
             +editLabel('Адрес доставки', '', true, '!w-32')
             +textarea('Введите адрес', 'w-full', 'address', 'text', '', '', '')
@@ -103,7 +103,7 @@ html(lang='ru')
             +input('', 'w-full', 'phone', 'tel', '', '+7 (910) 314-45-50', 'tel')
           .mb-6.flex.justify-between.gap-1
             +editLabel('Email', '', true, '!w-32')
-            +input('Введите email', 'w-full', 'email', 'email', 'border-lab-red border-2', '', 'email')
+            +input('Введите email', 'w-full', 'email', 'email', 'border-rttf-red border-2', '', 'email')
 
         .mt-4
           h2.text-lg.font-semibold Ваш заказ
@@ -113,15 +113,15 @@ html(lang='ru')
           .my-4.flex.items-center.justify-between.gap-4
             div
               span.text-sm Доставка в Верхнезадрищенск
-              div.text-lab-black-50.text-xs Ожидаемая дата доставки: 12 июня
+              div.text-rttf-black-50.text-xs Ожидаемая дата доставки: 12 июня
             span 300 ₽
           .flex.items-center.justify-between.gap-4.mb-4
               span.font-bold Итого
               span.font-bold 18 480 ₽
-          +button('Оплатить', 'default', 'white', 'bg-lab-color', '', 'toPay') 
+          +button('Оплатить', 'default', 'white', 'bg-rttf-color', '', 'toPay') 
 
     section#confirmation.hidden.flex.flex-col.gap-4.rounded-lg.bg-white.p-4
-      header.text-lg.font-bold.text-lab-black Ваш заказ №341203 оплачен
+      header.text-lg.font-bold.text-rttf-black Ваш заказ №341203 оплачен
       h2.text-lg.font-bold Детали заказа
       each item in items
         .flex.gap-4.border-b.pb-2
@@ -129,11 +129,11 @@ html(lang='ru')
           .flex.grow.flex-col.items-start
             span.text-sm.font-bold= item.title
             if item.handle
-              span.mt-2.text-xs.text-lab-black-50= item.handle
+              span.mt-2.text-xs.text-rttf-black-50= item.handle
             .mt-4.flex.w-full.items-center.gap-4
               span.text-sm= item.quantity + ' шт.'
               .flex.items-center.gap-2
-                span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+                span.shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
 
       .flex.items-center.justify-between.gap-4
         span Итого
@@ -146,10 +146,10 @@ html(lang='ru')
 
       p.py-0.text-sm
         | Вы также получите подтверждение о покупке на 
-        a.text-lab-color(href='mailto:name@mail.ru') name@mail.ru
+        a.text-rttf-color(href='mailto:name@mail.ru') name@mail.ru
       p.py-0.text-sm
         | Что-то не так? Напишите нам на 
-        a.text-lab-color(href='mailto:info@rttf.ru') info@rttf.ru
+        a.text-rttf-color(href='mailto:info@rttf.ru') info@rttf.ru
         |
         | и мы постараемся решить ваш вопрос.
 

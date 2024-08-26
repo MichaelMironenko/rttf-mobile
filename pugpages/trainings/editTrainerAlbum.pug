@@ -49,19 +49,19 @@ html(lang='ru')
   body.bg-page-background.pb-28.pt-12
     +topBar
     +backButtonTitle('Редактирование альбома', 'pages/trainings/trainerAlbum.html', 'px-2')
-    .block.mx-auto.mb-4.text-center.text-lab-color(onclick="toggleActionMenu()") Добавить фото
+    .block.mx-auto.mb-4.text-center.text-rttf-color(onclick="toggleActionMenu()") Добавить фото
     +photoTiles(false, true)
 
     +actionMenu([
-        { text: 'Выбрать из ваших фото на ЛАБ', color: ' text-lab-color',  action: 'showModal' },
-        { text: 'Загрузить своё фото', color: ' text-lab-red' }], 'action-menu-container')
+        { text: 'Выбрать из ваших фото на ЛАБ', color: ' text-rttf-color',  action: 'showModal' },
+        { text: 'Загрузить своё фото', color: ' text-rttf-red' }], 'action-menu-container')
 
     +bottomPanel('add-photo-modal')
         h3.font-semibold.leading-tight.text-center.py-2 Выберите фото для добавления в свой профиль тренера
-        div.text-xs.leading-tight.text-lab-black.text-center.mb-2 Ранее добавленные фото не показываются
+        div.text-xs.leading-tight.text-rttf-black.text-center.mb-2 Ранее добавленные фото не показываются
         div(class="max-h-[70vh] h-full overflow-y-auto")
             +photoTiles('', false, true)
-        +button('Добавить выделенные фото', 'default', 'white', 'bg-lab-color', 'mt-4')
+        +button('Добавить выделенные фото', 'default', 'white', 'bg-rttf-color', 'mt-4')
 
     +tabBar('Тренировки')
 

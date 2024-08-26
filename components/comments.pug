@@ -9,14 +9,14 @@ include /components/comment.pug
 mixin comments(isReview = false)
   +block(isReview ? "3 отзыва" : "3 комментария", '', '', false)
     #comments.flex.items-center.gap-3.pb-3
-      +avatar('bg-lab-blue', 'НП', '32')
+      +avatar('bg-rttf-blue', 'НП', '32')
 
       .relative.flex.flex-grow.flex-col.gap-3
         if isReview
           .flex.items-center.justify-end.gap-3(class='430:ml-4 430:justify-start')
-            span.text-sm.text-lab-black-50 Ваша оценка
+            span.text-sm.text-rttf-black-50 Ваша оценка
             +starRating(0)
-        textarea#commentTextArea.hidden.resize-none.overflow-hidden.rounded-md.border.border-gray-300.p-2.transition-all.duration-300.ease-in-out(
+        textarea#commentTextArea.resize-none.overflow-hidden.rounded-md.border.border-gray-300.p-2.transition-all.duration-300.ease-in-out(
           ,
           class='focus:border-blue-500 focus:outline-none',
           style='scrollbar-width: none; -ms-overflow-style: none',
@@ -26,8 +26,8 @@ mixin comments(isReview = false)
 
         .flex.hidden.items-center.gap-4
           img#pasteButton.size-6(src='img/paste.svg', alt='Вставить')
-          +button('Отмена', 'text', 'lab-black-50', '', 'w-1/2', 'cancelButton')
-          +button('Отправить', 'default', 'white', 'bg-lab-color', 'w-1/2', 'commentSubmitButton')
+          +button('Отмена', 'text', 'rttf-black-50', '', 'w-1/2', 'cancelButton')
+          +button('Отправить', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'commentSubmitButton')
 
       script.
         const textArea = document.getElementById('commentTextArea')
@@ -88,10 +88,10 @@ mixin comments(isReview = false)
           })
         }
 
-    +comment('1', 'Александр Семёнов', 'asemenov', '', 'У меня сломалась ракетка, кто может одолжить запасную? 🙏🏼', isReview ? null : [ { count: 3, emoji: '👍' }, { count: 2, emoji: '👎' }, { count: 1, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-lab-green', 'dynamic-img/user-1.jpg', isReview ? 4 : null)
+    +comment('1', 'Александр Семёнов', 'asemenov', '', 'У меня сломалась ракетка, кто может одолжить запасную? 🙏🏼', isReview ? null : [ { count: 3, emoji: '👍' }, { count: 2, emoji: '👎' }, { count: 1, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-rttf-green', 'dynamic-img/user-1.jpg', isReview ? 4 : null)
 
-    .border-l.border-lab-black-10.pl-6
-      +comment('2', 'Никита Полянский', 'nikpol', 'Админ', 'У меня есть, но на ней нужно подтянуть струны', isReview ? null : [ { count: 2, emoji: '👏' }, { count: 2, emoji: '👍' }, { count: 1, emoji: '🙏🏼' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '😲' }, ], 'bg-lab-blue', null, isReview ? 3 : null)
-    .border-l.border-lab-black-10.pl-6
-      .border-l.border-lab-black-10.pl-6
-        +comment('3', '', 'asemenov', '', 'Подтянуть не проблема, спасибо! Когда можно с тобой встретиться?', isReview ? null :[ { count: 0, emoji: '👍' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-lab-green', 'dynamic-img/user-1.jpg', isReview ? 5 : null)
+    .border-l.border-rttf-black-10.pl-6
+      +comment('2', 'Никита Полянский', 'nikpol', 'Админ', 'У меня есть, но на ней нужно подтянуть струны', isReview ? null : [ { count: 2, emoji: '👏' }, { count: 2, emoji: '👍' }, { count: 1, emoji: '🙏🏼' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '😲' }, ], 'bg-rttf-blue', null, isReview ? 3 : null)
+    .border-l.border-rttf-black-10.pl-6
+      .border-l.border-rttf-black-10.pl-6
+        +comment('3', '', 'asemenov', '', 'Подтянуть не проблема, спасибо! Когда можно с тобой встретиться?', isReview ? null :[ { count: 0, emoji: '👍' }, { count: 0, emoji: '👎' }, { count: 0, emoji: '😂' }, { count: 0, emoji: '👏' }, { count: 0, emoji: '😲' }, { count: 0, emoji: '🙏🏼' } ], 'bg-rttf-green', 'dynamic-img/user-1.jpg', isReview ? 5 : null)

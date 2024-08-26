@@ -46,11 +46,11 @@ html(lang='ru')
     - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
     - var tabIds = ['market', 'used', 'stringers']
     - var activeTab = 'Маркет'
-    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
         .players-panel-tab.tab(
-          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
           data-tab=`${tabIds[index]}`
         )
           img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
@@ -64,13 +64,13 @@ html(lang='ru')
             tabs.forEach((t) => {
               const img = t.querySelector('img')
               if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
-              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              if (t.classList.contains('bg-rttf-color-10')) t.classList.remove('bg-rttf-color-10')
               t.classList.add('opacity-75', 'saturate-50')
               if (img) {
                 img.classList.add('opacity-75', 'saturate-50')
               }
             })
-            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.add('font-bold', 'bg-rttf-color-10')
             this.classList.remove('opacity-75', 'saturate-50')
             const img = this.querySelector('img')
             if (img) {

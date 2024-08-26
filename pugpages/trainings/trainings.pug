@@ -45,10 +45,10 @@ html(lang="ru")
         .p-4 
             +block('Тренеры клуба', {href: 'pages/trainings/trainers.html', text:'Все'})
                 .no-scrollbar.-m-4.flex.overflow-x-auto.p-4.flex.gap-2
-                    +trainerCard('bg-lab-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800')
-                    +trainerCard('bg-lab-red', 'Ирина Васильева', 210, 4.7, 5, '900', true)
-                    +trainerCard('bg-lab-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750')
-                    +trainerCard('bg-lab-green', 'Ольга Кузнецова', 234, 4.8, 4, '850')
+                    +trainerCard('bg-rttf-yellow', 'Александр Митрофановский', 244, 4.4, 3, '800')
+                    +trainerCard('bg-rttf-red', 'Ирина Васильева', 210, 4.7, 5, '900', true)
+                    +trainerCard('bg-rttf-blue', 'Михаил Лукьянов', 188, 4.5, 2, '750')
+                    +trainerCard('bg-rttf-green', 'Ольга Кузнецова', 234, 4.8, 4, '850')
 
             +videoSlider('', '', 'Уроки')
             +block('Групповые тренировки', {href: 'pages/trainings/trainingsList.html', text:'Все'}, true)
@@ -61,14 +61,14 @@ html(lang="ru")
 
                 -
                     const trainings = [
-                        { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' },
-                        { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
-                        { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-lab-green', img: '', players: '5/10' },
-                        { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-lab-color', img: '', players: '5/10' },
-                        { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-lab-blue', img: '', players: '5/10' },
-                        { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-lab-red', img: '', players: '5/10' },
-                        { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-lab-green', img: '', players: '5/10' },
-                        { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-lab-color', img: '', players: '5/10' }
+                        { time: '10:30', duration: '1.5', title: 'Групповая тренировка', initials: 'СА', trainerName: 'Славнова А', club: 'Люблино', color: 'bg-rttf-color', img: '', players: '5/10' },
+                        { time: '11:00', duration: '1.5', title: 'Боковые подачи и их прием. Топ-спин справа со всего стола', initials: 'АТ', trainerName: 'Трушкин А', club: 'HurricaneTT', color: 'bg-rttf-red', img: '', players: '5/10' },
+                        { time: '13:30', duration: '1.5', title: 'Групповая тренировка', initials: 'ИК', trainerName: 'Иванова К', club: 'Люблино', color: 'bg-rttf-green', img: '', players: '5/10' },
+                        { time: '15:00', duration: '1.5', title: 'Отработка базовых элементов', initials: 'ДА', trainerName: 'Ананьев Д', club: 'HurricaneTT', color: 'bg-rttf-color', img: '', players: '5/10' },
+                        { time: '17:00', duration: '2', title: 'Индивидуальная тренировка', initials: 'ДК', trainerName: 'Крегель Д', club: 'TTL-Savel', color: 'bg-rttf-blue', img: '', players: '5/10' },
+                        { time: '18:30', duration: '1.5', title: 'Группа повышения мастерства', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'HurricaneTT', color: 'bg-rttf-red', img: '', players: '5/10' },
+                        { time: '19:00', duration: '2', title: 'Топ-спины справа с продолжением (двух и трехходовки)', initials: 'АМ', trainerName: 'Мальцев А', club: 'ЛуЦентр', color: 'bg-rttf-green', img: '', players: '5/10' },
+                        { time: '20:00', duration: '1.5', title: 'Отработка подач в сочетании с топ-спином', initials: 'ЮР', trainerName: 'Рычков Ю', club: 'Люблино', color: 'bg-rttf-color', img: '', players: '5/10' }
                     ];
                     
                     
@@ -98,7 +98,7 @@ html(lang="ru")
                     ]
                 .flex.items-center.gap-2.pb-4
                     img(src="img/calendar.svg") 
-                    span.leading-tight.text-sm.text-lab-color Показать расписание 
+                    span.leading-tight.text-sm.text-rttf-color Показать расписание 
 
                 .flex.overflow-x-auto.gap-4.no-scrollbar.p-4.-m-4
                     each camp in camps
@@ -106,7 +106,7 @@ html(lang="ru")
                             img(src=`dynamic-img/${camp.img}`, alt="").w-full
                             div.p-4
                                 h2.font-bold.leading-tight.mb-4= camp.title
-                                .text-sm.text-lab-black
+                                .text-sm.text-rttf-black
                                     div.flex.items-center.gap-3.mb-3
                                         img(src="img/calendar.svg").size-4
                                         span= camp.dates
@@ -128,26 +128,26 @@ html(lang="ru")
 
             +block()
                 .flex.items-center.gap-3.justify-between
-                    h2 Новые спарринг-партнёры в #[span(class="underline text-lab-color underline-offset-4 decoration-dotted") Нижнем Новгороде]
+                    h2 Новые спарринг-партнёры в #[span(class="underline text-rttf-color underline-offset-4 decoration-dotted") Нижнем Новгороде]
                     a(href="pages/trainings/sparrings.html") Все 
                 .flex.-mx-4.p-4.overflow-x-auto.no-scrollbar.gap-3
                     mixin player(avatarClass, name, rating, isRatingActive, ratingRange, locations)
                         a(href="pages/trainings/singleSparring.html").flex.flex-col.w-32.items-center.gap-2.shrink-0
                             +avatar(avatarClass, name[0] + name.split(' ')[1][0], 64)
                             div.text-center.shrink-0.max-h-16.grow
-                                div.text-sm.text-lab-color.font-semibold.mb-1 #{name}
+                                div.text-sm.text-rttf-color.font-semibold.mb-1 #{name}
                                 +userRating(rating, isRatingActive)
                             div.self-start.grow.max-h-24
                                 div.self-start.my-2
-                                    img(src="img/star-lab-color.svg").inline.align-middle.opacity-50.saturate-50
+                                    img(src="img/star-rttf-color.svg").inline.align-middle.opacity-50.saturate-50
                                     span.inline.align-middle.ml-2.text-sm #{ratingRange}
                                 div.flex.self-start.gap-2.items-start
                                     img(src="img/location-icon.svg" class="mt-0.5").opacity-50.saturate-50
                                     div.text-sm.flex.flex-col
                                         each loc in locations
                                             span #{loc}   
-                    +player('bg-lab-yellow', 'Алексей Борисов', 532, true, '100-300', ['Naten-1905', 'Фили-ТТ'])
-                    +player('bg-lab-green', 'Мария Иванова', 428, true, '200-400', ['Space Химки', 'Выхино', 'NATEN-Юг'])
-                    +player('bg-lab-red', 'Игорь Смирнов', 600, true, '500-700', ['Impact-Луж', 'NewTon', 'WC Митино'])
+                    +player('bg-rttf-yellow', 'Алексей Борисов', 532, true, '100-300', ['Naten-1905', 'Фили-ТТ'])
+                    +player('bg-rttf-green', 'Мария Иванова', 428, true, '200-400', ['Space Химки', 'Выхино', 'NATEN-Юг'])
+                    +player('bg-rttf-red', 'Игорь Смирнов', 600, true, '500-700', ['Impact-Луж', 'NewTon', 'WC Митино'])
 
         +tabBar('Тренировки')

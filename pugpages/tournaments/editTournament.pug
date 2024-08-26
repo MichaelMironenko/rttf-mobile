@@ -52,23 +52,23 @@ html(lang="ru")
                 +editLabel('Время')
                 .flex.gap-1.justify-between.mb-6
                     .flex.flex-col
-                        label.text-sm.text-lab-black-50 Начало
+                        label.text-sm.text-rttf-black-50 Начало
                         +input('', '', 'from', 'time')
                     .flex.flex-col
-                        label.text-sm.text-lab-black-50 Конец
+                        label.text-sm.text-rttf-black-50 Конец
                         +input('', '', 'to', 'time')
                     .flex.flex-col
-                        label.text-sm.text-lab-black-50 Разминка
+                        label.text-sm.text-rttf-black-50 Разминка
                         +input('', '', 'warmup', 'time')
 
 
                 +editLabel('Открытие регистрации')
-                div.flex.border.border-lab-black-30.rounded-lg.overflow-hidden.mb-8
+                div.flex.border.border-rttf-black-30.rounded-lg.overflow-hidden.mb-8
                     button(class="minus-button text-2xl bg-white px-3 py-1 w-11 focus:outline-none") –
-                    div.flex.flex-col.items-center.justify-center.py-1.gap-1.flex-1.border-l.border-r.border-lab-black-30(id="info")
-                        div(id="days").text-lab-color.leading-tight за 1 день 
-                        span.text-lab-black-50.text-xs(id="dateTime") 15 мая 12:00
-                        div.text-lab-black-50.text-xs(id="price") +100₽
+                    div.flex.flex-col.items-center.justify-center.py-1.gap-1.flex-1.border-l.border-r.border-rttf-black-30(id="info")
+                        div(id="days").text-rttf-color.leading-tight за 1 день 
+                        span.text-rttf-black-50.text-xs(id="dateTime") 15 мая 12:00
+                        div.text-rttf-black-50.text-xs(id="price") +100₽
                     button(class="plus-button text-2xl bg-white px-3 py-1 w-11 focus:outline-none") +
                 script.
                     document.addEventListener('DOMContentLoaded', () => {
@@ -157,7 +157,7 @@ html(lang="ru")
                 .flex.items-center.justify-between.gap-2.mb-2
                     +editLabel('Максимальное кол-во участников', '', true)
                     +input('', 'w-16')
-                +switch('Регистрация сверх лимита', 'py-4', 'text-lab-black-50')
+                +switch('Регистрация сверх лимита', 'py-4', 'text-rttf-black-50')
                 .flex.items-center.justify-between.gap-2.mt-2.mb-6
                     +editLabel('Взнос с участника (руб)', '', true)
                     +input('', 'w-16')
@@ -178,7 +178,7 @@ html(lang="ru")
                     +input('', '', '', 'date', 'shrink-0')
                 +switch('Закрытая регистрация')
                 .flex.items-center.justify-between.gap-2.mt-2
-                    +editLabel('Корты под турнир', '', true)
+                    +editLabel('Столы под турнир', '', true)
                     span.shrink-0.grow №3, 4
                     a(href="gotobooking").text-sm Изменить 
             +editBlock('Повторять')
@@ -193,8 +193,8 @@ html(lang="ru")
 
                 img(src="dynamic-img/banner.png").mx-auto.w-full.pb-4
                 .flex.gap-2.mb-4
-                    +button('Загрузить', 'default', 'white', 'bg-lab-color')
-                    +button('Удалить', 'default', 'lab-red', 'bg-white', 'border border-lab-red')
+                    +button('Загрузить', 'default', 'white', 'bg-rttf-color')
+                    +button('Удалить', 'default', 'rttf-red', 'bg-white', 'border border-rttf-red')
                 span.text-sm.font-bold Требования к афише
                     br
                 span.text-xs Не менее 200х100 пикселей
@@ -207,12 +207,12 @@ html(lang="ru")
 
                 .flex.flex-col.gap-2.mb-6
                     .flex.gap-1
-                        label.text-sm.text-lab-black-50.w-16 № корта
-                        label.text-sm.text-lab-black-50 Ссылка на трансляцию в Youtube
+                        label.text-sm.text-rttf-black-50.w-16 № стола
+                        label.text-sm.text-rttf-black-50 Ссылка на трансляцию в Youtube
                     .flex.gap-3.justify-between.items-center
                         +input('', 'w-14', '', '', 'h-14 text-center', '1') 
                         +textarea('https://www.youtube.com/watch?v=...', '', '', 'leading-tight grow', 'https://www.youtube.com/watch?v=vJTf_NtwyUo')
-                        div.text-lab-black-50 ✕
+                        div.text-rttf-black-50 ✕
 
                     .flex.gap-3.justify-between.items-center
                         +input('', 'w-14', '', '', 'h-14 text-center', '') 
@@ -224,10 +224,10 @@ html(lang="ru")
                     +editLabel('Сохранить шаблон как', '' , true)  
                     +input('Название шаблона', 'w-full')
         div(class="fixed pb-safe-extra-panel w-full z-20 bg-white drop-shadow-top p-4 border-b")
-            +button('Сохранить изменения', 'default', 'white', 'bg-lab-color')
+            +button('Сохранить изменения', 'default', 'white', 'bg-rttf-color')
         +modal('Удалить шаблон', [
-            {text: 'Нет', variant: 'default', color: 'white', bgColor: 'bg-lab-color', extraClasses: 'mr-2', id: 'button1'},
-            {text: 'Да', variant: 'default', color: 'white', bgColor: 'bg-lab-red', extraClasses: '', id: 'button2'}
+            {text: 'Нет', variant: 'default', color: 'white', bgColor: 'bg-rttf-color', extraClasses: 'mr-2', id: 'button1'},
+            {text: 'Да', variant: 'default', color: 'white', bgColor: 'bg-rttf-red', extraClasses: '', id: 'button2'}
         ], "modal-delete-template")
         +modal('', [], "modal-info")
             h3.font-bold.mb-3 Ограничение рейтинга пар и игроков

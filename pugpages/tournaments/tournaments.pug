@@ -18,9 +18,9 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Турниры
     link(href='../../styles.css' rel='stylesheet')
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    //- link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
     base(href='../../')
-  body.h-screen.overflow-hidden
+  body.h-screen.overflow-hidden.bg-page-background
     +topBar
     .fixed.inset-x-0(class='top-[49px]')
       // +timezoneMessage
@@ -31,7 +31,7 @@ html(lang='en')
         <div class="px-2 py-1 rounded border border-blue-950 border-opacity-10 justify-start items-center gap-2 flex">
           <div class="text-blue-950 text-xxs  leading-3">Местное время</div>
           <div class="flex-col justify-center items-center inline-flex">
-            <div class="text-center text-lab-color text-xs font-bold">10:41</div>
+            <div class="text-center text-rttf-color text-xs font-bold">10:41</div>
             <div class="text-center text-slate-900 text-opacity-50 text-xxs leading-none">(UTC+4)</div>
           </div>
         </div>
@@ -39,45 +39,62 @@ html(lang='en')
       +tournamentsPanel("Регистрация")
     .fixed.left-0.top-0.min-h-screen.w-full.bg-page-background(class='z-[-1]')
     .no-scrollbar.h-screen.overflow-y-auto
-      #registration.tab-content.p-4(class='pb-[50px] pt-[104px]')
+      #registration.tab-content.py-4.px-3(class='pb-[50px] pt-[104px]')
         +citySelect(true)
         .flex.flex-col.items-center
           +date("Вторник, 25 ноября")
-          +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
-          +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+          +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
+          +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
+          +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
+          +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
+          +tournamentRow('12:30', '<', 350, 'SpinArt', 'Детский', '', '7')
+          +tournamentRow('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
+          +tournamentRow('12:30', '<', 350, 'Люблино', 'Форовый', 23, '9')
+          +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
+          +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
+          +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
           +date("Четверг, 27 ноября")
-          +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
-      #live.tab-content.hidden.p-4(, class='pb-[50px] pt-[104px]')
+          +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
+          +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
+          +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
+          +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
+          +tournamentRow('12:30', '<', 350, 'SpinArt', 'Детский', '', '7')
+          +tournamentRow('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
+          +tournamentRow('12:30', '<', 350, 'Люблино', 'Форовый', 23, '9')
+          +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
+          +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
+          +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
+      #live.tab-content.hidden.py-4.px-3(class='pb-[50px] pt-[104px]')
         .flex.flex-col.items-center
-          +tournamentLiveCard('11:30', 'A', '12', '2', true, true, 'Майский фестиваль Микстов в Сколково')
-          +tournamentLiveCard('11:30', 'B', '12', '0', false, true, 'Турнир Ленинского района')
-          +tournamentLiveCard('11:30', 'C', '24', '11', false, false, "Khimki BC. Men's Day")
-      #results.tab-content.hidden.p-4(, class='pb-[50px] pt-[104px]')
+          +tournamentLiveCard('11:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10', true, true)
+          +tournamentLiveCard('12:00', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
+          +tournamentLiveCard('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
+      #results.tab-content.hidden.py-4.px-3(, class='pb-[50px] pt-[104px]')
         +searchAndFilterButton('Город, клуб, фамилия', true)
         .flex.flex-wrap.gap-2.pt-4
-          +tag('slate-200', 'lab-black', 'Рейтинг 200-400')
-          +tag('slate-200', 'lab-black', 'Санкт-Петербург')
-          +tag('slate-200', 'lab-black', 'Space Химки')
+          +tag('rttf-color-10', 'rttf-black', 'Рейтинг 200-400')
+          +tag('rttf-color-10', 'rttf-black', 'Санкт-Петербург')
+          +tag('rttf-color-10', 'rttf-black', 'Space Химки')
           +date("Вторник, 25 ноября")
         .flex.flex-wrap.justify-center.gap-2
-          +tournamentResultCard('11:30', 'XDF', 'Сколково', 12, 2)
-          +tournamentResultCard('11:30', 'XDB', 'Сколково', 10, 0)
-          +tournamentResultCard('11:30', 'XDC', 'Сколково', 22, 1)
+          +tournamentResultCard('11:30', '<', 350, 'Деденеево', 12, 2)
+          +tournamentResultCard('11:30', '>', 420, 'SpinArt', 10, 0)
+          +tournamentResultCard('11:30', 'откр','', 'Радуга(Зел)', 22, 1)
 
-      #calendar.tab-content.hidden.bg-white(, class='pb-[50px] pt-[88px]')
-        .p-4
+      #calendar.tab-content.hidden(, class='pb-[50px] pt-[88px]')
+        .p-4.bg-white
           +searchAndFilterButton('Город, клуб, фамилия', true) 
           .flex.flex-wrap.gap-2.pt-4
-            +tag('slate-100', 'lab-black', 'Рейтинг 200-400')
-            +tag('slate-100', 'lab-black', 'Санкт-Петербург')
-            +tag('slate-100', 'lab-black', 'Space Химки')
+            +tag('slate-100', 'rttf-black', 'Рейтинг 200-400')
+            +tag('slate-100', 'rttf-black', 'Санкт-Петербург')
+            +tag('slate-100', 'rttf-black', 'Space Химки')
         +compactCalendar
-        .z-1.flex.flex-col.items-center.bg-page-background.p-4
-          +date("Воскресенье, 20 ноября")
-          +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
-          +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
-          +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
-          +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
+        .z-1.flex.flex-col.items-center.bg-page-background.px-3.py-4
+          +date("Суббота, 19 марта")
+          +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
+          +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
+          +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
+          +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
     +tabBar('Турниры')
     script.
       document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {
@@ -94,10 +111,10 @@ html(lang='en')
 
           // Удаляем класс active-tab у всех вкладок
           document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {
-            tab.classList.remove('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-lab-color')
+            tab.classList.remove('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-rttf-color')
           })
 
           // Добавляем класс active-tab к активной вкладке
-          this.classList.add('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-lab-color')
+          this.classList.add('font-bold', 'border-b-2', 'border-solid', 'border-t-2', 'border-t-transparent', 'text-blue-950', 'border-rttf-color')
         })
       })

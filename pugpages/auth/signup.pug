@@ -51,7 +51,7 @@ html(lang='ru')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2:wght@100;200;300;400;500;600;700;800&:display=swap")
     base(href='../../')
   body.bg-white.pt-4
-    img(src="img/lab-logo.svg", alt="").size-24.mx-auto.my-4
+    img(src="img/rttf-logo.svg", alt="").size-24.mx-auto.my-4
     h1.font-semibold.text-center Регистрация
     
     .p-4.max-w-420.mx-auto
@@ -67,15 +67,15 @@ html(lang='ru')
         +input('Повторите пароль', 'w-full', 'password', 'confirm-password', 'pr-10', '', '', '')
         button.absolute.right-2.top-2(type="button" onclick="togglePasswordVisibility()")
           img(src="img/eye.svg" alt="Toggle visibility").h-6
-      div.mt-4.flex.items-center.text-lab-black.text-sm.py-2
+      div.mt-4.flex.items-center.text-rttf-black.text-sm.py-2
         input(type='checkbox' id='terms').size-5
         label(for='terms').ml-2 С 
             a(href="#") правилами сайта 
             span ознакомлен
-      +button('Зарегистрироваться', 'default', 'white', 'bg-lab-color', 'mt-4', 'editButton', '')
+      +button('Зарегистрироваться', 'default', 'white', 'bg-rttf-color', 'mt-4', 'editButton', '')
 
       div.p-4.text-center
-        p.text-lab-black-50 или войдите через
+        p.text-rttf-black-50 или войдите через
         .flex.items-center.gap-4.justify-center
           img(src="img/vk-round.svg", alt="").size-10
           img(src="img/google-round.svg", alt="").size-10

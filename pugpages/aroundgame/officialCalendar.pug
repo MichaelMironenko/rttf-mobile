@@ -59,17 +59,17 @@ html(lang='ru')
           })
         each year in years
           .flex-shrink-0
-            span.sticky.left-0.z-10.py-2.text-sm.text-lab-black-50= year
+            span.sticky.left-0.z-10.py-2.text-sm.text-rttf-black-50= year
             .mt-2.flex.gap-2
               - var displayMonths = year === '2024' ? months.slice(0, 8) : months
               each month in displayMonths
                 - var isActive = month === 'Июнь' && year === '2024'
                 button.flex.flex-col.items-center.justify-center.rounded-lg.p-2(
-                  class=[isActive ? 'bg-lab-color active-month' : 'bg-lab-color-10'],
+                  class=[isActive ? 'bg-rttf-color active-month' : 'bg-rttf-color-10'],
                   class=month === 'Июль' ? 'july-button' : '',
                   data-month=month
                 )
-                  div(class=isActive ? 'text-xs text-white' : 'text-xs text-lab-black')= month
+                  div(class=isActive ? 'text-xs text-white' : 'text-xs text-rttf-black')= month
 
       -
         var events = [
@@ -87,15 +87,15 @@ html(lang='ru')
           class='last:border-b-0 last:pb-0 sm:hidden'
         )
           .w-20.shrink-0.text-center
-            .whitespace-nowrap.text-sm.text-lab-black #{ event.date }
+            .whitespace-nowrap.text-sm.text-rttf-black #{ event.date }
             img.mx-auto.mt-2.size-6(src=event.logo, alt='logo')
 
           .grow.items-center
             h3.text-sm.font-bold #{ event.title }
-            .pb-2.pt-1.text-sm.text-lab-black-50 #{ event.place }
-            .w-fit.rounded.bg-lab-color-10.px-1.text-xs.text-lab-black #{ event.level }
+            .pb-2.pt-1.text-sm.text-rttf-black-50 #{ event.place }
+            .w-fit.rounded.bg-rttf-color-10.px-1.text-xs.text-rttf-black #{ event.level }
       table.hidden.w-full(class='sm:table')
-        thead.border-b.text-sm.text-lab-black-50
+        thead.border-b.text-sm.text-rttf-black-50
           tr
             th.p-2.text-left.font-semibold Дата
             th.px-2.text-left.font-semibold Название
@@ -103,10 +103,10 @@ html(lang='ru')
             th.px-2.text-left.text-center.font-semibold Организатор
 
             th.px-2.text-center.font-semibold Уровень
-        tbody.text-lab-black
+        tbody.text-rttf-black
           each event in events
             tr.border-b.text-sm(class='last:border-b-0')
-              td.whitespace-nowrap.p-2.text-lab-black #{ event.date }
+              td.whitespace-nowrap.p-2.text-rttf-black #{ event.date }
               td.px-2 #{ event.title }
               td.px-2 #{ event.place }
               td.px-2.text-center #{ event.org }
@@ -117,15 +117,15 @@ html(lang='ru')
           class='last:border-b-0 last:pb-0 sm:hidden'
         )
           .w-20.shrink-0.text-center
-            .whitespace-nowrap.text-sm.text-lab-black #{ event.date }
+            .whitespace-nowrap.text-sm.text-rttf-black #{ event.date }
             img.mx-auto.mt-2.size-6(src=event.logo, alt='logo')
 
           .grow.items-center
             h3.text-sm.font-bold #{ event.title }
-            .pb-2.pt-1.text-sm.text-lab-black-50 #{ event.place }
-            .w-fit.rounded.bg-lab-color-10.px-1.text-xs.text-lab-black #{ event.level }
+            .pb-2.pt-1.text-sm.text-rttf-black-50 #{ event.place }
+            .w-fit.rounded.bg-rttf-color-10.px-1.text-xs.text-rttf-black #{ event.level }
       table.hidden.w-full(class='sm:table')
-        thead.border-b.text-sm.text-lab-black-50
+        thead.border-b.text-sm.text-rttf-black-50
           tr
             th.p-2.text-left.font-semibold Дата
             th.px-2.text-left.font-semibold Название
@@ -136,7 +136,7 @@ html(lang='ru')
         tbody
           each event in events
             tr.border-b.text-sm(class='last:border-b-0')
-              td.whitespace-nowrap.p-2.text-lab-black #{ event.date }
+              td.whitespace-nowrap.p-2.text-rttf-black #{ event.date }
               td.px-2 #{ event.title }
               td.px-2 #{ event.place }
               td.px-2.text-center #{ event.org }

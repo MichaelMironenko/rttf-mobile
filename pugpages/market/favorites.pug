@@ -46,11 +46,11 @@ html(lang='ru')
     - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
     - var tabIds = ['market', 'used', 'stringers']
     - var activeTab = 'Маркет'
-    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
         .players-panel-tab.tab(
-          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
           data-tab=`${tabIds[index]}`
         )
           img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
@@ -64,13 +64,13 @@ html(lang='ru')
             tabs.forEach((t) => {
               const img = t.querySelector('img')
               if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
-              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              if (t.classList.contains('bg-rttf-color-10')) t.classList.remove('bg-rttf-color-10')
               t.classList.add('opacity-75', 'saturate-50')
               if (img) {
                 img.classList.add('opacity-75', 'saturate-50')
               }
             })
-            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.add('font-bold', 'bg-rttf-color-10')
             this.classList.remove('opacity-75', 'saturate-50')
             const img = this.querySelector('img')
             if (img) {
@@ -105,9 +105,9 @@ html(lang='ru')
 
       .grid.grid-cols-2.gap-2(class='576:grid-cols-3 768:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6')
         +productCard(inventory[0], false)
-        .relative.flex.flex-col.items-center.justify-center.rounded-lg.bg-lab-color-10.p-4.shadow-lg
-          .text-center.text-xs.font-semibold.text-lab-black Воланы для эйрбадминтона KAWASAKI AirShuttle 2.0
-          .mb-4.text-center.text-xs.text-lab-black больше не в Избранном
+        .relative.flex.flex-col.items-center.justify-center.rounded-lg.bg-rttf-color-10.p-4.shadow-lg
+          .text-center.text-xs.font-semibold.text-rttf-black Воланы для эйрбадминтона KAWASAKI AirShuttle 2.0
+          .mb-4.text-center.text-xs.text-rttf-black больше не в Избранном
           a.text-xs Восстановить
           img.absolute.right-2.top-2(src='img/close.svg', alt='')
         each item in inventory.slice(1, 6)

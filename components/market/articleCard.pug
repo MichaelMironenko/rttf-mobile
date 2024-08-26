@@ -4,9 +4,9 @@ mixin articleCard(title, date, comments, image)
       img.size-16.shrink-0.rounded.object-cover(src=image)
     .flex.flex-col.gap-2
       h3.line-clamp-2.text-15.font-medium.leading-tight= title
-      .flex.items-center.text-xs.text-lab-black-50
-        span.mr-2.font-semibold.text-lab-black-50= date
+      .flex.items-center.text-xs.text-rttf-black-50
+        span.mr-2.font-semibold.text-rttf-black-50= date
 
         .flex.items-center.gap-1
           img.size-4(src='img/comment-outlined.svg')
-          span.text-lab-black-50 #{ comments }
+          span.text-rttf-black-50 #{ comments }

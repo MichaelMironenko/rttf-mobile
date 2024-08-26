@@ -48,15 +48,15 @@ html(lang='ru')
     +block
       .flex.gap-4
         .flex.flex-col.items-center.-space-y-4
-          +avatar('bg-lab-blue', 'НП', '80')
+          +avatar('bg-rttf-blue', 'НП', '80')
           +userStatusBadge('Админ')
         .flex.flex-col.gap-2
           h1.text-base Кудайбердиев Адилет Кудайбердиевич
-          span.text-sm.text-lab-color @Adiko_Adiko
+          span.text-sm.text-rttf-color @Adiko_Adiko
           .flex.flex-wrap.gap-2
             +userRating(323)
             +userRating(633, true)
-          span.text-xs.text-lab-black-50.underline.decoration-dotted Показать рейтинги MS, MD, XD
+          span.text-xs.text-rttf-black-50.underline.decoration-dotted Показать рейтинги MS, MD, XD
       .flex.flex-col.gap-4.py-4(class='text-[15px]')
         .flex.items-start.gap-4
           img.aspect-square.w-4.opacity-60.saturate-50(
@@ -141,19 +141,19 @@ html(lang='ru')
               span Струны:
               a(href='pages/market/product.html') Yonex Aerobite Boost
       div
-        .mb-2.text-center.text-xs.text-lab-black-50 Был онлайн 12.06.2023
+        .mb-2.text-center.text-xs.text-rttf-black-50 Был онлайн 12.06.2023
         .flex.justify-center.gap-2.pb-4
           .relative
-            +button('img/message-white.svg', 'image', '', 'bg-lab-color', 'px-2 py-1.5', '', 'pages/others/messages.html')
+            +button('img/message-white.svg', 'image', '', 'bg-rttf-color', 'px-2 py-1.5', '', 'pages/others/messages.html')
             span.absolute.-right-2.-top-2.rounded-full.border.border-slate-300.bg-slate-100.px-1.text-xs.font-semibold 99+
-          +button('img/add-friend-white.svg', 'image', '', 'bg-lab-color', 'px-2 py-1.5')
-          +button('img/history-white.svg', 'imageText', 'white', 'bg-lab-color', 'px-2 py-1.5', '', 'pages/others/gamesHistory.html', 'Мои игры с этим игроком')
-        +button('img/edit.svg', 'imageText', 'lab-color', 'bg-white', 'px-2 py-1.5 w-full mb-4 border border-lab-color', '', '', 'Редактировать профиль') 
+          +button('img/add-friend-white.svg', 'image', '', 'bg-rttf-color', 'px-2 py-1.5')
+          +button('img/history-white.svg', 'imageText', 'white', 'bg-rttf-color', 'px-2 py-1.5', '', 'pages/others/gamesHistory.html', 'Мои игры с этим игроком')
+        +button('img/edit.svg', 'imageText', 'rttf-color', 'bg-white', 'px-2 py-1.5 w-full mb-4 border border-rttf-color', '', '', 'Редактировать профиль') 
       .border-t.pt-4
         .flex.flex-wrap.items-center.justify-between.gap-x-4
           h3.shrink-0.font-semibold Моя заметка об игрокe
-          span.text-xs.text-lab-black-50 Видна только мне
-        textarea.mt-2.min-h-20.w-full.rounded-lg.bg-amber-100.px-4.py-3.italic.text-lab-black Бьёт обычно в левый угол
+          span.text-xs.text-rttf-black-50 Видна только мне
+        textarea.mt-2.min-h-20.w-full.rounded-lg.bg-amber-100.px-4.py-3.italic.text-rttf-black Бьёт обычно в левый угол
 
     //- - var fastLinks = [ { title: 'Результаты', image: 'cup' }, { title: 'Статистика', image: 'stats' }, { title: 'Друзья', image: 'friends' }, { title: 'Соперники', image: 'competitor'}, { title: 'Комментарии', image: 'comment'}, { title: 'Прогнозы', image: 'forecasts'} ]
 
@@ -161,7 +161,7 @@ html(lang='ru')
     //-     each fastLink in fastLinks
     //-         div.flex.flex-col.items-center.justify-center.bg-white.p-2.rounded-lg.gap-2
     //-             img(src=`img/${fastLink.image}.svg`).size-8
-    //-             div.grow.text-lab-black.flex.items-center.justify-center.min-w-16.text-xxs(class="xs:text-xs").font-medium.text-center.leading-3!= fastLink.title        
+    //-             div.grow.text-rttf-black.flex.items-center.justify-center.min-w-16.text-xxs(class="xs:text-xs").font-medium.text-center.leading-3!= fastLink.title        
 
     .mb-3.overflow-hidden.rounded-lg
       //- +menuRow('price-outline', 'Финансы', true, 'pages/market/myFinance.html', '1200 ₽' )
@@ -177,44 +177,44 @@ html(lang='ru')
       +menuRow('second-hand', 'Объявления', true, 'pages/market/mySells.html')
 
     +block('Рейтинг')
-      .-mt-2.mb-2.text-xs.text-lab-black-50 Нажмите на рейтинг для подробной статистики
+      .-mt-2.mb-2.text-xs.text-rttf-black-50 Нажмите на рейтинг для подробной статистики
       .grid.grid-cols-2.gap-2
-        a.flex.grow.flex-col.items-center.gap-2.rounded-lg.bg-lab-color-10.p-2(
+        a.flex.grow.flex-col.items-center.gap-2.rounded-lg.bg-rttf-color-10.p-2(
           href='pages/others/userStats.html'
         )
           span.text-sm.font-medium Одиночный
           .ml-2.flex.items-center.gap-1
-            .font-bold.leading-tight.text-lab-black 535
+            .font-bold.leading-tight.text-rttf-black 535
             img.h-3(src='img/arrow-up.svg', alt='')
-            span.text-xs.leading-none.text-lab-green +12.4
-          span.text-xs.text-lab-black-50 11 сен 2023
-        a.flex.grow.flex-col.items-center.gap-2.rounded-lg.bg-lab-color-10.p-2(
+            span.text-xs.leading-none.text-rttf-green +12.4
+          span.text-xs.text-rttf-black-50 11 сен 2023
+        a.flex.grow.flex-col.items-center.gap-2.rounded-lg.bg-rttf-color-10.p-2(
           href='pages/others/userStats.html'
         )
           span.text-sm.font-medium Парный
           .ml-2.flex.items-center.gap-1
-            .font-bold.leading-tight.text-lab-black 477
+            .font-bold.leading-tight.text-rttf-black 477
             img.h-3(src='img/arrow-down.svg', alt='')
-            span.text-xs.leading-none.text-lab-red -8.2
-          span.text-xs.text-lab-black-50 Вчера 12:42
-      .mb-2.mt-6.font-medium.text-lab-black Последние изменения рейтинга
+            span.text-xs.leading-none.text-rttf-red -8.2
+          span.text-xs.text-rttf-black-50 Вчера 12:42
+      .mb-2.mt-6.font-medium.text-rttf-black Последние изменения рейтинга
       .flex.items-center.gap-2.py-2
-        .w-14.text-sm.text-lab-black-50 13 сен
+        .w-14.text-sm.text-rttf-black-50 13 сен
 
         +tournamentTypeBadge('XDF+')
         span.grow.text-sm.font-semibold Макс Арена
-        span.text-sm.font-semibold.text-lab-green +13.3
+        span.text-sm.font-semibold.text-rttf-green +13.3
       .flex.items-center.gap-2.py-2
-        .w-14.text-sm.text-lab-black-50 4 сен
+        .w-14.text-sm.text-rttf-black-50 4 сен
 
         +tournamentTypeBadge('XDF+')
         span.grow.text-sm.font-semibold Space Химки
-        span.text-sm.font-semibold.text-lab-red -8.4
+        span.text-sm.font-semibold.text-rttf-red -8.4
       .flex.items-center.gap-2.py-2
-        .w-14.text-sm.text-lab-black-50 22 авг
+        .w-14.text-sm.text-rttf-black-50 22 авг
         +tournamentTypeBadge('XDF+')
         span.grow.text-sm.font-semibold Naten-Юг
-        span.text-sm.font-semibold.text-lab-green +6.7
+        span.text-sm.font-semibold.text-rttf-green +6.7
 
     +block('Инвентарь игрока')
       - var inventory = [ { type: 'Ракетка', image: 'yonex-astrox.jpg', rating: '4.8', players: 23, name: 'Yonex Astrox 100 Game (KURENAI) amazing version' }, { type: 'Обувь', image: 'yonex-65x.jpg', rating: '4.4', players: 351, name: 'Yonex 65Х 3 (Navy/Blue)' }, { type: 'Футболка', image: 'kumpoo.jpg', rating: '4.3', players: 764, name: 'KUMPOO KW-0101 (RED)' },  ]
@@ -222,29 +222,29 @@ html(lang='ru')
       .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4
         each item in inventory
           a.flex.w-24.shrink-0.flex-col.items-center.justify-center.gap-2.rounded-lg(href="pages/market/product.html")
-            span.text-xs.text-lab-black-50= item.type
+            span.text-xs.text-rttf-black-50= item.type
             img.size-24.object-cover(src=`dynamic-img/${item.image}`)
             .flex.items-center(class='gap-0.5') 
               img.size-3(src='img/star.svg')
               span.text-xs= item.rating
               img.ml-3.size-3(src='img/player.svg')
               span.text-xs= item.players
-            .line-clamp-3.grow.text-center.text-xs.font-medium.leading-tight.text-lab-black= item.name
+            .line-clamp-3.grow.text-center.text-xs.font-medium.leading-tight.text-rttf-black= item.name
 
     //- .sticky.top-14.-mx-2.py-2.mb-2.bg-page-background.z-10(class="px-2 xs:px-3 xs:-mx-3 sm:px-4 sm:-mx-4")
     //-     .flex.gap-4.items-center.justify-center    
-    //-         span.text-sm.text-lab-black-50 Рейтинг 
+    //-         span.text-sm.text-rttf-black-50 Рейтинг 
     //-         +filterButton('🙂🙂 Парный', true)
     //-         +filterButton('🙂 Одиночный', false)
 
     +block('Ближайшие мероприятия')
       h3.pb-2.pt-2.font-bold Турниры
-      a.mb-2.flex.items-center.gap-2.rounded-lg.border.bg-lab-color-10.p-3(href="pages/tournaments/singleTournament.html")
+      a.mb-2.flex.items-center.gap-2.rounded-lg.border.bg-rttf-color-10.p-3(href="pages/tournaments/singleTournament.html")
         +tournamentTypeBadge('XDF+')
         span.grow.text-sm.font-semibold Макс Арена
         span.text-sm 11 сентября
         span.text-sm 11:00
-      .mb-2.flex.items-center.gap-2.rounded-lg.border.bg-lab-color-10.p-3
+      .mb-2.flex.items-center.gap-2.rounded-lg.border.bg-rttf-color-10.p-3
         +tournamentTypeBadge('MSB')
         span.grow.text-sm.font-semibold Space Химки
         span.text-sm 13 сентября
@@ -255,7 +255,7 @@ html(lang='ru')
           span.grow.text-sm.font-semibold Макс Арена
           .flex.items-center.gap-1
             img.size-3.opacity-50.saturate-50(src='img/trainer.svg')
-            span.text-xs.text-lab-black-50 Абельмасов Игорь
+            span.text-xs.text-rttf-black-50 Абельмасов Игорь
         span.text-sm 11 сентября
         span.text-sm 11:00
       a.mb-2.flex.items-center.gap-2.rounded-lg.border.bg-promo-background.px-3.py-1(href="pages/trainings/meetup.html")
@@ -263,7 +263,7 @@ html(lang='ru')
           span.grow.text-sm.font-semibold Naten-ЮГ
           .flex.items-center.gap-1
             img.size-3.opacity-50.saturate-50(src='img/trainer.svg')
-            span.text-xs.text-lab-black-50 Леонид Слуцкий
+            span.text-xs.text-rttf-black-50 Леонид Слуцкий
         span.text-sm 14 сентября
         span.text-sm 15:00
       h3.pb-2.pt-4.font-bold Сборы
@@ -292,19 +292,19 @@ html(lang='ru')
       currentBtn.addEventListener('click', () => {
         currentCards.style.display = 'flex'
         pastCards.style.display = 'none'
-        currentBtn.classList.add('bg-lab-color', 'text-white', 'font-semibold')
-        currentBtn.classList.remove('bg-lab-color-10', 'text-lab-black')
-        pastBtn.classList.remove('bg-lab-color', 'text-white', 'font-semibold')
-        pastBtn.classList.add('bg-lab-color-10', 'text-lab-black')
+        currentBtn.classList.add('bg-rttf-color', 'text-white', 'font-semibold')
+        currentBtn.classList.remove('bg-rttf-color-10', 'text-rttf-black')
+        pastBtn.classList.remove('bg-rttf-color', 'text-white', 'font-semibold')
+        pastBtn.classList.add('bg-rttf-color-10', 'text-rttf-black')
       })
 
       pastBtn.addEventListener('click', () => {
         currentCards.style.display = 'none'
         pastCards.style.display = 'flex'
-        pastBtn.classList.add('bg-lab-color', 'text-white', 'font-semibold')
-        pastBtn.classList.remove('bg-lab-color-10', 'text-lab-black')
-        currentBtn.classList.remove('bg-lab-color', 'text-white', 'font-semibold')
-        currentBtn.classList.add('bg-lab-color-10', 'text-lab-black')
+        pastBtn.classList.add('bg-rttf-color', 'text-white', 'font-semibold')
+        pastBtn.classList.remove('bg-rttf-color-10', 'text-rttf-black')
+        currentBtn.classList.remove('bg-rttf-color', 'text-white', 'font-semibold')
+        currentBtn.classList.add('bg-rttf-color-10', 'text-rttf-black')
       })
 
       document.getElementById('current').addEventListener('click', function () {

@@ -3,7 +3,7 @@ include /components/atoms/userRating.pug
 mixin tournamentResultsTable(showPlace)
     table(class="w-[calc(100vw-6vw)] -mr-4 -ml-4 -mb-2")
         thead
-            tr(class="p-2 text-xs text-lab-color")
+            tr(class="p-2 text-xs text-rttf-blue")
                 if showPlace
                     th(class="pl-2 text-center max-w-10") #
                 else
@@ -19,27 +19,27 @@ mixin tournamentResultsTable(showPlace)
         tbody
             each player, index in players
                 - const medalClass = index === 0 ? 'bg-gold' : index === 1 ? 'bg-silver' : index === 2 ? 'bg-bronze' : ''
-                - const changeColor = player.change > 0 ? 'text-lab-green' : 'text-lab-red'
+                - const changeColor = player.change > 0 ? 'text-rttf-green' : 'text-rttf-red'
                 - const playerRowClass = player.me ? "bg-orange-100" : "even:bg-white odd:bg-slate-100"
                 - const [gamesPlayed, gamesDetails] = player.games.split(' ')
                 - const [setsWon, setsDetails] = player.sets.split(' ')
-                tr.text-sm.text-lab-black(class=playerRowClass)
+                tr.text-sm.text-rttf-black(class=playerRowClass)
                     if showPlace
                         td(class="pl-2 text-center font-semibold w-7")
                             if index < 3
-                                div(class="h-5 w-5 flex items-center border border-lab-black-10 justify-center rounded-full " + medalClass)= player.place
+                                div(class="h-5 w-5 flex items-center border border-rttf-black-10 justify-center rounded-full " + medalClass)= player.place
                             else
                                 = player.place
                     else
-                        td(class="pl-4 p-2 text-left leading-5 text-lab-color")= player.name
+                        td(class="pl-4 p-2 text-left leading-5 text-rttf-blue")= player.name
                     if showPlace
-                        td(class="p-2 text-left leading-5 text-lab-color")= player.name
+                        td(class="p-2 text-left leading-5 text-rttf-blue")= player.name
                     td(class="p-2 text-center hidden sm:table-cell")
                         span= gamesPlayed
-                        span(class="text-lab-black opacity-50 ml-0.5")=  gamesDetails
+                        span(class="text-rttf-black opacity-50 ml-0.5")=  gamesDetails
                     td(class="p-2 text-center hidden sm:table-cell")
                         span= setsWon 
-                        span(class="text-lab-black opacity-50 ml-0.5")=  setsDetails
+                        span(class="text-rttf-black opacity-50 ml-0.5")=  setsDetails
                     td(class="p-2 text-center saturate-25 ")
                         +userRating(player.ratingBefore)
                     td(class="p-2 text-center " + changeColor)= player.change

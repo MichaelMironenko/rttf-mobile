@@ -1,15 +1,15 @@
 mixin gameResult({date, tournament, stage, duration, border, players, numOfPlayers})
-  div.pt-2(class=border ? 'border-b border-lab-black-10' : '' )
+  div.pt-2(class=border ? 'border-b border-rttf-black-10' : '' )
     .flex.items-center.gap-3.text-xs(class='430:text-sm')
       if date
-        span.text-lab-black-50(class="!pt-0")= date
+        span.text-rttf-black-50(class="!pt-0")= date
       if tournament
         a.flex.items-center.gap-1.block(href="pages/tournaments/singleTournament.html")
-          span.font-semibold.text-lab-black-50 XDF
-          span.font-semibold.text-lab-black-50= tournament
-      span.text-lab-black-50 #{ stage }
+          span.font-semibold.text-rttf-black-50 XDF
+          span.font-semibold.text-rttf-black-50= tournament
+      span.text-rttf-black-50 #{ stage }
       if duration
-        span.whitespace-nowrap.text-lab-black-50 #{ duration } мин
+        span.whitespace-nowrap.text-rttf-black-50 #{ duration } мин
     .flex.w-full.flex-shrink.flex-grow.flex-col.justify-center.gap-3.py-3
       each player, index in players
         .flex.items-center.justify-between.gap-2
@@ -25,7 +25,7 @@ mixin gameResult({date, tournament, stage, duration, border, players, numOfPlaye
           ) #{ player.name } 
             +userRating(player.rating)
             span.flex-shrink-0.text-center.text-xs.leading-none(
-              class=player.ratingChange > 0 ? 'text-lab-green' : 'text-lab-red'
+              class=player.ratingChange > 0 ? 'text-rttf-green' : 'text-rttf-red'
             ) #{ player.ratingChange > 0 ? `${player.ratingChange}` : player.ratingChange }
 
           span.w-4.flex-shrink-0.text-center.text-sm(

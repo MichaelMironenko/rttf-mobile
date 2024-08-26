@@ -43,11 +43,11 @@ html(lang='ru')
     - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
     - var tabIds = ['market', 'used', 'stringers']
     - var activeTab = 'Маркет'
-    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
         .players-panel-tab.tab(
-          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
           data-tab=`${tabIds[index]}`
         )
           img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
@@ -61,13 +61,13 @@ html(lang='ru')
             tabs.forEach((t) => {
               const img = t.querySelector('img')
               if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
-              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              if (t.classList.contains('bg-rttf-color-10')) t.classList.remove('bg-rttf-color-10')
               t.classList.add('opacity-75', 'saturate-50')
               if (img) {
                 img.classList.add('opacity-75', 'saturate-50')
               }
             })
-            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.add('font-bold', 'bg-rttf-color-10')
             this.classList.remove('opacity-75', 'saturate-50')
             const img = this.querySelector('img')
             if (img) {
@@ -96,7 +96,7 @@ html(lang='ru')
         a.flex.items-center.gap-2(href='pages/market/basket.html')
           .relative
             img.size-6(src='img/basket.svg', alt='Маркет')
-            span.absolute.-right-1.-top-1.inline-block.rounded-full.bg-lab-red.px-1.text-center.text-xxs.text-white 4
+            span.absolute.-right-1.-top-1.inline-block.rounded-full.bg-rttf-red.px-1.text-center.text-xxs.text-white 4
           span.font-semibold 23 040 ₽
 
       -
@@ -206,7 +206,7 @@ html(lang='ru')
             div
               .flex.size-20.items-center.justify-center.rounded-lg.border.p-2.shadow
                 img.size-16.size-20.object-contain(src=`${item.image}`, alt=`${item.name}`)
-              .mt-2.w-full.text-center.text-xs.text-lab-black= item.name
+              .mt-2.w-full.text-center.text-xs.text-rttf-black= item.name
       .mt-2.flex
         img(src='dynamic-img/market-banner.jpg', alt='', class='sm:w-1/2 lg:w-1/3')
         img.hidden(src='dynamic-img/market-banner.jpg', alt='', class='sm:block sm:w-1/2 lg:w-1/3')
@@ -228,7 +228,7 @@ html(lang='ru')
               a(href='pages/market/brand.html') 
                 .flex.size-20.items-center.justify-center
                   img.size-16.size-20.object-contain(src=`${brand.image}`, alt=`${brand.name}`)
-                .mt-2.w-full.text-center.text-xs.text-lab-black= brand.name
+                .mt-2.w-full.text-center.text-xs.text-rttf-black= brand.name
 
         +block('Статьи', {href: 'pages/aroundgame/articles.html', text: 'Все'})
           .sm.grid.grid-cols-1.gap-8(class='sm:grid-cols-2 lg:grid-cols-3')
@@ -252,7 +252,7 @@ html(lang='ru')
         +block('Товары в сравнении')
           .flex.items-center.justify-between.gap-2
             span.font-semibold 3 основания
-            span.text-sm.text-lab-color Удалить все
+            span.text-sm.text-rttf-color Удалить все
           .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.p-4
             .relative.w-24.shrink-0
               img.size-24(src='dynamic-img/yonex-astrox.jpg', alt='')
@@ -268,7 +268,7 @@ html(lang='ru')
               img.absolute.right-0.top-0.size-6(src='img/close-round.svg')
           .mt-4.flex.items-center.justify-between.gap-2
             span.font-semibold 3 струны
-            span.text-sm.text-lab-color Удалить все
+            span.text-sm.text-rttf-color Удалить все
           .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.p-4
             .relative.w-24.shrink-0
               img.size-24(src='dynamic-img/strings.jpg', alt='')
@@ -311,16 +311,16 @@ html(lang='ru')
             div
               .flex.size-20.items-center.justify-center.overflow-hidden.rounded-lg.border.p-2
                 img.size-16.size-20.object-contain(src=`${item.image}`, alt=`${item.name}`)
-              .mt-2.w-full.text-center.text-xs.text-lab-black= item.name
+              .mt-2.w-full.text-center.text-xs.text-rttf-black= item.name
 
       .flex.items-center.justify-between.gap-4.bg-white.px-4.pb-2
         +sortButton('По новизне', [{text: 'По новизне'}, {text: 'Сначала с низкой ценой'}, {text: 'Сначала с высокой ценой'}, {text: 'По удаленности'}], 'pb-2')
         +citySelect(false, 'text-right')
 
       .used-buttons.fixed.bottom-24.z-30.mb-4.w-full
-        .mx-auto.flex.w-fit.justify-center.overflow-hidden.rounded-full.border-2.border-lab-color.drop-shadow-around
-          button#sellBtn.bg-lab-color.px-3.py-2.text-sm.text-white(onclick='toggleBlocks("sell")') Продам
-          button#buyBtn.bg-white.px-3.py-2.text-sm.text-lab-color(onclick='toggleBlocks("buy")') Куплю
+        .mx-auto.flex.w-fit.justify-center.overflow-hidden.rounded-full.border-2.border-rttf-color.drop-shadow-around
+          button#sellBtn.bg-rttf-color.px-3.py-2.text-sm.text-white(onclick='toggleBlocks("sell")') Продам
+          button#buyBtn.bg-white.px-3.py-2.text-sm.text-rttf-color(onclick='toggleBlocks("buy")') Куплю
 
       #sellBlock.p-2
         h2.pt-4.pb-4 Предложения в Нижнем Новгороде
@@ -357,17 +357,17 @@ html(lang='ru')
           const buyBlock = document.getElementById('buyBlock')
 
           if (type === 'sell') {
-            sellBtn.classList.add('bg-lab-color', 'text-white')
-            sellBtn.classList.remove('bg-white', 'text-lab-color')
-            buyBtn.classList.add('bg-white', 'text-lab-color')
-            buyBtn.classList.remove('bg-lab-color', 'text-white')
+            sellBtn.classList.add('bg-rttf-color', 'text-white')
+            sellBtn.classList.remove('bg-white', 'text-rttf-color')
+            buyBtn.classList.add('bg-white', 'text-rttf-color')
+            buyBtn.classList.remove('bg-rttf-color', 'text-white')
             sellBlock.classList.remove('hidden')
             buyBlock.classList.add('hidden')
           } else {
-            buyBtn.classList.add('bg-lab-color', 'text-white')
-            buyBtn.classList.remove('bg-white', 'text-lab-color')
-            sellBtn.classList.add('bg-white', 'text-lab-color')
-            sellBtn.classList.remove('bg-lab-color', 'text-white')
+            buyBtn.classList.add('bg-rttf-color', 'text-white')
+            buyBtn.classList.remove('bg-white', 'text-rttf-color')
+            sellBtn.classList.add('bg-white', 'text-rttf-color')
+            sellBtn.classList.remove('bg-rttf-color', 'text-white')
             buyBlock.classList.remove('hidden')
             sellBlock.classList.add('hidden')
           }
@@ -381,8 +381,8 @@ html(lang='ru')
           +sortButton('По рейтингу', [{text: 'По рейтингу'}, {text: 'Сначала с низкой ценой'}, {text: 'Сначала с высокой ценой'}, {text: 'По удаленности'}], 'pb-2')
           +citySelect(false, 'text-right')
       .p-2
-        +stringerCard({ color: 'bg-lab-color', initials: 'ВН', name: 'Вадим Новоселов', stars: 4.4, reviews: 5, address: 'Gym Space', distance: 1.5, price: 500 })
-        +stringerCard({ color: 'bg-lab-color', initials: 'АП', name: 'Александр Переверзев', stars: 4.6, reviews: 8, address: 'Москва', distance: 22, price: 600 })
-        +stringerCard({ color: 'bg-lab-color', initials: 'ДЯ', name: 'Денис Якимов', stars: 4.4, reviews: 5, address: 'Москва', distance: 15, price: 600 })
+        +stringerCard({ color: 'bg-rttf-color', initials: 'ВН', name: 'Вадим Новоселов', stars: 4.4, reviews: 5, address: 'Gym Space', distance: 1.5, price: 500 })
+        +stringerCard({ color: 'bg-rttf-color', initials: 'АП', name: 'Александр Переверзев', stars: 4.6, reviews: 8, address: 'Москва', distance: 22, price: 600 })
+        +stringerCard({ color: 'bg-rttf-color', initials: 'ДЯ', name: 'Денис Якимов', stars: 4.4, reviews: 5, address: 'Москва', distance: 15, price: 600 })
 
     +tabBar('Маркет')

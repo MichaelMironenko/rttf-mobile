@@ -18,7 +18,7 @@ html(lang='ru')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Корты
+    title Столы
     link(href='../../styles.css', rel='stylesheet')
     link(
       rel='stylesheet',
@@ -32,14 +32,14 @@ html(lang='ru')
       a.text-sm + Добавить клуб
     +searchAndFilterButton('Название клуба, станция метро', true)
     .flex.flex-wrap.gap-2.py-3
-      +tag('lab-red', 'white', 'Нижний Новгород')
+      +tag('rttf-red', 'white', 'Нижний Новгород')
     .relative
       img.object-cover(src='dynamic-img/map.png', alt='', class='-mx-[3vw] aspect-[2/1] max-w-[100vw]')
-      .absolute.right-0.top-2.rounded-lg.border.border-lab-color.bg-white.px-2.py-1.text-sm.font-semibold.text-lab-color.shadow-md Открыть карту
+      .absolute.right-0.top-2.rounded-lg.border.border-rttf-color.bg-white.px-2.py-1.text-sm.font-semibold.text-rttf-color.shadow-md Открыть карту
       +sortButton('По популярности', [{text: 'По рейтингу'}, {text: 'По новизне'}, {text: 'Сначала дешевые'}, {text: 'Сначала дорогие'}, {text: 'По удаленности'}], ' py-2 ')
     .grid.grid-cols-1.gap-2(class='sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4')
-      +horizontalClubCard({photo: 'dynamic-img/club-placeholder.svg', logo: '', name: 'Naten-СЕВЕР', stars: '4.2', reviews: '8', metro: 'Северная', metroColor: 'lab-black-30', distance: '2,5', courts: '4', services: ['wifi', 'parking']}, [{time: '13:00', price: '550', lastCourt: false}, {time: '14:00', price: '550', lastCourt: false}])
-      +horizontalClubCard({photo: 'dynamic-img/club-1.jpg', logo: 'dynamic-img/naten-logo.png', name: 'Naten-ЮГ', stars: '4.4', reviews: '12', metro: 'Юго-Западная', metroColor: 'lab-red', distance: '1,8', courts: '6', services: ['wifi', 'shower', 'parking']})
-      +horizontalClubCard({photo: 'dynamic-img/club-placeholder.svg', logo: 'dynamic-img/club-placeholder.svg', name: 'Naten-ВОСТОК', stars: '4.6', reviews: '20', metro: 'Восточная', metroColor: 'lab-yellow', distance: '1,2', courts: '8', services: ['wifi', 'shower', 'parking', 'ac']}, [{time: '15:00', price: '600', lastCourt: false}, {time: '16:00', price: '600', lastCourt: true}])
+      +horizontalClubCard({photo: 'dynamic-img/club-placeholder.svg', logo: '', name: 'Naten-СЕВЕР', stars: '4.2', reviews: '8', metro: 'Северная', metroColor: 'rttf-black-30', distance: '2,5', courts: '4', services: ['wifi', 'parking']}, [{time: '13:00', price: '550', lastCourt: false}, {time: '14:00', price: '550', lastCourt: false}])
+      +horizontalClubCard({photo: 'dynamic-img/club-1.jpg', logo: 'dynamic-img/naten-logo.png', name: 'Naten-ЮГ', stars: '4.4', reviews: '12', metro: 'Юго-Западная', metroColor: 'rttf-red', distance: '1,8', courts: '6', services: ['wifi', 'shower', 'parking']})
+      +horizontalClubCard({photo: 'dynamic-img/club-placeholder.svg', logo: 'dynamic-img/club-placeholder.svg', name: 'Naten-ВОСТОК', stars: '4.6', reviews: '20', metro: 'Восточная', metroColor: 'rttf-yellow', distance: '1,2', courts: '8', services: ['wifi', 'shower', 'parking', 'ac']}, [{time: '15:00', price: '600', lastCourt: false}, {time: '16:00', price: '600', lastCourt: true}])
 
-    +tabBar('Корты')
+    +tabBar('Столы')

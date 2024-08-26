@@ -71,12 +71,12 @@ html(lang='ru')
               - const youtubeId = video.url.split('v=')[1] || video.url.split('youtu.be/')[1]
               img(src=`http://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` alt=video.title).w-full.h-full
           div(class="px-4 576:px-0")  
-            .text-sm.font-bold.text-lab-black #{video.title}
+            .text-sm.font-bold.text-rttf-black #{video.title}
             .flex.items-center.gap-3.text-sm.mt-2
               .flex.items-center.gap-1
                 img(src="img/views.svg").size-5.opacity-50.saturate-50
-                span.text-lab-black-50 #{video.views}
-              span.text-lab-black-50= video.date
+                span.text-rttf-black-50 #{video.views}
+              span.text-rttf-black-50= video.date
 
 
 

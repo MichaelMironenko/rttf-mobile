@@ -3,11 +3,11 @@ include /components/rentCard.pug
 mixin mapOverlay(id)
     div(id=id class="fixed inset-0 hidden bg-gray-900 bg-opacity-50 backdrop-blur-sm z-20")
         .max-h-90.absolute.bottom-0.left-0.right-0.w-full.z-30.rounded-t-2xl.overflow-hidden
-            .w-20.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.mt-2.absolute
+            .w-20.left-0.right-0.h-1.bg-rttf-black-10.rounded-xl.mx-auto.mt-2.absolute
             img(src="dynamic-img/map-large.png").w-full
         div.flex.relative.left-16.top-60.z-40.items-center
             img(src="img/location-icon.svg", class="size-8" alt="")
-            .px-2.py-1.flex.flex-col.bg-white.rounded-lg.border.border-lab-black-30.shadow-lg
+            .px-2.py-1.flex.flex-col.bg-white.rounded-lg.border.border-rttf-black-30.shadow-lg
                 span.text-sm.font-semibold Naten-ЮГ
                 .flex.gap-3
                     div 
@@ -23,9 +23,9 @@ mixin mapOverlay(id)
             slots.push({ time: `${hour}:00`, price: price, lastCourt: hour === 17 || hour === 19 })
             }
         .absolute.bottom-0.z-40
-            .w-20.left-0.right-0.h-1.bg-lab-black-10.rounded-xl.mx-auto.-mt-2.absolute
+            .w-20.left-0.right-0.h-1.bg-rttf-black-10.rounded-xl.mx-auto.-mt-2.absolute
             img.absolute.h-8.right-2.top-2(src="img/close-round.svg", alt="")
-            +rentCard({photo: 'dynamic-img/club-1.jpg', logo: 'dynamic-img/naten-logo.png', name: 'Naten-ЮГ', stars: '4.4', reviews: '12', metro: 'Юго-Западная', metroColor: 'lab-red', distance: '1,8', courts: '6', services: ['wifi', 'shower', 'parking']}, slots, true)
+            +rentCard({photo: 'dynamic-img/club-1.jpg', logo: 'dynamic-img/naten-logo.png', name: 'Naten-ЮГ', stars: '4.4', reviews: '12', metro: 'Юго-Западная', metroColor: 'rttf-red', distance: '1,8', courts: '6', services: ['wifi', 'shower', 'parking']}, slots, true)
         
                 
 

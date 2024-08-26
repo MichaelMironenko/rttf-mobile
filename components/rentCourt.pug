@@ -4,15 +4,17 @@ include /components/atoms/citySelect.pug
 mixin rentCourt(widget) 
     
     .flex.justify-between.items-center.pb-2
-        h2.leading-tight Аренда кортов в 
-            +citySelect(false, ' !underline !text-lg text-lab-color !rounded-none !underline-offset-4 !decoration-dotted ') 
+        div.flex.items-center.flex-wrap
+            h2.leading-tight Аренда столов в&nbsp;
+            div.min-w-0
+                +citySelect(false, ' !underline !text-lg text-rttf-color !rounded-none !underline-offset-4 !decoration-dotted ')
 
-        a(href="pages/courts/myBookings.html") 
-            img(src="img/booking.svg").size-8.p-2.bg-lab-color-10.rounded-md
+        a(href="pages/courts/myBookings.html")
+            img(src="img/booking.svg").size-8.p-2.bg-rttf-color-10.rounded-md
 
     div(class="flex overflow-x-auto -mx-4 px-4 gap-2 no-scrollbar")
         div(class="flex-shrink-0")
-            span(class="sticky left-0 text-sm  text-lab-black-50 py-2 z-10") Март
+            span(class="sticky left-0 text-sm  text-rttf-black-50 py-2 z-10") Март
             - var marchDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт']
             - var marchDates = [27, 28, 29, 30, 31]
             .flex.gap-2.mt-2
@@ -20,52 +22,52 @@ mixin rentCourt(widget)
                     - var isWeekend = day === 'Вс' || day === 'Сб'
                     - var isActive = day === 'Вт' && marchDates[index] === 29
                     - var isCurrent = day === 'Вс' && marchDates[index] === 27
-                        div(class=isCurrent && isWeekend ? "font-semibold bg-lab-color-10" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
-                            div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50 font-semibold" : "text-xs text-lab-black-50 opacity-50")= day
-                            div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= marchDates[index]
+                        div(class=isCurrent && isWeekend ? "font-semibold bg-rttf-color-10" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
+                            div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50 font-semibold" : "text-xs text-rttf-black-50 opacity-50")= day
+                            div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= marchDates[index]
 
 
 
         div(class="flex-shrink-0")
-            span(class="sticky left-0 text-sm  text-lab-black-50 py-2 z-10") Апрель
+            span(class="sticky left-0 text-sm  text-rttf-black-50 py-2 z-10") Апрель
             - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
             - var aprilDates = [1, 2, 3, 4, 5, 6]
             .flex.gap-2.mt-2
                 each day, index in aprilDays
                     - var isWeekend = day === 'Вс' || day === 'Сб'
                     - var isActive = false 
-                    div(class=isActive && isWeekend ? "bg-lab-red" : isActive ? "bg-lab-color" : "bg-lab-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
-                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-lab-red opacity-50" : "text-xs text-lab-black-50 opacity-50")= day
-                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-lab-red" : "text-base text-lab-black")= aprilDates[index]
+                    div(class=isActive && isWeekend ? "bg-rttf-red" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
+                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50" : "text-xs text-rttf-black-50 opacity-50")= day
+                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= aprilDates[index]
 
     
     div.flex.gap-4.py-4.items-end
         div
-            div(class="text-sm text-lab-black-50 py-2") Кортов
-            div(class="flex items-center bg-lab-color-10 rounded-lg")
-                button#decrease-courts(class="size-10 text-xl text-lab-black-50") –
+            div(class="text-sm text-rttf-black-50 py-2") Столов
+            div(class="flex items-center bg-rttf-color-10 rounded-lg")
+                button#decrease-courts(class="size-10 text-xl text-rttf-black-50") –
                 span#courts-count(class="w-4 h-3.5 text-center leading-none") 2
-                button#increase-courts(class="size-10 text-xl text-lab-black-50") +
+                button#increase-courts(class="size-10 text-xl text-rttf-black-50") +
             
         div
             div(class="text-sm text-gray-500 py-2") Буду играть
-            div(class="flex items-center bg-lab-color-10 rounded-lg")
-                button#decrease-time(class="size-10  text-xl text-lab-black-50 leading-none") –
+            div(class="flex items-center bg-rttf-color-10 rounded-lg")
+                button#decrease-time(class="size-10  text-xl text-rttf-black-50 leading-none") –
                 span#play-time(class="flex items-center justify-center space-x-1")
                     span.w-2(class="h-3.5").hours.shrink-0.text-right.leading-none 1
-                    span.text-lab-black-50(class="h-3.5").leading-none ч
+                    span.text-rttf-black-50(class="h-3.5").leading-none ч
                     span.w-6(class="h-3.5").minutes.shrink-0.text-right.leading-none 30
-                    span.text-lab-black-50(class="h-3.5").leading-none м
-                button#increase-time(class="size-10 text-xl text-lab-black-50 leading-none") +
+                    span.text-rttf-black-50(class="h-3.5").leading-none м
+                button#increase-time(class="size-10 text-xl text-rttf-black-50 leading-none") +
         if !widget 
             +button('img/refresh.svg', 'image')
         
     
     if widget 
-        +button('Найти корты', 'default', 'white', 'bg-lab-color', '', '', 'pages/courts/rentCourt.html')
+        +button('Найти столы', 'default', 'white', 'bg-rttf-color', '', '', 'pages/courts/rentCourt.html')
     script.  
         document.addEventListener('DOMContentLoaded', function() {
-            // Степпер для количества кортов
+            // Степпер для количества столов
             const courtsCount = document.querySelector('#courts-count');
             const decreaseCourtsButton = document.querySelector('#decrease-courts');
             const increaseCourtsButton = document.querySelector('#increase-courts');

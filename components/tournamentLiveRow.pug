@@ -2,7 +2,7 @@ mixin tournamentLiveRow(stage, player1, player2, score, video, border)
     - let containerClass = "flex items-center gap-2 " + (border ? "border-b border-slate-300" : "")
     div(class=containerClass)
         .flex.flex-col.items-center.py-2.w-10.shrink-0
-            span.text-sm.text-lab-black-50.text-center.mb-1 #{stage}
+            span.text-sm.text-rttf-black-50.text-center.mb-1 #{stage}
             if video
                 span.text-red-500.text-sm.animate-pulse #{video.minute}'
         .flex-grow.flex.flex-col.justify-center.py-2.w-full.flex-shrink.gap-1

@@ -46,11 +46,11 @@ html(lang='ru')
     - var images = ['img/market.svg', 'img/price.svg', 'img/racket.svg']
     - var tabIds = ['market', 'used', 'stringers']
     - var activeTab = 'Маркет'
-    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-lab-black.drop-shadow-top
+    .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
         .players-panel-tab.tab(
-          class=`${isActive ? "font-bold bg-lab-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
+          class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex grow items-center justify-center gap-1.5 border-r py-3 `,
           data-tab=`${tabIds[index]}`
         )
           img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
@@ -64,13 +64,13 @@ html(lang='ru')
             tabs.forEach((t) => {
               const img = t.querySelector('img')
               if (t.classList.contains('font-bold')) t.classList.remove('font-bold')
-              if (t.classList.contains('bg-lab-color-10')) t.classList.remove('bg-lab-color-10')
+              if (t.classList.contains('bg-rttf-color-10')) t.classList.remove('bg-rttf-color-10')
               t.classList.add('opacity-75', 'saturate-50')
               if (img) {
                 img.classList.add('opacity-75', 'saturate-50')
               }
             })
-            this.classList.add('font-bold', 'bg-lab-color-10')
+            this.classList.add('font-bold', 'bg-rttf-color-10')
             this.classList.remove('opacity-75', 'saturate-50')
             const img = this.querySelector('img')
             if (img) {
@@ -95,17 +95,17 @@ html(lang='ru')
 
       .bg-white.p-4
         +breadcrumbs([{name: 'Ракетки', href: 'pages/market/products.html'}, {name: 'Yonex', href: 'pages/market/products.html'}, {name: 'Yonex Astrox 99'}], 'px-0 pb-4')
-        span.rounded.bg-lab-color.px-1.text-xs.text-white(class='py-0.5') Новинка
+        span.rounded.bg-rttf-color.px-1.text-xs.text-white(class='py-0.5') Новинка
         h1.mt-2.font-bold.leading-tight Ракетка Yonex Astrox 99
         .my-2.flex.items-center.space-x-4
-          span.text-lab-black-50.line-through 14 500₽
-          span.text-xl.font-bold.text-lab-red 12 900₽
+          span.text-rttf-black-50.line-through 14 500₽
+          span.text-xl.font-bold.text-rttf-red 12 900₽
 
         a.my-4.flex.items-center.text-sm(href='#comments')
           +starRating(4.6, 4)
           span.ml-1.font-semibold.leading-none 4.6
 
-          .ml-4.leading-none.text-lab-black-50 15 отзывов
+          .ml-4.leading-none.text-rttf-black-50 15 отзывов
         script.
           function toggleComparison() {
             const element = document.querySelector('.comparison-toggle')
@@ -116,11 +116,11 @@ html(lang='ru')
             if (isAdded) {
               img.src = 'img/go-to-comparison.svg'
               span.textContent = 'Перейти к сравнению'
-              span.classList.add('text-lab-color')
+              span.classList.add('text-rttf-color')
             } else {
               img.src = 'img/add-to-comparison.svg'
               span.textContent = 'Добавить к сравнению'
-              span.classList.remove('text-lab-color')
+              span.classList.remove('text-rttf-color')
             }
           }
 
@@ -137,10 +137,10 @@ html(lang='ru')
 
         .comparison-toggle.mt-4.flex.cursor-pointer.items-center.gap-2
           img.size-4(src='img/add-to-comparison.svg', alt='')
-          span.text-sm.text-lab-black-50 Добавить к сравнению
+          span.text-sm.text-rttf-black-50 Добавить к сравнению
 
-        +button('Положить в корзину', 'default', 'white', 'bg-lab-color', 'my-4', 'commentSubmitButton')
-        div.text-lab-black-50 Нет в наличии 
+        +button('Положить в корзину', 'default', 'white', 'bg-rttf-color', 'my-4', 'commentSubmitButton')
+        div.text-rttf-black-50 Нет в наличии 
 
     .border-b.bg-white.p-4
       h2 Описание
@@ -164,16 +164,16 @@ html(lang='ru')
       +block('Играют ракеткой (343)', { href: 'pages/market/productOwners.html', text: 'Все'}, '', '', 'mt-2')
         -
           var players = [
-              { name: 'Андрей', surname: 'Петров', initials: 'АП', rating: 439, color: 'bg-lab-blue' },
-              { name: 'Егор', surname: 'Смирнов', initials: 'ЕС', rating: 732, color: 'bg-lab-red' },
-              { name: 'Артур', surname: 'Иванов', initials: 'АИ', rating: 691, color: 'bg-lab-green' },
-              { name: 'Иван', surname: 'Кузнецов', initials: 'ИК', rating: 584, color: 'bg-lab-blue' },
-              { name: 'Петр', surname: 'Воробьев', initials: 'ПВ', rating: 487, color: 'bg-lab-red' },
-              { name: 'Сергей', surname: 'Морозов', initials: 'СМ', rating: 912, color: 'bg-lab-green' },
-              { name: 'Дмитрий', surname: 'Лебедев', initials: 'ДЛ', rating: 365, color: 'bg-lab-blue' },
-              { name: 'Алексей', surname: 'Соколов', initials: 'АС', rating: 753, color: 'bg-lab-red' },
-              { name: 'Николай', surname: 'Сергеев', initials: 'НС', rating: 846, color: 'bg-lab-green' },
-              { name: 'Владимир', surname: 'Федоров', initials: 'ВФ', rating: 679, color: 'bg-lab-blue' }
+              { name: 'Андрей', surname: 'Петров', initials: 'АП', rating: 439, color: 'bg-rttf-blue' },
+              { name: 'Егор', surname: 'Смирнов', initials: 'ЕС', rating: 732, color: 'bg-rttf-red' },
+              { name: 'Артур', surname: 'Иванов', initials: 'АИ', rating: 691, color: 'bg-rttf-green' },
+              { name: 'Иван', surname: 'Кузнецов', initials: 'ИК', rating: 584, color: 'bg-rttf-blue' },
+              { name: 'Петр', surname: 'Воробьев', initials: 'ПВ', rating: 487, color: 'bg-rttf-red' },
+              { name: 'Сергей', surname: 'Морозов', initials: 'СМ', rating: 912, color: 'bg-rttf-green' },
+              { name: 'Дмитрий', surname: 'Лебедев', initials: 'ДЛ', rating: 365, color: 'bg-rttf-blue' },
+              { name: 'Алексей', surname: 'Соколов', initials: 'АС', rating: 753, color: 'bg-rttf-red' },
+              { name: 'Николай', surname: 'Сергеев', initials: 'НС', rating: 846, color: 'bg-rttf-green' },
+              { name: 'Владимир', surname: 'Федоров', initials: 'ВФ', rating: 679, color: 'bg-rttf-blue' }
           ]
 
         // Список игроков
@@ -185,12 +185,12 @@ html(lang='ru')
 
         #button-container.mt-3
           // Начальное состояние кнопки
-          button#choose-button.text-sm.text-lab-black-50.underline.decoration-dotted Играете этой ракеткой?
+          button#choose-button.text-sm.text-rttf-black-50.underline.decoration-dotted Играете этой ракеткой?
           // Состояние кнопки при выборе ракетки
           #selected-state.flex.hidden.justify-between.gap-2.text-sm
             img(src='img/checkmark.svg', alt='')
-            span.grow.text-sm.font-semibold.text-lab-color Играю этой ракеткой
-            button#cancel-button.ml-4.text-lab-black-50.underline.decoration-dotted Отменить
+            span.grow.text-sm.font-semibold.text-rttf-color Играю этой ракеткой
+            button#cancel-button.ml-4.text-rttf-black-50.underline.decoration-dotted Отменить
 
         script.
           document.getElementById('choose-button').addEventListener('click', function () {
@@ -217,13 +217,13 @@ html(lang='ru')
       +block('Этот товар в других магазинах', '', '', '', 'mt-2')
         .my-2.flex.items-center.justify-between
           a(href='vistasport.ru') Vistasport
-          .shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black 12 800 ₽
+          .shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black 12 800 ₽
         .my-2.flex.items-center.justify-between
           a(href='vistasport.ru') TT Sport
-          .shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black 12 300 ₽
+          .shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black 12 300 ₽
         .mt-2.flex.items-center.justify-between
           a(href='vistasport.ru') Hurricane-Pro
-          .shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black 13 600 ₽
+          .shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black 13 600 ₽
       +block('Похожие предложения б/у', { href: 'pages/market/secondHandProducts.html', text: 'Все'}, '', '', 'mt-2')
         .no-scrollbar.-mx-4.-my-4.flex.gap-2.overflow-x-auto.p-4
           +secondHandCard('yonexastrox99.jpg', 'Yonex Astrox 99', 12000, 'Москва', 'metro', 'Киевская', '#ff0000', '4 дня назад')

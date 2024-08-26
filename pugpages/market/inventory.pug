@@ -65,7 +65,7 @@ html(lang='ru')
 
     table(class="w-full border-collapse")
       thead
-        tr.text-xs.text-center.text-lab-black-50.border-b 
+        tr.text-xs.text-center.text-rttf-black-50.border-b 
           th(class="px-3 py-1 text-left") Игрок
           th(class="px-3 py-1 text-left font-normal") Рейтинг
           th(class="hidden sm:table-cell px-3 py-1 text-left font-normal") Ракетка
@@ -74,7 +74,7 @@ html(lang='ru')
           th(class="sm:hidden px-3 py-1 text-left font-normal") Инвентарь
       tbody
         each player in players
-          tr.text-lab-black.text-sm.bg-white.border-b
+          tr.text-rttf-black.text-sm.bg-white.border-b
             td(class="px-3 py-2 max-w-32")= player.name
             td(class="px-3 py-2 ") 
               +userRating(player.rating)
@@ -95,6 +95,6 @@ html(lang='ru')
               ul
                 each item in player.inventory
                   li
-                    span(class="text-lab-black-50")= item.category + ": "
+                    span(class="text-rttf-black-50")= item.category + ": "
                     a(href="pages/market/product.html")= item.item
     +tabBar('Маркет')

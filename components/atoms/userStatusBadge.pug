@@ -4,25 +4,25 @@ mixin userStatusBadge(type)
       let badgeColor = '';
       switch(type.toLowerCase()) {
         case 'админ':
-          badgeColor = 'bg-lab-red';
+          badgeColor = 'bg-rttf-red';
           break;
         case 'модератор':
-          badgeColor = 'bg-lab-color';
+          badgeColor = 'bg-rttf-color';
           break;
         case 'админ клуба':
-          badgeColor = 'bg-lab-green';
+          badgeColor = 'bg-rttf-green';
           break;
         case 'организатор':
-          badgeColor = 'bg-lab-blue';
+          badgeColor = 'bg-rttf-blue';
           break;
         case 'тренер':
-          badgeColor = 'bg-lab-black';
+          badgeColor = 'bg-rttf-black';
           break;
         case 'фотограф':
           badgeColor = 'bg-purple-500';
           break;
         case 'стрингер':
-          badgeColor = 'bg-lab-yellow';
+          badgeColor = 'bg-rttf-yellow';
           break;
       }
     div(class=`${badgeColor} z-10 w-fit rounded px-1.5 py-0.5 text-xs font-medium text-white`)

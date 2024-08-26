@@ -35,7 +35,7 @@ html(lang="ru")
             ]
         div
             table.table-auto.w-full.text-xs
-                thead.tr.bg-page-background.sticky.top-24.text-lab-black-50.uppercase.border-b
+                thead.tr.bg-page-background.sticky.top-24.text-rttf-black-50.uppercase.border-b
                     th.text-left.pl-4.p-2 Турнир
                     th.text-center.p-2 Место
                     th.text-center.p-2 ★ +/- 
@@ -44,7 +44,7 @@ html(lang="ru")
                     for tournament in tournaments
                         tr.bg-white.border-b
                             td.py-2.pl-4
-                                span.text-sm.text-lab-black-50 #{tournament.date}
+                                span.text-sm.text-rttf-black-50 #{tournament.date}
                                 div(class="flex items-center pt-1")
                                     +tournamentTypeBadge(tournament.typeBadge)
                                     a(href=tournament.link).text-sm.px-2.font-semibold.text-ellipsis #{tournament.clubName}
@@ -56,8 +56,8 @@ html(lang="ru")
                                 else if tournament.finalPosition == '3'
                                     div.bg-bronze.rounded-full.text-sm.font-semibold.size-5.text-center.border.mx-auto #{tournament.finalPosition}
                                 else
-                                    span.text-sm.text-lab-black.font-semibold.size-5.text-center #{tournament.finalPosition} 
-                            td.text-sm.font-semibold.h-5.text-center(class=tournament.finalChange[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{tournament.finalChange}
+                                    span.text-sm.text-rttf-black.font-semibold.size-5.text-center #{tournament.finalPosition} 
+                            td.text-sm.font-semibold.h-5.text-center(class=tournament.finalChange[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{tournament.finalChange}
                             td.text-center
                                 +userRating(tournament.rating)
         +tabBar

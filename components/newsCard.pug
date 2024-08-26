@@ -4,7 +4,7 @@ mixin newsCard(title, image, clubName, date, link, clubPage)
       img.size-16.shrink-0.rounded.object-cover(src=image)
     .flex.flex-col.gap-1
       h3.line-clamp-2.text-15.font-medium.leading-tight= title
-      span.text-xs.text-lab-black-50
+      span.text-xs.text-rttf-black-50
         if !clubPage
-          span.mr-2.font-semibold.text-lab-black-50= clubName
-        span.text-lab-black-50= date
+          span.mr-2.font-semibold.text-rttf-black-50= clubName
+        span.text-rttf-black-50= date

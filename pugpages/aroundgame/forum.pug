@@ -60,7 +60,7 @@ html(lang='ru')
           newComments: 2,
           link: 'pages/aroundgame/topic.html',
           theme: 'Тренировки',
-          themeClass: 'bg-lab-color'
+          themeClass: 'bg-rttf-color'
         },
         {
           title: 'Правила расчета рейтинга',
@@ -70,7 +70,7 @@ html(lang='ru')
           newComments: 3,
           link: 'pages/aroundgame/topic.html',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
         {
           title: 'Чемпионат мира среди смешанных команд в разгаре',
@@ -80,7 +80,7 @@ html(lang='ru')
           newComments: 5,
           link: 'pages/aroundgame/topic.html',
           theme: 'Новости',
-          themeClass: 'bg-lab-yellow'
+          themeClass: 'bg-rttf-yellow'
         },
         {
           title: 'Провоз ракеток в самолете',
@@ -90,7 +90,7 @@ html(lang='ru')
           newComments: 3,
           link: 'pages/aroundgame/topic.html',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
         {
           title: 'Розыгрыш волана в третьем гейме',
@@ -100,7 +100,7 @@ html(lang='ru')
           newComments: 5,
           link: 'pages/aroundgame/topic.html',
           theme: 'Новости',
-          themeClass: 'bg-lab-yellow'
+          themeClass: 'bg-rttf-yellow'
         },
         {
           title: 'Синхронизация профилей',
@@ -110,7 +110,7 @@ html(lang='ru')
           newComments: 3,
           link: 'pages/aroundgame/topic.html',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
         {
           title: 'пожелания к допускам по рейтингу',
@@ -120,7 +120,7 @@ html(lang='ru')
           newComments: 5,
           link: 'pages/aroundgame/topic.html',
           theme: 'Новости',
-          themeClass: 'bg-lab-yellow'
+          themeClass: 'bg-rttf-yellow'
         },
         {
           title: 'Правила расчета рейтинга',
@@ -130,14 +130,14 @@ html(lang='ru')
           newComments: 3,
           link: 'pages/aroundgame/topic.html',
           theme: 'Статьи',
-          themeClass: 'bg-lab-blue'
+          themeClass: 'bg-rttf-blue'
         },
       ];
 
     .px-4
         +searchAndFilterButton('Поиск', false, '') 
         +filterButtonsRow([ { label: 'Жизнь на сайте', active: true }, { label: 'Новости', active: false }, { label: 'Турниры', active: false }, { label: 'Статьи', active: false }], 'padding', '-mx-4 my-4')
-        +button('+ Новая тема', 'default', 'text-lab-black', 'bg-transparent', 'border border-lab-color')
+        +button('+ Новая тема', 'default', 'text-rttf-black', 'bg-transparent', 'border border-rttf-color')
 
         .flex.flex-col.gap-2.mt-4
           each topic, index in topics

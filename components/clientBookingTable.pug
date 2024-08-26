@@ -12,22 +12,22 @@ mixin clientBookingTable
     .flex.justify-between.items-center.p-2
         button.size-8.text-left.-ml-1
             img(src="img/expand-arrow.svg", alt="").rotate-90.size-6 
-        span.text-lab-color.font-bold 11 мая 
+        span.text-rttf-color.font-bold 11 мая 
         button.size-8.text-right.-mr-2
             img(src="img/expand-arrow.svg", alt="").-rotate-90.size-6
     div.w-full.overflow-auto(class="h-[55lvh]").no-scrollbar
-        table.table-fixed.w-full.text-lab-black
+        table.table-fixed.w-full.text-rttf-black
             thead.sticky.top-0.bg-white.z-20.h-10.mb-4
                 tr
-                    th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Корт
+                    th.px-2.text-center.text-xs.sticky.bg-white.left-0.align-middle.min-w-14.w-14.z-20 Стол
                     each _, index in Array(10)
                         th.court.text-sm.min-w-16.w-16.text-center.align-middle.sticky.top-0.h-8(class="text-center")
                             div #{index + 1}
-                            div.text-xs.font-normal.text-lab-black-50.mt-1 Обычный
+                            div.text-xs.font-normal.text-rttf-black-50.mt-1 Обычный
             tbody(class="before:content-['@'] before:text-xxs before:block before:leading-none before:text-transparent")
                 each time, index in timeSlots
-                    tr.h-8.text-sm.text-lab-black-50.text-xs
-                        td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14.text-lab-black-50
+                    tr.h-8.text-sm.text-rttf-black-50.text-xs
+                        td.sticky.left-0.text-center.bg-white.align-top.w-14.min-w-14.text-rttf-black-50
                             div(class="-mt-2.5 bg-white") #{time}
                         each _, courtIndex in Array(10)
                             - let price = time >= '09:00' && time < '13:00' ? '600' : time >= '13:00' && time < '18:00' ? '800' : time >= '18:00' && time < '21:00' ? '1000' : '800'
@@ -35,8 +35,8 @@ mixin clientBookingTable
                             td.border.border-slate-300.min-w-16.text-center.w-16.z-10.align-middle(class=bgColor) #{price}
     
     +modal('', '', 'court-modal', true)  
-        h2 Корт №5
-        p.text-lab-black-50.text-sm.pt-0.pb-2 Стандартный  
+        h2 Стол №5
+        p.text-rttf-black-50.text-sm.pt-0.pb-2 Стандартный  
         img(src="dynamic-img/court5.jpg", alt="").mt-2.rounded-sm.pb-2
         
         +dottedLine('Размер зала', '17x10 м')

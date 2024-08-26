@@ -46,7 +46,7 @@ html(lang="ru")
             span.text-sm.whitespace-nowrap Ваш партнер
             +select('Егор Бероев (★431)', '!mb-0')
 
-        .span.text-xs.px-4.bg-white.pb-4.text-lab-black-50 Нажмите на строку для просмотра истории игр с соперником или на фамилию для перехода в профиль
+        .span.text-xs.px-4.bg-white.pb-4.text-rttf-black-50 Нажмите на строку для просмотра истории игр с соперником или на фамилию для перехода в профиль
         -
             let players = [
                 { name: 'Байбулдин А.', subName: '(738)', rating: '473', games: '122', wins: '75', losses: '47', change: '+28' },
@@ -67,8 +67,8 @@ html(lang="ru")
             let totalChange = '+77'
 
         table(class="").bg-white.w-full
-            thead.text-xs.text-lab-black-50.uppercase
-                tr(class="text-xs text-center text-lab-black-50")
+            thead.text-xs.text-rttf-black-50.uppercase
+                tr(class="text-xs text-center text-rttf-black-50")
                     th.text-left.px-3 Имя
                     th ★
                     th.p-2 Игр
@@ -77,25 +77,25 @@ html(lang="ru")
                     th.p-2 +/- 
             tbody
                 each player, index in players
-                    tr(class="text-[13px] text-lab-black even:bg-white odd:bg-slate-100")
+                    tr(class="text-[13px] text-rttf-black even:bg-white odd:bg-slate-100")
                         td.py-2.px-3
-                            a(href="pages/others/singlePlayer.html").text-lab-color.font-medium #{player.name}
+                            a(href="pages/others/singlePlayer.html").text-rttf-color.font-medium #{player.name}
                         td.text-center
-                            a(href="pages/others/gamesHistory.html").text-lab-black
+                            a(href="pages/others/gamesHistory.html").text-rttf-black
                                 +userRating(player.rating)
                         td.p-2.text-center
-                            a(href="pages/others/gamesHistory.html").text-lab-black #{player.games}
+                            a(href="pages/others/gamesHistory.html").text-rttf-black #{player.games}
                         td.p-2.text-center
-                            a(href="pages/others/gamesHistory.html").text-lab-black #{player.wins}
+                            a(href="pages/others/gamesHistory.html").text-rttf-black #{player.wins}
                         td.p-2.text-center
-                            a(href="pages/others/gamesHistory.html").text-lab-black #{player.losses}
+                            a(href="pages/others/gamesHistory.html").text-rttf-black #{player.losses}
                         td.p-2.text-center
-                            a(href="pages/others/gamesHistory.html" class=player.change > 0 ? 'text-lab-green' : player.change < 0 ? 'text-lab-red' : 'text-lab-black-50') #{player.change}
+                            a(href="pages/others/gamesHistory.html" class=player.change > 0 ? 'text-rttf-green' : player.change < 0 ? 'text-rttf-red' : 'text-rttf-black-50') #{player.change}
 
                             
-            tr.text-sm.text-lab-black.font-semibold.bg-lab-color-10.border
+            tr.text-sm.text-rttf-black.font-semibold.bg-rttf-color-10.border
                     td(class="px-3 py-2 text-left leading-5" colspan=2) Всего
                     td(class="p-2 text-center ") 95
                     td(class="p-2 text-center ") 64
                     td(class="p-2 text-center ") 45
-                    td(class="p-2 text-center text-lab-green") +174
+                    td(class="p-2 text-center text-rttf-green") +174

@@ -34,7 +34,7 @@ html(lang="ru")
 
         div.p-4.bg-white.rounded-lg.mb-3
             .flex.justify-between.gap-3.items-center
-                h1.text-lg.text-center.ml-6.leading-6.text-lab-black.flex-grow.font-semibold Летний интенсив
+                h1.text-lg.text-center.ml-6.leading-6.text-rttf-black.flex-grow.font-semibold Летний интенсив
                 +bookmark(false)
             img(src="dynamic-img/camp1.png", alt="").w-full.pt-4
             div.grid.grid-cols-1.gap-6.mt-6(class="text-[15px] sm:grid-cols-2")
@@ -78,7 +78,7 @@ html(lang="ru")
                     .inline-flex.gap-2
                         img.w-5.aspect-square.shrink-0(src='img/checkmark.svg' alt='Галочка')
                         span Вы зарегистрированы
-                    +button('Отменить', "text", 'lab-red', 'bg-lab-color')
+                    +button('Отменить', "text", 'rttf-red', 'bg-rttf-color')
 
                 div.w-full.text-center.bg-avatar-gradient.bg-clip-text.text-transparent.mb-4
                     div Регистрация откроется 
@@ -110,25 +110,25 @@ html(lang="ru")
                     ]
 
                 table.w-full
-                    tr.text-xs.text-lab-color(class="!font-semibold").border-b
+                    tr.text-xs.text-rttf-color(class="!font-semibold").border-b
                         th.pr-2 #
                         th 
                         th.text-left.py-2 Игрок
                         th Рейтинг
                         th(class="sm:table-cell hidden") Дата регистрации
                     each player in players
-                        tr.text-sm(class="border-b border-lab-black-10")
-                            td.py-2.text-center.text-lab-black.pr-2 #{player.regNumber}
+                        tr.text-sm(class="border-b border-rttf-black-10")
+                            td.py-2.text-center.text-rttf-black.pr-2 #{player.regNumber}
                             td.py-2.text-center.max-w-16.w-10
-                                +avatar('bg-lab-color', player.firstName[0] + player.lastName[0], 28, player.avatar)
+                                +avatar('bg-rttf-color', player.firstName[0] + player.lastName[0], 28, player.avatar)
                             td.py-2 
                                 div
-                                    span.font-semibold.text-lab-color #{player.firstName + ' ' + player.lastName}
-                                    div.text-xs(class=(player.paymentStatus == 'Оплачено' ? 'text-lab-green' : 'text-red-500')) #{player.paymentStatus}
+                                    span.font-semibold.text-rttf-color #{player.firstName + ' ' + player.lastName}
+                                    div.text-xs(class=(player.paymentStatus == 'Оплачено' ? 'text-rttf-green' : 'text-red-500')) #{player.paymentStatus}
                             td.py-2.text-center
                                 +userRating(player.rating, true)
                             
-                            td.text-center.hidden(class="sm:table-cell text-lab-black-50")= player.regDate
+                            td.text-center.hidden(class="sm:table-cell text-rttf-black-50")= player.regDate
 
             
                 

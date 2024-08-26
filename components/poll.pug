@@ -3,14 +3,14 @@ mixin poll(question, answers, voted, shadow=true, link=true, description)
     data-id=id,
     class=(voted ? 'voted ' : 'not-voted ') + (shadow ? 'drop-shadow-around transform-gpu' : 'border')
   )
-    .bg-lab-color.px-4.py-3.text-white 
+    .bg-rttf-color.px-4.py-3.text-white 
       .text-15.font-semibold.mb-2 #{ question }
       .text-xs.font-normal.opacity-70 Выберите один из вариантов ответа
     form
       each answer, index in answers
         if !voted
           label.flex.items-center.gap-4.border-b.px-4.py-3
-            input.size-5.shrink-0.text-lab-color(
+            input.size-5.shrink-0.text-rttf-color(
               type='radio',
               name=`answer-${id}`,
               style='accent-color: #178dae'
@@ -18,18 +18,18 @@ mixin poll(question, answers, voted, shadow=true, link=true, description)
             span.text-sm #{ answer.text }
         else
           label.relative.flex.items-center.gap-4.border-b.px-4.py-3
-            .absolute.inset-y-0.left-0.z-0.bg-lab-color-10(class=`w-[${answer.percent}%]`) 
+            .absolute.inset-y-0.left-0.z-0.bg-rttf-color-10(class=`w-[${answer.percent}%]`) 
             span.grow.text-sm(class=answer.selected ? 'font-bold' : '') #{ answer.text }
             span.ml-auto.shrink-0.text-sm(class=answer.selected ? 'font-bold' : '') #{ answer.percent }%
 
     if !voted
       .border-b.p-2
-        +button('Ответить', 'default', 'white', 'bg-lab-color')
+        +button('Ответить', 'default', 'white', 'bg-rttf-color')
     .flex.items-center.justify-between.px-4.py-3
-      span.text-xs.text-lab-black-50 Голосов: 15
+      span.text-xs.text-rttf-black-50 Голосов: 15
       if link
         a.flex.items-center.gap-1(href='pages/aroundgame/poll.html')
           img.size-4(src='img/comment-outlined.svg').saturate-50.opacity-50
-          span.text-xs.text-lab-black-50 25
+          span.text-xs.text-rttf-black-50 25
       else 
-        .text-xs.text-lab-black-50.inline Опрос создан  #[a.inline( href='#' ) Лаб-контент] 12.05.2024 в 10:34
+        .text-xs.text-rttf-black-50.inline Опрос создан  #[a.inline( href='#' ) Лаб-контент] 12.05.2024 в 10:34

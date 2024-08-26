@@ -18,7 +18,7 @@ html(lang="ru")
         link(href="../../styles.css" rel="stylesheet")
         link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
         base(href="../../")
-    body.bg-page-background.pt-14.pb-32.px-4.bg-lab-color-10
+    body.bg-page-background.pt-14.pb-32.px-4.bg-rttf-color-10
         +topBar
         h1.text-lg.py-2 Турниры
 
@@ -27,7 +27,7 @@ html(lang="ru")
 
         div.flex.space-x-3.py-2.items-center.justify-between
 
-            +switch('Только призовые', '', 'text-sm text-lab-black')
+            +switch('Только призовые', '', 'text-sm text-rttf-black')
             div.grow
             img#viewCards(src="img/cards.svg" alt="").size-5
             img#viewTable(src="img/table.svg" alt="").size-5.saturate-50.opacity-50
@@ -89,21 +89,21 @@ html(lang="ru")
                     .flex.justify-between.gap-2
                         span.grow 2 декабря 2023
                         +userRating('376', true, 'saturate-0')
-                        span.text-lab-green.font-bold &#8594;
+                        span.text-rttf-green.font-bold &#8594;
                         +userRating('386', true)
-                    div.text-lab-black-50.text-xs.pt-2.pb-4 Причина: за красивые глазки
+                    div.text-rttf-black-50.text-xs.pt-2.pb-4 Причина: за красивые глазки
                     .flex.justify-between.gap-2
                         span.grow 13 апреля 2023
                         +userRating('386', true, 'saturate-0')
-                        span.text-lab-red.font-bold &#8594;
+                        span.text-rttf-red.font-bold &#8594;
                         +userRating('367', true)
-                    div.text-lab-black-50.text-xs.pt-2.pb-4 Причина: перерыв в турнирах более года
+                    div.text-rttf-black-50.text-xs.pt-2.pb-4 Причина: перерыв в турнирах более года
                     .flex.justify-between.gap-2
                         span.grow 2 декабря 2023
                         +userRating('354', true, 'saturate-0')
-                        span.text-lab-green.font-bold &#8594;
+                        span.text-rttf-green.font-bold &#8594;
                         +userRating('359', true)
-                    div.text-lab-black-50.text-xs.pt-2.py-0 Причина: взятка организатору
+                    div.text-rttf-black-50.text-xs.pt-2.py-0 Причина: взятка организатору
                 +accordionProfileTournamentCard(doublesTournamentData, 3)
                 +accordionProfileTournamentCard(tournamentData, 2)
 
@@ -233,7 +233,7 @@ html(lang="ru")
         div.table-container
             table(class="min-w-screen w-screen divide-y divide-gray-300 -ml-4 -mr-4 bg-white")
                 thead
-                    tr.text-xs.text-center.p-2.text-lab-color
+                    tr.text-xs.text-center.p-2.text-rttf-color
                         th.p-2.pl-3.text-left.font-bold.max-w-20 Дата ▼
                         th.p-2(class="!font-normal") Тип
                         th.text-left(class="!font-normal") Турнир
@@ -247,24 +247,24 @@ html(lang="ru")
                 tbody(class="bg-white divide-y divide-gray-200")
                     each item in tournamentsData
                         - const medalClass = item.finalPosition === '1' ? 'bg-gold' : item.finalPosition === '2' ? 'bg-silver' : item.finalPosition === '3' ? 'bg-bronze' : ''
-                        - const changeColor = item.finalChange > 0 ? 'text-lab-green' : 'text-lab-red'
-                        tr.text-xs.text-lab-black.text-center(class="even:bg-white odd:bg-lab-color-10").px-2
-                            td.p-2.pl-3.text-left.max-w-20.text-lab-black-50= item.date
+                        - const changeColor = item.finalChange > 0 ? 'text-rttf-green' : 'text-rttf-red'
+                        tr.text-xs.text-rttf-black.text-center(class="even:bg-white odd:bg-rttf-color-10").px-2
+                            td.p-2.pl-3.text-left.max-w-20.text-rttf-black-50= item.date
                             td
-                                .bg-lab-color-10.rounded-sm.font-medium(class="px-1").w-fit.mx-auto= item.typeBadge
+                                .bg-rttf-color-10.rounded-sm.font-medium(class="px-1").w-fit.mx-auto= item.typeBadge
                             td.p-2.text-left= item.clubName
                             td.p-2(class="hidden sm:table-cell")= item.playersCount
                             td
                                 +userRating(item.ratingAfter)
                             td.p-1(class=`${changeColor}`)= item.finalChange
                             td.p-2(class="hidden 430:table-cell")
-                                span(class="text-lab-green")= item.wins 
-                                span.text-lab-black-50 –
-                                span(class="text-lab-red")= item.losses
+                                span(class="text-rttf-green")= item.wins 
+                                span.text-rttf-black-50 –
+                                span(class="text-rttf-red")= item.losses
 
                             td(class="pr-3  text-center font-semibold w-7")
                                 if item.finalPosition < '4'
-                                    div(class="h-4 w-4 flex items-center border border-lab-black-10 justify-center rounded-full mx-auto " + medalClass)= item.finalPosition
+                                    div(class="h-4 w-4 flex items-center border border-rttf-black-10 justify-center rounded-full mx-auto " + medalClass)= item.finalPosition
                                 else
                                     = item.finalPosition
                         if item.players 
@@ -272,7 +272,7 @@ html(lang="ru")
                                 td(colspan="8")
                                     table.w-full
                                         thead
-                                            tr.border-b.text-lab-black-50.text-xxs.font-semibold.uppercase
+                                            tr.border-b.text-rttf-black-50.text-xxs.font-semibold.uppercase
                                                 th.py-2.text-center Этап
                                                 th.py-2.text-left Соперники
                                                 th.py-2.text-center.min-w-14 ★
@@ -280,8 +280,8 @@ html(lang="ru")
                                                 th.py-2.text-center.min-w-10  - / +
                                         tbody
                                             each player in item.players
-                                                tr.text-lab-black(class="text-[13px]")
-                                                    td.py-2.text-lab-black-50.px-2.text-center #{player.stage}
+                                                tr.text-rttf-black(class="text-[13px]")
+                                                    td.py-2.text-rttf-black-50.px-2.text-center #{player.stage}
                                                     td.py-2
                                                         each name in player.names
                                                             .flex.gap-1.items-center
@@ -292,7 +292,7 @@ html(lang="ru")
                                                     td.text-center
                                                         +userRating(player.rating)
                                                     td.text-center.tracking-tighter #{player.score}
-                                                    td.text-center.px-2(class=player.change[0] === '+' ? 'text-lab-green' : 'text-lab-red') #{player.change}
+                                                    td.text-center.px-2(class=player.change[0] === '+' ? 'text-rttf-green' : 'text-rttf-red') #{player.change}
                                             tr 
                                                 td(colspan="8").text-center.py-2
                                                     a(href="pages/tournaments/singleTournament.html").text-xs Перейти к странице турнира

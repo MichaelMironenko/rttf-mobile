@@ -48,7 +48,7 @@ html(lang='ru')
             date: '2 октября 2023 г.',
             id: '#341203',
             status: 'Будет доставлен 4 октября',
-            statusClass: 'bg-lab-color-10',
+            statusClass: 'bg-rttf-color-10',
             items: [
               { img: 'dynamic-img/yonexastrox99.jpg' },
               { img: 'dynamic-img/volan.jpg' },
@@ -61,7 +61,7 @@ html(lang='ru')
             date: '14 сентября 2023 г.',
             id: '#340122',
             status: 'Получен 17 сентября',
-            statusClass: 'bg-lab-color-10',
+            statusClass: 'bg-rttf-color-10',
             items: [
               { img: 'dynamic-img/volan.jpg' }
             ],
@@ -72,7 +72,7 @@ html(lang='ru')
             date: '12 сентября 2023 г.',
             id: '#341203',
             status: 'Отменён',
-            statusClass: 'bg-lab-color-10 text-lab-red',
+            statusClass: 'bg-rttf-color-10 text-rttf-red',
             items: [
               { img: 'dynamic-img/yonexastrox99.jpg' },
               { img: 'dynamic-img/bag.jpeg' }
@@ -86,10 +86,10 @@ html(lang='ru')
         a.flex.flex-col.gap-2.p-4.bg-white.rounded-lg.shadow-md.mb-2(href="pages/market/order.html")
           .flex.justify-between.items-center
             h2.text-base.font-semibold= `Заказ от ${order.date}`
-            span.text-lab-blue.text-sm= order.id
+            span.text-rttf-blue.text-sm= order.id
           
           span.text-sm.px-2.py-1.rounded-lg.w-fit.my-2(class=order.statusClass)= order.status
-          span.text-sm.text-lab-black-50= `${order.totalItems} товар на сумму ${order.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`
+          span.text-sm.text-rttf-black-50= `${order.totalItems} товар на сумму ${order.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`
           .flex.gap-2.mt-2
             each item in order.items
               img.w-16.h-16(src=item.img, alt='Product Image')

@@ -24,10 +24,10 @@ html(lang="ru")
     body.bg-white.mt-12.pb-32
         +topBar
         .p-4
-            div.text-lg.text-center.grow.font-bold.text-lab-black.pb-4 Бронирование №123456 
+            div.text-lg.text-center.grow.font-bold.text-rttf-black.pb-4 Бронирование №123456 
             +bookingData(false)
             .flex.justify-between.pb-4.pt-4.border-t
-                span Аренда кортов
+                span Аренда столов
                 span 1400&#8202;₽
             .flex.justify-between.pb-4
                 span Аренда ракеток
@@ -37,7 +37,7 @@ html(lang="ru")
                 span 2000&#8202;₽
             .flex.justify-between.pb-2.items-center
                 span.grow Статус
-                div.py-1.px-2.bg-lab-green.text-white.text-sm.rounded-md.font-semibold Оплачено
+                div.py-1.px-2.bg-rttf-green.text-white.text-sm.rounded-md.font-semibold Оплачено
             
             
             .flex.flex-col.gap-2.pt-4.pb-2.border-t
@@ -45,7 +45,7 @@ html(lang="ru")
                 span г. Красногорск, ул Парковая, д. 8А
                 div
                     img(src="img/D1.svg").w-7.inline.align-middle 
-                    span.w-7.inline.align-middle.ml-2.text-lab-black-50 Красногорская
+                    span.w-7.inline.align-middle.ml-2.text-rttf-black-50 Красногорская
                 div 
                     img(src="img/phone.svg", alt="Телефон").inline.align-middle 
                     a.ml-2.inline.align-middle(href="tel: +71234567890")  +7 (123) 456-78-90
@@ -70,10 +70,10 @@ html(lang="ru")
             .flex.justify-between.gap-2.pb-6
                 span Менее 12 часов
                 .div.border-b-2.grow.mb-1.border-dotted
-                span.text-lab-red.text-right Оплата не возвращается
-            +button('Отменить бронирование', 'default', 'white', 'bg-lab-red','', 'cancelBooking')
+                span.text-rttf-red.text-right Оплата не возвращается
+            +button('Отменить бронирование', 'default', 'white', 'bg-rttf-red','', 'cancelBooking')
         +modal('Отменить бронирование?', [
-            {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-lab-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'}
+            {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-rttf-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'}
         ], "modal-delete", true)
             span До игры осталось менее 24 часов, будет возвращено 50% стоимости
 

@@ -49,16 +49,16 @@ html(lang="ru")
 
             div.flex.gap-2.flex-wrap
                 each statsBlock in statsBlocks
-                    div.flex.flex-col.items-center.justify-center.bg-lab-color-10.p-3.rounded-lg.gap-3.grow(class="w-1/4 max-w-40")
-                        span.flex.items-center.text-lab-black-50.text-center.text-xs.h-7.leading-tight= statsBlock.title
+                    div.flex.flex-col.items-center.justify-center.bg-rttf-color-10.p-3.rounded-lg.gap-3.grow(class="w-1/4 max-w-40")
+                        span.flex.items-center.text-rttf-black-50.text-center.text-xs.h-7.leading-tight= statsBlock.title
                         if Array.isArray(statsBlock.value)
                             .grow.text-center.flex.items-center.gap-1
-                                div.text-lab-green.font-bold= statsBlock.value[0] 
-                                span.text-lab-black / 
-                                span.text-lab-red.font-bold= statsBlock.value[1]
+                                div.text-rttf-green.font-bold= statsBlock.value[0] 
+                                span.text-rttf-black / 
+                                span.text-rttf-red.font-bold= statsBlock.value[1]
                         else
                             .grow.text-center.flex.items-center.gap-1(class=statsBlock.arrow ? 'ml-2' : '') 
-                                div.text-lab-black.font-bold= statsBlock.value
+                                div.text-rttf-black.font-bold= statsBlock.value
                                 if statsBlock.arrow
                                     img(src=`img/arrow-${statsBlock.arrow}.svg`, alt="" class="mb-0.5").h-3
 
@@ -68,7 +68,7 @@ html(lang="ru")
             .flex.items-center.gap-2.pt-4
                 span.text-sm Максимальный рейтинг
                 +userRating(742)
-                span.text-lab-black-50.text-sm 11.04.2022
+                span.text-rttf-black-50.text-sm 11.04.2022
         
         +block('Последние турниры', { href:"pages/others/myTournaments.html", text:"Все"})
             .flex.gap-2.overflow-x-auto.no-scrollbar.p-4.-m-4
@@ -126,23 +126,23 @@ html(lang="ru")
         +block('Награды', { href:"pages/others/allWins.html", text:"Все"})
             div.font-bold.mt-6 Последние медали
             .flex.gap-2.items-center.py-3
-                div.text-lab-black-50.w-14(class="xs:w-24")
+                div.text-rttf-black-50.w-14(class="xs:w-24")
                     div.text-sm 13 сен 
-                        span.text-lab-black-50.text-sm.ml-none(class="xs:ml-1") 19:00
+                        span.text-rttf-black-50.text-sm.ml-none(class="xs:ml-1") 19:00
                 +tournamentTypeBadge('XDF+')
                 span.text-sm.grow.font-semibold Макс Арена
                 img(src="img/medal-gold.svg").h-5
             .flex.gap-2.items-center.py-3
-                div.text-lab-black-50.w-14(class="xs:w-24")
+                div.text-rttf-black-50.w-14(class="xs:w-24")
                     div.text-sm 4 сен 
-                        span.text-lab-black-50.text-sm.ml-none(class="xs:ml-1") 14:00
+                        span.text-rttf-black-50.text-sm.ml-none(class="xs:ml-1") 14:00
                 +tournamentTypeBadge('XDF+')
                 span.text-sm.grow.font-semibold Макс Арена
                 img(src="img/medal-bronze.svg").h-5
             .flex.gap-2.items-center.py-3
-                div.text-lab-black-50.w-14(class="xs:w-24")
+                div.text-rttf-black-50.w-14(class="xs:w-24")
                     div.text-sm 22 авг 
-                        span.text-lab-black-50.text-sm.ml-none(class="xs:ml-1") 13:00
+                        span.text-rttf-black-50.text-sm.ml-none(class="xs:ml-1") 13:00
                 +tournamentTypeBadge('XDF+')
                 span.text-sm.grow.font-semibold Макс Арена
                 img(src="img/medal-silver.svg").h-5
@@ -163,7 +163,7 @@ html(lang="ru")
                 ];
             table(class="w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]  -mx-4 -mb-4 mt-4")
                 thead
-                    tr(class="px-4 text-xs text-lab-color")
+                    tr(class="px-4 text-xs text-rttf-color")
                         th(class="px-3 py-2 text-left") Клубы
                         th(class="p-2 text-center") 
                             img(src="img/medal-gold.svg", alt="").mx-auto
@@ -176,15 +176,15 @@ html(lang="ru")
                 tbody
                     each player, index in players
                         - const playerRowClass = player.me ? "bg-orange-100" : "even:bg-white odd:bg-slate-100"
-                        tr.text-sm.text-lab-black(class=playerRowClass)
-                            td(class="px-3 py-2 text-left leading-5 text-lab-color")= player.name
+                        tr.text-sm.text-rttf-black(class=playerRowClass)
+                            td(class="px-3 py-2 text-left leading-5 text-rttf-color")= player.name
                             td(class="p-2 text-center ")= player.gold
                             td(class="p-2 text-center ")= player.silver 
                             td(class="p-2 text-center ")= player.bronze 
                             td(class="p-2 text-center font-semibold")= player.total
-                    tr.text-sm.text-lab-black-50.bg-slate-50
+                    tr.text-sm.text-rttf-black-50.bg-slate-50
                         td.px-3.p-2.underline.decoration-dotted.w-full(colspan="5") Показать остальные клубы
-                    tr.text-sm.text-lab-black.font-semibold.bg-lab-color-10.border
+                    tr.text-sm.text-rttf-black.font-semibold.bg-rttf-color-10.border
                         td(class="px-3 py-2 text-left leading-5") Всего
                         td(class="p-2 text-center ") 95
                         td(class="p-2 text-center ") 64
@@ -197,7 +197,7 @@ html(lang="ru")
             div.flex.justify-between.items-center.gap-4
                 span.text-sm.whitespace-nowrap Ваш партнер
                 +select('Егор Бероев (★431)', '!mb-0')
-            .span.text-xs.bg-white.py-4.text-lab-black-50 Нажмите на строку для просмотра истории игр с соперником или на фамилию для перехода в профиль игрока
+            .span.text-xs.bg-white.py-4.text-rttf-black-50 Нажмите на строку для просмотра истории игр с соперником или на фамилию для перехода в профиль игрока
             -
                 let players = [
                     { name: 'Байбулдин А.', subName: '(738)', rating: '473', games: '122', wins: '75', losses: '47', change: '+28' },
@@ -218,8 +218,8 @@ html(lang="ru")
                 let totalChange = '+77'
             
             table(class="w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]  -mx-4 -mb-4")
-                thead.text-xs.text-lab-black-50.uppercase
-                    tr(class="text-xs text-center text-lab-black-50")
+                thead.text-xs.text-rttf-black-50.uppercase
+                    tr(class="text-xs text-center text-rttf-black-50")
                         th.text-left.pl-4 Имя
                         th.p-2 ★
                         th.p-2 Игр
@@ -228,24 +228,24 @@ html(lang="ru")
                         th.p-2.pr-4 +/- 
                 tbody
                     each player, index in players
-                        tr(class="text-[13px] text-lab-black even:bg-white odd:bg-slate-100")
+                        tr(class="text-[13px] text-rttf-black even:bg-white odd:bg-slate-100")
                             td.py-2.pl-4
-                                a(href="players/singlePlayer.html").text-lab-color.font-medium #{player.name}
+                                a(href="players/singlePlayer.html").text-rttf-color.font-medium #{player.name}
                             td.p-2.text-center
                                 +userRating(player.rating)
                             td.p-2.text-center #{player.games}
                             td.p-2.text-center #{player.wins}
                             td.p-2.text-center #{player.losses}
                             td.p-2.text-center.pr-4
-                                span(class=player.change > 0 ? 'text-lab-green' : player.change < 0 ? 'text-lab-red' : 'text-lab-black-50') #{player.change}
-                tr.text-sm.text-lab-black-50.bg-slate-50
+                                span(class=player.change > 0 ? 'text-rttf-green' : player.change < 0 ? 'text-rttf-red' : 'text-rttf-black-50') #{player.change}
+                tr.text-sm.text-rttf-black-50.bg-slate-50
                     td.px-3.p-2.underline.decoration-dotted.w-full(colspan="5") Показать еще 10 соперников
-                tr.text-sm.text-lab-black.font-semibold.bg-lab-color-10.border
+                tr.text-sm.text-rttf-black.font-semibold.bg-rttf-color-10.border
                         td(class="px-3 py-2 text-left leading-5" colspan=2) Всего
                         td(class="p-2 text-center ") 95
                         td(class="p-2 text-center ") 64
                         td(class="p-2 text-center ") 45
-                        td(class="p-2 pr-4 text-center text-lab-green") +174
+                        td(class="p-2 pr-4 text-center text-rttf-green") +174
 
            
 
@@ -261,8 +261,8 @@ html(lang="ru")
                 duration: 14,
                 border: true,
                 players: [
-                    { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-lab-blue' },
-                    { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-lab-yellow' }
+                    { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+                    { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
                 ],
                 numOfPlayers: 1
             })
@@ -271,8 +271,8 @@ html(lang="ru")
                 duration: 12,
                 border: true,
                 players: [
-                    { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '-14.2', opponentScore: 2, initials: 'НП', avatarBg: 'bg-lab-blue' },
-                    { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '+11.5', opponentScore: 1, initials: 'АК', avatarBg: 'bg-lab-yellow' }
+                    { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '-14.2', opponentScore: 2, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+                    { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '+11.5', opponentScore: 1, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
                 ],
                 numOfPlayers: 2
             })
@@ -281,8 +281,8 @@ html(lang="ru")
                 duration: 13,
                 border: false,
                 players: [
-                    { name: 'Бадминтонные пауки', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-lab-blue' },
-                    { name: 'Подмосковные ястребы', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-lab-yellow' }
+                    { name: 'Бадминтонные пауки', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+                    { name: 'Подмосковные ястребы', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
                 ],
                 numOfPlayers: 3
             })

@@ -12,12 +12,12 @@ mixin videoSlider(isLive, tournamentLine, title, plusButton, allLink)
           .relative
             img(src=`dynamic-img/video-${index + 1}.jpg` alt=`Video ${index + 1}` class="w-full rounded-lg")
             if isLive
-              span(class="absolute text-xs font-bold bg-lab-red text-white px-2 py-1 rounded right-2 bottom-2") LIVE
+              span(class="absolute text-xs font-bold bg-rttf-red text-white px-2 py-1 rounded right-2 bottom-2") LIVE
           if tournamentLine
-            .flex.items-center.text-xs.font-bold.gap-2.text-lab-black-50
-              span.text-lab-black-50= video.time
-              span.text-lab-black-50= video.rating
-              span.text-lab-black-50= video.tournamentName
+            .flex.items-center.text-xs.font-bold.gap-2.text-rttf-black-50
+              span.text-rttf-black-50= video.time
+              span.text-rttf-black-50= video.rating
+              span.text-rttf-black-50= video.tournamentName
           .text-sm.font-bold #{video.playerNames}
           .flex.items-center.gap-3.text-sm
             //- .flex.items-center.gap-1
@@ -25,11 +25,11 @@ mixin videoSlider(isLive, tournamentLine, title, plusButton, allLink)
             //-     span #{video.likes}
             .flex.items-center.gap-1
               img(src="img/views.svg").size-5.opacity-50.saturate-50
-              span.text-lab-black-50 #{video.views}
+              span.text-rttf-black-50 #{video.views}
             //- .flex.items-center.gap-1
             //-     img(src="img/comment.svg").size-5.opacity-50.saturate-50
             //-     span #{video.comments}
-            span.text-lab-black-50= video.date
+            span.text-rttf-black-50= video.date
   script.
     function toggleHeart(img) {
       const heartEmpty = 'img/heart-empty.svg';

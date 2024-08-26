@@ -12,7 +12,7 @@ html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title Корты
+        title Столы
         link(href="../../styles.css" rel="stylesheet")
         base(href="../../")
     body.bg-white.pt-16.pb-32.px-4
@@ -20,25 +20,25 @@ html(lang="ru")
         h2.pb-3 Спарринг-партнёры
         +searchAndFilterButton('Имя, клуб', true)
         .flex.gap-4.justify-between.pt-4.pb-2.items-center
-            +sortButton('По рейтингу', [{text: 'По рейтингу', color: 'text-lab-color'}, {text: 'По новизне', color: 'text-lab-color'}])
+            +sortButton('По рейтингу', [{text: 'По рейтингу', color: 'text-rttf-color'}, {text: 'По новизне', color: 'text-rttf-color'}])
             a(href="addRequest.html").text-sm  + Добавить объявление
         mixin player(avatarClass, name, rating, ageCity, ratingRange, locations)
             a(href="pages/trainings/singleSparring.html").flex.items-center.gap-4.shrink-0.py-3.border-t
                 +avatar(avatarClass, name[0] + name.split(' ')[1][0], 64)
                 .flex.flex-col
                     .flex.gap-2.items-center
-                        span.text-lab-black.font-semibold #{name}
+                        span.text-rttf-black.font-semibold #{name}
                         +userRating(rating, true)
-                    span.text-sm.text-lab-black-50.mb-1= ageCity
+                    span.text-sm.text-rttf-black-50.mb-1= ageCity
                     div.mb-1
-                        img(src="img/star-lab-color.svg").inline.align-middle.opacity-50.saturate-50
+                        img(src="img/star-rttf-color.svg").inline.align-middle.opacity-50.saturate-50
                         span.inline.align-middle.ml-2.text-sm #{ratingRange}
                     div.flex.self-start.gap-2.items-start
                         img(src="img/location-icon.svg" class="mt-0.5").opacity-50.saturate-50
-                        div.text-sm.flex.text-lab-black.flex-wrap= locations
+                        div.text-sm.flex.text-rttf-black.flex-wrap= locations
                                        
-        +player('bg-lab-yellow', 'Алексей Борисов', 532, '28 лет, Москва', '100-300', ['Naten-1905 ', ' Фили-ТТ'])
-        +player('bg-lab-green', 'Мария Иванова', 428,  '36 лет, Москва', '200-400', ['Space Химки',  ' Выхино', ' NATEN-Юг'])
-        +player('bg-lab-red', 'Игорь Смирнов', 600,  '43 года, Нижний Новгород', '500-700', ['Impact-Луж', ' NewTon', ' WC Митино'])
+        +player('bg-rttf-yellow', 'Алексей Борисов', 532, '28 лет, Москва', '100-300', ['Naten-1905 ', ' Фили-ТТ'])
+        +player('bg-rttf-green', 'Мария Иванова', 428,  '36 лет, Москва', '200-400', ['Space Химки',  ' Выхино', ' NATEN-Юг'])
+        +player('bg-rttf-red', 'Игорь Смирнов', 600,  '43 года, Нижний Новгород', '500-700', ['Impact-Луж', ' NewTon', ' WC Митино'])
         
-        +tabBar('Корты')
+        +tabBar('Столы')

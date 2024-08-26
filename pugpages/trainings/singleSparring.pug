@@ -15,25 +15,25 @@ html(lang='ru')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Корты
+    title Столы
     link(href='../../styles.css', rel='stylesheet')
     base(href='../../')
   body.bg-page-background.pb-32.pt-12
     +topBar
-    +breadcrumbs([{name: 'Корты', href: 'pages/courts/courts.html'}, {name: 'Спарринг-партнёры', href: 'pages/courts/sparrings.html'}])
+    +breadcrumbs([{name: 'Столы', href: 'pages/courts/courts.html'}, {name: 'Спарринг-партнёры', href: 'pages/courts/sparrings.html'}])
     .flex.shrink-0.items-center.gap-4.bg-white.p-3
       +avatar(avatarClass, 'АБ', 64)
       .grow
-        .font-semibold.text-lab-black Алексей Борисов
+        .font-semibold.text-rttf-black Алексей Борисов
         .inline
           +userRating(324, true) 
           +userRating(633, false)
-        .mt-1.text-sm.text-lab-black-50 21 год, Москва
+        .mt-1.text-sm.text-rttf-black-50 21 год, Москва
       +bookmark
     .bg-white.px-4.pb-4.pt-2
-      p.rounded-lg.border.border-lab-color.bg-lab-color-10.p-3.shadow-lg Классическая техника, вращаю, кидаю, подставляю, подрезаю. Пишите, постучим
+      p.rounded-lg.border.border-rttf-color.bg-rttf-color-10.p-3.shadow-lg Классическая техника, вращаю, кидаю, подставляю, подрезаю. Пишите, постучим
       .flex.items-start.justify-between.gap-4.pt-6
-        span.text-nowrap.text-lab-black-50 Играю в залах
+        span.text-nowrap.text-rttf-black-50 Играю в залах
         span.max-w-40.text-right
           a(href='#') Naten-1905
           | ,
@@ -41,12 +41,12 @@ html(lang='ru')
           | ,
           a(href='#') Space Химки
       .flex.items-start.justify-between.gap-4.pt-4
-        span.text-lab-black-50 Желаемый рейтинг партнёра
+        span.text-rttf-black-50 Желаемый рейтинг партнёра
         span.text-right 100-400
       .mb-2.mt-6 Готов играть в следующие дни
       table.mb-6.w-full.table-fixed.border-collapse
-        thead.font-regular.text-sm.text-lab-black
-          tr.border.bg-lab-color-10
+        thead.font-regular.text-sm.text-rttf-black
+          tr.border.bg-rttf-color-10
             th.border(class='w-1/4') 
             th.border(class='w-1/7') Пн
             th.border(class='w-1/7') Вт
@@ -57,7 +57,7 @@ html(lang='ru')
             th.border(class='w-1/7') Вс
         tbody.border-collapse
           tr
-            td.border.pl-2.text-lab-black Утро
+            td.border.pl-2.text-rttf-black Утро
             td.border
             td.border
             td.border
@@ -66,7 +66,7 @@ html(lang='ru')
             td.border
             td.border
           tr.border
-            td.border.pl-2.text-lab-black День
+            td.border.pl-2.text-rttf-black День
             td.border
             td.border
             td.border
@@ -75,7 +75,7 @@ html(lang='ru')
             td.border: img.mx-auto(src='img/racket.svg')
             td.border
           tr.border
-            td.border.pl-2.text-lab-black Вечер
+            td.border.pl-2.text-rttf-black Вечер
             td.border: img.mx-auto(src='img/racket.svg')
             td.border
             td.border: img.mx-auto(src='img/racket.svg')
@@ -83,6 +83,6 @@ html(lang='ru')
             td.border: img.mx-auto(src='img/racket.svg')
             td.border: img.mx-auto(src='img/racket.svg')
             td.border: img.mx-auto(src='img/racket.svg')
-      +button('Написать сообщение', 'default', 'white', 'bg-lab-color')
+      +button('Написать сообщение', 'default', 'white', 'bg-rttf-color')
 
-    +tabBar('Корты')
+    +tabBar('Столы')

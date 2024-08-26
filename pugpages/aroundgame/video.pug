@@ -42,9 +42,9 @@ html(lang='ru')
           img.size-5.opacity-50.saturate-50(src='img/comment.svg')
           span 3
       .flex.items-center.gap-1.text-xs.pb-2.border-b
-        button.bg-lab-color-10.px-1.border.rounded-md.text-lab-black-50 Соревнования 
-        button.bg-lab-color-10.px-1.border.rounded-md.text-lab-black-50 Смешное
-        div.text-lab-color(onclick="addTagModal()") Как бы вы классифицировали это видео? 
+        button.bg-rttf-color-10.px-1.border.rounded-md.text-rttf-black-50 Соревнования 
+        button.bg-rttf-color-10.px-1.border.rounded-md.text-rttf-black-50 Смешное
+        div.text-rttf-color(onclick="addTagModal()") Как бы вы классифицировали это видео? 
 
       script.
         function toggleHeart(img) {
@@ -81,7 +81,7 @@ html(lang='ru')
               a.inline(href='pages/others/profile.html') Артур Скобелев, 
               |
               a.inline(href='pages/others/profile.html') Игорь Маслов 
-            button.bg-lab-color-10.px-2.border.rounded-md(onclick="addPlayerModal()") +  Отметить игрока
+            button.bg-rttf-color-10.px-2.border.rounded-md(onclick="addPlayerModal()") +  Отметить игрока
         .flex.items-center.gap-3.text-sm
           img.size-4.opacity-50.saturate-50(src='img/camera.svg' alt='')
           a(href='pages/others/profile.html') Юрий Любимов
@@ -91,9 +91,9 @@ html(lang='ru')
         div.mb-4 Введите имя игрока, которого еще нет на фото
         input.p-2.border.rounded.mb-4(type="text" placeholder="Имя игрока").w-full
         div.flex.gap-2
-          +button('Отмена', 'text', 'lab-black-50', '', ' w-1/2', 'cancelButton')
-          +button('Отправить', 'default', 'white', 'bg-lab-color', ' w-1/2', 'commentSubmitButton')
-        button.absolute.top-2.right-4.text-2xl.text-lab-black(onclick="closeAddPlayerModal()") &times;
+          +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
+          +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
+        button.absolute.top-2.right-4.text-2xl.text-rttf-black(onclick="closeAddPlayerModal()") &times;
 
     div.hidden.fixed.inset-0.z-50.bg-gray-800.bg-opacity-50.flex.justify-center.items-center#addTagmodal
         div.bg-white.p-4.rounded-lg.shadow-lg.w-96.relative
@@ -112,9 +112,9 @@ html(lang='ru')
                 option(value="juniors") Юниоры
 
             div.flex.gap-2
-                +button('Отмена', 'text', 'lab-black-50', '', ' w-1/2', 'cancelButton')
-                +button('Отправить', 'default', 'white', 'bg-lab-color', ' w-1/2', 'commentSubmitButton')
-            button.absolute.top-2.right-4.text-2xl.text-lab-black(onclick="closeAddTagModal()") &times;
+                +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
+                +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
+            button.absolute.top-2.right-4.text-2xl.text-rttf-black(onclick="closeAddTagModal()") &times;
 
 
     script.

@@ -1,0 +1,41 @@
+include /components/atoms/tournamentTypeBadge.pug
+include /components/atoms/ratingLimit.pug
+include /components/atoms/bookmark.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/chessTournamentGameResult.pug
+include /components/inputs/searchBar.pug
+
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Игры турнира
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body
+        +topBar
+        div.bg-white.px-4.pt-16.pb-16
+            div.bg-white.rounded-lg
+                .flex.justify-between.gap-2.items-center
+                    .flex.items-center.gap-2.justify-center.grow
+                        +ratingLimit('<', 520)
+                        img(src="img/chesspong.svg")
+                        h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
+                    +bookmark(false)
+                div.flex.gap-2.items-center.pt-3.justify-center.text-sm
+                    img.w-4.aspect-square(src='img/calendar.svg' alt='Дата')
+                    span 11 сентября, четверг
+                    span 12:30
+            .pt-4
+                +searchBar('Найти игрока')
+            .py-2
+                +chessTournamentGameResult('1', '7', '12:37', {name: 'Гаспарян А.'}, {name: 'Касаткин Б.'}, true, 375, 511, 22, 4, 37.5, -37.5, '2:33')
+                +chessTournamentGameResult('1', '8', '12:40', {name: 'Иванов И.'}, {name: 'Петров П.'}, false, 400, 480, 19, 21, -12.5, 12.5, '3:12')
+                +chessTournamentGameResult('1', '9', '12:45', {name: 'Сидоров С.'}, {name: 'Николаев Н.'}, true, 410, 450, 21, 15, 20.0, -20.0, '3:55')
+                +chessTournamentGameResult('1', '7', '12:37', {name: 'Гаспарян А.'}, {name: 'Касаткин Б.'}, true, 375, 511, 22, 4, 37.5, -37.5, '2:33')
+                +chessTournamentGameResult('1', '8', '12:40', {name: 'Иванов И.'}, {name: 'Петров П.'}, false, 400, 480, 19, 21, -12.5, 12.5, '3:12')
+                +chessTournamentGameResult('1', '9', '12:45', {name: 'Сидоров С.'}, {name: 'Николаев Н.'}, true, 410, 450, 21, 15, 20.0, -20.0, '3:55')
+        +tabBar('Турниры')

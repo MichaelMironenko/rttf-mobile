@@ -29,21 +29,21 @@ html(lang='ru')
   body.mt-12.bg-white.pb-32
     +topBar
     .p-4
-      .grow.pb-4.text-center.text-lg.font-bold.text-lab-black Бронирование №123456 подтверждено
+      .grow.pb-4.text-center.text-lg.font-bold.text-rttf-black Бронирование №123456 подтверждено
       +bookingData(false)
       .text-wrap.pb-4
         img.inline-block.align-middle.opacity-50.saturate-50(src='img/price.svg', alt='')
         span.ml-2.inline-block.align-middle 2000₽
-        span.ml-2.inline-block.rounded-md.bg-lab-green.px-2.py-1.align-middle.text-sm.font-semibold.text-white Оплачено
-        span.ml-2.inline-block.text-nowrap.rounded-md.bg-lab-yellow.px-2.py-1.align-middle.text-sm.font-semibold.text-white Оплата в клубе
-        span.ml-2.inline-block.rounded-md.bg-lab-color.px-2.py-1.align-middle.text-sm.font-semibold.text-white Абонемент
+        span.ml-2.inline-block.rounded-md.bg-rttf-green.px-2.py-1.align-middle.text-sm.font-semibold.text-white Оплачено
+        span.ml-2.inline-block.text-nowrap.rounded-md.bg-rttf-yellow.px-2.py-1.align-middle.text-sm.font-semibold.text-white Оплата в клубе
+        span.ml-2.inline-block.rounded-md.bg-rttf-color.px-2.py-1.align-middle.text-sm.font-semibold.text-white Абонемент
 
       .flex.flex-col.gap-2.border-t.pb-2.pt-4
         h2 Naten-ЮГ
         span г. Красногорск, ул Парковая, д. 8А
         div
           img.inline.w-7.align-middle(src='img/D1.svg')
-          span.ml-2.inline.w-7.align-middle.text-lab-black-50 Красногорская
+          span.ml-2.inline.w-7.align-middle.text-rttf-black-50 Красногорская
         div
           img.inline.align-middle(src='img/phone.svg', alt='Телефон')
           a.ml-2.inline.align-middle(href='tel: +71234567890') +7 (123) 456-78-90
@@ -68,9 +68,9 @@ html(lang='ru')
       .flex.justify-between.gap-2.pb-6
         span Менее 12 часов
         .div.mb-1.grow.border-b-2.border-dotted
-        span.text-right.text-lab-red Оплата не возвращается
-      +button('Отменить бронирование', 'default', 'white', 'bg-lab-red','', 'cancelBooking')
-    +modal('Отменить бронирование?', [ {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-lab-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'} ], "modal-delete", true)
+        span.text-right.text-rttf-red Оплата не возвращается
+      +button('Отменить бронирование', 'default', 'white', 'bg-rttf-red','', 'cancelBooking')
+    +modal('Отменить бронирование?', [ {text: 'Отменить с возвратом 50%', variant: 'default', color: 'white', bgColor: 'bg-rttf-red', extraClasses: '', id: 'cancelButton', href:'pages/courts/bookingCancelled.html'} ], "modal-delete", true)
       .mb-8 До игры осталось менее 24 часов, будет возвращено 50% стоимости
 
     script.

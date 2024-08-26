@@ -73,10 +73,10 @@ body.bg-page-background.pt-12
             .flex.grow.flex-col.items-start
               span.text-sm.font-bold= item.title
               if item.handle
-                span.mt-2.text-xs.text-lab-black-50= item.handle
+                span.mt-2.text-xs.text-rttf-black-50= item.handle
               .mt-3.flex.w-full.items-center.gap-4
                 span.text-sm= `${item.quantity} шт.`
-                span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+                span.shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
       .flex.items-center.justify-between.gap-4.border-b.pb-4
         span.font-bold Итого
         span.font-bold= order.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
@@ -88,10 +88,10 @@ body.bg-page-background.pt-12
         p.pt-0.text-sm= order.recipient.name
         p.pt-0.text-sm= order.recipient.email
         p.pt-0.text-sm= order.recipient.phone
-      +button('Отменить заказ', 'default', 'lab-black', 'bg-lab-color-10', '', 'cancelOrder') 
+      +button('Отменить заказ', 'default', 'rttf-black', 'bg-rttf-color-10', '', 'cancelOrder') 
       p.py-0.text-sm
         | Что-то не так? Напишите нам на 
-        a.text-lab-color(href='mailto:info@rttf.ru') info@rttf.ru
+        a.text-rttf-color(href='mailto:info@rttf.ru') info@rttf.ru
         |
         | и мы постараемся решить ваш вопрос.
       
@@ -113,11 +113,11 @@ body.bg-page-background.pt-12
                 .flex.grow.flex-col.items-start
                   span.text-sm.font-bold= item.title
                   if item.handle
-                    span.mt-2.text-xs.text-lab-black-50= item.handle
+                    span.mt-2.text-xs.text-rttf-black-50= item.handle
                   .mt-2.flex.w-full.items-center.gap-4
                     span.text-sm= `${item.quantity} шт.`
-                    span.shrink-0.rounded.bg-lab-light-yellow.px-2.py-1.text-sm.font-semibold.text-lab-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
-          +button('Продолжить', 'default', 'white', 'bg-lab-color', '', 'continueCancel') 
+                    span.shrink-0.rounded.bg-rttf-light-yellow.px-2.py-1.text-sm.font-semibold.text-rttf-black= item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
+          +button('Продолжить', 'default', 'white', 'bg-rttf-color', '', 'continueCancel') 
 
     // Модальное окно причин отмены
     .fixed.inset-0.z-50.flex.items-center.justify-center.bg-black.bg-opacity-50.hidden#reasonModal
@@ -130,9 +130,9 @@ body.bg-page-background.pt-12
             label.flex.items-center.gap-2
               input(type='radio', name='reason').size-4
               span.text-sm= reason
-        +button('Продолжить', 'default', 'white', 'bg-lab-color', 'mt-2', 'confirmCancel') 
+        +button('Продолжить', 'default', 'white', 'bg-rttf-color', 'mt-2', 'confirmCancel') 
 
-    +modal('Заказ отменён', [{ text: 'Отлично', variant: 'default', color: 'white', bgColor: 'bg-lab-color'}], 'modal-cancel-order', true)
+    +modal('Заказ отменён', [{ text: 'Отлично', variant: 'default', color: 'white', bgColor: 'bg-rttf-color'}], 'modal-cancel-order', true)
 
     script.
       document.getElementById('cancelOrder').addEventListener('click', function() {

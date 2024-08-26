@@ -74,9 +74,9 @@ html(lang="ru")
                 input#player-input(type="text" class="inline w-full outline-none mb-1")
                 div#player-tags.flex.flex-wrap.gap-1.inline.w-full.pt-2.border-t
 
-            .text-xs.-mt-2.mb-1.text-lab-black-50 Кликните на победителей турнира для добавления в список игроков на фото или 
+            .text-xs.-mt-2.mb-1.text-rttf-black-50 Кликните на победителей турнира для добавления в список игроков на фото или 
                 |
-                span#add-all.text-lab-color добавьте всех сразу
+                span#add-all.text-rttf-color добавьте всех сразу
             div#player-list.flex.flex-wrap.gap-1.inline.pt-1
                 each category in winners
                     each player in category.players
@@ -88,7 +88,7 @@ html(lang="ru")
                                  : 'bg-[linear-gradient(151deg,#D78E5D_0%,#ECCEBA_40%,#D78A56_68%,#D29A73_100%)]'
                         span.player.text-xxs.font-medium(class="px-2 py-1 " + gradientClass data-player=player).rounded-md= player
 
-            .text-lab-red.w-full.p-4.text-center Удалить фото
+            .text-rttf-red.w-full.p-4.text-center Удалить фото
         
         script.
             document.addEventListener('DOMContentLoaded', () => {
