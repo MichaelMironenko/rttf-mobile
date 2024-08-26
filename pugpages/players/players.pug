@@ -223,7 +223,7 @@ html(lang='ru')
                 th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
 
         each user, index in users
-          tr.border-b.text-rttf-black.mt-4
+          tr.border-b.text-rttf-black
             td.px-2.text-center.text-sm= index + 1
             td: +avatar(user.color, user.initials, 32)
             td.px-2.py-1
