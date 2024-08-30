@@ -102,7 +102,9 @@ html(lang='ru')
 
     #rating.tab-content.mx-auto.w-screen
       
-      +filterButtonsRow([ { label: 'Настольный теннис', active: true }, { label: 'Шахпонг', active: false }, { label: 'Ракетлон', active: false }, { label: 'Пинг-понг', active: false } , { label: 'Лига-ПРО', active: false } , { label: 'ФНТР', active: false }  ], true, 'mt-4')
+      h1.p-4 Рейтинг
+
+      +filterButtonsRow([ { label: 'Настольный теннис', active: true }, { label: 'Шахпонг', active: false }, { label: 'Ракетлон', active: false }, { label: 'Пинг-понг', active: false } , { label: 'Лига-ПРО', active: false } , { label: 'ФНТР', active: false }  ], true)
 
       +searchAndFilterButton('Имя, логин или город', true, 'p-4')
       -
@@ -245,11 +247,13 @@ html(lang='ru')
               )= user.singleRatingChange
             td.hidden.px-2.text-center.leading-none.text-rttf-black-50(class='text-[13px] sm:table-cell')= user.lastChange
 
-    #stats.tab-content.mx-auto.hidden.w-screen.bg-page-background.p-4
-      h1.mb-4 Статистика
-        
-      
-      +block('Лидеры роста рейтинга')
+    #stats.tab-content.mx-auto.hidden.w-screen.bg-page-background.px-4
+      .sticky.top-12.z-10.bg-page-background.p-4.-mx-4.-mt-4.shadow-xl
+        h1.mb-4 Статистика
+            
+        +filterButtonsRow([ { label: 'Настольный теннис', active: true }, { label: 'Шахпонг', active: false }, { label: 'Ракетлон', active: false }, { label: 'Пинг-понг', active: false } , { label: 'Лига-ПРО', active: false } , { label: 'ФНТР', active: false }  ], true, 'mt-4 -mx-4')
+
+      +block('Лидеры роста рейтинга', '', '', '', 'mt-8')
         +filterButtonsRow([ { label: 'Неделя', active: true}, { label: 'Месяц', active: false}, { label: 'Год', active: false}, { label: 'Всё время', active: false }, ], 'padding', '-mx-4')
         .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4.pt-6
           .flex.min-w-20.flex-col.items-center.gap-2

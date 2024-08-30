@@ -77,7 +77,7 @@ html(lang="ru")
 
 
 
-        div#information.tab-content.scroll-smooth.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
+        div#information.tab-content.scroll-smooth.no-scrollbar(class="px-[3vw]").pt-16.pb-28
             +adminBar({
                 edit: true,
                 addPhoto: true,
@@ -89,7 +89,7 @@ html(lang="ru")
                 delete: true,
 
                 })
-            div.p-4.bg-white.rounded-lg
+            div.p-4.bg-white.rounded-lg.my-3
                 .flex.justify-between.gap-2.items-center
                     .flex.items-center.gap-2.justify-center.grow
                         +ratingLimit('<', 520)
@@ -185,30 +185,26 @@ html(lang="ru")
                             { "number": 2, "firstName": "Михаил", "lastName": "Дмитриев", "rating": 876, "avatar": "", "byPhone": true, "coefficient": "1.8", "dateTime": "11 марта 15:00", "ratingType": "racketlon" }
                         ],
                         [
-                            { "number": 3, "firstName": "Егор", "lastName": "Иванов", "rating": 789, "avatar": "dynamic-img/user-1.jpg", "coefficient": "3.2", "dateTime": "11 марта 12:21", "medal": "gold" },
+                            { "number": 3, "firstName": "Егор", "lastName": "Иванов", "rating": 789, "avatar": "dynamic-img/user-1.jpg", "coefficient": "3.2", "dateTime": "11 марта 12:21", "medal": "gold", "double": "true" },
                             { "number": 4, "firstName": "Антон", "lastName": "Петров", "rating": 654, "avatar": "", "coefficient": "2.7", "dateTime": "11 марта 12:21" }
                         ],
+                        
                         [
-                            { "number": 5, "firstName": "Денис", "lastName": "Сергеев", "rating": 832, "avatar": "", "coefficient": "1.4", "teamName": "Трое в лодке не считая волана", "dateTime": "11 марта 15:30" },
-                            { "number": 6, "firstName": "Артем", "lastName": "Александров", "rating": 919, "avatar": "dynamic-img/user-2.jpg", "coefficient": "3.6", "teamName": "Трое в лодке не считая волана", "dateTime": "11 марта 15:30" },
-                            { "number": 7, "firstName": "Владимир", "lastName": "Михайлов", "rating": 751, "avatar": "dynamic-img/user-3.jpg", "coefficient": "2.2", "teamName": "Трое в лодке не считая волана", "dateTime": "11 марта 15:30" }
+                            { "number": 5, "firstName": "Сергей", "lastName": "Романов", "rating": 668, "avatar": "", "warning": 'true', "coefficient": "3.9", "dateTime": "11 марта 18:20", "medal": "silver", "ratingType": "fntr" }
                         ],
                         [
-                            { "number": 8, "firstName": "Сергей", "lastName": "Романов", "rating": 668, "avatar": "", "warning": 'true', "coefficient": "3.9", "dateTime": "11 марта 18:20", "medal": "silver", "ratingType": "fntr" }
+                            { "number": 6, "firstName": "Андрей", "lastName": "Федоров", "rating": 812, "avatar": "", "coefficient": "1.7", "dateTime": "11 марта 12:34", "ratingType": "ligapro" }
                         ],
                         [
-                            { "number": 9, "firstName": "Андрей", "lastName": "Федоров", "rating": 812, "avatar": "", "coefficient": "1.7", "dateTime": "11 марта 12:34", "ratingType": "ligapro" }
-                        ],
-                        [
-                            { "number": 10, "firstName": "Никита", "lastName": "Кузнецов", "rating": 900, "avatar": "", "coefficient": "2.4", "dateTime": "11 марта 18:22", "ratingType": "pingpong" }
+                            { "number": 7, "firstName": "Никита", "lastName": "Кузнецов", "rating": 900, "avatar": "", "coefficient": "2.4", "dateTime": "11 марта 18:22", "ratingType": "pingpong" }
                         ],
                         // Добавление нового игрока для chesspong
                         [
-                            { "number": 11, "firstName": "Владислав", "lastName": "Кириллов", "rating": 870, "avatar": "", "coefficient": "2.1", "dateTime": "11 марта 19:00", "ratingType": "chesspong" }
+                            { "number": 8, "firstName": "Владислав", "lastName": "Кириллов", "rating": 870, "avatar": "", "coefficient": "2.1", "dateTime": "11 марта 19:00", "ratingType": "chesspong" }
                         ],
                         // Добавление нового игрока для racketlon
                         [
-                            { "number": 12, "firstName": "Иван", "lastName": "Сидоров", "rating": 850, "avatar": "", "coefficient": "1.9", "dateTime": "11 марта 19:30", "ratingType": "racketlon" }
+                            { "number": 9, "firstName": "Иван", "lastName": "Сидоров", "rating": 850, "avatar": "", "coefficient": "1.9", "dateTime": "11 марта 19:30", "ratingType": "racketlon" }
                         ]
                     ];
 

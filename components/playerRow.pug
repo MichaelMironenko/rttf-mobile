@@ -1,4 +1,4 @@
-mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType)
+mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType, double)
   - var colors = ['bg-rttf-blue', 'bg-rttf-green', 'bg-rttf-red', 'bg-rttf-purple', 'bg-rttf-yellow']
   - var randomColor = colors[Math.floor(Math.random() * colors.length)]
 
@@ -45,7 +45,7 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType)
                     if index < players.length - 1
                       | /
     td.text-center
-      +userRating(players[0].rating, false, '', players[0].ratingType)
+      +userRating(players[0].rating, players[0].double, '', players[0].ratingType)
     
     if dateTime && !showCoefficient
       td.text-center.hidden(class="sm:table-cell text-rttf-black-50") #{dateTime}
