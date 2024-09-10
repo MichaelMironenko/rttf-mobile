@@ -62,15 +62,22 @@
             </div><img src="img/chesspong.svg">
             <h1 class="text-lg leading-6 text-rttf-black font-bold">Сколково</h1>
           </div>
-          <button class="cursor-pointer shrink-0 undefined" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-6" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-          </button>
+          <button class="cursor-pointer shrink-0 undefined"><img class="bookmark-icon size-6" src="img/bookmark-empty.svg" alt="Закладка"></button>
           <script>
-            var isActive = false; // Начальное состояние закладки
-            function toggleBookmark() {
-              isActive = !isActive; // Переключаем состояние
-              var bookmarkIcon = document.getElementById('bookmarkIcon');
-              bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-            }
+            document.addEventListener('DOMContentLoaded', function() {
+              var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+              
+              bookmarkButtons.forEach(function(button) {
+                var bookmarkId = button.getAttribute('data-bookmark-id');
+                var isActive = false; // Начальное состояние закладки
+                var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+            
+                button.addEventListener('click', function() {
+                  isActive = !isActive; // Переключаем состояние
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                });
+              });
+            });
           </script>
         </div>
         <div class="flex gap-2 items-center pt-3 justify-center text-sm"><img class="w-4 aspect-square" src="img/calendar.svg" alt="Дата"><span>11 сентября, четверг</span><span>12:30</span></div>

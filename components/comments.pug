@@ -21,13 +21,13 @@ mixin comments(isReview = false)
           class='focus:border-blue-500 focus:outline-none',
           style='scrollbar-width: none; -ms-overflow-style: none',
           rows='1',
-          placeholder='Напишите отзыв (опционально)...'
+          placeholder='Напишите комментарий'
         )
 
-        .flex.hidden.items-center.gap-4
-          img#pasteButton.size-6(src='img/paste.svg', alt='Вставить')
-          +button('Отмена', 'text', 'rttf-black-50', '', 'w-1/2', 'cancelButton')
-          +button('Отправить', 'default', 'white', 'bg-rttf-color', 'w-1/2', 'commentSubmitButton')
+        .flex.items-center.gap-4
+          img#pasteButton.hidden.size-6(src='img/paste.svg', alt='Вставить')
+          +button('Отмена', 'text', 'rttf-black-50', '', ' hidden', 'cancelButton')
+          +button('Отправить', 'default', 'white', 'bg-rttf-color', ' hidden', 'commentSubmitButton')
 
       script.
         const textArea = document.getElementById('commentTextArea')

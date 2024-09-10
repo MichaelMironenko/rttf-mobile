@@ -319,9 +319,9 @@
           <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
         </div>
         <div class="relative flex flex-grow flex-col gap-3">
-          <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea"  style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите отзыв (опционально)..."></textarea>
-          <div class="flex hidden items-center gap-4"><img class="size-6" id="pasteButton" src="img/paste.svg" alt="Вставить">
-            <button class=" text-rttf-black-50 bg-transparent w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+          <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea"  style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий"></textarea>
+          <div class="flex items-center gap-4"><img class="hidden size-6" id="pasteButton" src="img/paste.svg" alt="Вставить">
+            <button class="w-full text-rttf-black-50 bg-transparent  hidden transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-interactive');
@@ -361,7 +361,7 @@
                   });
               });
             </script>
-            <button class=" w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+            <button class="w-full  hidden bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-interactive');
@@ -502,9 +502,9 @@
               <button class="rounded-full bg-slate-100 px-2" onclick="togglePopup(1)">🙏🏼</button>
             </div>
           </div>
-        </div><img class="cursor-pointer" src="img/three-dots.svg" alt="Действия с комментарием" onclick="toggleCommentMenu('1')">
+        </div><img class="cursor-pointer" src="img/three-dots.svg" onclick="toggleCommentMenu('1')" alt="Кнопка меню">
         <div class="absolute bottom-0" id="commentMenu-1">
-          <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+          <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container-${commentID}" data-action="hide">
             <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/edit.svg" alt=""><span class="flex-1 text-rttf-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/copy.svg" alt=""><span class="flex-1 text-rttf-color">Скопировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/cut.svg" alt=""><span class="flex-1 text-rttf-color">Вырезать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Игнорировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Скрыть</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/warning.svg" alt=""><span class="flex-1 text-rttf-color">Пожаловаться</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><img class="h-6 w-6" src="img/delete.svg" alt=""><span class="flex-1 text-rttf-red">Удалить</span></a>
             </div>
             <script>
@@ -520,10 +520,10 @@
           </div>
         </div>
       </div>
-      <div class="mb-3 flex hidden flex-grow flex-col gap-3" id="commentForm-1">
-        <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..." onfocus="this.rows=5; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden');" oninput="document.getElementById('commentSubmitButton-${commentID}').disabled = this.value.trim().length &lt;= 1; this.style.height = ''; this.style.height = this.scrollHeight + 'px'; if(this.value.trim().length) { document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden'); } else { document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden'); }" onblur="if(!this.value.trim()) {this.rows=1; this.style.height = 'auto'; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden');}"></textarea>
+      <div class="mb-3 hidden flex-grow flex-col gap-3" id="commentForm-1">
+        <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea-1" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..."></textarea>
         <div class="flex items-center gap-4">
-          <button class=" text-rttf-black-50 bg-transparent  w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+          <button class="w-full text-rttf-black-50 bg-transparent  transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton-1">Отмена</button>
           <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const buttons = document.querySelectorAll('.button-interactive');
@@ -563,7 +563,7 @@
                 });
             });
           </script>
-          <button class="  w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+          <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton-1">Отправить</button>
           <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const buttons = document.querySelectorAll('.button-interactive');
@@ -604,27 +604,60 @@
             });
           </script>
         </div>
+        <script>document.getElementById('commentTextArea-1').addEventListener('focus', function () {
+              this.rows = 5;
+              this.style.overflow = 'hidden';
+              document.getElementById('commentSubmitButton-1').classList.remove('hidden');
+              document.getElementById('cancelButton-1').classList.remove('hidden');
+          });
+          
+          document.getElementById('commentTextArea-1').addEventListener('input', function () {
+              const submitButton = document.getElementById('commentSubmitButton-1');
+              const cancelButton = document.getElementById('cancelButton-1');
+              submitButton.disabled = this.value.trim().length <= 1;
+              this.style.height = '';
+              this.style.height = this.scrollHeight + 'px';
+              if (this.value.trim().length) {
+                  submitButton.classList.remove('hidden');
+                  cancelButton.classList.remove('hidden');
+              } else {
+                  submitButton.classList.add('hidden');
+                  cancelButton.classList.add('hidden');
+              }
+          });
+          
+          document.getElementById('commentTextArea-1').addEventListener('blur', function () {
+              if (!this.value.trim()) {
+                  this.rows = 1;
+                  this.style.height = 'auto';
+                  this.style.overflow = 'hidden';
+                  document.getElementById('commentSubmitButton-1').classList.add('hidden');
+                  document.getElementById('cancelButton-1').classList.add('hidden');
+              }
+          });
+          
+        </script>
       </div>
       <script>
         function togglePopup(commentID) {
-          var popup = document.getElementById(`reactions-popup-${commentID}`)
-          var isDisplayed = popup.style.display === 'block'
-          popup.style.display = isDisplayed ? 'none' : 'block'
+          var popup = document.getElementById('reactions-popup-' + commentID);
+          var isDisplayed = popup.style.display === 'block';
+          popup.style.display = isDisplayed ? 'none' : 'block';
         }
         
-        document.getElementById(`reactions-trigger-${'1'}`).addEventListener('click', function () {
-          togglePopup('1')
-        })
+        document.getElementById('reactions-trigger-1').addEventListener('click', function () {
+          togglePopup('1');
+        });
         
         function toggleCommentMenu(commentID) {
-          var commentMenu = document.getElementById(`action-menu-container`)
-          console.log(commentMenu)
-          commentMenu.classList.toggle('hidden')
+          var commentMenu = document.getElementById('commentMenu-' + commentID);
+          commentMenu.classList.toggle('hidden');
         }
         
         function toggleCommentForm(commentID) {
-          var form = document.getElementById(`commentForm-${commentID}`)
-          form.classList.toggle('hidden')
+          var form = document.getElementById('commentForm-' + commentID);
+          form.classList.toggle('hidden');
+          form.classList.toggle('flex');
         }
       </script>
       <div class="border-l border-rttf-black-10 pl-6">
@@ -668,9 +701,9 @@
                 <button class="rounded-full bg-slate-100 px-2" onclick="togglePopup(2)">😲</button>
               </div>
             </div>
-          </div><img class="cursor-pointer" src="img/three-dots.svg" alt="Действия с комментарием" onclick="toggleCommentMenu('2')">
+          </div><img class="cursor-pointer" src="img/three-dots.svg" onclick="toggleCommentMenu('2')" alt="Кнопка меню">
           <div class="absolute bottom-0" id="commentMenu-2">
-            <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+            <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container-${commentID}" data-action="hide">
               <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/edit.svg" alt=""><span class="flex-1 text-rttf-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/copy.svg" alt=""><span class="flex-1 text-rttf-color">Скопировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/cut.svg" alt=""><span class="flex-1 text-rttf-color">Вырезать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Игнорировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Скрыть</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/warning.svg" alt=""><span class="flex-1 text-rttf-color">Пожаловаться</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><img class="h-6 w-6" src="img/delete.svg" alt=""><span class="flex-1 text-rttf-red">Удалить</span></a>
               </div>
               <script>
@@ -686,10 +719,10 @@
             </div>
           </div>
         </div>
-        <div class="mb-3 flex hidden flex-grow flex-col gap-3" id="commentForm-2">
-          <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..." onfocus="this.rows=5; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden');" oninput="document.getElementById('commentSubmitButton-${commentID}').disabled = this.value.trim().length &lt;= 1; this.style.height = ''; this.style.height = this.scrollHeight + 'px'; if(this.value.trim().length) { document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden'); } else { document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden'); }" onblur="if(!this.value.trim()) {this.rows=1; this.style.height = 'auto'; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden');}"></textarea>
+        <div class="mb-3 hidden flex-grow flex-col gap-3" id="commentForm-2">
+          <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea-2" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..."></textarea>
           <div class="flex items-center gap-4">
-            <button class=" text-rttf-black-50 bg-transparent  w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+            <button class="w-full text-rttf-black-50 bg-transparent  transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton-2">Отмена</button>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-interactive');
@@ -729,7 +762,7 @@
                   });
               });
             </script>
-            <button class="  w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+            <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton-2">Отправить</button>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-interactive');
@@ -770,27 +803,60 @@
               });
             </script>
           </div>
+          <script>document.getElementById('commentTextArea-2').addEventListener('focus', function () {
+                this.rows = 5;
+                this.style.overflow = 'hidden';
+                document.getElementById('commentSubmitButton-2').classList.remove('hidden');
+                document.getElementById('cancelButton-2').classList.remove('hidden');
+            });
+            
+            document.getElementById('commentTextArea-2').addEventListener('input', function () {
+                const submitButton = document.getElementById('commentSubmitButton-2');
+                const cancelButton = document.getElementById('cancelButton-2');
+                submitButton.disabled = this.value.trim().length <= 1;
+                this.style.height = '';
+                this.style.height = this.scrollHeight + 'px';
+                if (this.value.trim().length) {
+                    submitButton.classList.remove('hidden');
+                    cancelButton.classList.remove('hidden');
+                } else {
+                    submitButton.classList.add('hidden');
+                    cancelButton.classList.add('hidden');
+                }
+            });
+            
+            document.getElementById('commentTextArea-2').addEventListener('blur', function () {
+                if (!this.value.trim()) {
+                    this.rows = 1;
+                    this.style.height = 'auto';
+                    this.style.overflow = 'hidden';
+                    document.getElementById('commentSubmitButton-2').classList.add('hidden');
+                    document.getElementById('cancelButton-2').classList.add('hidden');
+                }
+            });
+            
+          </script>
         </div>
         <script>
           function togglePopup(commentID) {
-            var popup = document.getElementById(`reactions-popup-${commentID}`)
-            var isDisplayed = popup.style.display === 'block'
-            popup.style.display = isDisplayed ? 'none' : 'block'
+            var popup = document.getElementById('reactions-popup-' + commentID);
+            var isDisplayed = popup.style.display === 'block';
+            popup.style.display = isDisplayed ? 'none' : 'block';
           }
           
-          document.getElementById(`reactions-trigger-${'2'}`).addEventListener('click', function () {
-            togglePopup('2')
-          })
+          document.getElementById('reactions-trigger-2').addEventListener('click', function () {
+            togglePopup('2');
+          });
           
           function toggleCommentMenu(commentID) {
-            var commentMenu = document.getElementById(`action-menu-container`)
-            console.log(commentMenu)
-            commentMenu.classList.toggle('hidden')
+            var commentMenu = document.getElementById('commentMenu-' + commentID);
+            commentMenu.classList.toggle('hidden');
           }
           
           function toggleCommentForm(commentID) {
-            var form = document.getElementById(`commentForm-${commentID}`)
-            form.classList.toggle('hidden')
+            var form = document.getElementById('commentForm-' + commentID);
+            form.classList.toggle('hidden');
+            form.classList.toggle('flex');
           }
         </script>
       </div>
@@ -826,9 +892,9 @@
                   <button class="rounded-full bg-slate-100 px-2" onclick="togglePopup(3)">🙏🏼</button>
                 </div>
               </div>
-            </div><img class="cursor-pointer" src="img/three-dots.svg" alt="Действия с комментарием" onclick="toggleCommentMenu('3')">
+            </div><img class="cursor-pointer" src="img/three-dots.svg" onclick="toggleCommentMenu('3')" alt="Кнопка меню">
             <div class="absolute bottom-0" id="commentMenu-3">
-              <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+              <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container-${commentID}" data-action="hide">
                 <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/edit.svg" alt=""><span class="flex-1 text-rttf-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/copy.svg" alt=""><span class="flex-1 text-rttf-color">Скопировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/cut.svg" alt=""><span class="flex-1 text-rttf-color">Вырезать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Игнорировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Скрыть</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/warning.svg" alt=""><span class="flex-1 text-rttf-color">Пожаловаться</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><img class="h-6 w-6" src="img/delete.svg" alt=""><span class="flex-1 text-rttf-red">Удалить</span></a>
                 </div>
                 <script>
@@ -844,10 +910,10 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 flex hidden flex-grow flex-col gap-3" id="commentForm-3">
-            <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..." onfocus="this.rows=5; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden');" oninput="document.getElementById('commentSubmitButton-${commentID}').disabled = this.value.trim().length &lt;= 1; this.style.height = ''; this.style.height = this.scrollHeight + 'px'; if(this.value.trim().length) { document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden'); } else { document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden'); }" onblur="if(!this.value.trim()) {this.rows=1; this.style.height = 'auto'; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden');}"></textarea>
+          <div class="mb-3 hidden flex-grow flex-col gap-3" id="commentForm-3">
+            <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea-3" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..."></textarea>
             <div class="flex items-center gap-4">
-              <button class=" text-rttf-black-50 bg-transparent  w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+              <button class="w-full text-rttf-black-50 bg-transparent  transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton-3">Отмена</button>
               <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.button-interactive');
@@ -887,7 +953,7 @@
                     });
                 });
               </script>
-              <button class="  w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+              <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton-3">Отправить</button>
               <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.button-interactive');
@@ -928,27 +994,60 @@
                 });
               </script>
             </div>
+            <script>document.getElementById('commentTextArea-3').addEventListener('focus', function () {
+                  this.rows = 5;
+                  this.style.overflow = 'hidden';
+                  document.getElementById('commentSubmitButton-3').classList.remove('hidden');
+                  document.getElementById('cancelButton-3').classList.remove('hidden');
+              });
+              
+              document.getElementById('commentTextArea-3').addEventListener('input', function () {
+                  const submitButton = document.getElementById('commentSubmitButton-3');
+                  const cancelButton = document.getElementById('cancelButton-3');
+                  submitButton.disabled = this.value.trim().length <= 1;
+                  this.style.height = '';
+                  this.style.height = this.scrollHeight + 'px';
+                  if (this.value.trim().length) {
+                      submitButton.classList.remove('hidden');
+                      cancelButton.classList.remove('hidden');
+                  } else {
+                      submitButton.classList.add('hidden');
+                      cancelButton.classList.add('hidden');
+                  }
+              });
+              
+              document.getElementById('commentTextArea-3').addEventListener('blur', function () {
+                  if (!this.value.trim()) {
+                      this.rows = 1;
+                      this.style.height = 'auto';
+                      this.style.overflow = 'hidden';
+                      document.getElementById('commentSubmitButton-3').classList.add('hidden');
+                      document.getElementById('cancelButton-3').classList.add('hidden');
+                  }
+              });
+              
+            </script>
           </div>
           <script>
             function togglePopup(commentID) {
-              var popup = document.getElementById(`reactions-popup-${commentID}`)
-              var isDisplayed = popup.style.display === 'block'
-              popup.style.display = isDisplayed ? 'none' : 'block'
+              var popup = document.getElementById('reactions-popup-' + commentID);
+              var isDisplayed = popup.style.display === 'block';
+              popup.style.display = isDisplayed ? 'none' : 'block';
             }
             
-            document.getElementById(`reactions-trigger-${'3'}`).addEventListener('click', function () {
-              togglePopup('3')
-            })
+            document.getElementById('reactions-trigger-3').addEventListener('click', function () {
+              togglePopup('3');
+            });
             
             function toggleCommentMenu(commentID) {
-              var commentMenu = document.getElementById(`action-menu-container`)
-              console.log(commentMenu)
-              commentMenu.classList.toggle('hidden')
+              var commentMenu = document.getElementById('commentMenu-' + commentID);
+              commentMenu.classList.toggle('hidden');
             }
             
             function toggleCommentForm(commentID) {
-              var form = document.getElementById(`commentForm-${commentID}`)
-              form.classList.toggle('hidden')
+              var form = document.getElementById('commentForm-' + commentID);
+              form.classList.toggle('hidden');
+              form.classList.toggle('flex');
             }
           </script>
         </div>

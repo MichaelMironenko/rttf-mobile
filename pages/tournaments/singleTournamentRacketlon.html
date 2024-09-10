@@ -110,20 +110,20 @@
             <div class="flex gap-4 items-center mt-4 justify-between mb-2"><span class="font-bold">Предыдущие партнёры </span>
               <div class="text-rttf-black-50">Сбросить</div>
             </div>
-            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg">
-              <div class="text-rttf-black-50 grow">Андрей Красильников</div><img class="saturate-25 opacity-50" src="img/close.svg">
+            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg" alt="">
+              <div class="text-rttf-black-50 grow">Андрей Красильников</div><img class="saturate-25 opacity-50" src="img/close.svg" alt="Удалить">
             </div>
-            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg">
-              <div class="text-rttf-black-50 grow">Елена Беркова</div><img class="saturate-25 opacity-50" src="img/close.svg">
+            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg" alt="">
+              <div class="text-rttf-black-50 grow">Елена Беркова</div><img class="saturate-25 opacity-50" src="img/close.svg" alt="Удалить">
             </div>
-            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg">
-              <div class="text-rttf-black-50 grow">Михаил Иванов</div><img class="saturate-25 opacity-50" src="img/close.svg">
+            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg" alt="">
+              <div class="text-rttf-black-50 grow">Михаил Иванов</div><img class="saturate-25 opacity-50" src="img/close.svg" alt="Удалить">
             </div>
-            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg">
-              <div class="text-rttf-black-50 grow">Ольга Петрова</div><img class="saturate-25 opacity-50" src="img/close.svg">
+            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg" alt="">
+              <div class="text-rttf-black-50 grow">Ольга Петрова</div><img class="saturate-25 opacity-50" src="img/close.svg" alt="Удалить">
             </div>
-            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg">
-              <div class="text-rttf-black-50 grow">Сергей Николаев</div><img class="saturate-25 opacity-50" src="img/close.svg">
+            <div class="flex gap-3 items-center py-2 justify-between border-t border-rttf-black-10"><img class="saturate-25 opacity-50" src="img/history.svg" alt="">
+              <div class="text-rttf-black-50 grow">Сергей Николаев</div><img class="saturate-25 opacity-50" src="img/close.svg" alt="Удалить">
             </div>
           </div>
           <div class="mt-2" id="suggestions">
@@ -261,7 +261,7 @@
         </div>
         <div class="flex-1 overflow-y-auto scroll-smooth no-scrollbar p-4 pt-2" id="selectPlayer">
           <!-- Кнопка "назад"-->
-          <div class="flex items-center cursor-pointer sticky top-0" id="backButton"><img class="rotate-90" src="img/expand-arrow.svg" alt="Back"><span class="text-sm ml-2">Вернуться к результатам поиска</span></div>
+          <div class="flex items-center cursor-pointer sticky top-0" id="backButton"><img class="rotate-90" src="img/expand-arrow.svg" alt="Назад"><span class="text-sm ml-2">Вернуться к результатам поиска</span></div>
           <div class="flex flex-col items-center mt-16 gap-4 pb-8">
             <h2 class="playerName">Ваш партнёр по игре</h2>
             <div class="flex gap-3 items-center">
@@ -520,15 +520,22 @@
             </div><img src="img/racketlon.svg" alt="Ракетлон">
             <h1 class="text-lg leading-6 text-rttf-black font-bold">Сколково</h1>
           </div>
-          <button class="cursor-pointer shrink-0 undefined" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-6" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-          </button>
+          <button class="cursor-pointer shrink-0 " data-bookmark-id="info"><img class="bookmark-icon size-" src="img/bookmark-empty.svg" data-bookmark-id="info" alt="Закладка"></button>
           <script>
-            var isActive = false; // Начальное состояние закладки
-            function toggleBookmark() {
-              isActive = !isActive; // Переключаем состояние
-              var bookmarkIcon = document.getElementById('bookmarkIcon');
-              bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-            }
+            document.addEventListener('DOMContentLoaded', function() {
+              var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+              
+              bookmarkButtons.forEach(function(button) {
+                var bookmarkId = button.getAttribute('data-bookmark-id');
+                var isActive = false; // Начальное состояние закладки
+                var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+            
+                button.addEventListener('click', function() {
+                  isActive = !isActive; // Переключаем состояние
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                });
+              });
+            });
           </script>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 text-[15px] sm:grid-cols-2">
@@ -733,12 +740,11 @@
         </div>
         <div class="flex items-center cursor-pointer py-4 justify-between gap-2">
           <label class="flex items-center gap-3 text-sm leading-tight text-rttf-black justify-center" for="playerToggle">Показать коэффициенты и кнопки прогноза
-            <input class="sr-only peer" id="playerToggle" type="checkbox" value="">
-            <div class="relative w-12 h-7 flex-shrink-0 bg-gray-200 rounded-full peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color"></div>
+            <input class="sr-only peer" id="playerToggle" type="checkbox" value=""><span class="relative w-12 h-7 flex-shrink-0 bg-gray-200 rounded-full peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color"></span>
           </label>
         </div>
         <!-- Список с true-->
-        <table class="w-full hidden" id="playersTrue">
+        <div class="w-full hidden" id="playersTrue">
           <div class="inline-flex gap-2 items-center"><img class="w-4 h-4 saturate-50 opacity-75" src="img/warning.svg" alt="Подсказка"><span class="text-xs text-rttf-black-50 leading-tight">Нажимайте на кружок справа строки для выбора места или сброса голоса. После выбора трех мест нажмите кнопку "Сделать прогноз"</span></div>
           <button class="w-full border-2 border-white my-2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="">Сделать прогноз</button>
           <script>
@@ -780,260 +786,262 @@
                 });
             });
           </script>
-          <tr class="text-xs text-rttf-color font-semibold border-b">
-            <th class="text-left py-2">Игрок</th>
-            <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/tt-racket.svg" alt="Настольный теннис"></th>
-            <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/badminton.svg" alt="Бадминтон"></th>
-            <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/squash.svg" alt="Сквош"></th>
-            <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/tennis.svg" alt="Теннис"></th>
-            <th>Рейтинг</th>
-            <th>Х</th>
-            <th>#  </th>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-purple flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АН</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Алексей Николаев</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Алексей Николаев</a></div>
+          <table>
+            <tr class="text-xs text-rttf-color font-semibold border-b">
+              <th class="text-left py-2">Игрок</th>
+              <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/tt-racket.svg" alt="Настольный теннис"></th>
+              <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/badminton.svg" alt="Бадминтон"></th>
+              <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/squash.svg" alt="Сквош"></th>
+              <th class="hidden sm:table-cell w-1/12"><img class="mx-auto size-4" src="/img/tennis.svg" alt="Теннис"></th>
+              <th>Рейтинг</th>
+              <th>Х</th>
+              <th>#  </th>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АН</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Алексей Николаев</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Алексей Николаев</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">900</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">880</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">910</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">920</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">945</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">2.5</span></td>
-            <td><img class="w-6 h-6 mx-auto" src="img/medal-bronze.svg" alt="Третье место">
-            </td>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">МД</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Михаил Дмитриев</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Михаил Дмитриев</a></div>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">900</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">880</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">910</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">920</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">945</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">2.5</span></td>
+              <td><img class="w-6 h-6 mx-auto" src="img/medal-bronze.svg" alt="Третье место">
+              </td>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">МД</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Михаил Дмитриев</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Михаил Дмитриев</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">850</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">860</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">870</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">880</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">876</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">1.8</span></td>
-            <td>
-              <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
-            </td>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-red flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">СР</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Сергей Романов</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Сергей Романов</a></div>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">850</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">860</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">870</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">880</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">876</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">1.8</span></td>
+              <td>
+                <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
+              </td>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">СР</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Сергей Романов</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Сергей Романов</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">670</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">660</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">680</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">690</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">668</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">3.9</span></td>
-            <td><img class="w-6 h-6 mx-auto" src="img/medal-silver.svg" alt="Второе место">
-            </td>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АФ</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Андрей Федоров</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Андрей Федоров</a></div>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">670</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">660</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">680</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">690</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">668</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">3.9</span></td>
+              <td><img class="w-6 h-6 mx-auto" src="img/medal-silver.svg" alt="Второе место">
+              </td>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АФ</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Андрей Федоров</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Андрей Федоров</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">810</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">820</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">830</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">840</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">812</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">1.7</span></td>
-            <td>
-              <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
-            </td>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">НК</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Никита Кузнецов</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Никита Кузнецов</a></div>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">810</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">820</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">830</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">840</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">812</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">1.7</span></td>
+              <td>
+                <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
+              </td>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">НК</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Никита Кузнецов</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Никита Кузнецов</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">890</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">900</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">910</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">920</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">900</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">2.4</span></td>
-            <td>
-              <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
-            </td>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ВК</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Владислав Кириллов</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Владислав Кириллов</a></div>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">890</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">900</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">910</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">920</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">900</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">2.4</span></td>
+              <td>
+                <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
+              </td>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ВК</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Владислав Кириллов</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Владислав Кириллов</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">860</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">870</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">880</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">890</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">870</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">2.1</span></td>
-            <td>
-              <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
-            </td>
-          </tr>
-          <tr class="text-sm border-b border-rttf-black-10">
-            <td class="py-2">
-              <div class="flex flex-col">
-                <div class="flex gap-2 items-center">
-                  <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
-                    <div><a href="pages/others/profile.htmlundefined?type=d">
-                        <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ИС</span></div>
-                        </div></a></div>
-                  </div>
-                  <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Иван Сидоров</a>
-                  </div>
-                  <!-- Десктоп версия-->
-                  <div class="hidden sm:block">
-                    <div class="flex flex-row gap-1">
-                      <div><a href="pages/others/profile.htmlundefined">Иван Сидоров</a></div>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">860</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">870</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">880</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">890</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">870</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">2.1</span></td>
+              <td>
+                <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
+              </td>
+            </tr>
+            <tr class="text-sm border-b border-rttf-black-10">
+              <td class="py-2">
+                <div class="flex flex-col">
+                  <div class="flex gap-2 items-center">
+                    <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
+                      <div><a href="pages/others/profile.htmlundefined?type=d">
+                          <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                            <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ИС</span></div>
+                          </div></a></div>
+                    </div>
+                    <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Иван Сидоров</a>
+                    </div>
+                    <!-- Десктоп версия-->
+                    <div class="hidden sm:block">
+                      <div class="flex flex-row gap-1">
+                        <div><a href="pages/others/profile.htmlundefined">Иван Сидоров</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">840</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">850</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">860</td>
-            <td class="text-center text-rttf-black hidden sm:table-cell">870</td>
-            <td class="text-center">
-              <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
-                <div class="text-rttf-black text-center text-xs font-semibold leading-none">850</div>
-              </div>
-            </td>
-            <td class="text-center"><span class="font-medium leading-none px-2">1.9</span></td>
-            <td>
-              <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
-            </td>
-          </tr>
-        </table>
+              </td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">840</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">850</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">860</td>
+              <td class="text-center text-rttf-black hidden sm:table-cell">870</td>
+              <td class="text-center">
+                <div class=" items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10"><img class="h-3.5 w-3.5" src="img/racketlon.svg" alt="Рейтинг игрока в ракетлоне">
+                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">850</div>
+                </div>
+              </td>
+              <td class="text-center"><span class="font-medium leading-none px-2">1.9</span></td>
+              <td>
+                <div class="rounded-full border border-rttf-black-10 size-6 mx-auto"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
         <!-- Список с false-->
         <table class="w-full" id="playersFalse">
           <tr class="text-xs text-rttf-color !font-semibold border-b">
@@ -1059,7 +1067,7 @@
                   <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
                     <div><a href="pages/others/profile.htmlundefined?type=d">
                         <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АН</span></div>
+                          <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АН</span></div>
                         </div></a></div>
                   </div>
                   <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Алексей Николаев</a>
@@ -1097,7 +1105,7 @@
                   <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
                     <div><a href="pages/others/profile.htmlundefined?type=d">
                         <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">МД</span></div>
+                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">МД</span></div>
                         </div></a></div>
                   </div>
                   <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Михаил Дмитриев</a>
@@ -1135,7 +1143,7 @@
                   <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
                     <div><a href="pages/others/profile.htmlundefined?type=d">
                         <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">СР</span></div>
+                          <div class="bg-rttf-red flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">СР</span></div>
                         </div></a></div>
                   </div>
                   <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Сергей Романов</a>
@@ -1173,7 +1181,7 @@
                   <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
                     <div><a href="pages/others/profile.htmlundefined?type=d">
                         <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АФ</span></div>
+                          <div class="bg-rttf-purple flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">АФ</span></div>
                         </div></a></div>
                   </div>
                   <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Андрей Федоров</a>
@@ -1249,7 +1257,7 @@
                   <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
                     <div><a href="pages/others/profile.htmlundefined?type=d">
                         <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-purple flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ВК</span></div>
+                          <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ВК</span></div>
                         </div></a></div>
                   </div>
                   <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Владислав Кириллов</a>
@@ -1287,7 +1295,7 @@
                   <div class="flex flex-col shrink-0 items-centerl sm:flex-row ">
                     <div><a href="pages/others/profile.htmlundefined?type=d">
                         <div class="p-[1px] w-[28px] h-[28px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
-                          <div class="bg-rttf-red flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ИС</span></div>
+                          <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(28px/2.66)] font-bold leading-none text-white">ИС</span></div>
                         </div></a></div>
                   </div>
                   <div class="block sm:hidden"><a class="py-0.5 block" href="pages/others/profile.htmlundefined">Иван Сидоров</a>
@@ -1470,9 +1478,9 @@
           </div>
           <div class="flex flex-col justify-between py-4 sm:w-1/2 sm:py-0"><span class="font-bold">Правила начисления очков                </span>
             <div class="flex flex-col flex-grow gap-3 py-3">
-              <div class="flex justify-between items-center gap-2"><img src="img/checkmark.svg" size-4 alt=""><span class="text-sm flex-grow">Угадывание призера </span><span class="text-sm">1</span></div>
-              <div class="flex justify-between items-center gap-2"><img src="img/forecast-win.svg" size-4 alt=""><span class="text-sm flex-grow">Угадывание призера и занятого им места </span><span class="text-sm">5</span></div>
-              <div class="flex justify-between items-center gap-2"><img src="img/forecast-bonus.svg" size-4 alt=""><span class="text-sm flex-grow">Бонус за угадывание всех призеров и их мест </span><span class="text-sm">15</span></div>
+              <div class="flex justify-between items-center gap-2"><img class="size-4" src="img/checkmark.svg" alt=""><span class="text-sm flex-grow">Угадывание призера </span><span class="text-sm">1</span></div>
+              <div class="flex justify-between items-center gap-2"><img class="size-4" src="img/forecast-win.svg" alt=""><span class="text-sm flex-grow">Угадывание призера и занятого им места </span><span class="text-sm">5</span></div>
+              <div class="flex justify-between items-center gap-2"><img class="size-4" src="img/forecast-bonus.svg" alt=""><span class="text-sm flex-grow">Бонус за угадывание всех призеров и их мест </span><span class="text-sm">15</span></div>
             </div><span class="text-sm text-rttf-black-50">* прогнозы принимаются до 09.07.2024 10:30</span><span class="text-sm text-rttf-black-50">** в недельный зачет очки идут только при участии 10 и более игроков в турнире</span>
           </div>
         </div>
@@ -1488,9 +1496,9 @@
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
           </div>
           <div class="relative flex flex-grow flex-col gap-3">
-            <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea"  style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите отзыв (опционально)..."></textarea>
-            <div class="flex hidden items-center gap-4"><img class="size-6" id="pasteButton" src="img/paste.svg" alt="Вставить">
-              <button class=" text-rttf-black-50 bg-transparent w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+            <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea"  style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий"></textarea>
+            <div class="flex items-center gap-4"><img class="hidden size-6" id="pasteButton" src="img/paste.svg" alt="Вставить">
+              <button class="w-full text-rttf-black-50 bg-transparent  hidden transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
               <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.button-interactive');
@@ -1530,7 +1538,7 @@
                     });
                 });
               </script>
-              <button class=" w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+              <button class="w-full  hidden bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
               <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.button-interactive');
@@ -1671,9 +1679,9 @@
                 <button class="rounded-full bg-slate-100 px-2" onclick="togglePopup(1)">🙏🏼</button>
               </div>
             </div>
-          </div><img class="cursor-pointer" src="img/three-dots.svg" alt="Действия с комментарием" onclick="toggleCommentMenu('1')">
+          </div><img class="cursor-pointer" src="img/three-dots.svg" onclick="toggleCommentMenu('1')" alt="Кнопка меню">
           <div class="absolute bottom-0" id="commentMenu-1">
-            <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+            <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container-${commentID}" data-action="hide">
               <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/edit.svg" alt=""><span class="flex-1 text-rttf-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/copy.svg" alt=""><span class="flex-1 text-rttf-color">Скопировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/cut.svg" alt=""><span class="flex-1 text-rttf-color">Вырезать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Игнорировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Скрыть</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/warning.svg" alt=""><span class="flex-1 text-rttf-color">Пожаловаться</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><img class="h-6 w-6" src="img/delete.svg" alt=""><span class="flex-1 text-rttf-red">Удалить</span></a>
               </div>
               <script>
@@ -1689,10 +1697,10 @@
             </div>
           </div>
         </div>
-        <div class="mb-3 flex hidden flex-grow flex-col gap-3" id="commentForm-1">
-          <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..." onfocus="this.rows=5; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden');" oninput="document.getElementById('commentSubmitButton-${commentID}').disabled = this.value.trim().length &lt;= 1; this.style.height = ''; this.style.height = this.scrollHeight + 'px'; if(this.value.trim().length) { document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden'); } else { document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden'); }" onblur="if(!this.value.trim()) {this.rows=1; this.style.height = 'auto'; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden');}"></textarea>
+        <div class="mb-3 hidden flex-grow flex-col gap-3" id="commentForm-1">
+          <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea-1" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..."></textarea>
           <div class="flex items-center gap-4">
-            <button class=" text-rttf-black-50 bg-transparent  w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+            <button class="w-full text-rttf-black-50 bg-transparent  transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton-1">Отмена</button>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-interactive');
@@ -1732,7 +1740,7 @@
                   });
               });
             </script>
-            <button class="  w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+            <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton-1">Отправить</button>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-interactive');
@@ -1773,27 +1781,60 @@
               });
             </script>
           </div>
+          <script>document.getElementById('commentTextArea-1').addEventListener('focus', function () {
+                this.rows = 5;
+                this.style.overflow = 'hidden';
+                document.getElementById('commentSubmitButton-1').classList.remove('hidden');
+                document.getElementById('cancelButton-1').classList.remove('hidden');
+            });
+            
+            document.getElementById('commentTextArea-1').addEventListener('input', function () {
+                const submitButton = document.getElementById('commentSubmitButton-1');
+                const cancelButton = document.getElementById('cancelButton-1');
+                submitButton.disabled = this.value.trim().length <= 1;
+                this.style.height = '';
+                this.style.height = this.scrollHeight + 'px';
+                if (this.value.trim().length) {
+                    submitButton.classList.remove('hidden');
+                    cancelButton.classList.remove('hidden');
+                } else {
+                    submitButton.classList.add('hidden');
+                    cancelButton.classList.add('hidden');
+                }
+            });
+            
+            document.getElementById('commentTextArea-1').addEventListener('blur', function () {
+                if (!this.value.trim()) {
+                    this.rows = 1;
+                    this.style.height = 'auto';
+                    this.style.overflow = 'hidden';
+                    document.getElementById('commentSubmitButton-1').classList.add('hidden');
+                    document.getElementById('cancelButton-1').classList.add('hidden');
+                }
+            });
+            
+          </script>
         </div>
         <script>
           function togglePopup(commentID) {
-            var popup = document.getElementById(`reactions-popup-${commentID}`)
-            var isDisplayed = popup.style.display === 'block'
-            popup.style.display = isDisplayed ? 'none' : 'block'
+            var popup = document.getElementById('reactions-popup-' + commentID);
+            var isDisplayed = popup.style.display === 'block';
+            popup.style.display = isDisplayed ? 'none' : 'block';
           }
           
-          document.getElementById(`reactions-trigger-${'1'}`).addEventListener('click', function () {
-            togglePopup('1')
-          })
+          document.getElementById('reactions-trigger-1').addEventListener('click', function () {
+            togglePopup('1');
+          });
           
           function toggleCommentMenu(commentID) {
-            var commentMenu = document.getElementById(`action-menu-container`)
-            console.log(commentMenu)
-            commentMenu.classList.toggle('hidden')
+            var commentMenu = document.getElementById('commentMenu-' + commentID);
+            commentMenu.classList.toggle('hidden');
           }
           
           function toggleCommentForm(commentID) {
-            var form = document.getElementById(`commentForm-${commentID}`)
-            form.classList.toggle('hidden')
+            var form = document.getElementById('commentForm-' + commentID);
+            form.classList.toggle('hidden');
+            form.classList.toggle('flex');
           }
         </script>
         <div class="border-l border-rttf-black-10 pl-6">
@@ -1837,9 +1878,9 @@
                   <button class="rounded-full bg-slate-100 px-2" onclick="togglePopup(2)">😲</button>
                 </div>
               </div>
-            </div><img class="cursor-pointer" src="img/three-dots.svg" alt="Действия с комментарием" onclick="toggleCommentMenu('2')">
+            </div><img class="cursor-pointer" src="img/three-dots.svg" onclick="toggleCommentMenu('2')" alt="Кнопка меню">
             <div class="absolute bottom-0" id="commentMenu-2">
-              <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+              <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container-${commentID}" data-action="hide">
                 <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/edit.svg" alt=""><span class="flex-1 text-rttf-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/copy.svg" alt=""><span class="flex-1 text-rttf-color">Скопировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/cut.svg" alt=""><span class="flex-1 text-rttf-color">Вырезать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Игнорировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Скрыть</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/warning.svg" alt=""><span class="flex-1 text-rttf-color">Пожаловаться</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><img class="h-6 w-6" src="img/delete.svg" alt=""><span class="flex-1 text-rttf-red">Удалить</span></a>
                 </div>
                 <script>
@@ -1855,10 +1896,10 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 flex hidden flex-grow flex-col gap-3" id="commentForm-2">
-            <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..." onfocus="this.rows=5; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden');" oninput="document.getElementById('commentSubmitButton-${commentID}').disabled = this.value.trim().length &lt;= 1; this.style.height = ''; this.style.height = this.scrollHeight + 'px'; if(this.value.trim().length) { document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden'); } else { document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden'); }" onblur="if(!this.value.trim()) {this.rows=1; this.style.height = 'auto'; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden');}"></textarea>
+          <div class="mb-3 hidden flex-grow flex-col gap-3" id="commentForm-2">
+            <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea-2" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..."></textarea>
             <div class="flex items-center gap-4">
-              <button class=" text-rttf-black-50 bg-transparent  w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+              <button class="w-full text-rttf-black-50 bg-transparent  transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton-2">Отмена</button>
               <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.button-interactive');
@@ -1898,7 +1939,7 @@
                     });
                 });
               </script>
-              <button class="  w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+              <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton-2">Отправить</button>
               <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.button-interactive');
@@ -1939,27 +1980,60 @@
                 });
               </script>
             </div>
+            <script>document.getElementById('commentTextArea-2').addEventListener('focus', function () {
+                  this.rows = 5;
+                  this.style.overflow = 'hidden';
+                  document.getElementById('commentSubmitButton-2').classList.remove('hidden');
+                  document.getElementById('cancelButton-2').classList.remove('hidden');
+              });
+              
+              document.getElementById('commentTextArea-2').addEventListener('input', function () {
+                  const submitButton = document.getElementById('commentSubmitButton-2');
+                  const cancelButton = document.getElementById('cancelButton-2');
+                  submitButton.disabled = this.value.trim().length <= 1;
+                  this.style.height = '';
+                  this.style.height = this.scrollHeight + 'px';
+                  if (this.value.trim().length) {
+                      submitButton.classList.remove('hidden');
+                      cancelButton.classList.remove('hidden');
+                  } else {
+                      submitButton.classList.add('hidden');
+                      cancelButton.classList.add('hidden');
+                  }
+              });
+              
+              document.getElementById('commentTextArea-2').addEventListener('blur', function () {
+                  if (!this.value.trim()) {
+                      this.rows = 1;
+                      this.style.height = 'auto';
+                      this.style.overflow = 'hidden';
+                      document.getElementById('commentSubmitButton-2').classList.add('hidden');
+                      document.getElementById('cancelButton-2').classList.add('hidden');
+                  }
+              });
+              
+            </script>
           </div>
           <script>
             function togglePopup(commentID) {
-              var popup = document.getElementById(`reactions-popup-${commentID}`)
-              var isDisplayed = popup.style.display === 'block'
-              popup.style.display = isDisplayed ? 'none' : 'block'
+              var popup = document.getElementById('reactions-popup-' + commentID);
+              var isDisplayed = popup.style.display === 'block';
+              popup.style.display = isDisplayed ? 'none' : 'block';
             }
             
-            document.getElementById(`reactions-trigger-${'2'}`).addEventListener('click', function () {
-              togglePopup('2')
-            })
+            document.getElementById('reactions-trigger-2').addEventListener('click', function () {
+              togglePopup('2');
+            });
             
             function toggleCommentMenu(commentID) {
-              var commentMenu = document.getElementById(`action-menu-container`)
-              console.log(commentMenu)
-              commentMenu.classList.toggle('hidden')
+              var commentMenu = document.getElementById('commentMenu-' + commentID);
+              commentMenu.classList.toggle('hidden');
             }
             
             function toggleCommentForm(commentID) {
-              var form = document.getElementById(`commentForm-${commentID}`)
-              form.classList.toggle('hidden')
+              var form = document.getElementById('commentForm-' + commentID);
+              form.classList.toggle('hidden');
+              form.classList.toggle('flex');
             }
           </script>
         </div>
@@ -1995,9 +2069,9 @@
                     <button class="rounded-full bg-slate-100 px-2" onclick="togglePopup(3)">🙏🏼</button>
                   </div>
                 </div>
-              </div><img class="cursor-pointer" src="img/three-dots.svg" alt="Действия с комментарием" onclick="toggleCommentMenu('3')">
+              </div><img class="cursor-pointer" src="img/three-dots.svg" onclick="toggleCommentMenu('3')" alt="Кнопка меню">
               <div class="absolute bottom-0" id="commentMenu-3">
-                <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container" data-action="hide">
+                <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="action-menu-container-${commentID}" data-action="hide">
                   <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col"><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/edit.svg" alt=""><span class="flex-1 text-rttf-color">Редактировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/copy.svg" alt=""><span class="flex-1 text-rttf-color">Скопировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/cut.svg" alt=""><span class="flex-1 text-rttf-color">Вырезать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Игнорировать</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/hide.svg" alt=""><span class="flex-1 text-rttf-color">Скрыть</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><img class="h-6 w-6" src="img/warning.svg" alt=""><span class="flex-1 text-rttf-color">Пожаловаться</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><img class="h-6 w-6" src="img/delete.svg" alt=""><span class="flex-1 text-rttf-red">Удалить</span></a>
                   </div>
                   <script>
@@ -2013,10 +2087,10 @@
                 </div>
               </div>
             </div>
-            <div class="mb-3 flex hidden flex-grow flex-col gap-3" id="commentForm-3">
-              <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..." onfocus="this.rows=5; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden');" oninput="document.getElementById('commentSubmitButton-${commentID}').disabled = this.value.trim().length &lt;= 1; this.style.height = ''; this.style.height = this.scrollHeight + 'px'; if(this.value.trim().length) { document.getElementById('commentSubmitButton-${commentID}').classList.remove('hidden'); document.getElementById('cancelButton-${commentID}').classList.remove('hidden'); } else { document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden'); }" onblur="if(!this.value.trim()) {this.rows=1; this.style.height = 'auto'; this.style.overflow='hidden'; document.getElementById('commentSubmitButton-${commentID}').classList.add('hidden'); document.getElementById('cancelButton-${commentID}').classList.add('hidden');}"></textarea>
+            <div class="mb-3 hidden flex-grow flex-col gap-3" id="commentForm-3">
+              <textarea class="resize-none overflow-hidden rounded-md border border-gray-300 p-2 transition-all duration-300 ease-in-out focus:border-blue-500 focus:outline-none" id="commentTextArea-3" style="scrollbar-width: none; -ms-overflow-style: none" rows="1" placeholder="Напишите комментарий..."></textarea>
               <div class="flex items-center gap-4">
-                <button class=" text-rttf-black-50 bg-transparent  w-1/2 transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton">Отмена</button>
+                <button class="w-full text-rttf-black-50 bg-transparent  transition-transform duration-150 ease-in-out button-interactive" data-action="" id="cancelButton-3">Отмена</button>
                 <script>
                   document.addEventListener('DOMContentLoaded', function() {
                       const buttons = document.querySelectorAll('.button-interactive');
@@ -2056,7 +2130,7 @@
                       });
                   });
                 </script>
-                <button class="  w-1/2 bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton">Отправить</button>
+                <button class="w-full  bg-rttf-color rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-white leading-none ease-in-out button-interactive" data-action="" id="commentSubmitButton-3">Отправить</button>
                 <script>
                   document.addEventListener('DOMContentLoaded', function() {
                       const buttons = document.querySelectorAll('.button-interactive');
@@ -2097,27 +2171,60 @@
                   });
                 </script>
               </div>
+              <script>document.getElementById('commentTextArea-3').addEventListener('focus', function () {
+                    this.rows = 5;
+                    this.style.overflow = 'hidden';
+                    document.getElementById('commentSubmitButton-3').classList.remove('hidden');
+                    document.getElementById('cancelButton-3').classList.remove('hidden');
+                });
+                
+                document.getElementById('commentTextArea-3').addEventListener('input', function () {
+                    const submitButton = document.getElementById('commentSubmitButton-3');
+                    const cancelButton = document.getElementById('cancelButton-3');
+                    submitButton.disabled = this.value.trim().length <= 1;
+                    this.style.height = '';
+                    this.style.height = this.scrollHeight + 'px';
+                    if (this.value.trim().length) {
+                        submitButton.classList.remove('hidden');
+                        cancelButton.classList.remove('hidden');
+                    } else {
+                        submitButton.classList.add('hidden');
+                        cancelButton.classList.add('hidden');
+                    }
+                });
+                
+                document.getElementById('commentTextArea-3').addEventListener('blur', function () {
+                    if (!this.value.trim()) {
+                        this.rows = 1;
+                        this.style.height = 'auto';
+                        this.style.overflow = 'hidden';
+                        document.getElementById('commentSubmitButton-3').classList.add('hidden');
+                        document.getElementById('cancelButton-3').classList.add('hidden');
+                    }
+                });
+                
+              </script>
             </div>
             <script>
               function togglePopup(commentID) {
-                var popup = document.getElementById(`reactions-popup-${commentID}`)
-                var isDisplayed = popup.style.display === 'block'
-                popup.style.display = isDisplayed ? 'none' : 'block'
+                var popup = document.getElementById('reactions-popup-' + commentID);
+                var isDisplayed = popup.style.display === 'block';
+                popup.style.display = isDisplayed ? 'none' : 'block';
               }
               
-              document.getElementById(`reactions-trigger-${'3'}`).addEventListener('click', function () {
-                togglePopup('3')
-              })
+              document.getElementById('reactions-trigger-3').addEventListener('click', function () {
+                togglePopup('3');
+              });
               
               function toggleCommentMenu(commentID) {
-                var commentMenu = document.getElementById(`action-menu-container`)
-                console.log(commentMenu)
-                commentMenu.classList.toggle('hidden')
+                var commentMenu = document.getElementById('commentMenu-' + commentID);
+                commentMenu.classList.toggle('hidden');
               }
               
               function toggleCommentForm(commentID) {
-                var form = document.getElementById(`commentForm-${commentID}`)
-                form.classList.toggle('hidden')
+                var form = document.getElementById('commentForm-' + commentID);
+                form.classList.toggle('hidden');
+                form.classList.toggle('flex');
               }
             </script>
           </div>
@@ -2132,15 +2239,22 @@
             </div>
             <h1 class="text-lg leading-6 text-rttf-black font-bold">Сколково</h1>
           </div>
-          <button class="cursor-pointer shrink-0 undefined" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-6" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-          </button>
+          <button class="cursor-pointer shrink-0 " data-bookmark-id="live"><img class="bookmark-icon size-" src="img/bookmark-empty.svg" data-bookmark-id="live" alt="Закладка"></button>
           <script>
-            var isActive = false; // Начальное состояние закладки
-            function toggleBookmark() {
-              isActive = !isActive; // Переключаем состояние
-              var bookmarkIcon = document.getElementById('bookmarkIcon');
-              bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-            }
+            document.addEventListener('DOMContentLoaded', function() {
+              var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+              
+              bookmarkButtons.forEach(function(button) {
+                var bookmarkId = button.getAttribute('data-bookmark-id');
+                var isActive = false; // Начальное состояние закладки
+                var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+            
+                button.addEventListener('click', function() {
+                  isActive = !isActive; // Переключаем состояние
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                });
+              });
+            });
           </script>
         </div>
         <div class="flex gap-2 items-center pt-3 justify-center text-sm"><img class="w-4 aspect-square" src="img/calendar.svg" alt=""><span>11 сентября, четверг</span><span>12:30</span></div>
@@ -2157,7 +2271,7 @@
             </div>
             <div class="text-sm font-bold">Демченко / Семенов — Стеженский / Богомольная</div>
             <div class="flex items-center gap-3 text-sm">
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span class="text-rttf-black-50">2173</span></div><span class="text-rttf-black-50">2 дня назад</span>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg" alt="Просмотров"><span class="text-rttf-black-50">2173</span></div><span class="text-rttf-black-50">2 дня назад</span>
             </div>
           </div>
           <div class="flex flex-col gap-2 flex-shrink-0 w-[80%] max-w-[300px]">
@@ -2165,7 +2279,7 @@
             </div>
             <div class="text-sm font-bold">Иванов / Петров — Сидоров / Медведев</div>
             <div class="flex items-center gap-3 text-sm">
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span class="text-rttf-black-50">23K</span></div><span class="text-rttf-black-50">14 октября</span>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg" alt="Просмотров"><span class="text-rttf-black-50">23K</span></div><span class="text-rttf-black-50">14 октября</span>
             </div>
           </div>
         </div>
@@ -2559,15 +2673,22 @@
             </div>
             <h1 class="text-lg leading-6 text-rttf-black font-bold">Сколково</h1>
           </div>
-          <button class="cursor-pointer shrink-0 undefined" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-6" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-          </button>
+          <button class="cursor-pointer shrink-0 " data-bookmark-id="results"><img class="bookmark-icon size-" src="img/bookmark-empty.svg" data-bookmark-id="results" alt="Закладка"></button>
           <script>
-            var isActive = false; // Начальное состояние закладки
-            function toggleBookmark() {
-              isActive = !isActive; // Переключаем состояние
-              var bookmarkIcon = document.getElementById('bookmarkIcon');
-              bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-            }
+            document.addEventListener('DOMContentLoaded', function() {
+              var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+              
+              bookmarkButtons.forEach(function(button) {
+                var bookmarkId = button.getAttribute('data-bookmark-id');
+                var isActive = false; // Начальное состояние закладки
+                var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+            
+                button.addEventListener('click', function() {
+                  isActive = !isActive; // Переключаем состояние
+                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                });
+              });
+            });
           </script>
         </div>
         <div class="flex gap-2 items-center pt-3 justify-center text-sm"><img class="w-4 aspect-square" src="img/calendar.svg" alt=""><span>11 сентября, четверг</span><span>12:30</span></div>
@@ -3005,14 +3126,14 @@
         </div>
         <div class="no-scrollbar -ml-4 -mr-4 flex gap-2 overflow-x-auto px-4"><a class="flex flex-shrink-0 flex-col gap-2 w-[60%] max-w-[180px]" href="pages/aroundgame/photo.html"><img class="aspect-square rounded-lg object-cover" src="dynamic-img/photo-1.jpg" alt="photo 1">
             <div class="flex items-center gap-3 text-sm">
-              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>13</span></div>
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>2173</span></div>
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>3</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)" alt="Нравится"><span>13</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg" alt="Просмотров"><span>2173</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg" alt="Комментариев"><span>3</span></div>
             </div></a><a class="flex flex-shrink-0 flex-col gap-2 w-[60%] max-w-[180px]" href="pages/aroundgame/photo.html"><img class="aspect-square rounded-lg object-cover" src="dynamic-img/photo-2.jpg" alt="photo 2">
             <div class="flex items-center gap-3 text-sm">
-              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)" alt="Нравится"><span>8</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg" alt="Просмотров"><span>1024</span></div>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg" alt="Комментариев"><span>1</span></div>
             </div>
             <div class="text-sm font-semibold text-rttf-black"> Иванов / Петров — Сидоров / Медведев</div></a>
         </div>
@@ -3042,7 +3163,7 @@
             </div>
             <div class="text-sm font-bold">Демченко / Семенов — Стеженский / Богомольная</div>
             <div class="flex items-center gap-3 text-sm">
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span class="text-rttf-black-50">2173</span></div><span class="text-rttf-black-50">2 дня назад</span>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg" alt="Просмотров"><span class="text-rttf-black-50">2173</span></div><span class="text-rttf-black-50">2 дня назад</span>
             </div>
           </div>
           <div class="flex flex-col gap-2 flex-shrink-0 w-[80%] max-w-[300px]">
@@ -3050,7 +3171,7 @@
             </div>
             <div class="text-sm font-bold">Иванов / Петров — Сидоров / Медведев</div>
             <div class="flex items-center gap-3 text-sm">
-              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span class="text-rttf-black-50">23K</span></div><span class="text-rttf-black-50">14 октября</span>
+              <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg" alt="Просмотров"><span class="text-rttf-black-50">23K</span></div><span class="text-rttf-black-50">14 октября</span>
             </div>
           </div>
         </div>

@@ -1,12 +1,20 @@
-mixin bookmark(active = false, extraClass, size=6)
-  button#bookmarkButton.cursor-pointer.shrink-0(onclick="toggleBookmark()" class=`${extraClass}`)
-    - var initialSrc = active ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg'
-    img#bookmarkIcon(src=initialSrc alt="Bookmark" class=`size-${size}`)
+mixin bookmark(active = false, extraClass, size=6, id)
+  - var initialSrc = active ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg'
+  button(data-bookmark-id=id class=`cursor-pointer shrink-0 ${extraClass}`)
+    img(src=initialSrc class=`bookmark-icon size-${size}` data-bookmark-id=id alt="Закладка")
 
   script.
-    var isActive = false; // Начальное состояние закладки
-    function toggleBookmark() {
-      isActive = !isActive; // Переключаем состояние
-      var bookmarkIcon = document.getElementById('bookmarkIcon');
-      bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+      
+      bookmarkButtons.forEach(function(button) {
+        var bookmarkId = button.getAttribute('data-bookmark-id');
+        var isActive = false; // Начальное состояние закладки
+        var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+
+        button.addEventListener('click', function() {
+          isActive = !isActive; // Переключаем состояние
+          bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+        });
+      });
+    });

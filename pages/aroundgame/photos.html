@@ -106,15 +106,22 @@
               <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>13</span></div>
               <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>2K</span></div>
               <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>3</span></div>
-              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-              </button>
+              <button class="cursor-pointer shrink-0 "><img class="bookmark-icon size-5" src="img/bookmark-empty.svg" alt="Закладка"></button>
               <script>
-                var isActive = false; // Начальное состояние закладки
-                function toggleBookmark() {
-                  isActive = !isActive; // Переключаем состояние
-                  var bookmarkIcon = document.getElementById('bookmarkIcon');
-                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-                }
+                document.addEventListener('DOMContentLoaded', function() {
+                  var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+                  
+                  bookmarkButtons.forEach(function(button) {
+                    var bookmarkId = button.getAttribute('data-bookmark-id');
+                    var isActive = false; // Начальное состояние закладки
+                    var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+                
+                    button.addEventListener('click', function() {
+                      isActive = !isActive; // Переключаем состояние
+                      bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                    });
+                  });
+                });
               </script>
             </div>
             <div class="font-semibold py-2 leading-tight">Призёры БК Брянск DF</div>
@@ -129,15 +136,22 @@
               <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
               <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
               <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
-              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-              </button>
+              <button class="cursor-pointer shrink-0 "><img class="bookmark-icon size-5" src="img/bookmark-empty.svg" alt="Закладка"></button>
               <script>
-                var isActive = false; // Начальное состояние закладки
-                function toggleBookmark() {
-                  isActive = !isActive; // Переключаем состояние
-                  var bookmarkIcon = document.getElementById('bookmarkIcon');
-                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-                }
+                document.addEventListener('DOMContentLoaded', function() {
+                  var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+                  
+                  bookmarkButtons.forEach(function(button) {
+                    var bookmarkId = button.getAttribute('data-bookmark-id');
+                    var isActive = false; // Начальное состояние закладки
+                    var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+                
+                    button.addEventListener('click', function() {
+                      isActive = !isActive; // Переключаем состояние
+                      bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                    });
+                  });
+                });
               </script>
             </div>
             <div class="font-semibold py-2 leading-tight">Иванов / Петров — Сидоров / Медведев</div>
@@ -152,15 +166,22 @@
               <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
               <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
               <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
-              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-              </button>
+              <button class="cursor-pointer shrink-0 "><img class="bookmark-icon size-5" src="img/bookmark-empty.svg" alt="Закладка"></button>
               <script>
-                var isActive = false; // Начальное состояние закладки
-                function toggleBookmark() {
-                  isActive = !isActive; // Переключаем состояние
-                  var bookmarkIcon = document.getElementById('bookmarkIcon');
-                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-                }
+                document.addEventListener('DOMContentLoaded', function() {
+                  var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+                  
+                  bookmarkButtons.forEach(function(button) {
+                    var bookmarkId = button.getAttribute('data-bookmark-id');
+                    var isActive = false; // Начальное состояние закладки
+                    var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+                
+                    button.addEventListener('click', function() {
+                      isActive = !isActive; // Переключаем состояние
+                      bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                    });
+                  });
+                });
               </script>
             </div>
             <div class="font-semibold py-2 leading-tight">Иванов / Петров — Сидоров / Медведев</div>
@@ -173,15 +194,22 @@
               <div class="flex items-center gap-1"><img class="size-5 cursor-pointer opacity-50 saturate-50" src="img/heart-empty.svg" onclick="toggleHeart(this)"><span>8</span></div>
               <div class="flex items-center gap-1"><img class="size-5 opacity-50 saturate-50" src="img/views.svg"><span>1024</span></div>
               <div class="flex items-center gap-1 grow"><img class="size-5 opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
-              <button class="cursor-pointer shrink-0" id="bookmarkButton" onclick="toggleBookmark()"><img class="size-5" id="bookmarkIcon" src="img/bookmark-empty.svg" alt="Bookmark">
-              </button>
+              <button class="cursor-pointer shrink-0 "><img class="bookmark-icon size-5" src="img/bookmark-empty.svg" alt="Закладка"></button>
               <script>
-                var isActive = false; // Начальное состояние закладки
-                function toggleBookmark() {
-                  isActive = !isActive; // Переключаем состояние
-                  var bookmarkIcon = document.getElementById('bookmarkIcon');
-                  bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
-                }
+                document.addEventListener('DOMContentLoaded', function() {
+                  var bookmarkButtons = document.querySelectorAll('[data-bookmark-id]');
+                  
+                  bookmarkButtons.forEach(function(button) {
+                    var bookmarkId = button.getAttribute('data-bookmark-id');
+                    var isActive = false; // Начальное состояние закладки
+                    var bookmarkIcon = document.querySelector(`img[data-bookmark-id="${bookmarkId}"]`);
+                
+                    button.addEventListener('click', function() {
+                      isActive = !isActive; // Переключаем состояние
+                      bookmarkIcon.src = isActive ? 'img/bookmark-fill.svg' : 'img/bookmark-empty.svg';
+                    });
+                  });
+                });
               </script>
             </div>
             <div class="font-semibold py-2 leading-tight">Иванов / Петров — Сидоров / Медведев</div>

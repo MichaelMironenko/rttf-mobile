@@ -21,7 +21,7 @@ mixin comment(commentID, userName, userID, status, commentText, reactions, color
 
         if review
           .flex.shrink-0.items-center(class='mt-0.5')
-            img.h-4(src='img/yellow-star-full.svg' alt="Рейтинг")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-full.svg' alt="")
@@ -35,61 +35,101 @@ mixin comment(commentID, userName, userID, status, commentText, reactions, color
           span.text-xs.text-rttf-black-50 12 ноября 16:43
         if review
           .flex.shrink-0.items-center.mt-1
-            img.h-4(src='img/yellow-star-full.svg' alt="Рейтинг")
+            img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-full.svg' alt="")
             img.h-4(src='img/yellow-star-empty.svg' alt="")
   .mb-2.mt-1.flex.w-fit.items-center.gap-1.rounded-lg.bg-rttf-color-10.px-2.py-1
-    img.size-3.opacity-75.saturate-50(src='img/reply.svg'  alt="")
+    img.size-3.opacity-75.saturate-50(src='img/reply.svg' alt="")
     span.text-xs.text-rttf-black-50 Ответ на комментарий @semenov
   p #{ commentText }
   if reactions
     +reactions(reactions, 0)
   .flex.justify-between.pb-3.pt-1
     .relative.inline-flex.items-center.gap-2
-      img.cursor-pointer(src='img/reactions.svg', alt='Реакции', id=`reactions-trigger-${commentID}`)
+      img.cursor-pointer(src='img/reactions.svg' alt='Реакции' id=`reactions-trigger-${commentID}`)
       button.text-sm.text-rttf-black-50(onclick=`toggleCommentForm('${commentID}')`) Ответить
       .absolute.-left-2.bottom-6.hidden(class='max-w-[80vw]', id=`reactions-popup-${commentID}`)
         .no-scrollbar.flex.gap-2.overflow-x-auto.rounded-full.border.border-rttf-black-10.bg-white.p-2.text-xl.shadow-lg
           if reactions
             each reaction in reactions
               button.rounded-full.bg-slate-100.px-2(onclick=`togglePopup(${commentID})`) #{ reaction.emoji }
-    img.cursor-pointer(src='img/three-dots.svg'  alt="Действия с комментарием" onclick=`toggleCommentMenu('${commentID}')`)
+    img.cursor-pointer(src='img/three-dots.svg' onclick=`toggleCommentMenu('${commentID}')` alt="Кнопка меню")
     //- Меню комментария
     .absolute.bottom-0(id=`commentMenu-${commentID}`)
-      +actionMenu([ { text: 'Редактировать', icon: 'img/edit.svg', color: ' text-rttf-color' }, { text: 'Скопировать', icon: 'img/copy.svg', color: ' text-rttf-color' }, { text: 'Вырезать', icon: 'img/cut.svg', color: ' text-rttf-color'}, { text: 'Игнорировать', icon: 'img/hide.svg', color: ' text-rttf-color' }, { text: 'Скрыть', icon: 'img/hide.svg', color: ' text-rttf-color' }, { text: 'Пожаловаться', icon: 'img/warning.svg', color: ' text-rttf-color' }, { text: 'Удалить', icon: 'img/delete.svg', color: ' text-rttf-red', last: true } ], 'action-menu-container')
-  .mb-3.flex.hidden.flex-grow.flex-col.gap-3(id=`commentForm-${commentID}`)
+      +actionMenu([ 
+        { text: 'Редактировать', icon: 'img/edit.svg', color: ' text-rttf-color' }, 
+        { text: 'Скопировать', icon: 'img/copy.svg', color: ' text-rttf-color' }, 
+        { text: 'Вырезать', icon: 'img/cut.svg', color: ' text-rttf-color'}, 
+        { text: 'Игнорировать', icon: 'img/hide.svg', color: ' text-rttf-color' }, 
+        { text: 'Скрыть', icon: 'img/hide.svg', color: ' text-rttf-color' }, 
+        { text: 'Пожаловаться', icon: 'img/warning.svg', color: ' text-rttf-color' }, 
+        { text: 'Удалить', icon: 'img/delete.svg', color: ' text-rttf-red', last: true } 
+      ], 'action-menu-container-${commentID}')
+  .mb-3.hidden.flex-grow.flex-col.gap-3(id=`commentForm-${commentID}`)
     textarea.resize-none.overflow-hidden.rounded-md.border.border-gray-300.p-2.transition-all.duration-300.ease-in-out(
-      class='focus:border-blue-500 focus:outline-none',
-      style='scrollbar-width: none; -ms-overflow-style: none',
-      rows='1',
-      placeholder='Напишите комментарий...',
-      onfocus='this.rows=5; this.style.overflow=\'hidden\'; document.getElementById(\'commentSubmitButton-${commentID}\').classList.remove(\'hidden\'); document.getElementById(\'cancelButton-${commentID}\').classList.remove(\'hidden\');',
-      oninput='document.getElementById(\'commentSubmitButton-${commentID}\').disabled = this.value.trim().length <= 1; this.style.height = \'\'; this.style.height = this.scrollHeight + \'px\'; if(this.value.trim().length) { document.getElementById(\'commentSubmitButton-${commentID}\').classList.remove(\'hidden\'); document.getElementById(\'cancelButton-${commentID}\').classList.remove(\'hidden\'); } else { document.getElementById(\'commentSubmitButton-${commentID}\').classList.add(\'hidden\'); document.getElementById(\'cancelButton-${commentID}\').classList.add(\'hidden\'); }',
-      onblur='if(!this.value.trim()) {this.rows=1; this.style.height = \'auto\'; this.style.overflow=\'hidden\'; document.getElementById(\'commentSubmitButton-${commentID}\').classList.add(\'hidden\'); document.getElementById(\'cancelButton-${commentID}\').classList.add(\'hidden\');}'
-    )
+        id=`commentTextArea-${commentID}`,
+        class='focus:border-blue-500 focus:outline-none',
+        style='scrollbar-width: none; -ms-overflow-style: none',
+        rows='1',
+        placeholder='Напишите комментарий...'
+        )
     .flex.items-center.gap-4
-      +button('Отмена', 'text', 'rttf-black-50', '', ' w-1/2', 'cancelButton')
-      +button('Отправить', 'default', 'white', 'bg-rttf-color', ' w-1/2', 'commentSubmitButton')
+      +button('Отмена', 'text', 'rttf-black-50', '', '', `cancelButton-${commentID}`)
+      +button('Отправить', 'default', 'white', 'bg-rttf-color', '', `commentSubmitButton-${commentID}`)
+  
+    script.
+        document.getElementById('commentTextArea-#{commentID}').addEventListener('focus', function () {
+            this.rows = 5;
+            this.style.overflow = 'hidden';
+            document.getElementById('commentSubmitButton-#{commentID}').classList.remove('hidden');
+            document.getElementById('cancelButton-#{commentID}').classList.remove('hidden');
+        });
+
+        document.getElementById('commentTextArea-#{commentID}').addEventListener('input', function () {
+            const submitButton = document.getElementById('commentSubmitButton-#{commentID}');
+            const cancelButton = document.getElementById('cancelButton-#{commentID}');
+            submitButton.disabled = this.value.trim().length <= 1;
+            this.style.height = '';
+            this.style.height = this.scrollHeight + 'px';
+            if (this.value.trim().length) {
+                submitButton.classList.remove('hidden');
+                cancelButton.classList.remove('hidden');
+            } else {
+                submitButton.classList.add('hidden');
+                cancelButton.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('commentTextArea-#{commentID}').addEventListener('blur', function () {
+            if (!this.value.trim()) {
+                this.rows = 1;
+                this.style.height = 'auto';
+                this.style.overflow = 'hidden';
+                document.getElementById('commentSubmitButton-#{commentID}').classList.add('hidden');
+                document.getElementById('cancelButton-#{commentID}').classList.add('hidden');
+            }
+        });
+
   script.
     function togglePopup(commentID) {
-      var popup = document.getElementById(`reactions-popup-${commentID}`)
-      var isDisplayed = popup.style.display === 'block'
-      popup.style.display = isDisplayed ? 'none' : 'block'
+      var popup = document.getElementById('reactions-popup-' + commentID);
+      var isDisplayed = popup.style.display === 'block';
+      popup.style.display = isDisplayed ? 'none' : 'block';
     }
 
-    document.getElementById(`reactions-trigger-${'#{commentID}'}`).addEventListener('click', function () {
-      togglePopup('#{commentID}')
-    })
+    document.getElementById('reactions-trigger-#{commentID}').addEventListener('click', function () {
+      togglePopup('#{commentID}');
+    });
 
     function toggleCommentMenu(commentID) {
-      var commentMenu = document.getElementById(`action-menu-container`)
-      console.log(commentMenu)
-      commentMenu.classList.toggle('hidden')
+      var commentMenu = document.getElementById('commentMenu-' + commentID);
+      commentMenu.classList.toggle('hidden');
     }
 
     function toggleCommentForm(commentID) {
-      var form = document.getElementById(`commentForm-${commentID}`)
-      form.classList.toggle('hidden')
+      var form = document.getElementById('commentForm-' + commentID);
+      form.classList.toggle('hidden');
+      form.classList.toggle('flex');
     }

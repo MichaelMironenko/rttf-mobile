@@ -95,7 +95,7 @@ html(lang="ru")
                         +ratingLimit('откр', '', '', 'racketlon')
                         img(src="img/racketlon.svg" alt="Ракетлон")
                         h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
-                    +bookmark(false)
+                    +bookmark(false, '', '', 'info')
 
                 div.grid.grid-cols-1.gap-6.mt-6(class="text-[15px] sm:grid-cols-2")
                     div.flex.flex-col.gap-3
@@ -296,32 +296,33 @@ html(lang="ru")
                 div.flex.items-center.cursor-pointer.py-4.justify-between.gap-2
                     label.flex.items-center(for="playerToggle").gap-3.text-sm.leading-tight.text-rttf-black.justify-center Показать коэффициенты и кнопки прогноза
                         input#playerToggle.sr-only.peer(type="checkbox" value="")
-                        div.relative.w-12.h-7.flex-shrink-0.bg-gray-200.rounded-full(class="peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color")
+                        span.relative.w-12.h-7.flex-shrink-0.bg-gray-200.rounded-full(class="peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color")
 
                 // Список с true
-                table#playersTrue.w-full.hidden
+                #playersTrue.w-full.hidden
                     .inline-flex.gap-2.items-center
                         img(src="img/warning.svg" alt="Подсказка").w-4.h-4.saturate-50.opacity-75
                         span.text-xs.text-rttf-black-50.leading-tight Нажимайте на кружок справа строки для выбора места или сброса голоса. После выбора трех мест нажмите кнопку "Сделать прогноз"
                     +button("Сделать прогноз", "default", "white", 'bg-rttf-color', 'border-2 border-white my-2')    
-                    tr.text-xs.text-rttf-color.font-semibold.border-b
-                        th.text-left.py-2 Игрок
-                        th(class="hidden sm:table-cell w-1/12")
-                            img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
-                        th(class="hidden sm:table-cell w-1/12")
-                            img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
-                        th(class="hidden sm:table-cell w-1/12")
-                            img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
-                        th(class="hidden sm:table-cell w-1/12")
-                            img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
-                        th Рейтинг
-                        th Х
-                        th #  
-                    each team in players
-                        - var teamName = team[0].teamName ? team[0].teamName : ''
-                        - var dateTime = team[0].dateTime
-                        - var medal = team[0].medal  
-                        +playerRow(team, true, teamName, dateTime, medal, ratingType)
+                    table
+                        tr.text-xs.text-rttf-color.font-semibold.border-b
+                            th.text-left.py-2 Игрок
+                            th(class="hidden sm:table-cell w-1/12")
+                                img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
+                            th(class="hidden sm:table-cell w-1/12")
+                                img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
+                            th(class="hidden sm:table-cell w-1/12")
+                                img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
+                            th(class="hidden sm:table-cell w-1/12")
+                                img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
+                            th Рейтинг
+                            th Х
+                            th #  
+                        each team in players
+                            - var teamName = team[0].teamName ? team[0].teamName : ''
+                            - var dateTime = team[0].dateTime
+                            - var medal = team[0].medal  
+                            +playerRow(team, true, teamName, dateTime, medal, ratingType)
 
                 // Список с false
                 table#playersFalse.w-full
@@ -411,15 +412,15 @@ html(lang="ru")
                         span.font-bold Правила начисления очков                
                         .flex.flex-col.flex-grow.gap-3.py-3
                             .flex.justify-between.items-center.gap-2
-                                img(src="img/checkmark.svg" size-4 alt="")
+                                img(src="img/checkmark.svg" alt="").size-4 
                                 span.text-sm.flex-grow Угадывание призера 
                                 span.text-sm 1
                             .flex.justify-between.items-center.gap-2
-                                img(src="img/forecast-win.svg" size-4 alt="")
+                                img(src="img/forecast-win.svg" alt="").size-4 
                                 span.text-sm.flex-grow Угадывание призера и занятого им места 
                                 span.text-sm 5
                             .flex.justify-between.items-center.gap-2
-                                img(src="img/forecast-bonus.svg" size-4 alt="")
+                                img(src="img/forecast-bonus.svg" alt="").size-4 
                                 span.text-sm.flex-grow Бонус за угадывание всех призеров и их мест 
                                 span.text-sm 15
                         span.text-sm.text-rttf-black-50 * прогнозы принимаются до 09.07.2024 10:30
@@ -433,7 +434,7 @@ html(lang="ru")
                     .flex.items-center.gap-2.justify-center.grow
                         +ratingLimit('<', 520)
                         h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
-                    +bookmark(false)
+                    +bookmark(false, '', '', 'live')
                 div.flex.gap-2.items-center.pt-3.justify-center.text-sm
                     img.w-4.aspect-square(src='img/calendar.svg' alt='')
                     span 11 сентября, четверг
@@ -461,7 +462,7 @@ html(lang="ru")
                     .flex.items-center.gap-2.justify-center.grow
                         +ratingLimit('<', 520)
                         h1.text-lg.leading-6.text-rttf-black.font-bold Сколково
-                    +bookmark(false)
+                    +bookmark(false, '', '', 'results')
                 div.flex.gap-2.items-center.pt-3.justify-center.text-sm
                     img.w-4.aspect-square(src='img/calendar.svg' alt='')
                     span 11 сентября, четверг

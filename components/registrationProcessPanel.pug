@@ -37,9 +37,9 @@ mixin registrationProcessPanel
 
                     each partner in partners
                         .flex.gap-3.items-center.py-2.justify-between.border-t.border-rttf-black-10
-                            img(src="img/history.svg" class="saturate-25 opacity-50")
+                            img(src="img/history.svg" class="saturate-25 opacity-50" alt='')
                             .text-rttf-black-50.grow #{partner.name}
-                            img(src="img/close.svg" class="saturate-25 opacity-50")
+                            img(src="img/close.svg" class="saturate-25 opacity-50"  alt='Удалить')
 
                 -
                     let suggestions = [
@@ -68,7 +68,7 @@ mixin registrationProcessPanel
             div#selectPlayer.flex-1.overflow-y-auto.scroll-smooth.no-scrollbar.p-4.pt-2
                 // Кнопка "назад"
                 div#backButton.flex.items-center.cursor-pointer.sticky.top-0
-                    img(src="img/expand-arrow.svg" alt="Back" class="rotate-90")
+                    img(src="img/expand-arrow.svg" alt="Назад" class="rotate-90")
                     span.text-sm.ml-2 Вернуться к результатам поиска
                 .flex.flex-col.items-center.mt-16.gap-4.pb-8
                     h2.playerName Ваш партнёр по игре

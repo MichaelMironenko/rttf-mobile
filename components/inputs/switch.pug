@@ -1,4 +1,5 @@
-mixin switch(labelText, padding='py-4', extraClass='text-rttf-black')
-  label.flex.items-center.gap-3.grow.leading-tight.text-left.text-rttf-black.justify-between.max-w-sm(class=`${extraClass} ${padding}`)= labelText
-    input#playerToggle.sr-only.peer(type="checkbox" value="")
-    div.relative.w-12.h-7.flex-shrink-0.bg-gray-200.rounded-full(class="peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color")
+mixin switch(labelText, padding='py-4', extraClass='text-lab-black', toggleId='playerToggle')
+  div.flex.items-center.gap-3.grow.leading-tight.text-left.justify-between.max-w-sm(class=`${extraClass} ${padding}`)
+    label.flex.items-center.gap-3.text-sm.text-lab-black.cursor-pointer(for=toggleId)= labelText
+    input.sr-only.peer(type="checkbox" value="" id=toggleId)
+    div.relative.w-12.h-7.flex-shrink-0.bg-gray-200.rounded-full(class="peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-lab-color")

@@ -25,13 +25,14 @@ mixin photoSlider(title, plusButton, href='pages/aroundgame/photos.html')
               img.size-5.cursor-pointer.opacity-50.saturate-50(
                 src='img/heart-empty.svg',
                 onclick='toggleHeart(this)'
+                alt='Нравится'
               )
               span #{ photo.likes }
             .flex.items-center.gap-1
-              img.size-5.opacity-50.saturate-50(src='img/views.svg')
+              img.size-5.opacity-50.saturate-50(src='img/views.svg' alt='Просмотров')
               span #{ photo.comments }
             .flex.items-center.gap-1
-              img.size-5.opacity-50.saturate-50(src='img/comment.svg')
+              img.size-5.opacity-50.saturate-50(src='img/comment.svg' alt='Комментариев')
               span #{ photo.views }
           if photo.title
             .text-sm.font-semibold.text-rttf-black  #{ photo.title }
