@@ -214,7 +214,7 @@ html(lang="ru")
                     tr.text-xs.text-rttf-color.font-semibold.border-b
                         th.text-left.py-2 Игрок
                         
-                        th Рейтинг
+                        th ★ шахпонг
                         th Х
                         th #  
                     each team in players
@@ -228,7 +228,14 @@ html(lang="ru")
                     tr.text-xs.text-rttf-color(class="!font-semibold").border-b
                         th.text-left # ▲
                         th.text-left.py-2 Игрок
-                        th Рейтинг   
+                        th ★ 
+                            |
+                            br
+                            span шахпонг 
+                        th(class="xs:table-cell").hidden ★  
+                            |
+                            br
+                            span теннис 
                         th(class="sm:table-cell").hidden Регистрация
                                           
                     each team in players
@@ -332,7 +339,7 @@ html(lang="ru")
                 +chessTournamentGameResult('1', '9', '12:45', {name: 'Сидоров С.'}, {name: 'Николаев Н.'}, true, 410, 450, 21, 15, 20.0, -20.0, '3:55')
             +block('Промежуточная таблица')
                 +tournamentResultsTableChess(false)
-            +comments
+            +block('Блок комментариев')
 
 
 
@@ -596,7 +603,7 @@ html(lang="ru")
                 +chessTournamentGameResult('1', '9', '12:45', {name: 'Сидоров С.'}, {name: 'Николаев Н.'}, true, 410, 450, 21, 15, 20.0, -20.0, '3:55')
             +photoSlider('Фото с турнира')
             +videoSlider(false, false, 'Видео с турнира')
-            +comments
+            +block('Блок комментариев')
 
         +tabBar('Турниры')
 

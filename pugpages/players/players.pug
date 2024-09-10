@@ -57,11 +57,11 @@ html(lang='ru')
           class=`${isActive ? "font-bold bg-rttf-color-10" : "opacity-75 saturate-50"} flex w-1/2 grow cursor-pointer items-center justify-center gap-1.5 py-3 `,
           data-tab=`${tabIds[index]}`
         )
-          img(src=images[index], class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
+          img(src=images[index] alt=tab class=`${!isActive && 'opacity-75 saturate-50'} aspect-square h-4 w-4`)
           .py-1.leading-none= tab
 
 
-    .tab-content.hidden#stats
+    
 
     script.
       document.addEventListener('DOMContentLoaded', function () {
@@ -104,7 +104,13 @@ html(lang='ru')
       
       h1.p-4 Рейтинг
 
-      +filterButtonsRow([ { label: 'Настольный теннис', active: true }, { label: 'Шахпонг', active: false }, { label: 'Ракетлон', active: false }, { label: 'Пинг-понг', active: false } , { label: 'Лига-ПРО', active: false } , { label: 'ФНТР', active: false }  ], true)
+      +filterButtonsRow([ 
+        { label: 'Настольный теннис', active: true, id: 'tennis-button' }, 
+        { label: 'Шахпонг', active: false, id: 'chesspong-button' }, 
+        { label: 'Ракетлон', active: false, id: 'racketlon-button' },
+        { label: 'Пинг-понг', active: false }, 
+        { label: 'Лига-ПРО', active: false }, 
+        { label: 'ФНТР', active: false }  ], true)
 
       +searchAndFilterButton('Имя, логин или город', true, 'p-4')
       -
@@ -124,6 +130,40 @@ html(lang='ru')
             { name: "Слободянюк Виктория", username: "VikaSlob", location: "Волгоград", color: "bg-rttf-blue", initials: "СВ", singleRating: 786, pairRating: 970, singleRatingChange: '+1.2', doubleRatingChange: '+3.2', lastChange: '27.04.2024', tableTennis: 1020, badminton: 970, tennis: 760, squash: 750 }
         ];
 
+      script.
+        document.addEventListener('DOMContentLoaded', () => {
+          const buttons = {
+            'tennis-button': '#tennisRating',
+            'chesspong-button': '#chesspongRating',
+            'racketlon-button': '#racketlonRating'
+          };
+
+          // Добавляем обработчики для каждой кнопки
+          Object.keys(buttons).forEach(buttonId => {
+            document.getElementById(buttonId).addEventListener('click', () => {
+              // Скрываем все таблицы
+              Object.values(buttons).forEach(tableId => {
+                document.querySelector(tableId).classList.add('hidden');
+              });
+
+              // Показываем соответствующую таблицу
+              document.querySelector(buttons[buttonId]).classList.remove('hidden');
+
+              // Обновляем состояние кнопок (активная/неактивная)
+              Object.keys(buttons).forEach(id => {
+                const button = document.getElementById(id);
+                if (id === buttonId) {
+                  button.classList.add('bg-rttf-color', 'text-white', 'font-semibold');
+                  button.classList.remove('bg-rttf-color-10', 'text-rttf-black');
+                } else {
+                  button.classList.add('bg-rttf-color-10', 'text-rttf-black');
+                  button.classList.remove('bg-rttf-color', 'text-white', 'font-semibold');
+                }
+              });
+            });
+          });
+        });
+
       +filtersPanel(true)
         .p-4
           +playerRating
@@ -136,45 +176,8 @@ html(lang='ru')
         +filterButton('Москва', false, '', true, 'text-sm')
         +filterButton('Мужчины', false, '', true, 'text-sm')
 
-      table.hidden.w-full.bg-white
-        thead
-          tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-color
-            th.py-2.pl-3.text-left №▼
-            th 
-            th.px-2.text-left Имя/город
-            th.hidden.px-2.text-left(class='sm:table-cell') Логин
-            th.text-rttf-black 🧍
-            th.relative.text-rttf-black
-              span 🧍
-              span.-ml-2 🧍
-            th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
 
-        each user, index in users
-          tr.border-b.text-rttf-black
-            td.px-2.text-center.text-sm= index + 1
-            td: +avatar(user.color, user.initials, 32)
-            td.w-auto.px-2
-              a.inline-block.font-semibold(
-                href='pages/others/profile.html',
-                class='text-[13px] xs:text-sm'
-              )= user.name
-              .text-xs.text-rttf-black-50= user.location
-            td.hidden.w-auto.px-2.text-sm.text-rttf-black-50(class='sm:table-cell')= user.username
-            td.px-2.py-1.text-center
-              +userRating(user.singleRating)
-              div(
-                class=(user.singleRatingChange > 0 ? 'text-rttf-green' : user.singleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50') + ' mt-1 text-xs'
-              )= user.singleRatingChange
-            td.px-2.text-center
-              +userRating(user.pairRating, true)
-              div(
-                class=(user.doubleRatingChange > 0 ? 'text-rttf-green' : user.doubleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50') + ' mt-1 text-xs'
-              )= user.doubleRatingChange
-            td.hidden.px-2.text-center.text-sm.text-rttf-black-50(class='sm:table-cell')= user.lastChange
-
-
-        
-      table.w-full.bg-white
+      table.w-full.bg-white#tennisRating
         thead
           tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-color
             th.py-2.pl-3.text-left №▼
@@ -204,6 +207,56 @@ html(lang='ru')
               )= user.singleRatingChange
             td.hidden.px-2.text-center.leading-none.text-rttf-black-50(class='text-[13px] sm:table-cell')= user.lastChange
 
+      table.hidden.w-full.bg-white#chesspongRating
+        thead
+          tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-color
+            th.py-2.pl-3.text-left №▼
+            th 
+            th.px-2.text-left Имя/город
+            th.hidden.px-2.text-left(class='sm:table-cell') Логин
+            th Шахпонг
+            th.hidden.px-2.text-center(class='sm:table-cell') Шахпонг +/-  
+            th Теннис
+            th.hidden.px-2.text-center(class='sm:table-cell') Теннис +/-   
+            th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
+
+        each user, index in users
+          tr.border-b.text-rttf-black
+            td.px-2.text-center.text-sm= index + 1
+            td: +avatar(user.color, user.initials, 32)
+            td.w-auto.px-2
+              a.inline-block.font-semibold(
+                href='pages/others/profile.html',
+                class='text-[13px] xs:text-sm'
+              )= user.name
+              .text-xs.text-rttf-black-50= user.location
+            td.hidden.w-auto.px-2.text-sm.text-rttf-black-50(class='sm:table-cell')= user.username
+            td.px-2.py-1.text-center
+              +userRating(user.singleRating, '', '', 'chesspong')  
+              div(
+                class="mt-1 text-xs sm:hidden" 
+                class=(user.singleRatingChange > 0 ? 'text-rttf-green' : user.singleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
+              )= user.singleRatingChange
+            td.hidden.px-2.py-1.text-center.text-sm(class='sm:table-cell')  
+              div(
+                class=(user.singleRatingChange > 0 ? 'text-rttf-green' : user.singleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
+              )= user.singleRatingChange
+            td.px-2.text-center
+              +userRating(user.pairRating, true, '', 'tennis') 
+              div(
+                class="mt-1 text-xs sm:hidden"  
+                class=(user.doubleRatingChange > 0 ? 'text-rttf-green' : user.doubleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
+              )= user.doubleRatingChange
+            td.hidden.px-2.py-1.text-center.text-sm(class='sm:table-cell') 
+              div(
+                class=(user.doubleRatingChange > 0 ? 'text-rttf-green' : user.doubleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
+              )= user.doubleRatingChange
+            td.hidden.px-2.text-center.text-sm.text-rttf-black-50(class='sm:table-cell')= user.lastChange
+  
+        
+      
+
+      table.w-full.bg-white#racketlonRating
         thead
             tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-black-50
                 th.py-2.pl-3.text-left №▼
@@ -253,27 +306,27 @@ html(lang='ru')
             
         +filterButtonsRow([ { label: 'Настольный теннис', active: true }, { label: 'Шахпонг', active: false }, { label: 'Ракетлон', active: false }, { label: 'Пинг-понг', active: false } , { label: 'Лига-ПРО', active: false } , { label: 'ФНТР', active: false }  ], true, 'mt-4 -mx-4')
 
-      +block('Лидеры роста рейтинга', '', '', '', 'mt-8')
+      +block('Лидеры роста рейтинга', '', '', '', 'mt-8 mb-3')
         +filterButtonsRow([ { label: 'Неделя', active: true}, { label: 'Месяц', active: false}, { label: 'Год', active: false}, { label: 'Всё время', active: false }, ], 'padding', '-mx-4')
         .no-scrollbar.-mx-4.flex.gap-4.overflow-x-auto.px-4.pt-6
           .flex.min-w-20.flex-col.items-center.gap-2
             +avatar('bg-rttf-blue', 'НП', '48')
-            a.text-center.text-sm.font-semibold Никита Полянский
+            a.text-center.text-sm.font-semibold(href='pages/others/profile.html') Никита Полянский
             +userRating(620)
             span.pt-2.text-15.font-semibold.text-rttf-green +35.4
           .flex.min-w-20.flex-col.items-center.gap-2
             +avatar('bg-rttf-green', 'ГД', '48')
-            a.text-center.text-sm.font-semibold Григорий Державин
+            a.text-center.text-sm.font-semibold(href='pages/others/profile.html') Григорий Державин
             +userRating(643)
             span.pt-2.text-15.font-semibold.text-rttf-green +32.7
           .flex.min-w-20.flex-col.items-center.gap-2
             +avatar('bg-rttf-yellow', 'КБ', '48')
-            a.text-center.text-sm.font-semibold Константин Барышников
+            a.text-center.text-sm.font-semibold(href='pages/others/profile.html') Константин Барышников
             +userRating(493)
             span.pt-2.text-15.font-semibold.text-rttf-green +31.4
           .flex.min-w-20.flex-col.items-center.gap-2
             +avatar('bg-rttf-yellow', 'ЛК', '48')
-            a.text-center.text-sm.font-semibold Людмила Кошелева
+            a.text-center.text-sm.font-semibold(href='pages/others/profile.html') Людмила Кошелева
             +userRating(493)
             span.pt-2.text-15.font-semibold.text-rttf-green +30.9
 

@@ -21,12 +21,12 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType,
             each player, index in players
               - var avatarClass = index > 0 ? '-mt-2' : ''
               div(class=avatarClass class=index === 0 ? '' : "sm:mr-0 sm:mt-0 sm:-ml-2")
-                a(href="https://badminton4u.ru/players/" + player.id + "?type=d")
+                a(href="pages/others/profile.html" + player.id + "?type=d")
                   +avatar(randomColor, player.firstName[0] + player.lastName[0], 28, player.avatar)
 
           .block(class="sm:hidden")
             each player in players
-              a(href="https://badminton4u.ru/players/" + player.id class="py-0.5").block
+              a(href="pages/others/profile.html" + player.id class="py-0.5").block
                 if players.length > 1
                   span.text-rttf-blue #{player.firstName[0]}. #{player.lastName}
                   span.text-xs.text-rttf-blue.h-4.ml-1 ★#{player.rating}
@@ -37,15 +37,25 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType,
             .flex.flex-row.gap-1
               each player, index in players
                 div
-                  a(href="https://badminton4u.ru/players/" + player.id)
+                  a(href="pages/others/profile.html" + player.id)
                     if players.length > 1
                       | #{player.firstName[0]}. #{player.lastName}
                     else
                       | #{player.firstName + ' ' + player.lastName}
                     if index < players.length - 1
                       | /
+    
+    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tableTennis}
+    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].badminton}
+    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].squash}
+    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tennis}
+    
     td.text-center
       +userRating(players[0].rating, players[0].double, '', players[0].ratingType)
+
+    if ratingType == 'chess' && !showCoefficient 
+        td.text-center(class="xs:table-cell").hidden
+            +userRating(players[0].rating, players[0].double, '')
     
     if dateTime && !showCoefficient
       td.text-center.hidden(class="sm:table-cell text-rttf-black-50") #{dateTime}

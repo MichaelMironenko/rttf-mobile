@@ -1,14 +1,69 @@
-mixin button(text, variant="default", color, bgColor, extraClasses='', id, href='', imageText)
-  - const onClickAction = href ? `window.location.href='${href}'` : ''
+mixin button(text, variant="default", color, bgColor, extraClasses='', id='', href='', imageText)
+  - const onClickAction = href ? href : ''
+  - const widthClass = extraClasses.match(/\bw-\S+/) ? '' : 'w-full'
   if variant == 'default'
-    button(id=`${id}` class=`w-full ${extraClasses} ${bgColor} rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) #{text}
+    button(
+      class=`${widthClass} ${extraClasses} ${bgColor} rounded-lg font-semibold py-3 px-4 max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out button-interactive`
+      data-action=onClickAction
+      id!= id || undefined
+    ) #{text}
   else if variant == 'text'
-    button(id=`${id}` class=`text-${color} bg-transparent ${extraClasses} transition-transform duration-150 ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) #{text}
+    button(
+      class=`${widthClass} text-${color} bg-transparent ${extraClasses} transition-transform duration-150 ease-in-out button-interactive`
+      data-action=onClickAction
+      id!= id || undefined
+    ) #{text}
   else if variant == 'image'
-    button(id=`${id}` class=`${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) 
-      img(src=text)
+    button(
+      class=`${widthClass} ${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out button-interactive`
+      data-action=onClickAction
+      id!= id || undefined
+    )
+      img(src=text alt="")
   else if variant == 'imageText'
-    button(id=`${id}` class=`${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out` onmousedown="this.classList.add('scale-97')" onmouseup="this.classList.remove('scale-97')" ontouchstart="this.classList.add('scale-97')" onmouseleave="this.classList.remove('scale-97')" ontouchmove="this.classList.remove('scale-97')" ontouchend="this.classList.remove('scale-97')" onclick=`${onClickAction}`) 
-      img.inline.align-middle(src=text)
+    button(
+      class=`${widthClass} ${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out button-interactive`
+      data-action=onClickAction
+      id!= id || undefined
+    )
+      img.inline.align-middle(src=text alt="")
       span.inline.align-middle.ml-1.text-xs(class=`text-${color} xs:text-sm`)= imageText
 
+  script.
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.button-interactive');
+
+        buttons.forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.classList.add('scale-97');
+            });
+
+            button.addEventListener('mouseup', function() {
+                this.classList.remove('scale-97');
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.classList.remove('scale-97');
+            });
+
+            button.addEventListener('touchstart', function() {
+                this.classList.add('scale-97');
+            });
+
+            button.addEventListener('touchmove', function() {
+                this.classList.remove('scale-97');
+            });
+
+            button.addEventListener('touchend', function() {
+                this.classList.remove('scale-97');
+            });
+
+            // Handle click if there's a data-action defined
+            button.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                if (action) {
+                    window.location.href = action;
+                }
+            });
+        });
+    });

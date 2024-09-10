@@ -15,7 +15,7 @@ mixin racketlonGameResult(time, stage, player1, score1, score2, score3, score4, 
           th(class="border w-1/12")
             img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
           th(class="px-2 py-1 border w-1/12 text-base font-normal leading-none") Σ
-          th(class="px-2 border w-3/12") ★ после 
+          th(class="px-2 border w-3/12") ★ до 
 
       tbody(class="text-[13px] text-rttf-black")
         tr.text-center
@@ -23,7 +23,10 @@ mixin racketlonGameResult(time, stage, player1, score1, score2, score3, score4, 
           td(class="py-2 border" + (score1 > score5 ? " text-rttf-black" : " text-rttf-black-50")) #{score1}
           td(class="py-2 border" + (score2 > score6 ? " text-rttf-black" : " text-rttf-black-50")) #{score2}
           td(class="py-2 border" + (score3 > score7 ? " text-rttf-black" : " text-rttf-black-50")) #{score3}
-          td(class="py-2 border" + (score4 > score8 ? " text-rttf-black" : " text-rttf-black-50")) #{score4}
+          td(class="py-2 border" + (score4 > score8 ? " text-rttf-black" : " text-rttf-black-50"))
+            | #{score4}
+            if score4 > score8
+                sup +1
           td(class="py-2 text-sm font-bold border w-1/12" + (total1 > total2 ? " text-rttf-green" : " text-rttf-red")) #{total1}
           td(class="p-1 text-gray-600 border w-3/12")
             img(src="/img/racketlon.svg", class="inline-block mr-1 size-3" alt="Ракетлон-рейтинг")

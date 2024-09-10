@@ -77,7 +77,7 @@ html(lang="ru")
 
 
 
-        div#information.tab-content.hidden.scroll-smooth.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
+        div#information.tab-content.scroll-smooth.no-scrollbar(class="px-[3vw]").pt-16.pb-28
             +adminBar({
                 edit: true,
                 addPhoto: true,
@@ -89,7 +89,7 @@ html(lang="ru")
                 delete: true,
 
                 })
-            div.p-4.bg-white.rounded-lg
+            div.p-4.bg-white.rounded-lg.mb-3
                 .flex.justify-between.gap-2.items-center
                     .flex.items-center.gap-2.justify-center.grow
                         +ratingLimit('откр', '', '', 'racketlon')
@@ -176,28 +176,120 @@ html(lang="ru")
                 -
                     var players = [
                         [
-                            { "number": 1, "firstName": "Алексей", "lastName": "Николаев", "rating": 945, "avatar": "", "coefficient": "2.5", "dateTime": "11 марта 14:30", "medal": "bronze", "ratingType": "racketlon" }
+                        { 
+                            "number": 1, 
+                            "firstName": "Алексей", 
+                            "lastName": "Николаев", 
+                            "rating": 945, 
+                            "avatar": "", 
+                            "coefficient": "2.5", 
+                            "dateTime": "11 марта 14:30", 
+                            "medal": "bronze", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 900, 
+                            "badminton": 880, 
+                            "squash": 910, 
+                            "tennis": 920
+                        }
                         ],
                         [
-                            { "number": 2, "firstName": "Михаил", "lastName": "Дмитриев", "rating": 876, "avatar": "", "byPhone": true, "coefficient": "1.8", "dateTime": "11 марта 15:00", "ratingType": "racketlon" }
+                        { 
+                            "number": 2, 
+                            "firstName": "Михаил", 
+                            "lastName": "Дмитриев", 
+                            "rating": 876, 
+                            "avatar": "", 
+                            "byPhone": true, 
+                            "coefficient": "1.8", 
+                            "dateTime": "11 марта 15:00", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 850, 
+                            "badminton": 860, 
+                            "squash": 870, 
+                            "tennis": 880
+                        }
                         ],
-                       
                         [
-                            { "number": 3, "firstName": "Сергей", "lastName": "Романов", "rating": 668, "avatar": "", "warning": 'true', "coefficient": "3.9", "dateTime": "11 марта 18:20", "medal": "silver", "ratingType": "racketlon" }
+                        { 
+                            "number": 3, 
+                            "firstName": "Сергей", 
+                            "lastName": "Романов", 
+                            "rating": 668, 
+                            "avatar": "", 
+                            "warning": 'true', 
+                            "coefficient": "3.9", 
+                            "dateTime": "11 марта 18:20", 
+                            "medal": "silver", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 670, 
+                            "badminton": 660, 
+                            "squash": 680, 
+                            "tennis": 690
+                        }
                         ],
                         [
-                            { "number": 4, "firstName": "Андрей", "lastName": "Федоров", "rating": 812, "avatar": "", "coefficient": "1.7", "dateTime": "11 марта 12:34", "ratingType": "racketlon" }
+                        { 
+                            "number": 4, 
+                            "firstName": "Андрей", 
+                            "lastName": "Федоров", 
+                            "rating": 812, 
+                            "avatar": "", 
+                            "coefficient": "1.7", 
+                            "dateTime": "11 марта 12:34", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 810, 
+                            "badminton": 820, 
+                            "squash": 830, 
+                            "tennis": 840
+                        }
                         ],
                         [
-                            { "number": 5, "firstName": "Никита", "lastName": "Кузнецов", "rating": 900, "avatar": "", "coefficient": "2.4", "dateTime": "11 марта 18:22", "ratingType": "racketlon" }
+                        { 
+                            "number": 5, 
+                            "firstName": "Никита", 
+                            "lastName": "Кузнецов", 
+                            "rating": 900, 
+                            "avatar": "", 
+                            "coefficient": "2.4", 
+                            "dateTime": "11 марта 18:22", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 890, 
+                            "badminton": 900, 
+                            "squash": 910, 
+                            "tennis": 920
+                        }
                         ],
-                        // Добавление нового игрока для chesspong
                         [
-                            { "number": 6, "firstName": "Владислав", "lastName": "Кириллов", "rating": 870, "avatar": "", "coefficient": "2.1", "dateTime": "11 марта 19:00", "ratingType": "racketlon" }
+                        { 
+                            "number": 6, 
+                            "firstName": "Владислав", 
+                            "lastName": "Кириллов", 
+                            "rating": 870, 
+                            "avatar": "", 
+                            "coefficient": "2.1", 
+                            "dateTime": "11 марта 19:00", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 860, 
+                            "badminton": 870, 
+                            "squash": 880, 
+                            "tennis": 890
+                        }
                         ],
-                        // Добавление нового игрока для racketlon
                         [
-                            { "number": 7, "firstName": "Иван", "lastName": "Сидоров", "rating": 850, "avatar": "", "coefficient": "1.9", "dateTime": "11 марта 19:30", "ratingType": "racketlon" }
+                        { 
+                            "number": 7, 
+                            "firstName": "Иван", 
+                            "lastName": "Сидоров", 
+                            "rating": 850, 
+                            "avatar": "", 
+                            "coefficient": "1.9", 
+                            "dateTime": "11 марта 19:30", 
+                            "ratingType": "racketlon",
+                            "tableTennis": 840, 
+                            "badminton": 850, 
+                            "squash": 860, 
+                            "tennis": 870
+                        }
                         ]
                     ];
 
@@ -214,7 +306,14 @@ html(lang="ru")
                     +button("Сделать прогноз", "default", "white", 'bg-rttf-color', 'border-2 border-white my-2')    
                     tr.text-xs.text-rttf-color.font-semibold.border-b
                         th.text-left.py-2 Игрок
-                        
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
                         th Рейтинг
                         th Х
                         th #  
@@ -229,6 +328,14 @@ html(lang="ru")
                     tr.text-xs.text-rttf-color(class="!font-semibold").border-b
                         th.text-left # ▲
                         th.text-left.py-2 Игрок
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
+                        th(class="hidden sm:table-cell w-1/12")
+                            img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
                         th Рейтинг   
                         th(class="sm:table-cell").hidden Регистрация                  
                     each team in players
@@ -320,8 +427,8 @@ html(lang="ru")
 
             +comments
 
-        div#live.tab-content.scroll-smooth.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
-            div.p-4.bg-white.rounded-lg
+        div#live.tab-content.scroll-smooth.no-scrollbar(class="px-[3vw]").pt-16.pb-28.hidden
+            div.p-4.bg-white.rounded-lg.mb-3
                 .flex.justify-between.gap-2.items-center
                     .flex.items-center.gap-2.justify-center.grow
                         +ratingLimit('<', 520)
@@ -339,17 +446,17 @@ html(lang="ru")
 
             +block('Последние игры', { href: '/pages/tournaments/allGamesRacketlon.html', text: 'Все игры' })
                 +racketlonGameResult('10:36', 'Финал', 'Вознесенский А.', 21, 21, 8, 17, 67, 376, 37.5, 'Калитников Ю.', 12, 17, 21, 21, 60, 402, -37.5)
-                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 22, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
-                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 22, 66, 390, -25.0)
-                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 23, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
+                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 21, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
+                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 21, 66, 390, -25.0)
+                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 21, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
             +block('Промежуточная таблица')
                 +tournamentResultsTableRacketlon(false)
-            +comments
+            +block('Блок комментариев')
 
 
 
-        div#results.tab-content.scroll-smooth.hidden.flex.flex-col.gap-4.no-scrollbar(class="px-[3vw]").pt-16.pb-28
-            div.p-4.bg-white.rounded-lg
+        div#results.tab-content.scroll-smooth.hidden.no-scrollbar(class="px-[3vw]").pt-16.pb-28
+            div.p-4.bg-white.rounded-lg.mb-3
                 .flex.justify-between.gap-2.items-center
                     .flex.items-center.gap-2.justify-center.grow
                         +ratingLimit('<', 520)
@@ -415,10 +522,10 @@ html(lang="ru")
             +block('Итоговая таблица')
                 +tournamentResultsTableRacketlon(true)
             +block('Лучшие игры турнира', { href: '/pages/tournaments/allGames.html', text: 'Все игры' })
-                +racketlonGameResult('10:36', 'Финал', 'Вознесенский А.', 21, 21, 8, '17^1', 67, 376, 37.5, 'Калитников Ю.', 12, 17, 21, 21, 60, 402, -37.5)
-                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 22, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
-                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 22, 66, 390, -25.0)
-                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 23, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
+                +racketlonGameResult('10:36', 'Финал', 'Вознесенский А.', 21, 21, 8, 17, 67, 376, 37.5, 'Калитников Ю.', 12, 17, 21, 21, 60, 402, -37.5)
+                +racketlonGameResult('09:00', '1/2', 'Иванов И.', 20, 18, 15, 21, 75, 385, 22.5, 'Сидоров А.', 19, 17, 21, 16, 70, 395, -20.5)
+                +racketlonGameResult('08:30', '1/4', 'Петров В.', 22, 20, 12, 18, 72, 380, 30.0, 'Михайлов С.', 14, 18, 17, 21, 66, 390, -25.0)
+                +racketlonGameResult('07:45', '1/8', 'Зайцев Д.', 19, 21, 20, 21, 83, 370, 15.0, 'Смирнов Л.', 17, 15, 19, 21, 72, 400, -12.0)
             +photoSlider('Фото с турнира')
             +videoSlider(false, false, 'Видео с турнира')
             +comments
