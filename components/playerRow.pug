@@ -17,7 +17,7 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType,
         if teamName
           div.font-semibold.mb-1.leading-tight.text-rttf-black #{teamName}
         .flex.gap-2.items-center
-          .flex.flex-col.shrink-0.items-centerl(class="sm:flex-row flex-shrink-0")
+          .flex.flex-col.shrink-0.items-centerl(class="sm:flex-row ")
             each player, index in players
               - var avatarClass = index > 0 ? '-mt-2' : ''
               div(class=avatarClass class=index === 0 ? '' : "sm:mr-0 sm:mt-0 sm:-ml-2")
