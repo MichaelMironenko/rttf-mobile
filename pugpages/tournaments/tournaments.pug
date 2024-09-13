@@ -1,4 +1,4 @@
-include /components/tournamentRegCard.pug
+
 include /components/timezoneMessage.pug
 include /components/tournamentsPanel.pug
 include /components/topBar.pug
@@ -9,6 +9,7 @@ include /components/tournamentLiveCard.pug
 include /components/searchAndFilterButton.pug
 include /components/atoms/tag.pug
 include /components/tournamentResultCard.pug
+include /components/tournamentRow.pug
 include /components/compactCalendar.pug
 
 doctype html
@@ -20,7 +21,7 @@ html(lang='en')
     link(href='../../styles.css' rel='stylesheet')
     //- link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
     base(href='../../')
-  body.h-screen.overflow-hidden.bg-page-background
+  body.bg-page-background
     +topBar
     .fixed.inset-x-0(class='top-[49px]')
       // +timezoneMessage
@@ -38,63 +39,62 @@ html(lang='en')
         </div>
       +tournamentsPanel("Регистрация")
     .fixed.left-0.top-0.min-h-screen.w-full.bg-page-background(class='z-[-1]')
-    .no-scrollbar.h-screen.overflow-y-auto
-      #registration.tab-content.py-4.px-3(class='pb-[50px] pt-[104px]')
-        +citySelect(true)
-        .flex.flex-col.items-center
-          +date("Вторник, 25 ноября")
-          +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
-          +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
-          +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
-          +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
-          +tournamentRow('12:30', '<', 350, 'SpinArt', 'Детский', '', '7')
-          +tournamentRow('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
-          +tournamentRow('12:30', '<', 350, 'Люблино', 'Форовый', 23, '9')
-          +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
-          +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
-          +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
-          +date("Четверг, 27 ноября")
-          +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
-          +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
-          +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
-          +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
-          +tournamentRow('12:30', '<', 350, 'SpinArt', 'Детский', '', '7')
-          +tournamentRow('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
-          +tournamentRow('12:30', '<', 350, 'Люблино', 'Форовый', 23, '9')
-          +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
-          +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
-          +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
-      #live.tab-content.hidden.py-4.px-3(class='pb-[50px] pt-[104px]')
-        .flex.flex-col.items-center
-          +tournamentLiveCard('11:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10', true, true)
-          +tournamentLiveCard('12:00', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
-          +tournamentLiveCard('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
-      #results.tab-content.hidden.py-4.px-3(, class='pb-[50px] pt-[104px]')
-        +searchAndFilterButton('Город, клуб, фамилия', true)
-        .flex.flex-wrap.gap-2.pt-4
-          +tag('rttf-color-10', 'rttf-black', 'Рейтинг 200-400')
-          +tag('rttf-color-10', 'rttf-black', 'Санкт-Петербург')
-          +tag('rttf-color-10', 'rttf-black', 'Space Химки')
-          +date("Вторник, 25 ноября")
-        .flex.flex-wrap.justify-center.gap-2
-          +tournamentResultCard('11:30', '<', 350, 'Деденеево', 12, 2)
-          +tournamentResultCard('11:30', '>', 420, 'SpinArt', 10, 0)
-          +tournamentResultCard('11:30', 'откр','', 'Радуга(Зел)', 22, 1)
+    #registration.tab-content.hidden.py-4.px-3(class='pb-[50px] pt-[104px]')
+      +citySelect(true)
+      .flex.flex-col.items-center
+        +date("Вторник, 25 ноября")
+        +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
+        +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
+        +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
+        +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16', true)
+        +tournamentRow('12:30', '<', 350, 'SpinArt', 'Детский', '', '7')
+        +tournamentRow('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
+        +tournamentRow('12:30', '<', 350, 'Люблино', 'Форовый', 23, '9')
+        +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
+        +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
+        +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
+        +date("Четверг, 27 ноября")
+        +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
+        +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
+        +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
+        +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
+        +tournamentRow('12:30', '<', 350, 'SpinArt', 'Детский', '', '7')
+        +tournamentRow('12:30', '<', 350, 'Крылья', 'Парный', '', '12')
+        +tournamentRow('12:30', '<', 350, 'Люблино', 'Форовый', 23, '9')
+        +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
+        +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
+        +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
+    #live.tab-content.py-4.px-3(class='pb-[50px] pt-[104px]')
+      .flex.flex-col.items-center
+        +tournamentLiveCard('11:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10', true, true)
+        +tournamentLiveCard('12:00', '>', 322, 'Spin pong SCD', 'Шахпонг', '', '16', false, true)
+        +tournamentLiveCard('12:30', '<', 350, 'Крылья', 'Ракетлон', '', '12', false, true)
+    #results.tab-content.hidden.py-4.px-3(, class='pb-[50px] pt-[104px]')
+      +searchAndFilterButton('Город, клуб, фамилия', true)
+      .flex.flex-wrap.gap-2.pt-4
+        +tag('rttf-color-10', 'rttf-black', 'Рейтинг 200-400')
+        +tag('rttf-color-10', 'rttf-black', 'Санкт-Петербург')
+        +tag('rttf-color-10', 'rttf-black', 'Space Химки')
+        +date("Вторник, 25 ноября")
+      .flex.flex-wrap.justify-center.gap-2
+        +tournamentResultCard('11:30', '<', 350, 'Деденеево', 12, 2, 'Настольный теннис')
+        +tournamentResultCard('11:30', '>', 420, 'SpinArt', 10, 0, 'Ракетлон')
+        +tournamentResultCard('11:30', 'откр', '', 'Радуга(Зел)', 22, 1, 'Шахпонг')
 
-      #calendar.tab-content.hidden(, class='pb-[50px] pt-[88px]')
-        .p-4.bg-white
-          +searchAndFilterButton('Город, клуб, фамилия', true) 
-          .flex.flex-wrap.gap-2.pt-4
-            +tag('slate-100', 'rttf-black', 'Рейтинг 200-400')
-            +tag('slate-100', 'rttf-black', 'Санкт-Петербург')
-            +tag('slate-100', 'rttf-black', 'Space Химки')
-        +compactCalendar
-        .z-1.flex.flex-col.items-center.bg-page-background.px-3.py-4
-          +date("Суббота, 19 марта")
-          +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
-          +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
-          +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
-          +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
+    #calendar.tab-content.hidden(, class='pb-[50px] pt-[88px]')
+      .p-4.bg-white
+        +searchAndFilterButton('Город, клуб, фамилия', true) 
+        .flex.flex-wrap.gap-2.pt-4
+          +tag('slate-100', 'rttf-black', 'Рейтинг 200-400')
+          +tag('slate-100', 'rttf-black', 'Санкт-Петербург')
+          +tag('slate-100', 'rttf-black', 'Space Химки')
+      +compactCalendar
+      .z-1.flex.flex-col.items-center.bg-page-background.px-3.py-4
+        +date("Суббота, 19 марта")
+        +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')
+        +tournamentRow('14:00', '<', 350, 'HurricaneTT', 'Шахпонг', '', '8')
+        +tournamentRow('12:30', '<', 350, 'Point', 'Пинг-Понг', '', '5')
+        +tournamentRow('12:30', '>', 322, 'Spin pong SCD', 'Ветеранский', '', '16')
     +tabBar('Турниры')
     script.
       document.querySelectorAll('.tournaments-panel-tab').forEach((tab) => {

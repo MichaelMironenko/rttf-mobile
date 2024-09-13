@@ -1,0 +1,97 @@
+mixin racketlonLiveRow(stage, player1, player2, player1Rating, player2Rating, tableTennisResult, badmintonResult, squashResult, tennisResult, isFinal, finalWinner)
+  table.w-full.text-left(class="text-sm last:mb-0").mb-2.bg-slate-100
+    thead
+      tr.text-xs.text-rttf-black-50.bg-white
+        th(class="w-1/12").py-1.px-2.text-center Этап
+        th(class="w-1/2").px-2.border-l Игрок
+        if tableTennisResult
+          th(class="w-1/12").border-l.pb-1
+            img(src="img/tt-racket.svg").size-4.mx-auto
+        if badmintonResult
+          th(class="w-1/12").border-l.pb-1
+            img(src="img/badminton.svg").size-4.mx-auto
+        if squashResult
+          th(class="w-1/12").border-l.pb-1
+            img(src="img/squash.svg").size-4.mx-auto
+        if tennisResult
+          th(class="w-1/12").border-l.pb-1
+            img(src="img/tennis.svg").size-4.mx-auto
+        if isFinal
+          th(class="w-1/12").text-center.pb-1.border-l Итог
+    tbody.text-rttf-black.mb-2
+      // Вычисляем суммарные очки для каждого игрока
+      - var totalPointsPlayer1 = 0
+      - var totalPointsPlayer2 = 0
+      if tableTennisResult
+        - totalPointsPlayer1 += tableTennisResult.player1Points
+        - totalPointsPlayer2 += tableTennisResult.player2Points
+      if badmintonResult
+        - totalPointsPlayer1 += badmintonResult.player1Points
+        - totalPointsPlayer2 += badmintonResult.player2Points
+      if squashResult
+        - totalPointsPlayer1 += squashResult.player1Points
+        - totalPointsPlayer2 += squashResult.player2Points
+      if tennisResult
+        - totalPointsPlayer1 += tennisResult.player1Points
+        - totalPointsPlayer2 += tennisResult.player2Points
+      // Определяем лидера
+      - var leadingPlayer = null
+      if totalPointsPlayer1 > totalPointsPlayer2
+        - leadingPlayer = player1
+      else if totalPointsPlayer2 > totalPointsPlayer1
+        - leadingPlayer = player2
+      // Первая строка для первого игрока
+      tr
+        td(class="w-1/12" rowspan=2).text-center.text-rttf-black-50 #{stage}
+        td(class="w-1/2").text-rttf-black.px-2.border-x.py-1
+          span(class=(leadingPlayer == player1 ? 'font-semibold' : ''))
+            = player1
+            span.text-rttf-black-50.text-xs &nbsp;★#{player1Rating}
+        // Отображение результатов игр
+        if tableTennisResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(tableTennisResult.winner == player1 ? 'text-rttf-green' : 'text-rttf-red')) #{tableTennisResult.player1Points}
+        if badmintonResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(badmintonResult.winner == player1 ? 'text-rttf-green' : 'text-rttf-red')) #{badmintonResult.player1Points}
+        if squashResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(squashResult.winner == player1 ? 'text-rttf-green' : 'text-rttf-red')) #{squashResult.player1Points}
+        if tennisResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(tennisResult.winner == player1 ? 'text-rttf-green' : 'text-rttf-red')) #{tennisResult.player1Points}
+        if isFinal
+          td(class="w-1/12").text-center.border-x
+            - var totalClass = ''
+            if totalPointsPlayer1 > totalPointsPlayer2
+              - totalClass = 'font-semibold text-rttf-green'
+            else if totalPointsPlayer1 < totalPointsPlayer2
+              - totalClass = 'text-rttf-red'
+            span(class=totalClass) #{totalPointsPlayer1}
+      // Вторая строка для второго игрока
+      tr
+        td(class="w-1/2").text-rttf-black.px-2.border-x.py-1
+          span(class=(leadingPlayer == player2 ? 'font-semibold' : ''))
+            = player2
+            span.text-rttf-black-50.text-xs &nbsp;★#{player2Rating}
+        if tableTennisResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(tableTennisResult.winner == player2 ? 'text-rttf-green' : 'text-rttf-red')) #{tableTennisResult.player2Points}
+        if badmintonResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(badmintonResult.winner == player2 ? 'text-rttf-green' : 'text-rttf-red')) #{badmintonResult.player2Points}
+        if squashResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(squashResult.winner == player2 ? 'text-rttf-green' : 'text-rttf-red')) #{squashResult.player2Points}
+        if tennisResult
+          td(class="w-1/12").text-center.border-l
+            span(class=(tennisResult.winner == player2 ? 'text-rttf-green' : 'text-rttf-red')) #{tennisResult.player2Points}
+        if isFinal
+          td(class="w-1/12").text-center.border-x
+            - var totalClass = ''
+            if totalPointsPlayer2 > totalPointsPlayer1
+              - totalClass = 'font-semibold text-rttf-green'
+            else if totalPointsPlayer2 < totalPointsPlayer1
+              - totalClass = 'text-rttf-red'
+            span(class=totalClass) #{totalPointsPlayer2}
+

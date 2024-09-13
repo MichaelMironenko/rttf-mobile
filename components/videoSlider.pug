@@ -8,7 +8,7 @@ mixin videoSlider(isLive, tournamentLine, title, plusButton, allLink)
   +block(title, allLink ? { href: allLink, text: 'Все' } : { href: 'pages/aroundgame/videoCollection.html', text: 'Все' }, plusButton)
     .flex.overflow-x-auto.-ml-4.-mr-4.px-4.gap-2.no-scrollbar
       each video, index in videos
-        .flex.flex-col.gap-2.flex-shrink-0(class="w-[80%] max-w-[300px]")
+        .flex.flex-col.gap-2.flex-shrink-0(class="w-[80%] max-w-[300px]").text-rttf-black
           .relative
             img(src=`dynamic-img/video-${index + 1}.jpg` alt=`Video ${index + 1}` class="w-full rounded-lg")
             if isLive
@@ -29,7 +29,8 @@ mixin videoSlider(isLive, tournamentLine, title, plusButton, allLink)
             //- .flex.items-center.gap-1
             //-     img(src="img/comment.svg").size-5.opacity-50.saturate-50
             //-     span #{video.comments}
-            span.text-rttf-black-50= video.date
+            if !isLive
+                span.text-rttf-black-50= video.date
   script.
     function toggleHeart(img) {
       const heartEmpty = 'img/heart-empty.svg';

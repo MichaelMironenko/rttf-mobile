@@ -7,7 +7,7 @@
     <link href="../../styles.css" rel="stylesheet">
     <base href="../../">
   </head>
-  <body class="h-screen overflow-hidden bg-page-background">
+  <body class="bg-page-background">
     <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/rttf-logo.svg" alt="Логотип">
         <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><img class="h-4 shrink-0 mt-0.5" src="img/rttf-logo-text.svg" alt="РТТФ"><span class="w-full text-xs leading-none tracking-tight text-slate-500 overflow-visible truncate text-ellipsis whitespace-nowrap">Нижний Новгород</span></div></a>
       <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Уведомления"><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Соообщения"><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
@@ -69,7 +69,7 @@
       </div>
       </div>
       -->
-      <div class="flex gap-5 justify-between px-3 text-sm leading-5 drop-shadow-xl whitespace-nowrap bg-white text-slate-900 text-opacity-50 z-20">
+      <div class="flex gap-5 justify-between px-3 text-sm leading-5 drop-shadow-xl whitespace-nowrap bg-white text-slate-900 text-opacity-50 z-[1000]">
         <div class="tournaments-panel-tab inline-flex cursor-pointer gap-1 items-center justify-between py-2 font-bold border-t-2 border-t-transparent border-b-2 border-solid text-blue-950 border-rttf-color" data-tab="registration"><img class="w-4 h-5 aspect-square " src="img/registration.svg">
           <div class="grow">Регистрация</div>
         </div>
@@ -85,557 +85,772 @@
       </div>
     </div>
     <div class="fixed left-0 top-0 min-h-screen w-full bg-page-background z-[-1]"></div>
-    <div class="no-scrollbar h-screen overflow-y-auto">
-      <div class="tab-content py-4 px-3 pb-[50px] pt-[104px]" id="registration">
-        <div class="flex items-center gap-1 undefined"><img class="h-4 w-4" src="img/location-icon.svg">
-          <select class="w-fit appearance-none rounded-2xl border-none bg-transparent bg-none p-0 text-sm font-semibold leading-none text-rttf-color undefined focus-visible:outline-none">
-            <option value="0" selected>Все города</option>
-            <option value="781">Алексин</option>
-            <option value="38">Казань</option>
-            <option value="120">Калининград</option>
-            <option value="197">Калуга</option>
-            <option value="35">Кемерово</option>
-            <option value="8">Красногорск</option>
-            <option value="1">Москва</option>
-            <option value="67">Новосибирск</option>
-            <option value="312">Одинцово</option>
-          </select>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
-            <div class="text-rttf-black text-sm font-semibold leading-none">Вторник, 25 ноября</div>
-          </div><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
+    <div class="tab-content hidden py-4 px-3 pb-[50px] pt-[104px]" id="registration">
+      <div class="flex items-center gap-1 undefined"><img class="h-4 w-4" src="img/location-icon.svg">
+        <select class="w-fit appearance-none rounded-2xl border-none bg-transparent bg-none p-0 text-sm font-semibold leading-none text-rttf-color undefined focus-visible:outline-none">
+          <option value="0" selected>Все города</option>
+          <option value="781">Алексин</option>
+          <option value="38">Казань</option>
+          <option value="120">Калининград</option>
+          <option value="197">Калуга</option>
+          <option value="35">Кемерово</option>
+          <option value="8">Красногорск</option>
+          <option value="1">Москва</option>
+          <option value="67">Новосибирск</option>
+          <option value="312">Одинцово</option>
+        </select>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+          <div class="text-rttf-black text-sm font-semibold leading-none">Вторник, 25 ноября</div>
+        </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
+            <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournamentChess.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">14:00</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">HurricaneTT</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Ping-Pong.svg" alt="Пинг-Понг"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Point</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">5</span></div>
+          </div></a><a class="p-2 border-2 border-rttf-green px-2 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Veteran.svg" alt="Ветеранский"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+          </div>
+          <div class="mt-2 flex items-center gap-1 text-xs"><img class="h-4 w-4" src="img/checkmark.svg" alt=""><span class="text-rttf-color">Вы зарегистрированы на этот турнир</span></div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Children.svg" alt="Детский"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">SpinArt</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">7</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Pair.svg" alt="Парный"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Крылья</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/fore.svg" alt="Форовый"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Люблино</div>
+            <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">9</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 400
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/team.svg" alt="Групповой"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Радуга(Зел)</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">4</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournamentRacketlon.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ФилиТТ</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
+          </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Деденеево</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">11</span></div>
+          </div></a>
+        <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+          <div class="text-rttf-black text-sm font-semibold leading-none">Четверг, 27 ноября</div>
+        </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
+            <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournamentChess.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">14:00</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">HurricaneTT</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Ping-Pong.svg" alt="Пинг-Понг"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Point</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">5</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Veteran.svg" alt="Ветеранский"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Children.svg" alt="Детский"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">SpinArt</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">7</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Pair.svg" alt="Парный"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Крылья</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/fore.svg" alt="Форовый"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Люблино</div>
+            <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">9</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 400
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/team.svg" alt="Групповой"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Радуга(Зел)</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">4</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournamentRacketlon.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ФилиТТ</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
+          </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Деденеево</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">11</span></div>
+          </div></a>
+      </div>
+    </div>
+    <div class="tab-content py-4 px-3 pb-[50px] pt-[104px]" id="live">
+      <div class="flex flex-col items-center">
+        <div class="bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm z-[-1] mb-2 border-2 border-rttf-color">
+          <div class="flex items-center justify-between px-3 py-3 bg-white w-full gap-2">
             <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
+              <div class="text-sm text-rttf-red animate-pulse px-1">11:30</div>
               <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
               </div>
               <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
               <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournamentChess.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">14:00</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">HurricaneTT</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Ping-Pong.svg" alt="Пинг-Понг">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Point</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">5</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
-              </div><img class="h-4 w-4" src="img/Veteran.svg" alt="Ветеранский">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Children.svg" alt="Детский">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">SpinArt</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">7</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Pair.svg" alt="Парный">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Крылья</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/fore.svg" alt="Форовый">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Люблино</div>
-              <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">9</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 400
-              </div><img class="h-4 w-4" src="img/team.svg" alt="Групповой">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Радуга(Зел)</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">4</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournamentRacketlon.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
-              </div><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ФилиТТ</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div>
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Деденеево</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">11</span></div>
-            </div></a>
-          <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
-            <div class="text-rttf-black text-sm font-semibold leading-none">Четверг, 27 ноября</div>
-          </div><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div>
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
-              <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournamentChess.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">14:00</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">HurricaneTT</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Ping-Pong.svg" alt="Пинг-Понг">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Point</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">5</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
-              </div><img class="h-4 w-4" src="img/Veteran.svg" alt="Ветеранский">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Children.svg" alt="Детский">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">SpinArt</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">7</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Pair.svg" alt="Парный">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Крылья</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/fore.svg" alt="Форовый">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Люблино</div>
-              <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">9</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 400
-              </div><img class="h-4 w-4" src="img/team.svg" alt="Групповой">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Радуга(Зел)</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">4</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournamentRacketlon.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
-              </div><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ФилиТТ</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div>
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Деденеево</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">11</span></div>
-            </div></a>
-        </div>
-      </div>
-      <div class="tab-content hidden py-4 px-3 pb-[50px] pt-[104px]" id="live">
-        <div class="flex flex-col items-center">
-          <div class="bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm mb-2 border-2 border-rttf-color">
-            <div class="flex items-center justify-between px-3 py-3 bg-white w-full gap-2">
-              <div class="flex items-center gap-2 grow">
-                <div class="text-sm text-rttf-red animate-pulse px-1">11:30</div>
-                <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-                </div>
-                <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
-                <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
-                <div class="flex items-center"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
-              </div>
-            </div>
-            <div class="pl-3 pr-4 bg-slate-100">
-              <div class="flex items-center gap-2 border-b border-slate-300">
-                <div class="flex flex-col items-center py-2 w-10 shrink-0"><span class="text-sm text-rttf-black-50 text-center mb-1">1/16</span>
-                </div>
-                <div class="flex-grow flex flex-col justify-center py-2 w-full flex-shrink gap-1">
-                  <div class="flex justify-between gap-2"><span class="text-sm min-w-0 truncate max-w-full flex-shrink font-semibold">Клейменов Алексей</span><span class="text-sm font-semibold">3</span></div>
-                  <div class="flex justify-between gap-2"><span class="text-sm min-w-0 truncate max-w-full flex-shrink text-slate-500">Григорьев-Апполонов Виктор</span><span class="text-sm text-slate-500">2</span></div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2 ">
-                <div class="flex flex-col items-center py-2 w-10 shrink-0"><span class="text-sm text-rttf-black-50 text-center mb-1">1/16</span><span class="text-red-500 text-sm animate-pulse">5'</span>
-                </div>
-                <div class="flex-grow flex flex-col justify-center py-2 w-full flex-shrink gap-1">
-                  <div class="w-full flex justify-between items-center gap-2">
-                    <div class="flex flex-col min-w-0 flex-grow text-sm gap-1"><span class="text-sm min-w-0 truncate max-w-full flex-shrink">Семенова / Коломинская</span><span class="text-sm min-w-0 truncate max-w-full flex-shrink">Соколянская / Добронравова</span></div><a class="shrink-0" href="pages/aroundGame/video.html"><img class="h-6 w-6" src="img/youtube.svg" alt="Video icon"></a>
-                  </div>
-                </div>
-              </div>
+              <div class="flex items-center"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
             </div>
           </div>
-          <div class="bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm mb-2">
-            <div class="flex items-center justify-between px-3 py-3 bg-white w-full gap-2">
-              <div class="flex items-center gap-2 grow">
-                <div class="text-sm text-rttf-red animate-pulse px-1">12:00</div>
-                <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
-                </div><img class="h-4 w-4" src="img/veteran.svg" alt="Ветеранский">
-                <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
-                <div class="flex items-center"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+          <div class="pl-3 pr-4 bg-slate-100">
+            <div class="flex items-center -z-10 gap-2 border-b border-slate-300">
+              <div class="flex flex-col items-center py-2 w-10 shrink-0"><span class="text-sm text-rttf-black-50 text-center mb-1">1/16</span>
+              </div>
+              <div class="flex-grow flex flex-col justify-center py-2 w-full flex-shrink gap-1">
+                <div class="flex justify-between gap-2"><span class="text-sm min-w-0 truncate max-w-full flex-shrink font-semibold">Клейменов Алексей</span><span class="text-sm font-semibold">3</span></div>
+                <div class="flex justify-between gap-2"><span class="text-sm min-w-0 truncate max-w-full flex-shrink text-slate-500">Григорьев-Апполонов Виктор</span><span class="text-sm text-slate-500">2</span></div>
               </div>
             </div>
-          </div>
-          <div class="bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm mb-2">
-            <div class="flex items-center justify-between px-3 py-3 bg-white w-full gap-2">
-              <div class="flex items-center gap-2 grow">
-                <div class="text-sm text-rttf-red animate-pulse px-1">12:30</div>
-                <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-                </div><img class="h-4 w-4" src="img/Pair.svg" alt="Парный">
-                <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Крылья</div>
-                <div class="flex items-center"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
+            <div class="flex items-center -z-10 gap-2 ">
+              <div class="flex flex-col items-center py-2 w-10 shrink-0"><span class="text-sm text-rttf-black-50 text-center mb-1">1/16</span><span class="text-red-500 text-sm animate-pulse">5'</span>
+              </div>
+              <div class="flex-grow flex flex-col justify-center py-2 w-full flex-shrink gap-1">
+                <div class="w-full flex justify-between items-center gap-2">
+                  <div class="flex flex-col min-w-0 flex-grow text-sm gap-1"><span class="text-sm min-w-0 truncate max-w-full flex-shrink">Семенова / Коломинская</span><span class="text-sm min-w-0 truncate max-w-full flex-shrink">Соколянская / Добронравова</span></div><a class="shrink-0 py-3" href="pages/aroundGame/video.html"><img class="h-5 animate-pulse" src="img/live-video.svg" alt="Video icon"></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm z-[-1] mb-2">
+          <div class="flex items-center justify-between px-3 py-3 bg-white w-full gap-2">
+            <div class="flex items-center gap-2 grow">
+              <div class="text-sm text-rttf-red animate-pulse px-1">12:00</div>
+              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
+              </div>
+              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг"></div>
+              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
+              <div class="flex items-center"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+            </div>
+          </div>
+          <div>
+            <table class="w-full text-left text-sm last:mb-0 mb-2 bg-slate-100">
+              <thead>
+                <tr class="text-xs text-rttf-black-50 bg-white">
+                  <th class="w-1/12 py-1 px-2 text-center">Этап</th>
+                  <th class="w-1/3 px-2 border-x">Игрок</th>
+                  <th class="w-1/12 border-x pb-1"><img class="size-4 mx-auto" src="img/chess.svg"></th>
+                  <th class="w-1/12 border-x pb-1"><img class="size-4 mx-auto" src="img/tt-racket.svg"></th>
+                </tr>
+              </thead>
+              <tbody class="text-rttf-black mb-2">
+                <!-- Объединенная строка для стадии и тенниса (если игра идёт)-->
+                <tr>
+                  <td class="w-1/12 text-center text-rttf-black-50" rowspan="2">шв.1</td>
+                  <td class="w-1/3 text-rttf-black px-2 border-x"><span class="font-semibold">Клейменов А.</span></td>
+                  <td class="w-1/12 text-center border-x"><span class="relative text-rttf-green">1</span><br><span class="text-xs text-rttf-black-50 cursor-pointer relative" onclick="showTooltip(this)">⏱&nbsp;5:30</span>
+                    <div class="hidden absolute bg-white border rounded-md px-2 py-1 text-xs z-10 w-fit text-rttf-black mt-1 tooltip">Показано <b>оставшееся</b> время на часах</div>
+                  </td>
+                  <td class="w-1/12 text-center" rowspan="2"><span class="text-rttf-red animate-pulse text-xs">Идёт игра</span></td>
+                </tr>
+                <!-- Вторая строка для второго игрока-->
+                <tr>
+                  <td class="w-1/3 text-rttf-black px-2 pb-2 border-x">Григорьев-Апполонов В.</td>
+                  <td class="w-1/12 text-center text-rttf-black border-x pb-2"><span class="relative text-rttf-red">0</span>
+                  </td>
+                </tr>
+              </tbody>
+              <script>
+                function showTooltip(element) {
+                // Закрываем все открытые подсказки
+                var tooltips = document.querySelectorAll('div.tooltip');
+                tooltips.forEach(function(tooltip) {
+                    tooltip.classList.add('hidden');
+                });
+                
+                // Показываем только подсказку, связанную с текущим элементом
+                var tooltip = element.nextElementSibling;
+                tooltip.classList.toggle('hidden');
+                }
+              </script>
+            </table>
+            <table class="w-full text-left text-sm last:mb-0 mb-2 bg-slate-100">
+              <thead>
+                <tr class="text-xs text-rttf-black-50 bg-white">
+                  <th class="w-1/12 py-1 px-2 text-center">Этап</th>
+                  <th class="w-1/3 px-2 border-x">Игрок</th>
+                  <th class="w-1/12 border-x pb-1"><img class="size-4 mx-auto" src="img/chess.svg"></th>
+                  <th class="w-1/12 border-x pb-1"><img class="size-4 mx-auto" src="img/tt-racket.svg"></th>
+                  <th class="w-1/12 text-center pb-1">Итог</th>
+                </tr>
+              </thead>
+              <tbody class="text-rttf-black mb-2">
+                <!-- Объединенная строка для стадии и тенниса (если игра идёт)-->
+                <tr>
+                  <td class="w-1/12 text-center text-rttf-black-50" rowspan="2">шв.2</td>
+                  <td class="w-1/3 text-rttf-black px-2 border-x"><span class="font-semibold">Семенова T.</span></td>
+                  <td class="w-1/12 text-center border-x"><span class="relative text-rttf-green">1</span><br><span class="text-xs text-rttf-black-50 cursor-pointer relative" onclick="showTooltip(this)">⏱&nbsp;3:45</span>
+                    <div class="hidden absolute bg-white border rounded-md px-2 py-1 text-xs z-10 w-fit text-rttf-black mt-1 tooltip">Показано <b>оставшееся</b> время на часах</div>
+                  </td>
+                  <td class="w-1/12 text-center"><span class="text-rttf-green">21</span>
+                  </td>
+                  <td class="w-1/12 text-center border-x"><span class="text-rttf-green font-semibold">В</span>
+                  </td>
+                </tr>
+                <!-- Вторая строка для второго игрока-->
+                <tr>
+                  <td class="w-1/3 text-rttf-black px-2 pb-2 border-x">Соколянская К.</td>
+                  <td class="w-1/12 text-center text-rttf-black border-x pb-2"><span class="relative text-rttf-red">0</span>
+                  </td>
+                  <td class="w-1/12 text-center border-x pb-2"><span class="text-rttf-red">19</span>
+                  </td>
+                  <td class="w-1/12 text-center border-x pb-2"><span class="text-rttf-red">П</span>
+                  </td>
+                </tr>
+              </tbody>
+              <script>
+                function showTooltip(element) {
+                // Закрываем все открытые подсказки
+                var tooltips = document.querySelectorAll('div.tooltip');
+                tooltips.forEach(function(tooltip) {
+                    tooltip.classList.add('hidden');
+                });
+                
+                // Показываем только подсказку, связанную с текущим элементом
+                var tooltip = element.nextElementSibling;
+                tooltip.classList.toggle('hidden');
+                }
+              </script>
+            </table>
+          </div>
+        </div>
+        <div class="bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm z-[-1] mb-2">
+          <div class="flex items-center justify-between px-3 py-3 bg-white w-full gap-2">
+            <div class="flex items-center gap-2 grow">
+              <div class="text-sm text-rttf-red animate-pulse px-1">12:30</div>
+              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+              </div>
+              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон"></div>
+              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Крылья</div>
+              <div class="flex items-center"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
+            </div>
+          </div>
+          <div> 
+            <!-- Сыгран только настольный теннис (итог не показывается)-->
+            <table class="w-full text-left text-sm last:mb-0 mb-2 bg-slate-100">
+              <thead>
+                <tr class="text-xs text-rttf-black-50 bg-white">
+                  <th class="w-1/12 py-1 px-2 text-center">Этап</th>
+                  <th class="w-1/2 px-2 border-l">Игрок</th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/tt-racket.svg"></th>
+                </tr>
+              </thead>
+              <tbody class="text-rttf-black mb-2">
+                <!-- Вычисляем суммарные очки для каждого игрока-->
+                <!-- Определяем лидера-->
+                <!-- Первая строка для первого игрока-->
+                <tr>
+                  <td class="w-1/12 text-center text-rttf-black-50" rowspan="2">1/16</td>
+                  <td class="w-1/2 text-rttf-black px-2 border-x py-1"><span class="font-semibold">Петров С.<span class="text-rttf-black-50 text-xs">&nbsp;★250</span></span></td>
+                  <!-- Отображение результатов игр-->
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">21</span></td>
+                </tr>
+                <!-- Вторая строка для второго игрока-->
+                <tr>
+                  <td class="w-1/2 text-rttf-black px-2 border-x py-1"><span>Иванов А.<span class="text-rttf-black-50 text-xs">&nbsp;★240</span></span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">19</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Сыграны настольный теннис, бадминтон и сквош (итог не показывается)-->
+            <table class="w-full text-left text-sm last:mb-0 mb-2 bg-slate-100">
+              <thead>
+                <tr class="text-xs text-rttf-black-50 bg-white">
+                  <th class="w-1/12 py-1 px-2 text-center">Этап</th>
+                  <th class="w-1/2 px-2 border-l">Игрок</th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/tt-racket.svg"></th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/badminton.svg"></th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/squash.svg"></th>
+                </tr>
+              </thead>
+              <tbody class="text-rttf-black mb-2">
+                <!-- Вычисляем суммарные очки для каждого игрока-->
+                <!-- Определяем лидера-->
+                <!-- Первая строка для первого игрока-->
+                <tr>
+                  <td class="w-1/12 text-center text-rttf-black-50" rowspan="2">1/16</td>
+                  <td class="w-1/2 text-rttf-black px-2 border-x py-1"><span>Сидоров К.<span class="text-rttf-black-50 text-xs">&nbsp;★230</span></span></td>
+                  <!-- Отображение результатов игр-->
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">21</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">15</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">11</span></td>
+                </tr>
+                <!-- Вторая строка для второго игрока-->
+                <tr>
+                  <td class="w-1/2 text-rttf-black px-2 border-x py-1"><span class="font-semibold">Кузнецов В.<span class="text-rttf-black-50 text-xs">&nbsp;★220</span></span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">19</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">21</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">9</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Полностью сыграна вся игра с итогом (Петров победил)-->
+            <table class="w-full text-left text-sm last:mb-0 mb-2 bg-slate-100">
+              <thead>
+                <tr class="text-xs text-rttf-black-50 bg-white">
+                  <th class="w-1/12 py-1 px-2 text-center">Этап</th>
+                  <th class="w-1/2 px-2 border-l">Игрок</th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/tt-racket.svg"></th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/badminton.svg"></th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/squash.svg"></th>
+                  <th class="w-1/12 border-l pb-1"><img class="size-4 mx-auto" src="img/tennis.svg"></th>
+                  <th class="w-1/12 text-center pb-1 border-l">Итог</th>
+                </tr>
+              </thead>
+              <tbody class="text-rttf-black mb-2">
+                <!-- Вычисляем суммарные очки для каждого игрока-->
+                <!-- Определяем лидера-->
+                <!-- Первая строка для первого игрока-->
+                <tr>
+                  <td class="w-1/12 text-center text-rttf-black-50" rowspan="2">1/16</td>
+                  <td class="w-1/2 text-rttf-black px-2 border-x py-1"><span class="font-semibold">Новиков И.<span class="text-rttf-black-50 text-xs">&nbsp;★245</span></span></td>
+                  <!-- Отображение результатов игр-->
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">21</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">15</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">11</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">6</span></td>
+                  <td class="w-1/12 text-center border-x"><span class="font-semibold text-rttf-green">53</span>
+                  </td>
+                </tr>
+                <!-- Вторая строка для второго игрока-->
+                <tr>
+                  <td class="w-1/2 text-rttf-black px-2 border-x py-1"><span>Смирнов Д.<span class="text-rttf-black-50 text-xs">&nbsp;★240</span></span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">19</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-green">21</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">9</span></td>
+                  <td class="w-1/12 text-center border-l"><span class="text-rttf-red">3</span></td>
+                  <td class="w-1/12 text-center border-x"><span class="text-rttf-red">52</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="tab-content hidden py-4 px-3 pb-[50px] pt-[104px]" id="results" >
+    </div>
+    <div class="tab-content hidden py-4 px-3 pb-[50px] pt-[104px]" id="results" >
+      <div class="flex items-center justify-between gap-4  undefined ">
+        <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-rttf-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search">
+          <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Город, клуб, фамилия">
+        </div><img class="filters-panel-button h-6 w-6" src="img/filters-icon.svg" alt="Кнопка меню фильтров">
+      </div>
+      <div class="flex flex-wrap gap-2 pt-4">
+        <div class="px-2 py-1.5 font-semibold text-xs bg-rttf-color-10 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Рейтинг 200-400<span class="ml-2 text-rttf-black">✕</span>
+        </div>
+        <div class="px-2 py-1.5 font-semibold text-xs bg-rttf-color-10 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Санкт-Петербург<span class="ml-2 text-rttf-black">✕</span>
+        </div>
+        <div class="px-2 py-1.5 font-semibold text-xs bg-rttf-color-10 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Space Химки<span class="ml-2 text-rttf-black">✕</span>
+        </div>
+        <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+          <div class="text-rttf-black text-sm font-semibold leading-none">Вторник, 25 ноября</div>
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2"><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
+          <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="inline-flex gap-2 grow flex-wrap items-center"><span class="text-sm font-semibold leading-none">Деденеево</span>
+            </div>
+            <div class="inline-flex flex-row gap-2 text-sm">
+              <div class="inline-flex gap-0.5 items-center ml-2"><img class="opacity-50 saturate-50" src="img/comment.svg"><span>2</span></div>
+              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>12</span></div>
+            </div>
+          </div>
+          <div class="px-3 py-2 bg-slate-100 text-rttf-black">
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-gold.svg" alt="gold medal">
+              <div class="text-sm grow leading-xs">А. Баркалов / В. Мартынов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">414</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-silver.svg" alt="silver medal">
+              <div class="text-sm grow leading-xs">Е. Неряхин / М. Клейменов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">423</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-bronze.svg" alt="bronze medal">
+              <div class="text-sm grow leading-xs">У. Константинопольская / А. Парфёнов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">377</div>
+              </div>
+            </div>
+          </div></a><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
+          <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 420
+            </div>
+            <div class="inline-flex gap-2 grow flex-wrap items-center">
+              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон"></div><span class="text-sm font-semibold leading-none">SpinArt</span>
+            </div>
+            <div class="inline-flex flex-row gap-2 text-sm">
+              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>10</span></div>
+            </div>
+          </div>
+          <div class="px-3 py-2 bg-slate-100 text-rttf-black">
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-gold.svg" alt="gold medal">
+              <div class="text-sm grow leading-xs">А. Баркалов / В. Мартынов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">414</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-silver.svg" alt="silver medal">
+              <div class="text-sm grow leading-xs">Е. Неряхин / М. Клейменов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">423</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-bronze.svg" alt="bronze medal">
+              <div class="text-sm grow leading-xs">У. Константинопольская / А. Парфёнов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">377</div>
+              </div>
+            </div>
+          </div></a><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
+          <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+            </div>
+            <div class="inline-flex gap-2 grow flex-wrap items-center">
+              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг"></div><span class="text-sm font-semibold leading-none">Радуга(Зел)</span>
+            </div>
+            <div class="inline-flex flex-row gap-2 text-sm">
+              <div class="inline-flex gap-0.5 items-center ml-2"><img class="opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
+              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>22</span></div>
+            </div>
+          </div>
+          <div class="px-3 py-2 bg-slate-100 text-rttf-black">
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-gold.svg" alt="gold medal">
+              <div class="text-sm grow leading-xs">А. Баркалов / В. Мартынов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">414</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-silver.svg" alt="silver medal">
+              <div class="text-sm grow leading-xs">Е. Неряхин / М. Клейменов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">423</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-bronze.svg" alt="bronze medal">
+              <div class="text-sm grow leading-xs">У. Константинопольская / А. Парфёнов</div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">377</div>
+              </div>
+            </div>
+          </div></a>
+      </div>
+    </div>
+    <div class="tab-content hidden pb-[50px] pt-[88px]" id="calendar" >
+      <div class="p-4 bg-white">
         <div class="flex items-center justify-between gap-4  undefined ">
           <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-rttf-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search">
             <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Город, клуб, фамилия">
           </div><img class="filters-panel-button h-6 w-6" src="img/filters-icon.svg" alt="Кнопка меню фильтров">
         </div>
         <div class="flex flex-wrap gap-2 pt-4">
-          <div class="px-2 py-1.5 font-semibold text-xs bg-rttf-color-10 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Рейтинг 200-400<span class="ml-2 text-rttf-black">✕</span>
+          <div class="px-2 py-1.5 font-semibold text-xs bg-slate-100 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Рейтинг 200-400<span class="ml-2 text-rttf-black">✕</span>
           </div>
-          <div class="px-2 py-1.5 font-semibold text-xs bg-rttf-color-10 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Санкт-Петербург<span class="ml-2 text-rttf-black">✕</span>
+          <div class="px-2 py-1.5 font-semibold text-xs bg-slate-100 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Санкт-Петербург<span class="ml-2 text-rttf-black">✕</span>
           </div>
-          <div class="px-2 py-1.5 font-semibold text-xs bg-rttf-color-10 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Space Химки<span class="ml-2 text-rttf-black">✕</span>
+          <div class="px-2 py-1.5 font-semibold text-xs bg-slate-100 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Space Химки<span class="ml-2 text-rttf-black">✕</span>
           </div>
-          <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
-            <div class="text-rttf-black text-sm font-semibold leading-none">Вторник, 25 ноября</div>
-          </div>
-        </div>
-        <div class="flex flex-wrap justify-center gap-2"><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
-            <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div>
-              <div class="inline-flex gap-2 grow flex-wrap"><span class="text-sm font-semibold leading-sm">Деденеево</span></div>
-              <div class="inline-flex flex-row gap-2 text-sm">
-                <div class="inline-flex gap-0.5 items-center ml-2"><img class="opacity-50 saturate-50" src="img/comment.svg"><span>2</span></div>
-                <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>12</span></div>
-              </div>
-            </div>
-            <div class="px-3 py-2 bg-slate-100 text-rttf-black">
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-gold.svg" alt="gold medal">
-                <div class="text-sm grow leading-xs">А. Баркалов / В. Мартынов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">414</div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-silver.svg" alt="silver medal">
-                <div class="text-sm grow leading-xs">Е. Неряхин / М. Клейменов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">423</div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-bronze.svg" alt="bronze medal">
-                <div class="text-sm grow leading-xs">У. Константинопольская / А. Парфёнов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">377</div>
-                </div>
-              </div>
-            </div></a><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
-            <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 420
-              </div>
-              <div class="inline-flex gap-2 grow flex-wrap"><span class="text-sm font-semibold leading-sm">SpinArt</span></div>
-              <div class="inline-flex flex-row gap-2 text-sm">
-                <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>10</span></div>
-              </div>
-            </div>
-            <div class="px-3 py-2 bg-slate-100 text-rttf-black">
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-gold.svg" alt="gold medal">
-                <div class="text-sm grow leading-xs">А. Баркалов / В. Мартынов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">414</div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-silver.svg" alt="silver medal">
-                <div class="text-sm grow leading-xs">Е. Неряхин / М. Клейменов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">423</div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-bronze.svg" alt="bronze medal">
-                <div class="text-sm grow leading-xs">У. Константинопольская / А. Парфёнов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">377</div>
-                </div>
-              </div>
-            </div></a><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
-            <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
-              </div>
-              <div class="inline-flex gap-2 grow flex-wrap"><span class="text-sm font-semibold leading-sm">Радуга(Зел)</span></div>
-              <div class="inline-flex flex-row gap-2 text-sm">
-                <div class="inline-flex gap-0.5 items-center ml-2"><img class="opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
-                <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>22</span></div>
-              </div>
-            </div>
-            <div class="px-3 py-2 bg-slate-100 text-rttf-black">
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-gold.svg" alt="gold medal">
-                <div class="text-sm grow leading-xs">А. Баркалов / В. Мартынов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">414</div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-silver.svg" alt="silver medal">
-                <div class="text-sm grow leading-xs">Е. Неряхин / М. Клейменов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">423</div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between py-2 gap-2"><img class="w-5 h-5" src="img/medal-bronze.svg" alt="bronze medal">
-                <div class="text-sm grow leading-xs">У. Константинопольская / А. Парфёнов</div>
-                <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
-                  <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
-                  <div class="text-rttf-black text-center text-xs font-semibold leading-none">377</div>
-                </div>
-              </div>
-            </div></a>
         </div>
       </div>
-      <div class="tab-content hidden pb-[50px] pt-[88px]" id="calendar" >
-        <div class="p-4 bg-white">
-          <div class="flex items-center justify-between gap-4  undefined ">
-            <div class="flex items-center border px-3 py-2 rounded-lg gap-3 bg-white flex-grow focus-within:ring-2 focus-within:ring-rttf-color"><img class="w-4 h-4" src="img/search-icon.svg" alt="Search">
-              <input class="flex-grow outline-none leading-none bg-transparent" id="searchBar" type="text" placeholder="Город, клуб, фамилия">
-            </div><img class="filters-panel-button h-6 w-6" src="img/filters-icon.svg" alt="Кнопка меню фильтров">
-          </div>
-          <div class="flex flex-wrap gap-2 pt-4">
-            <div class="px-2 py-1.5 font-semibold text-xs bg-slate-100 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Рейтинг 200-400<span class="ml-2 text-rttf-black">✕</span>
-            </div>
-            <div class="px-2 py-1.5 font-semibold text-xs bg-slate-100 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Санкт-Петербург<span class="ml-2 text-rttf-black">✕</span>
-            </div>
-            <div class="px-2 py-1.5 font-semibold text-xs bg-slate-100 text-rttf-black rounded-lg shadow-sm leading-none border border-rttf-black border-opacity-50 w-fit">Space Химки<span class="ml-2 text-rttf-black">✕</span>
-            </div>
-          </div>
+      <div class="bg-white sticky z-20 top-[90px]">
+        <div class="flex justify-between items-center pt-2 pb-2 px-3">
+          <button><img class="rotate-90 h-4 w-4" src="img/expand-arrow.svg"></button>
+          <div class="text-lg font-semibold text-rttf-color">Март</div>
+          <button><img class="-rotate-90 h-4 w-4" src="img/expand-arrow.svg"></button>
         </div>
-        <div class="bg-white sticky z-20 top-[90px]">
-          <div class="flex justify-between items-center pt-2 pb-2 px-3">
-            <button><img class="rotate-90 h-4 w-4" src="img/expand-arrow.svg"></button>
-            <div class="text-lg font-semibold text-rttf-color">Март</div>
-            <button><img class="-rotate-90 h-4 w-4" src="img/expand-arrow.svg"></button>
+        <!-- Список дней-->
+        <div class="flex space-x-1 overflow-x-auto py-2 no-scrollbar border-b">
+          <div class="flex space-x-1"> 
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Пн</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">14</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Вт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">15</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50 font-bold">Ср</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700 font-bold">16</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Чт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">17</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Пт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">18</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-red opacity-50">Сб</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">19</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-red opacity-50">Вс</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">20</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              </div>
+            </div>
           </div>
-          <!-- Список дней-->
-          <div class="flex space-x-1 overflow-x-auto py-2 no-scrollbar border-b">
-            <div class="flex space-x-1"> 
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Пн</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">14</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
+          <div class="flex space-x-1"> 
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Пн</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">21</div>
               </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Вт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">15</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50 font-bold">Ср</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700 font-bold">16</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Чт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">17</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Пт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">18</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-red opacity-50">Сб</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">19</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5">
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-red opacity-50">Вс</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">20</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5">
-                </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
-            <div class="flex space-x-1"> 
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Пн</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">21</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Вт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">22</div>
               </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Вт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">22</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Ср</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">23</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Чт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">24</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Пт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">25</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-red opacity-50">Сб</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">26</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5">
-                </div>
-              </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-red opacity-50">Вс</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">27</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
-            <div class="flex space-x-1"> 
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Пн</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">28</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Ср</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">23</div>
               </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Вт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">29</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Ср</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">30</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
-                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Чт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">24</div>
               </div>
-              <div class="flex flex-col items-center justify-center">
-                <div class="text-sm text-rttf-black-50">Чт</div>
-                <div class="w-10 h-10 flex justify-center">
-                  <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">31</div>
-                </div>
-                <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span>
-                </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Пт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">25</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-red opacity-50">Сб</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">26</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-red opacity-50">Вс</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">27</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+          </div>
+          <div class="flex space-x-1"> 
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Пн</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">28</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Вт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">29</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Ср</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">30</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-sm text-rttf-black-50">Чт</div>
+              <div class="w-10 h-10 flex justify-center">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">31</div>
+              </div>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="z-1 flex flex-col items-center bg-page-background px-3 py-4">
-          <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
-            <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 19 марта</div>
-          </div><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div>
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
-              <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournamentChess.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">14:00</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">HurricaneTT</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
-              </div><img class="h-4 w-4" src="img/Ping-Pong.svg" alt="Пинг-Понг">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Point</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">5</span></div>
-            </div></a><a class="flex items-center justify-between px-3 py-3 bg-white rounded-lg shadow w-full mb-1 gap-2" href="pages/tournaments/singleTournament.html">
-            <div class="flex items-center gap-2 grow">
-              <div class="text-sm text-gray-700">12:30</div>
-              <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
-              </div><img class="h-4 w-4" src="img/Veteran.svg" alt="Ветеранский">
-              <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
-              <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
-            </div></a>
-        </div>
+      </div>
+      <div class="z-1 flex flex-col items-center bg-page-background px-3 py-4">
+        <div class="justify-center items-center gap-2 py-4 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+          <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 19 марта</div>
+        </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">ArtTT-Первом</div>
+            <div class="flex hidden items-center gap-1 xs:flex shrink-0"><img class="h-4 w-4 saturate-50 opacity-50" src="img/comment.svg" alt="Комментарии"><span class="text-rttf-black-50 text-sm">23</span></div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournamentChess.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">14:00</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">HurricaneTT</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Ping-Pong.svg" alt="Пинг-Понг"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Point</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">5</span></div>
+          </div></a><a class="p-2 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm" href="pages/tournaments/singleTournament.html">
+          <div class="flex items-center grow gap-2.5">
+            <div class="text-sm text-gray-700">12:30</div>
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 322
+            </div>
+            <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/Veteran.svg" alt="Ветеранский"></div>
+            <div class="truncate w-24 text-gray-900 grow text-sm font-medium">Spin pong SCD</div>
+            <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+          </div></a>
       </div>
     </div>
     <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">

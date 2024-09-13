@@ -1,10 +1,12 @@
 include tournamentLiveRow.pug
 include /components/atoms/ratingLimit.pug
 include playersAndComments.pug
+include /components/chesspongLiveRow.pug
+include /components/racketlonLiveRow.pug
 include /components/atoms/tournamentTypeBadge.pug
 
 mixin tournamentLiveCard(time, ratingType, ratingValue, name, tournamentType, comments, players, isReg, isDetails)
-    - let containerClasses = "bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm mb-2" + (isReg ? " border-2 border-rttf-color" : "")
+    - let containerClasses = "bg-white w-full rounded-lg overflow-hidden shadow-lg max-w-sm z-[-1] mb-2" + (isReg ? " border-2 border-rttf-color" : "")
     -
       let tournamentIcons = {
         'Шахпонг': 'img/chesspong.svg',
@@ -22,7 +24,8 @@ mixin tournamentLiveCard(time, ratingType, ratingValue, name, tournamentType, co
           div.text-sm.text-rttf-red.animate-pulse.px-1= time
           +ratingLimit(ratingType, ratingValue)
           if tournamentType !== 'Настольный теннис'
-            img.h-4.w-4(src=tournamentIcons[tournamentType] alt=tournamentType)
+            .bg-slate-100.border.rounded-full.p-1
+                img.h-4.w-4(src=tournamentIcons[tournamentType] alt=tournamentType)
           div.truncate.w-24.text-gray-900.grow.text-sm.font-medium #{name}
         
           
@@ -35,7 +38,23 @@ mixin tournamentLiveCard(time, ratingType, ratingValue, name, tournamentType, co
             span.text-rttf-black-50.text-sm #{players}
 
 
+
       if isDetails
-          div.pl-3.pr-4.bg-slate-100
+          if tournamentType == 'Шахпонг'
+            div
+                +chesspongLiveRow('шв.1', 'Клейменов А.', 'Григорьев-Апполонов В.', { winner: 'Клейменов А.', player1Points: 1, player2Points: 0 }, null, false, '5:30', true)               
+                +chesspongLiveRow('шв.2', 'Семенова T.', 'Соколянская К.', { winner: 'Семенова T.', player1Points: 1, player2Points: 0 }, { winner: 'Семенова T.', player1Points: 21, player2Points: 19 }, true, '3:45', false)         
+          else if tournamentType == 'Ракетлон'
+            div 
+                // Сыгран только настольный теннис (итог не показывается)
+                +racketlonLiveRow('1/16', 'Петров С.', 'Иванов А.', 250, 240, { winner: 'Петров С.', player1Points: 21, player2Points: 19 }, null, null, null, false, null)
+
+                // Сыграны настольный теннис, бадминтон и сквош (итог не показывается)
+                +racketlonLiveRow('1/16', 'Сидоров К.', 'Кузнецов В.', 230, 220, { winner: 'Сидоров К.', player1Points: 21, player2Points: 19 }, { winner: 'Кузнецов В.', player1Points: 15, player2Points: 21 }, { winner: 'Сидоров К.', player1Points: 11, player2Points: 9 }, null, false, null)
+
+                // Полностью сыграна вся игра с итогом (Петров победил)
+                +racketlonLiveRow('1/16', 'Новиков И.', 'Смирнов Д.', 245, 240, { winner: 'Новиков И.', player1Points: 21, player2Points: 19 }, { winner: 'Смирнов Д.', player1Points: 15, player2Points: 21 }, { winner: 'Новиков И.', player1Points: 11, player2Points: 9 }, { winner: 'Новиков И.', player1Points: 6, player2Points: 3 }, true, 'Новиков И.')
+          else
+            div.pl-3.pr-4.bg-slate-100
               +tournamentLiveRow('1/16', 'Клейменов Алексей', 'Григорьев-Апполонов Виктор', { player1: 3, player2: 2 }, null, true)
               +tournamentLiveRow('1/16', 'Семенова / Коломинская', 'Соколянская / Добронравова', null, { minute: "5" }, false )

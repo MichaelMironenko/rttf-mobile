@@ -1,5 +1,5 @@
 mixin tournamentLiveRow(stage, player1, player2, score, video, border)
-    - let containerClass = "flex items-center gap-2 " + (border ? "border-b border-slate-300" : "")
+    - let containerClass = "flex items-center -z-10 gap-2 " + (border ? "border-b border-slate-300" : "")
     div(class=containerClass)
         .flex.flex-col.items-center.py-2.w-10.shrink-0
             span.text-sm.text-rttf-black-50.text-center.mb-1 #{stage}
@@ -18,5 +18,5 @@ mixin tournamentLiveRow(stage, player1, player2, score, video, border)
                     div.flex.flex-col.min-w-0.flex-grow.text-sm.gap-1
                         span.text-sm.min-w-0.truncate.max-w-full.flex-shrink #{player1}
                         span.text-sm.min-w-0.truncate.max-w-full.flex-shrink #{player2}
-                    a(href="pages/aroundGame/video.html").shrink-0
-                        img(src='img/youtube.svg' alt="Video icon" class="h-6 w-6")
+                    a(href="pages/aroundGame/video.html").shrink-0.py-3
+                        img(src='img/live-video.svg' alt="Video icon" class="h-5 animate-pulse")

@@ -1,6 +1,4 @@
-include /components/atoms/ratingLimit.pug
-
-mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comments, players)
+mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comments, players, reg)
   -
     let tournamentIcons = {
       'Шахпонг': 'img/chesspong.svg',
@@ -18,15 +16,15 @@ mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comment
     }
     let tournamentLink = tournamentLinks[tournamentType] || 'singleTournament.html'
 
-  a.flex.items-center.justify-between.px-3.py-3.bg-white.rounded-lg.shadow.w-full.mb-1.gap-2(href=`pages/tournaments/${tournamentLink}`)
-    div.flex.items-center.gap-2.grow
+  a(class=`p-${tournamentType !== 'Настольный теннис' ? 2 : 3} ${reg ? 'border-2 border-rttf-green px-2' : 'px-2.5'}` href=`pages/tournaments/${tournamentLink}`).bg-white.rounded-lg.shadow.w-full.mb-1.max-w-sm
+    div.flex.items-center.grow(class='gap-2.5')
       div.text-sm.text-gray-700 #{time}
       +ratingLimit(ratingType, ratingValue)
       if tournamentType !== 'Настольный теннис'
-        img.h-4.w-4(src=tournamentIcons[tournamentType] alt=tournamentType)
+        .bg-slate-100.border.rounded-full.p-1
+            img.h-4.w-4(src=tournamentIcons[tournamentType] alt=tournamentType)
       div.truncate.w-24.text-gray-900.grow.text-sm.font-medium #{name}
     
-      
       if comments
         div.flex.hidden.items-center.gap-1(class="xs:flex").shrink-0
           img.h-4.w-4(src='img/comment.svg' alt='Комментарии').saturate-50.opacity-50
@@ -34,3 +32,8 @@ mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comment
       div.flex.items-center.gap-1
         img.h-4.w-4(src='img/player.svg' alt='Игроки').saturate-50.opacity-50
         span.text-rttf-black-50.text-sm #{players}
+
+    if reg
+      div.mt-2.flex.items-center.gap-1.text-xs
+        img.h-4.w-4(src='img/checkmark.svg' alt='')
+        span.text-rttf-color Вы зарегистрированы на этот турнир

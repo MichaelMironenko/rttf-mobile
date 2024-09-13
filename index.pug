@@ -1,37 +1,17 @@
-include /components/atoms/avatar.pug
-include /components/atoms/button.pug
 include /components/atoms/date.pug
-include /components/comment.pug
-include /components/bet.pug
-include /components/atoms/tag.pug
-include /components/atoms/userRating.pug
 include /components/tabBar.pug
 include /components/topBar.pug
 include /components/block.pug
-include /components/filters/filtersPanel.pug
-include /components/filters/playerRating.pug
-include /components/modal.pug
-include /components/atoms/sortButton.pug
 include /components/inputs/select.pug
-include /components/searchAndFilterButton.pug
-include /components/rentCourt.pug
 include /components/clubCard.pug
 include /components/newsCard.pug
-include /components/horizontalClubCard.pug
-include /components/atoms/bookmark.pug
-include /components/adminBar.pug
-include /components/atoms/menuRow.pug
 include /components/trainerCard.pug
-include /components/gameResult.pug
-include /components/bestWinsBlock.pug
-include /components/tournamentRegCard.pug
 include /components/tournamentResultCard.pug
 include /components/photoSlider.pug
 include /components/videoSlider.pug
-include /components/filters/filterButtonsRow.pug
-include /components/filters/filterButton.pug
 include /components/trainingLine.pug
-include /components/atoms/backButtonTitle.pug
+include /components/filters/filterButtonsRow
+include /components/atoms/citySelect.pug
 include /components/forumRow.pug
 include /components/poll.pug
 include /components/market/productCard.pug
@@ -60,10 +40,9 @@ html(lang='ru')
                 +citySelect(true, '', 'ml-3 py-4')
                 .flex.flex-col.items-center
                     +date("Вторник, 25 ноября")
-                    +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
-                    +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+                   
                     +date("Четверг, 27 ноября")
-                    +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
+                    
             #live.tab-content.hidden.py-4.px-2.bg-red-100
                 .flex.flex-col.items-center
                     +tournamentLiveCard('11:30', 'A', '12', '2', true, true, 'Майский фестиваль Микстов в Сколково')

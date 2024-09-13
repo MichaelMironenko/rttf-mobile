@@ -1,0 +1,68 @@
+mixin chesspongLiveRow(stage, player1, player2, chessResult, tennisResult, isFinal, chessTimeLeft, tennisInProgress)
+  table.w-full.text-left(class="text-sm last:mb-0").mb-2.bg-slate-100
+    thead
+      tr.text-xs.text-rttf-black-50.bg-white
+        th(class="w-1/12").py-1.px-2.text-center Этап
+        th(class="w-1/3").px-2.border-x Игрок
+        th(class="w-1/12").border-x.pb-1
+          img(src="img/chess.svg").size-4.mx-auto
+        th(class="w-1/12").border-x.pb-1
+          img(src="img/tt-racket.svg").size-4.mx-auto
+        if !tennisInProgress
+          th(class="w-1/12").text-center.pb-1 Итог
+    tbody.text-rttf-black.mb-2
+      // Объединенная строка для стадии и тенниса (если игра идёт)
+      tr
+        td(class="w-1/12" rowspan=2).text-center.text-rttf-black-50 #{stage}
+        td(class="w-1/3").text-rttf-black.px-2.border-x
+          span(class=(chessResult.winner == player1 || tennisResult.winner == player1 ? 'font-semibold' : ''))= player1
+        td(class="w-1/12").text-center.border-x
+          if chessResult
+            span.relative(class=(chessResult.winner == player1 ? 'text-rttf-green' : 'text-rttf-red')) #{chessResult.player1Points}
+            if chessResult.winner == player1
+              br
+              span.text-xs.text-rttf-black-50.cursor-pointer.relative(onclick="showTooltip(this)") ⏱&nbsp;#{chessTimeLeft}
+              div.hidden.absolute.bg-white.border.rounded-md.px-2.py-1.text-xs.z-10.w-fit.text-rttf-black.mt-1.tooltip Показано <b>оставшееся</b> время на часах
+
+        if tennisInProgress
+          td(class="w-1/12" rowspan=2).text-center
+            span.text-rttf-red.animate-pulse.text-xs Идёт игра
+        else
+          td(class="w-1/12").text-center
+            if tennisResult
+              span(class=(tennisResult.winner == player1 ? 'text-rttf-green' : 'text-rttf-red')) #{tennisResult.player1Points}
+          td(class="w-1/12").text-center.border-x
+            if isFinal
+              span(class=(chessResult.winner == player1 && tennisResult.winner == player1 ? 'text-rttf-green font-semibold' : 'text-rttf-red')) #{chessResult.winner == player1 && tennisResult.winner == player1 ? 'В' : 'П'}
+
+      // Вторая строка для второго игрока
+      tr
+        td(class="w-1/3").text-rttf-black.px-2.pb-2.border-x= player2
+        td(class="w-1/12").text-center.text-rttf-black.border-x.pb-2
+          if chessResult
+            span.relative(class=(chessResult.winner == player2 ? 'text-rttf-green' : 'text-rttf-red')) #{chessResult.player2Points}
+            if chessResult.winner == player2
+              br
+              span.text-xs.text-rttf-black-50.cursor-pointer.relative(onclick="showTooltip(this)") ⏱&nbsp;#{chessTimeLeft}
+              div.hidden.absolute.bg-white.border.rounded-md.px-2.py-1.text-xs.z-10.w-fit.text-rttf-black.mt-1.tooltip Показано <b>оставшееся</b> время на часах
+
+        if !tennisInProgress
+          td(class="w-1/12").text-center.border-x.pb-2
+            if tennisResult
+              span(class=(tennisResult.winner == player2 ? 'text-rttf-green' : 'text-rttf-red')) #{tennisResult.player2Points}
+          td(class="w-1/12").text-center.border-x.pb-2
+            if isFinal
+              span(class=(chessResult.winner == player2 && tennisResult.winner == player2 ? 'text-rttf-green font-semibold' : 'text-rttf-red')) #{chessResult.winner == player2 && tennisResult.winner == player2 ? 'В' : 'П'}
+
+    script.
+        function showTooltip(element) {
+        // Закрываем все открытые подсказки
+        var tooltips = document.querySelectorAll('div.tooltip');
+        tooltips.forEach(function(tooltip) {
+            tooltip.classList.add('hidden');
+        });
+
+        // Показываем только подсказку, связанную с текущим элементом
+        var tooltip = element.nextElementSibling;
+        tooltip.classList.toggle('hidden');
+        }

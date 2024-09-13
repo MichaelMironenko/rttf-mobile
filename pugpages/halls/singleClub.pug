@@ -19,7 +19,7 @@ include /components/adminBar.pug
 include /components/atoms/menuRow.pug
 include /components/trainerCard.pug
 include /components/gameResult.pug
-include /components/tournamentRegCard.pug
+
 include /components/tournamentResultCard.pug
 include /components/photoSlider.pug
 include /components/videoSlider.pug
@@ -266,10 +266,9 @@ html(lang='ru')
     +block('Ближайшие турниры', {href: 'pages/tournaments/tournaments.html', text: 'Все'}, true)
       .-mx-4.-mb-6.flex.flex-col.items-center.bg-slate-100
         +date("Вторник, 25 ноября")
-        +tournamentRegCard(true, true, "Майский фестиваль Микстов в Сколково")
-        +tournamentRegCard(false, false, "Золотой волан Татарстана 1 тур")
+        
         +date("Четверг, 27 ноября")
-        +tournamentRegCard(true, false, "Первый открытый Кубок МОФБ по бадминтону среди любителей")
+        
 
     +block('Новости клуба', { href:"pages/courts/clubNews.html", text:'Все'})
       .flex.flex-col.gap-4
