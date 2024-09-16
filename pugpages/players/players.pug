@@ -46,10 +46,10 @@ html(lang='ru')
   body.bg-page-background.pb-28.pt-12
     +topBar
 
-    - var tabs = ['Рейтинг ЛАБ', 'Статистика']
+    - var tabs = ['Рейтинг RTTF', 'Статистика']
     - var images = ['img/star-rttf-color.svg', 'img/ratings.svg']
     - var tabIds = ['rating', 'stats']
-    - var activeTab = 'Рейтинг ЛАБ'
+    - var activeTab = 'Рейтинг RTTF'
     .pb-safe-extra-panel.fixed.z-20.flex.w-full.justify-between.overflow-hidden.rounded-t-2xl.border.bg-white.text-rttf-black.drop-shadow-top
       each tab, index in tabs
         - var isActive = tab === activeTab
@@ -179,13 +179,13 @@ html(lang='ru')
 
       table.w-full.bg-white#tennisRating
         thead
-          tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-color
+          tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-black-50
             th.py-2.pl-3.text-left №▼
             th 
             th.px-2.text-left Имя/город
             th.hidden.px-2.text-left(class='430:table-cell') Логин
-            th.text-rttf-color Рейтинг
-            th.text-rttf-color ★ +/-
+            th Рейтинг
+            th ★ +/-
             th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
 
         each user, index in users
@@ -209,7 +209,7 @@ html(lang='ru')
 
       table.hidden.w-full.bg-white#chesspongRating
         thead
-          tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-color
+          tr.border-y.text-xxs.font-semibold.uppercase.text-rttf-black-50
             th.py-2.pl-3.text-left №▼
             th 
             th.px-2.text-left Имя/город

@@ -16,7 +16,7 @@
             <div class="text-xs font-semibold text-rttf-color">nikpol</div>
             <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Рейтинг"><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt=""><span class="ml-1 text-xs font-bold text-rttf-color">1376</span></div>
           </div>
-          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
           </div></a></div>
       <div class="hidden" id="userMenu">
@@ -33,7 +33,7 @@
               </div>
             </div></a>
           <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg" alt="">
-              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/halls/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg" alt="">
@@ -167,7 +167,7 @@
               <div class="mt-1 line-clamp-2 text-xs text-rttf-black-50">В левом столбце сайта в разделе &quot;Ближайшие турниры&quot; размещаются все те, на которые уже открыта регистрация (открывается за трое суток до начала). Вы можете зарегистрироваться сами или позвонить по телефону клуба</div>
             </div>
             <div><a class="font-semibold" href="pages/aroundgame/article.html">Правила расчета рейтинга</a>
-              <div class="mt-1 line-clamp-2 text-xs text-rttf-black-50">Изменение (дельта) ЛАБ-рейтинга после одной встречи = [(100 - (PВ - PП)) / 10] , где РВ - рейтинг выигравшего, РП - рейтинг проигравшего.</div>
+              <div class="mt-1 line-clamp-2 text-xs text-rttf-black-50">Изменение (дельта) RTTF-рейтинга после одной встречи = [(100 - (PВ - PП)) / 10] , где РВ - рейтинг выигравшего, РП - рейтинг проигравшего.</div>
             </div>
           </div>
           <!-- На экранах от 640px показываем следующие 3 статьи (итого 6)-->
@@ -185,7 +185,7 @@
           <!-- На экранах от 1024px показываем еще 3 статьи (итого 9)-->
           <div class="hidden lg:flex lg:flex-col lg:gap-4">
             <div><a class="font-semibold" href="pages/aroundgame/article.html">Как получить рейтинг?</a>
-              <div class="mt-1 line-clamp-2 text-xs text-rttf-black-50">Для того, чтобы получить рейтинг ЛАБ, зарегистрируйтесь на один из турниров, которые представлены на нашем сайте или входят в рейтинг ЛАБ и примите в нем участие. В течение суток после завершения турнира, его результаты, включающие вашу страничку с рейтингом, появятся на сайте.</div>
+              <div class="mt-1 line-clamp-2 text-xs text-rttf-black-50">Для того, чтобы получить рейтинг RTTF, зарегистрируйтесь на один из турниров, которые представлены на нашем сайте или входят в рейтинг RTTF и примите в нем участие. В течение суток после завершения турнира, его результаты, включающие вашу страничку с рейтингом, появятся на сайте.</div>
             </div>
             <div><a class="font-semibold" href="pages/aroundgame/article.html">Рейтинг для парных турниров</a>
               <div class="mt-1 line-clamp-2 text-xs text-rttf-black-50">Рейтинг пары рассчитывается на основе рейтинга каждого из игроков в паре</div>

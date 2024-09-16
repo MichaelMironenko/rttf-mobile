@@ -19,7 +19,7 @@ mixin button(text, variant="default", color, bgColor, extraClasses='', id='', hr
       data-action=onClickAction
       id!= id || undefined
     )
-      img(src=text alt="")
+      img(src=text alt="").mx-auto.shrink-0
   else if variant == 'imageText'
     button(
       class=`${widthClass} ${extraClasses} ${bgColor} rounded-lg font-semibold max-h-12 transition-transform duration-150 text-${color} leading-none ease-in-out button-interactive`

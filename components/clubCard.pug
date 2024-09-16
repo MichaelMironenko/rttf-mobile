@@ -1,5 +1,5 @@
 mixin clubCard(image, rating, reviewsCount, title, location, courtsCount, services)
-  a(href="pages/courts/clubs.html").w-48.rounded-lg.overflow-hidden.shadow-lg.shrink-0
+  a(href="pages/halls/singleClub.html").w-48.rounded-lg.overflow-hidden.shadow-lg.shrink-0
     div.w-full.h-32.bg-center.bg-cover(style=`background-image: url('${image}')`)
     div.p-3.flex.flex-col.gap-2.justify-between.h-fit
       div.font-semibold.leading-tight= title
@@ -16,9 +16,9 @@ mixin clubCard(image, rating, reviewsCount, title, location, courtsCount, servic
           div(class=`bg-${location.metroColor}`).inline-block.size-2.rounded-full.mr-1.shrink-0.align-middle
           span(class=`inline text-rttf-black-50 leading-tight align-middle text-sm`)= location.metro
       div.flex.items-center.grow.justify-self-stretch
-        div.inline
-          img.inline.size-4.mr-1.align-middle.saturate-50.opacity-75(src="img/court.svg")
-          span.inline.text-sm.align-middle.leading-none= courtsCount
+        div.flex.items-center
+          img.inline.size-4.saturate-50.opacity-50(src="img/tabbar/tables.svg" class='mr-0.5' alt='Столов')
+          span.text-sm.leading-none= courtsCount
         div.inline.ml-2
           each val in services
             img.inline.saturate-50.opacity-75(src=`img/${val}.svg` alt=val class="size-3.5 mr-0.5") 

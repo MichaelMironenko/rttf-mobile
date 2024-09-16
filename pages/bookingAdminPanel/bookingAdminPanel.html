@@ -47,7 +47,7 @@
             <div class="text-xs font-semibold text-rttf-color">nikpol</div>
             <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Рейтинг"><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt=""><span class="ml-1 text-xs font-bold text-rttf-color">1376</span></div>
           </div>
-          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
           </div></a></div>
       <div class="hidden" id="userMenu">
@@ -64,7 +64,7 @@
               </div>
             </div></a>
           <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg" alt="">
-              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/halls/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg" alt="">
@@ -432,7 +432,7 @@
               </div>
               <div class="flex gap-2 flex-col mt-2">
                 <div class="flex items-center gap-2 w-full !w-36 text-sm shrink-0">
-                  <label class="block text-rttf-black" for="Турниры ЛАБ">Турниры ЛАБ</label><img class="size-4" id src="img/info.svg">
+                  <label class="block text-rttf-black" for="Турниры RTTF">Турниры RTTF</label><img class="size-4" id src="img/info.svg">
                 </div>
                 <div class="flex overflow-x-auto items-center space-x-2 no-scrollbar scroll-smooth -mx-4 px-4">
                   <div class="opacity-50 px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center">
@@ -463,7 +463,7 @@
               </div>
               <div class="flex gap-2 flex-col mt-6">   
                 <div class="flex items-center gap-2 w-full text-sm ">
-                  <label class="block text-rttf-black" for="Групповые тренировки ЛАБ">Групповые тренировки ЛАБ</label><img class="size-4" id src="img/info.svg">
+                  <label class="block text-rttf-black" for="Групповые тренировки RTTF">Групповые тренировки RTTF</label><img class="size-4" id src="img/info.svg">
                 </div>
                 <div class="flex overflow-x-auto items-center space-x-2 no-scrollbar scroll-smooth -mx-4 px-4">
                   <div class="opacity-50 px-2 py-1 border border-rttf-black-30 rounded-md flex flex-col items-center justify-center">
@@ -867,7 +867,7 @@
           </div>
           <div class="menu-container fixed hidden pb-safe inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40" id="actionMenuId" data-action="hide">
             <div class="max-h-90 absolute bottom-0 left-0 w-full z-30 bg-white rounded-t-2xl flex flex-col">
-              <div class="bg-rttf-color-10 p-3 text-center text-rttf-black-50">Создать новое событие</div><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Аренда</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Турнир ЛАБ</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Тренировка ЛАБ</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Мероприятие</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Закрыть стол</span></a>
+              <div class="bg-rttf-color-10 p-3 text-center text-rttf-black-50">Создать новое событие</div><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Аренда</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Турнир RTTF</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Тренировка RTTF</span></a><a class="flex items-center gap-3 px-4 py-3 w-full border-b border-rttf-black-10" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Мероприятие</span></a><a class="flex items-center gap-3 px-4 py-3 w-full" href="#" data-action="hide"><span class="flex-1 text-center text-rttf-color">Закрыть стол</span></a>
             </div>
             <script>
               document.addEventListener('click', function (e) {

@@ -9,7 +9,7 @@ mixin rentCourt(widget)
             div.min-w-0
                 +citySelect(false, ' !underline !text-lg text-rttf-color !rounded-none !underline-offset-4 !decoration-dotted ')
 
-        a(href="pages/courts/myBookings.html")
+        a(href="pages/halls/myBookings.html")
             img(src="img/booking.svg").size-8.p-2.bg-rttf-color-10.rounded-md
 
     div(class="flex overflow-x-auto -mx-4 px-4 gap-2 no-scrollbar")
@@ -64,7 +64,7 @@ mixin rentCourt(widget)
         
     
     if widget 
-        +button('Найти столы', 'default', 'white', 'bg-rttf-color', '', '', 'pages/courts/rentCourt.html')
+        +button('Найти столы', 'default', 'white', 'bg-rttf-color', '', '', 'pages/halls/rentCourt.html')
     script.  
         document.addEventListener('DOMContentLoaded', function() {
             // Степпер для количества столов

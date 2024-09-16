@@ -53,7 +53,7 @@ module.exports = {
                 'rttf-green': '#408053',
                 'rttf-purple': '#CC5DD6',
                 'rttf-black': '#213551',
-                'rttf-black-50': '#04162c7a',
+                'rttf-black-50': '#04132596',
                 'rttf-black-30': 'rgba(8, 39, 77, 0.3)',
                 'rttf-black-10': '#21355122',
                 'page-background': '#EFF2F4',

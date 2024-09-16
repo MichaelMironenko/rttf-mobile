@@ -16,7 +16,7 @@
             <div class="text-xs font-semibold text-rttf-color">nikpol</div>
             <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Рейтинг"><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt=""><span class="ml-1 text-xs font-bold text-rttf-color">1376</span></div>
           </div>
-          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
           </div></a></div>
       <div class="hidden" id="userMenu">
@@ -33,7 +33,7 @@
               </div>
             </div></a>
           <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg" alt="">
-              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/courts/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/halls/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg" alt="">
               <div class="text-rttf-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg" alt="">
@@ -125,7 +125,7 @@
             <div class="mt-2 flex items-center gap-4"><span class="w-20 text-rttf-black-50">Выходные:</span><span>10:00 — 0:00</span></div>
           </div>
         </div>
-        <div class="flex items-center gap-4"><img class="size-4 opacity-50 saturate-50" src="img/court.svg"><span>15 столов</span></div>
+        <div class="flex items-center gap-4"><img class="size-4 opacity-50 saturate-50" src="img/table-fill.svg"><span>15 столов</span></div>
         <div class="flex items-center gap-4"><img class="size-4 opacity-50 saturate-50" src="img/price.svg"><span>от 600₽</span></div>
         <div class="flex items-center gap-4"><img class="size-4 opacity-50 saturate-50" src="img/phone.svg"><a href="phone:79681234575">+7 (495) 123-45-75</a></div>
         <div class="flex items-center gap-4"><img class="size-4 opacity-50 saturate-50" src="img/email.svg"><a href="mailto:info@naten.ru">info@naten.ru</a></div>
@@ -150,61 +150,60 @@
     </div>
     <div class="p-4 bg-white rounded-lg overflow-hidden mb-3 undefined">
       <div class="flex items-center justify-between pb-2">
-        <h2 class="leading-tight">Аренда столов в клубе</h2><a href="pages/courts/myBookings.html"> <img class="size-8 rounded-md bg-rttf-color-10 p-2" src="img/booking.svg"></a>
+        <h2 class="leading-tight">Аренда столов в клубе</h2><a href="pages/halls/myBookings.html"> <img class="size-8 rounded-md bg-rttf-color-10 p-2" src="img/booking.svg"></a>
       </div>
       <div class="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4">
         <div class="flex-shrink-0"><span class="sticky left-0 py-2 text-sm text-rttf-black-50">Март</span>
           <div class="mt-2 flex gap-2">
-            <div class="flex h-12 w-12 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs opacity-50">Вс</div>
+            <div class="font-semibold bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-red opacity-50 font-semibold">Вс</div>
               <div class="text-base text-rttf-red">27</div>
             </div>
-            <div class="flex h-12 w-12 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Пн</div>
-              <div class="text-base text-rttf-black text-white">28</div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-black-50 opacity-50">Пн</div>
+              <div class="text-base text-rttf-black">28</div>
             </div>
-            <div class="flex h-12 w-12 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color">
-              <div class="text-xs opacity-50">Вт</div>
-              <div class="text-base font-semibold">29</div>
+            <div class="bg-rttf-color flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-white opacity-50">Вт</div>
+              <div class="text-base text-white font-semibold">29</div>
             </div>
-            <div class="flex h-12 w-12 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Ср</div>
-              <div class="text-base text-rttf-black text-white">30</div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-black-50 opacity-50">Ср</div>
+              <div class="text-base text-rttf-black">30</div>
             </div>
-            <div class="flex h-12 w-12 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Чт</div>
-              <div class="text-base text-rttf-black text-white">31</div>
-            </div>
-          </div>
-        </div>
-        <div class="flex-shrink-0"><span class="sticky left-0 py-2 text-sm text-rttf-black-50">Апрель</span>
-          <div class="mt-2 flex gap-2">
-            <div class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Пт</div>
-              <div class="text-base text-rttf-black text-white">1</div>
-            </div>
-            <div class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs opacity-50">Сб</div>
-              <div class="text-base text-rttf-red">2</div>
-            </div>
-            <div class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs opacity-50">Вс</div>
-              <div class="text-base text-rttf-red">3</div>
-            </div>
-            <div class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Пн</div>
-              <div class="text-base text-rttf-black text-white">4</div>
-            </div>
-            <div class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Вт</div>
-              <div class="text-base text-rttf-black text-white">5</div>
-            </div>
-            <div class="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-2xl p-2 bg-rttf-color-10">
-              <div class="text-xs text-rttf-black-50 text-rttf-red text-white opacity-50">Ср</div>
-              <div class="text-base text-rttf-black text-white">6</div>
+            <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl">
+              <div class="text-xs text-rttf-black-50 opacity-50">Чт</div>
+              <div class="text-base text-rttf-black">31</div>
             </div>
           </div>
         </div>
+        <div class="flex-shrink-0"><span class="sticky left-0 text-sm  text-rttf-black-50 py-2 z-10">Апрель
+            <div class="flex gap-2 mt-2">
+              <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+                <div class="text-xs text-rttf-black-50 opacity-50">Пт</div>
+                <div class="text-base text-rttf-black">1</div>
+              </div>
+              <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+                <div class="text-xs text-rttf-red opacity-50">Сб</div>
+                <div class="text-base text-rttf-red">2</div>
+              </div>
+              <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+                <div class="text-xs text-rttf-red opacity-50">Вс</div>
+                <div class="text-base text-rttf-red">3</div>
+              </div>
+              <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+                <div class="text-xs text-rttf-black-50 opacity-50">Пн</div>
+                <div class="text-base text-rttf-black">4</div>
+              </div>
+              <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+                <div class="text-xs text-rttf-black-50 opacity-50">Вт</div>
+                <div class="text-base text-rttf-black">5</div>
+              </div>
+              <div class="bg-rttf-color-10 flex flex-col w-12 h-12 items-center justify-center p-2 rounded-2xl shrink-0">
+                <div class="text-xs text-rttf-black-50 opacity-50">Ср</div>
+                <div class="text-base text-rttf-black">6</div>
+              </div>
+            </div></span></div>
       </div>
       <div class="flex items-end gap-4 py-4">
         <div>
@@ -221,7 +220,7 @@
             <button class="size-10 text-xl leading-none text-rttf-black-50" id="increase-time">+</button>
           </div>
         </div>
-        <button class="w-full  undefined rounded-lg font-semibold max-h-12 transition-transform duration-150 text-undefined leading-none ease-in-out button-interactive" data-action=""><img src="img/refresh.svg" alt=""></button>
+        <button class="w-full  undefined rounded-lg font-semibold max-h-12 transition-transform duration-150 text-undefined leading-none ease-in-out button-interactive" data-action=""><img class="mx-auto shrink-0" src="img/refresh.svg" alt=""></button>
         <script>
           document.addEventListener('DOMContentLoaded', function() {
               const buttons = document.querySelectorAll('.button-interactive');
@@ -265,23 +264,23 @@
       <div class="my-3"><img class="mr-1 inline size-4 opacity-50 saturate-50" src="img/warning.svg">
         <div class="inline text-sm text-rttf-black-50">Указана полная стоимость за 1,5 часа</div>
       </div>
-      <div class="flex grow flex-wrap gap-2"><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+      <div class="flex grow flex-wrap gap-2"><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">11:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">12:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">13:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">14:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">15:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">16:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center animate-pulse" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center animate-pulse" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">17:00</div>
-          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1000&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center opacity-100" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">18:00</div>
-          <div class="text-xs text-rttf-black-50">1200&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center animate-pulse" href="pages/courts/bookingConfirm.html">
+          <div class="text-xs text-rttf-black-50">1200&#8202;₽</div></a><a class="h-12 w-14 rounded-lg border py-1 text-center animate-pulse" href="pages/halls/bookingConfirm.html">
           <div class="mb-1 text-sm font-semibold text-rttf-color">19:00</div>
           <div class="text-xs text-rttf-black-50">1200&#8202;₽</div></a>
       </div>
@@ -304,7 +303,7 @@
         </div><a class=" leading-none" href="pages/trainings/trainers.html">Все</a>
       </div>
       <div class="no-scrollbar -m-4 flex overflow-x-auto p-4"><a class="relative flex flex-col items-center gap-3 rounded-md shadow-lg p-3 bg-white " href="pages/trainings/singleTrainer.html">
-          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(64px/2.66)] font-bold leading-none text-white">АМ</span></div>
           </div>
           <div class="-mt-6 shadow-sm z-[1]  items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
@@ -315,7 +314,7 @@
           <div class="absolute right-0 top-0 rounded-bl rounded-tr-md bg-rttf-color z-10 px-1 py-1 shadow-md">
             <div class="no-wrap text-xxs font-semibold leading-none text-white">Супер-тренер</div>
           </div>
-          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-red flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(64px/2.66)] font-bold leading-none text-white">ИВ</span></div>
           </div>
           <div class="-mt-6 shadow-sm z-[1]  items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
@@ -323,7 +322,7 @@
             <div class="text-rttf-black text-center text-xs font-semibold leading-none">210</div>
           </div><span class="min-w-24 text-center text-sm font-semibold text-white">Ирина Васильева</span>
           <div class="mb-auto flex items-center gap-1"><img class="h-4 opacity-75" src="img/rating-star-aqua.svg"><span class="mr-2 text-xs font-semibold text-white ">4.7</span><img class="h-4 opacity-60" src="img/comment-outlined.svg"><span class="text-xs font-semibold   text-white ">5</span></div><span class="rounded bg-rttf-light-yellow px-2 py-1 text-xs font-bold">от 900₽/ч</span></a><a class="relative flex flex-col items-center gap-3 rounded-md shadow-lg p-3 bg-white " href="pages/trainings/singleTrainer.html">
-          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(64px/2.66)] font-bold leading-none text-white">МЛ</span></div>
           </div>
           <div class="-mt-6 shadow-sm z-[1]  items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
@@ -331,7 +330,7 @@
             <div class="text-rttf-black text-center text-xs font-semibold leading-none">188</div>
           </div><span class="min-w-24 text-center text-sm font-semibold">Михаил Лукьянов</span>
           <div class="mb-auto flex items-center gap-1"><img class="h-4 opacity-75" src="img/rating-star-aqua.svg"><span class="mr-2 text-xs font-semibold">4.5</span><img class="h-4 opacity-60" src="img/comment-outlined.svg"><span class="text-xs font-semibold">2</span></div><span class="rounded bg-rttf-light-yellow px-2 py-1 text-xs font-bold">от 750₽/ч</span></a><a class="relative flex flex-col items-center gap-3 rounded-md shadow-lg p-3 bg-white " href="pages/trainings/singleTrainer.html">
-          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[3px] w-[64px] h-[64px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(64px/2.66)] font-bold leading-none text-white">ОК</span></div>
           </div>
           <div class="-mt-6 shadow-sm z-[1]  items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
@@ -358,157 +357,157 @@
           <div>Пн, 26.03</div>
         </div>
       </div>
-      <div class="-mx-4 -mb-4"><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">10:30</div>
-            <div class="text-xs text-white opacity-50 text-center">1.5 ч</div>
+      <div class="-mx-4 -mb-4"><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">10:30</div>
+            <div class="text-xs text-rttf-black-50 text-center">1.5 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Групповая тренировка</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Групповая тренировка</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-color flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">СА</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Славнова А</div>
+                <div class="text-xs text-rttf-black-50">Славнова А</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">Люблино</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">Люблино</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">11:00</div>
-            <div class="text-xs text-white opacity-50 text-center">1.5 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">11:00</div>
+            <div class="text-xs text-rttf-black-50 text-center">1.5 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Боковые подачи и их прием. Топ-спин справа со всего стола</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Боковые подачи и их прием. Топ-спин справа со всего стола</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-red flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">АТ</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Трушкин А</div>
+                <div class="text-xs text-rttf-black-50">Трушкин А</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">HurricaneTT</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">HurricaneTT</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">13:30</div>
-            <div class="text-xs text-white opacity-50 text-center">1.5 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">13:30</div>
+            <div class="text-xs text-rttf-black-50 text-center">1.5 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Групповая тренировка</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Групповая тренировка</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ИК</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Иванова К</div>
+                <div class="text-xs text-rttf-black-50">Иванова К</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">Люблино</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">Люблино</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">15:00</div>
-            <div class="text-xs text-white opacity-50 text-center">1.5 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">15:00</div>
+            <div class="text-xs text-rttf-black-50 text-center">1.5 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Отработка базовых элементов</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Отработка базовых элементов</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-color flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ДА</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Ананьев Д</div>
+                <div class="text-xs text-rttf-black-50">Ананьев Д</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">HurricaneTT</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">HurricaneTT</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">17:00</div>
-            <div class="text-xs text-white opacity-50 text-center">2 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">17:00</div>
+            <div class="text-xs text-rttf-black-50 text-center">2 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Индивидуальная тренировка</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Индивидуальная тренировка</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ДК</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Крегель Д</div>
+                <div class="text-xs text-rttf-black-50">Крегель Д</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">TTL-Savel</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">TTL-Savel</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">18:30</div>
-            <div class="text-xs text-white opacity-50 text-center">1.5 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">18:30</div>
+            <div class="text-xs text-rttf-black-50 text-center">1.5 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Группа повышения мастерства</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Группа повышения мастерства</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-red flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ЮР</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Рычков Ю</div>
+                <div class="text-xs text-rttf-black-50">Рычков Ю</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">HurricaneTT</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">HurricaneTT</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">19:00</div>
-            <div class="text-xs text-white opacity-50 text-center">2 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">19:00</div>
+            <div class="text-xs text-rttf-black-50 text-center">2 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Топ-спины справа с продолжением (двух и трехходовки)</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Топ-спины справа с продолжением (двух и трехходовки)</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">АМ</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Мальцев А</div>
+                <div class="text-xs text-rttf-black-50">Мальцев А</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">ЛуЦентр</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">ЛуЦентр</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
-          </div></a><a class="flex border-b" href="pages/trainings/singleTraining.html">
-          <div class="flex flex-col gap-3 bg-rttf-color p-3 items-center shrink-0 w-14">
-            <div class="text-sm text-white text-center font-semibold">20:00</div>
-            <div class="text-xs text-white opacity-50 text-center">1.5 ч</div>
+          </div></a><a class="flex border-t" href="pages/trainings/singleTraining.html">
+          <div class="flex flex-col gap-2 p-2 items-center bg-white shrink-0 w-14 justify-around border-r">
+            <div class="text-sm text-center font-semibold">20:00</div>
+            <div class="text-xs text-rttf-black-50 text-center">1.5 ч</div>
           </div>
-          <div class="flex flex-col gap-2 p-3 bg-white w-full">
+          <div class="flex flex-col gap-2 p-2 bg-white w-full">
             <div class="flex gap-4 items-center">
-              <h3 class="text-rttf-color font-semibold leading-tight text-sm">Отработка подач в сочетании с топ-спином</h3>
+              <h3 class="text-rttf-blue font-semibold leading-tight text-sm">Отработка подач в сочетании с топ-спином</h3>
             </div>
             <div class="flex gap-x-3 gap-y-2 items-center flex-wrap">
               <div class="flex gap-1 items-center">
-                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+                <div class="p-[1px] w-[24px] h-[24px] from-red-500 to-blue-900  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                   <div class="bg-rttf-color flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ЮР</span></div>
                 </div>
-                <div class="text-xs text-rttf-black">Рычков Ю</div>
+                <div class="text-xs text-rttf-black-50">Рычков Ю</div>
               </div>
-              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black">Люблино</span></div>
-              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black">5/10</span></div>
+              <div class="flex gap-1 items-center"><img class="saturate-50 opacity-50" src="img/home.svg" alt=""><span class="text-xs text-rttf-black-50">Люблино</span></div>
+              <div class="flex gap-1 items-center"> <img class="saturate-50 opacity-50" src="img/player.svg" alt=""><span class="text-xs text-rttf-black-50">5/10</span></div>
             </div>
           </div></a>
       </div>
@@ -532,7 +531,7 @@
       <div class="flex justify-between items-center mb-4 gap-4">
         <div class="flex gap-2 items-center">
           <h2 class="leading-tight">Новости клуба</h2>
-        </div><a class=" leading-none" href="pages/courts/clubNews.html">Все</a>
+        </div><a class=" leading-none" href="pages/halls/clubNews.html">Все</a>
       </div>
       <div class="flex flex-col gap-4"><a class="flex items-center gap-3 min-h-16" href="#"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-1.jpg">
           <div class="flex flex-col gap-1">
@@ -553,7 +552,7 @@
         </div>
       </div>
       <div class="flex items-center justify-between gap-3 pb-5">
-        <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+        <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
           <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
         </div><span class="text-rttf-black-50">Оцените клуб по параметрам</span>
       </div>
@@ -664,7 +663,7 @@
         </div>
       </div>
       <div class="flex flex-grow items-center gap-3 pb-2 pt-2" onclick="location.href='pages/others/profile.html'">
-        <div class="p-[2px] w-[36px] h-[36px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r"><img class="h-full w-full rounded-full object-cover" src="dynamic-img/user-1.jpg" alt="Аватар">
+        <div class="p-[2px] w-[36px] h-[36px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer"><img class="h-full w-full rounded-full object-cover" src="dynamic-img/user-1.jpg" alt="Аватар">
         </div>
         <div class="flex flex-col gap-1">
           <div class="flex items-center gap-2"><a class="text-sm font-semibold leading-none" href="pages/others/profile.html">Александр Семёнов</a>
@@ -862,7 +861,7 @@
       </script>
       <div class="border-l border-rttf-black-10 pl-6">
         <div class="flex flex-grow items-center gap-3 pb-2 pt-2" onclick="location.href='pages/others/profile.html'">
-          <div class="p-[2px] w-[36px] h-[36px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[2px] w-[36px] h-[36px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(36px/2.66)] font-bold leading-none text-white">НП</span></div>
           </div>
           <div class="flex flex-col gap-1">
@@ -1064,7 +1063,7 @@
       <div class="border-l border-rttf-black-10 pl-6">
         <div class="border-l border-rttf-black-10 pl-6">
           <div class="flex flex-grow items-center gap-3 pb-2 pt-2" onclick="location.href='pages/others/profile.html'">
-            <div class="p-[2px] w-[36px] h-[36px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r"><img class="h-full w-full rounded-full object-cover" src="dynamic-img/user-1.jpg" alt="Аватар">
+            <div class="p-[2px] w-[36px] h-[36px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer"><img class="h-full w-full rounded-full object-cover" src="dynamic-img/user-1.jpg" alt="Аватар">
             </div>
             <div class="flex flex-col gap-1">
               <div class="flex items-center gap-2"><a class="text-sm font-semibold leading-none" href="">@asemenov</a>
@@ -1268,13 +1267,13 @@
       </div>
       <div class="-mx-4 -mb-6 flex flex-wrap justify-center gap-2 bg-slate-100"><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
           <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
-            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">Сколково
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
             </div>
-            <div class="inline-flex gap-2 grow flex-wrap items-center">
-              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4"></div><span class="text-sm font-semibold leading-none">12</span>
+            <div class="inline-flex gap-2 grow flex-wrap items-center"><span class="text-sm font-semibold leading-none">Деденеево</span>
             </div>
             <div class="inline-flex flex-row gap-2 text-sm">
-              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>2</span></div>
+              <div class="inline-flex gap-0.5 items-center ml-2"><img class="opacity-50 saturate-50" src="img/comment.svg"><span>2</span></div>
+              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>12</span></div>
             </div>
           </div>
           <div class="px-3 py-2 bg-slate-100 text-rttf-black">
@@ -1301,13 +1300,13 @@
             </div>
           </div></a><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
           <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
-            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">Сколково
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-blue">&gt; 420
             </div>
             <div class="inline-flex gap-2 grow flex-wrap items-center">
-              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4"></div><span class="text-sm font-semibold leading-none">10</span>
+              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/racketlon.svg" alt="Ракетлон"></div><span class="text-sm font-semibold leading-none">SpinArt</span>
             </div>
             <div class="inline-flex flex-row gap-2 text-sm">
-              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>0</span></div>
+              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>10</span></div>
             </div>
           </div>
           <div class="px-3 py-2 bg-slate-100 text-rttf-black">
@@ -1334,13 +1333,14 @@
             </div>
           </div></a><a class="shadow-lg rounded-lg overflow-hidden mb-2 max-w-sm border" href="pages/tournaments/singleTournament.html">
           <div class="flex pl-3 pr-4 pt-3 pb-2 gap-2 bg-white border-b border-black-10 items-center"><span class="w-10 text-sm text-center shrink-0">11:30</span>
-            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">Сколково
+            <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
             </div>
             <div class="inline-flex gap-2 grow flex-wrap items-center">
-              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4"></div><span class="text-sm font-semibold leading-none">22</span>
+              <div class="bg-slate-100 border rounded-full p-1"><img class="h-4 w-4" src="img/chesspong.svg" alt="Шахпонг"></div><span class="text-sm font-semibold leading-none">Радуга(Зел)</span>
             </div>
             <div class="inline-flex flex-row gap-2 text-sm">
-              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>1</span></div>
+              <div class="inline-flex gap-0.5 items-center ml-2"><img class="opacity-50 saturate-50" src="img/comment.svg"><span>1</span></div>
+              <div class="inline-flex gap-0.5 items-center"><img class="opacity-50 saturate-50" src="img/player.svg"><span>22</span></div>
             </div>
           </div>
           <div class="px-3 py-2 bg-slate-100 text-rttf-black">
@@ -1461,7 +1461,7 @@
       </div>
       <div class="no-scrollbar -mx-4 flex gap-4 overflow-x-auto px-4 pt-4">
         <div class="flex min-w-20 flex-col items-center gap-2">
-          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(48px/2.66)] font-bold leading-none text-white">НП</span></div>
           </div><span class="text-center text-sm font-semibold text-rttf-color">Никита Полянский</span>
           <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1469,7 +1469,7 @@
           </div><span class="pt-2 text-rttf-green">21 победа</span>
         </div>
         <div class="flex min-w-20 flex-col items-center gap-2">
-          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-green flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(48px/2.66)] font-bold leading-none text-white">ГД</span></div>
           </div><span class="text-center text-sm font-semibold text-rttf-color">Григорий Державин</span>
           <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1477,7 +1477,7 @@
           </div><span class="pt-2 text-rttf-green">19 побед</span>
         </div>
         <div class="flex min-w-20 flex-col items-center gap-2">
-          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(48px/2.66)] font-bold leading-none text-white">КБ</span></div>
           </div><span class="text-center text-sm font-semibold text-rttf-color">Константин Барышников</span>
           <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1485,7 +1485,7 @@
           </div><span class="pt-2 text-rttf-green">17 побед</span>
         </div>
         <div class="flex min-w-20 flex-col items-center gap-2">
-          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+          <div class="p-[2px] w-[48px] h-[48px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
             <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(48px/2.66)] font-bold leading-none text-white">ЛК</span></div>
           </div><span class="text-center text-sm font-semibold text-rttf-color">Людмила Кошелева</span>
           <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1519,7 +1519,7 @@
         </div>
         <div class="flex w-full flex-shrink flex-grow flex-col justify-center gap-3 py-3">
           <div class="flex items-center justify-between gap-2">
-            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
               <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">КА</span></div>
             </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm font-semibold" href="pages/others/profile.html">Клейменов А. 
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1527,7 +1527,7 @@
               </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-green">+14.2</span></a><span class="w-4 flex-shrink-0 text-center text-sm font-semibold">2</span>
           </div>
           <div class="flex items-center justify-between gap-2">
-            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
               <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">КА</span></div>
             </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm" href="pages/others/profile.html">Преображенский В. 
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1541,7 +1541,7 @@
         </div>
         <div class="flex w-full flex-shrink flex-grow flex-col justify-center gap-3 py-3">
           <div class="flex items-center justify-between gap-2">
-            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
               <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">АФ</span></div>
             </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm font-semibold" href="pages/others/profile.html">Афанасьева В. 
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1549,7 +1549,7 @@
               </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-green">+14.2</span></a><span class="w-4 flex-shrink-0 text-center text-sm font-semibold">2</span>
           </div>
           <div class="flex items-center justify-between gap-2">
-            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
               <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">АФ</span></div>
             </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm" href="pages/others/profile.html">Лысак О. 
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
@@ -1564,10 +1564,10 @@
         <div class="flex w-full flex-shrink flex-grow flex-col justify-center gap-3 py-3">
           <div class="flex items-center justify-between gap-2">
             <div class="flex -space-x-2">
-              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                 <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ГА</span></div>
               </div>
-              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                 <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">БС</span></div>
               </div>
             </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm" href="pages/others/profile.html">Гуреев А. / Богданова С. 
@@ -1577,10 +1577,10 @@
           </div>
           <div class="flex items-center justify-between gap-2">
             <div class="flex -space-x-2">
-              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                 <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">ГА</span></div>
               </div>
-              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r">
+              <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
                 <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">БС</span></div>
               </div>
             </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm font-semibold" href="pages/others/profile.html">Кобыляцкий С. / Кобыляцкая Л. 
@@ -1610,7 +1610,7 @@
       </div>
       <table class="-mb-2 -ml-4 -mr-4 w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]">
         <thead>
-          <tr class="p-2 text-xs text-rttf-color">
+          <tr class="p-2 text-xs text-rttf-black-50">
             <th class="max-w-10 pl-2 text-center">#</th>
             <th class="max-w-24 p-2 text-left">Имя</th>
             <th class="p-2 text-center">★</th>
@@ -1623,7 +1623,7 @@
         <tbody>
           <tr class="text-sm text-rttf-black bg-orange-100">
             <td class="w-7 pl-2 text-center font-semibold">1</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Иван Сергеев</td>
+            <td class="max-w-24 p-2 text-left leading-5">Иван Сергеев</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">700</div>
@@ -1636,7 +1636,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">2</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Анна Иванова</td>
+            <td class="max-w-24 p-2 text-left leading-5">Анна Иванова</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">695</div>
@@ -1649,7 +1649,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">3</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Петр Алексеев</td>
+            <td class="max-w-24 p-2 text-left leading-5">Петр Алексеев</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">690</div>
@@ -1662,7 +1662,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">4</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Ольга Николаева</td>
+            <td class="max-w-24 p-2 text-left leading-5">Ольга Николаева</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">685</div>
@@ -1675,7 +1675,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">5</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Дмитрий Козлов</td>
+            <td class="max-w-24 p-2 text-left leading-5">Дмитрий Козлов</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">680</div>
@@ -1688,7 +1688,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">6</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Елена Соколова</td>
+            <td class="max-w-24 p-2 text-left leading-5">Елена Соколова</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">675</div>
@@ -1701,7 +1701,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">7</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Александр Петров</td>
+            <td class="max-w-24 p-2 text-left leading-5">Александр Петров</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">670</div>
@@ -1714,7 +1714,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">8</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Мария Федорова</td>
+            <td class="max-w-24 p-2 text-left leading-5">Мария Федорова</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">665</div>
@@ -1727,7 +1727,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">9</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Сергей Васильев</td>
+            <td class="max-w-24 p-2 text-left leading-5">Сергей Васильев</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">660</div>
@@ -1740,7 +1740,7 @@
           </tr>
           <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
             <td class="w-7 pl-2 text-center font-semibold">10</td>
-            <td class="max-w-24 p-2 text-left leading-5 text-rttf-color">Виктория Егорова</td>
+            <td class="max-w-24 p-2 text-left leading-5">Виктория Егорова</td>
             <td class="p-2 text-center">
               <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
                 <div class="text-rttf-black text-center text-xs font-semibold leading-none">655</div>

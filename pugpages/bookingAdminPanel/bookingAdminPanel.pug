@@ -193,7 +193,7 @@ html(lang="ru")
                                 ]
 
                             .flex.gap-2.flex-col.mt-2
-                                +editLabel('Турниры ЛАБ', true, true, '!w-36 text-sm shrink-0')
+                                +editLabel('Турниры RTTF', true, true, '!w-36 text-sm shrink-0')
                                 .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mx-4.px-4
 
                                     each tournament in tournaments
@@ -204,7 +204,7 @@ html(lang="ru")
                                         div.text-2xl.text-rttf-black(class="font-[100]") +
 
                             .flex.gap-2.flex-col.mt-6    
-                                +editLabel('Групповые тренировки ЛАБ', true, true, 'text-sm ')
+                                +editLabel('Групповые тренировки RTTF', true, true, 'text-sm ')
                                 .flex.overflow-x-auto.items-center.space-x-2.no-scrollbar.scroll-smooth.-mx-4.px-4
 
                                     each training in trainings
@@ -295,8 +295,8 @@ html(lang="ru")
                                                 td.border.min-w-16.text-center.w-16.align-middle(class=bgColor data-action="show-menu") #{price}
                     +actionMenu([
                         { text: 'Аренда', link: '#', color: 'text-rttf-color' },
-                        { text: 'Турнир ЛАБ', link: '#', color: 'text-rttf-color' },
-                        { text: 'Тренировка ЛАБ', link: '#', color: 'text-rttf-color' },
+                        { text: 'Турнир RTTF', link: '#', color: 'text-rttf-color' },
+                        { text: 'Тренировка RTTF', link: '#', color: 'text-rttf-color' },
                         { text: 'Мероприятие', link: '#', color: 'text-rttf-color' },
                         { text: 'Закрыть стол', link: '#', color: 'text-rttf-color' }
                         ], 'actionMenuId', 'Создать новое событие')    

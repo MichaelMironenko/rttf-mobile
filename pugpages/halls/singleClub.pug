@@ -112,7 +112,7 @@ html(lang='ru')
               span 10:00 — 0:00
 
         .flex.items-center.gap-4
-          img.size-4.opacity-50.saturate-50(src='img/court.svg')
+          img.size-4.opacity-50.saturate-50(src='img/table-fill.svg')
           span 15 столов
 
         .flex.items-center.gap-4
@@ -153,7 +153,7 @@ html(lang='ru')
       .flex.items-center.justify-between.pb-2
         h2.leading-tight Аренда столов в клубе
 
-        a(href='pages/courts/myBookings.html') 
+        a(href='pages/halls/myBookings.html') 
           img.size-8.rounded-md.bg-rttf-color-10.p-2(src='img/booking.svg')
       .no-scrollbar.-mx-4.flex.gap-2.overflow-x-auto.px-4
         .flex-shrink-0
@@ -162,35 +162,24 @@ html(lang='ru')
           - var marchDates = [27, 28, 29, 30, 31]
           .mt-2.flex.gap-2
             each day, index in marchDays
-              - var isWeekend = day === 'Вс' || day === 'Сб'
-              - var isActive = day === 'Вт' && marchDates[index] === 29
-                .flex.h-12.w-12.flex-col.items-center.justify-center.rounded-2xl.p-2(
-                  class=isActive && isWeekend ? 'bg-rttf-red' : isActive ? 'bg-rttf-color' : 'bg-rttf-color-10'
-                )
-                  div(
-                    class=isActive ? 'text-xs opacity-50' : isWeekend ? 'text-xs opacity-50' : 'text-xs text-rttf-black-50 text-rttf-red text-white opacity-50'
-                  )= day
-                  div(
-                    class=isActive ? 'text-base font-semibold' : isWeekend ? 'text-base text-rttf-red' : 'text-base text-rttf-black text-white'
-                  )= marchDates[index]
+                - var isWeekend = day === 'Вс' || day === 'Сб'
+                - var isActive = day === 'Вт' && marchDates[index] === 29
+                - var isCurrent = day === 'Вс' && marchDates[index] === 27
+                div(class=isCurrent && isWeekend ? "font-semibold bg-rttf-color-10" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl
+                    div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50 font-semibold" : "text-xs text-rttf-black-50 opacity-50")= day
+                    div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= marchDates[index]
 
         .flex-shrink-0
-          span.sticky.left-0.py-2.text-sm.text-rttf-black-50 Апрель
-          - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
-          - var aprilDates = [1, 2, 3, 4, 5, 6]
-          .mt-2.flex.gap-2
-            each day, index in aprilDays
-              - var isWeekend = day === 'Вс' || day === 'Сб'
-              - var isActive = false
-              .flex.h-12.w-12.shrink-0.flex-col.items-center.justify-center.rounded-2xl.p-2(
-                class=isActive && isWeekend ? 'bg-rttf-red' : isActive ? 'bg-rttf-color' : 'bg-rttf-color-10'
-              )
-                div(
-                  class=isActive ? 'text-xs opacity-50' : isWeekend ? 'text-xs opacity-50' : 'text-xs text-rttf-black-50 text-rttf-red text-white opacity-50'
-                )= day
-                div(
-                  class=isActive ? 'text-base font-semibold' : isWeekend ? 'text-base text-rttf-red' : 'text-base text-rttf-black text-white'
-                )= aprilDates[index]
+          span(class="sticky left-0 text-sm  text-rttf-black-50 py-2 z-10") Апрель
+            - var aprilDays = ['Пт', 'Сб', 'Вс', 'Пн', 'Вт', 'Ср']
+            - var aprilDates = [1, 2, 3, 4, 5, 6]
+            .flex.gap-2.mt-2
+                each day, index in aprilDays
+                    - var isWeekend = day === 'Вс' || day === 'Сб'
+                    - var isActive = false 
+                    div(class=isActive && isWeekend ? "bg-rttf-red" : isActive ? "bg-rttf-color" : "bg-rttf-color-10").flex.flex-col.w-12.h-12.items-center.justify-center.p-2.rounded-2xl.shrink-0
+                        div(class=isActive ? "text-xs text-white opacity-50" : isWeekend ? "text-xs text-rttf-red opacity-50" : "text-xs text-rttf-black-50 opacity-50")= day
+                        div(class=isActive ? "text-base text-white font-semibold" : isWeekend ? "text-base text-rttf-red" : "text-base text-rttf-black")= aprilDates[index]
 
       .flex.items-end.gap-4.py-4
         div
@@ -227,7 +216,7 @@ html(lang='ru')
         each slot in slots
           a.h-12.w-14.rounded-lg.border.py-1.text-center(
             class=(slot.lastCourt && 'animate-pulse') || 'opacity-100',
-            href='pages/courts/bookingConfirm.html'
+            href='pages/halls/bookingConfirm.html'
           )
             .mb-1.text-sm.font-semibold.text-rttf-color #{ slot.time }
             .text-xs.text-rttf-black-50 #{ slot.price }&#8202;₽
@@ -270,7 +259,7 @@ html(lang='ru')
         +date("Четверг, 27 ноября")
         
 
-    +block('Новости клуба', { href:"pages/courts/clubNews.html", text:'Все'})
+    +block('Новости клуба', { href:"pages/halls/clubNews.html", text:'Все'})
       .flex.flex-col.gap-4
         +newsCard('23 мая состоится студенческий турнир Москвы', 'dynamic-img/club-1.jpg', '', '4 апреля 16:30', '#', true)
         +newsCard('Открытые тренировки для всех желающих', '', '', '12 мая 18:00', '#', true)
@@ -335,9 +324,9 @@ html(lang='ru')
       .-mx-4.bg-slate-100
         +date("Вторник, 25 ноября")
       .-mx-4.-mb-6.flex.flex-wrap.justify-center.gap-2.bg-slate-100
-        +tournamentResultCard('11:30', 'XDF', 'Сколково', 12, 2)
-        +tournamentResultCard('11:30', 'XDB', 'Сколково', 10, 0)
-        +tournamentResultCard('11:30', 'XDC', 'Сколково', 22, 1)
+        +tournamentResultCard('11:30', '<', 350, 'Деденеево', 12, 2, 'Настольный теннис')
+        +tournamentResultCard('11:30', '>', 420, 'SpinArt', 10, 0, 'Ракетлон')
+        +tournamentResultCard('11:30', 'откр', '', 'Радуга(Зел)', 22, 1, 'Шахпонг')
     +photoSlider('Фото из клуба') 
     +videoSlider(false, false, 'Видео из клуба', true) 
     +block('Победные серии')
@@ -381,7 +370,7 @@ html(lang='ru')
         ];
       table.-mb-2.-ml-4.-mr-4(class='w-[calc(100vw-16px)] xs:w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)]')
         thead
-          tr.p-2.text-xs.text-rttf-color
+          tr.p-2.text-xs.text-rttf-black-50
             th.max-w-10.pl-2.text-center #
             th.max-w-24.p-2.text-left Имя
             th.p-2.text-center ★
@@ -398,7 +387,7 @@ html(lang='ru')
             - const playerRowClass = player.me ? 'bg-orange-100' : 'even:bg-white odd:bg-slate-100'
             tr.text-sm.text-rttf-black(class=playerRowClass)
               td.w-7.pl-2.text-center.font-semibold= player.place
-              td.max-w-24.p-2.text-left.leading-5.text-rttf-color= player.name
+              td.max-w-24.p-2.text-left.leading-5= player.name
               td.p-2.text-center
                 +userRating(player.rating)
               td.p-2.text-center= player.gold

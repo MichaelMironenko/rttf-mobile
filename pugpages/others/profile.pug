@@ -52,7 +52,7 @@ html(lang='ru')
           +userStatusBadge('Админ')
         .flex.flex-col.gap-2
           h1.text-base Кудайбердиев Адилет Кудайбердиевич
-          span.text-sm.text-rttf-color @Adiko_Adiko
+          span.text-sm.text-rttf-blue @Adiko_Adiko
           .flex.flex-wrap.gap-2
             +userRating(323)
             +userRating(633, true)
@@ -102,21 +102,21 @@ html(lang='ru')
           .flex.flex-wrap.gap-x-4.gap-y-1
             span Трехкратный победитель кубка RTTF
             span Чемпион России 2018 г.
-            span Чемпион ЛАБ 2023
+            span Чемпион RTTF 2023
         .flex.items-start.gap-4
           img.aspect-square.w-4.opacity-60.saturate-50(src='img/home.svg', alt='Клубы', class='mt-[3px]')
           span Чаще всего играет в
             |
             |
-            a(href='pages/courts/singleClub.html') Крылья
+            a(href='pages/halls/singleClub.html') Крылья
             span ,
             |
             |
-            a(href='pages/courts/singleClub.html') Space-Химки
+            a(href='pages/halls/singleClub.html') Space-Химки
             span ,
             |
             |
-            a(href='pages/courts/singleClub.html') Naten-Юг
+            a(href='pages/halls/singleClub.html') Naten-Юг
         .flex.items-start.gap-4
           img.aspect-square.w-4.opacity-60.saturate-50(src='img/friends.svg', alt='Клубы', class='mt-[3px]')
           span Обычно играет в паре с
@@ -144,11 +144,11 @@ html(lang='ru')
         .mb-2.text-center.text-xs.text-rttf-black-50 Был онлайн 12.06.2023
         .flex.justify-center.gap-2.pb-4
           .relative
-            +button('img/message-white.svg', 'image', '', 'bg-rttf-color', 'px-2 py-1.5', '', 'pages/others/messages.html')
+            +button('img/message-white.svg', 'image', '', 'bg-rttf-color', 'px-2 py-1.5 h-10 w-10 ', '', 'pages/others/messages.html')
             span.absolute.-right-2.-top-2.rounded-full.border.border-slate-300.bg-slate-100.px-1.text-xs.font-semibold 99+
-          +button('img/add-friend-white.svg', 'image', '', 'bg-rttf-color', 'px-2 py-1.5')
+          +button('img/add-friend-white.svg', 'image', '', 'bg-rttf-color', 'px-2 py-1.5 w-10 h-10 shrink-0')
           +button('img/history-white.svg', 'imageText', 'white', 'bg-rttf-color', 'px-2 py-1.5', '', 'pages/others/gamesHistory.html', 'Мои игры с этим игроком')
-        +button('img/edit.svg', 'imageText', 'rttf-color', 'bg-white', 'px-2 py-1.5 w-full mb-4 border border-rttf-color', '', '', 'Редактировать профиль') 
+        +button('img/edit.svg', 'imageText', 'lab-color', 'bg-white', 'px-2 py-1.5 w-full mb-4 border border-rttf-color', '', '', 'Редактировать профиль') 
       .border-t.pt-4
         .flex.flex-wrap.items-center.justify-between.gap-x-4
           h3.shrink-0.font-semibold Моя заметка об игрокe
@@ -165,7 +165,7 @@ html(lang='ru')
 
     .mb-3.overflow-hidden.rounded-lg
       //- +menuRow('price-outline', 'Финансы', true, 'pages/market/myFinance.html', '1200 ₽' )
-      //- +menuRow('booking', 'Бронирования', true, 'pages/courts/myBookings.html' )
+      //- +menuRow('booking', 'Бронирования', true, 'pages/halls/myBookings.html' )
       //- +menuRow('orders', 'Заказы', true, 'pages/market/myOrders.html' )
       //- +menuRow('bookmark-empty', 'Закладки', true, 'pages/others/myBookmarks.html' )
       +menuRow('cup-outlined', 'Турниры', true, 'pages/others/myTournaments.html')
@@ -176,43 +176,66 @@ html(lang='ru')
       +menuRow('forum', 'Темы на форуме', true, 'pages/others/myTopics.html')
       +menuRow('second-hand', 'Объявления', true, 'pages/market/mySells.html')
 
-    +block('Рейтинг')
+    +block('Рейтинги')
       .-mt-2.mb-2.text-xs.text-rttf-black-50 Нажмите на рейтинг для подробной статистики
-      .grid.grid-cols-2.gap-2
-        a.flex.grow.flex-col.items-center.gap-2.rounded-lg.bg-rttf-color-10.p-2(
-          href='pages/others/userStats.html'
-        )
-          span.text-sm.font-medium Одиночный
-          .ml-2.flex.items-center.gap-1
-            .font-bold.leading-tight.text-rttf-black 535
-            img.h-3(src='img/arrow-up.svg', alt='')
-            span.text-xs.leading-none.text-rttf-green +12.4
-          span.text-xs.text-rttf-black-50 11 сен 2023
-        a.flex.grow.flex-col.items-center.gap-2.rounded-lg.bg-rttf-color-10.p-2(
-          href='pages/others/userStats.html'
-        )
-          span.text-sm.font-medium Парный
-          .ml-2.flex.items-center.gap-1
-            .font-bold.leading-tight.text-rttf-black 477
-            img.h-3(src='img/arrow-down.svg', alt='')
-            span.text-xs.leading-none.text-rttf-red -8.2
-          span.text-xs.text-rttf-black-50 Вчера 12:42
+      mixin userRatingCard(type, rating, change, date)
+        -
+          var icons = {
+            'Одиночный': 'tt-racket-green.svg',
+            'Парный': 'pair.svg',
+            'Пинг-Понг': 'ping-pong.svg',
+            'Ракетлон': 'racketlon.svg',
+            'Шахпонг': 'chesspong.svg',
+            'Неигровая рука': 'tt-racket-other-hand.svg'
+          }
+          var icon = icons[type] || 'default-icon.svg'
+          var changeValue = parseFloat(change)
+          var isPositive = changeValue > 0
+          var isNegative = changeValue < 0
+          var changeColor = isPositive ? 'text-rttf-green' : isNegative ? 'text-rttf-red' : 'text-gray-500'
+          var arrow = isPositive ? 'arrow-up.svg' : isNegative ? 'arrow-down.svg' : ''
+        a.flex.flex-col.items-center.gap-2.rounded-lg.bg-rttf-color-10.p-2(href='pages/others/userStats.html')
+          // Icon and Type
+          .flex.items-center.gap-1
+            span.text-sm.font-medium #{type}
+          // Rating and Change
+          .flex.items-center.gap-1
+            img.h-4.w-4(src=`img/${icon}`, alt='').saturate-50
+            .font-bold.leading-tight.text-rttf-black.mr-1 #{rating}
+            if arrow
+              img.h-3(src=`img/${arrow}`, alt='')
+            span.text-xs.leading-none(class=changeColor) #{change}
+          // Date
+          span.text-xs.text-rttf-black-50 #{date}
+      
+      div.grid.gap-2(style="grid-template-columns: repeat(auto-fill, minmax(120px, 2fr));")
+        +userRatingCard('Одиночный', 535, '+12.4', '11 сен 2023')
+        +userRatingCard('Парный', 477, '-8.2', 'Вчера 12:42')
+        +userRatingCard('Неигровая рука', 450, '+1.2', 'Вчера 18:00')
+        +userRatingCard('Пинг-Понг', 500, '+5.0', 'Сегодня 10:00')
+        +userRatingCard('Ракетлон', 480, '-3.0', '10 сен 2023')
+        +userRatingCard('Шахпонг', 510, '+8.5', '5 сен 2023')
+        
       .mb-2.mt-6.font-medium.text-rttf-black Последние изменения рейтинга
       .flex.items-center.gap-2.py-2
         .w-14.text-sm.text-rttf-black-50 13 сен
 
-        +tournamentTypeBadge('XDF+')
+        +ratingLimit('откр')
+        .bg-slate-100.border.rounded-full.p-1
+          img(src="img/chesspong.svg" alt='Шахпонг').size-4
         span.grow.text-sm.font-semibold Макс Арена
         span.text-sm.font-semibold.text-rttf-green +13.3
       .flex.items-center.gap-2.py-2
         .w-14.text-sm.text-rttf-black-50 4 сен
 
-        +tournamentTypeBadge('XDF+')
+        +ratingLimit('откр')
+        .bg-slate-100.border.rounded-full.p-1
+          img(src="img/racketlon.svg" alt='Шахпонг').size-4
         span.grow.text-sm.font-semibold Space Химки
         span.text-sm.font-semibold.text-rttf-red -8.4
       .flex.items-center.gap-2.py-2
         .w-14.text-sm.text-rttf-black-50 22 авг
-        +tournamentTypeBadge('XDF+')
+        +ratingLimit('<', '520')
         span.grow.text-sm.font-semibold Naten-Юг
         span.text-sm.font-semibold.text-rttf-green +6.7
 

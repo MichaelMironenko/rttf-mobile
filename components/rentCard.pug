@@ -39,7 +39,7 @@ mixin rentCard(clubInfo, slots, onMap, id)
         
             .flex.flex-wrap.gap-2.grow
                 each slot in slots
-                    a.text-center.w-14.h-12.py-1.border.rounded-lg(class=slot.lastCourt && 'animate-pulse' || 'opacity-100' href="pages/courts/bookingConfirm.html")
+                    a.text-center.w-14.h-12.py-1.border.rounded-lg(class=slot.lastCourt && 'animate-pulse' || 'opacity-100' href="pages/halls/bookingConfirm.html")
                         div.font-semibold.text-rttf-color.text-sm.mb-1 #{slot.time}
                         div.text-rttf-black-50.text-xs #{slot.price}&#8202;₽
             div.flex.items-center.pt-4.mt-auto.selectTable(id=id)
