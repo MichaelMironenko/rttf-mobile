@@ -39,7 +39,7 @@ html(lang='en')
         </div>
       +tournamentsPanel("Регистрация")
     .fixed.left-0.top-0.min-h-screen.w-full.bg-page-background(class='z-[-1]')
-    #registration.tab-content.hidden.py-4.px-3(class='pb-[50px] pt-[104px]')
+    #registration.tab-content.py-4.px-3(class='pb-[50px] pt-[104px]')
       +citySelect(true)
       .flex.flex-col.items-center
         +date("Вторник, 25 ноября")
@@ -64,7 +64,7 @@ html(lang='en')
         +tournamentRow('12:30', '>', 400, 'Радуга(Зел)', 'Групповой', '', '4')
         +tournamentRow('12:30', 'откр', '', 'ФилиТТ', 'Ракетлон', '', '14')
         +tournamentRow('12:30', '<', 350, 'Деденеево', 'Настольный теннис', '', '11')
-    #live.tab-content.py-4.px-3(class='pb-[50px] pt-[104px]')
+    #live.tab-content.hidden.py-4.px-3(class='pb-[50px] pt-[104px]')
       .flex.flex-col.items-center
         +tournamentLiveCard('11:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10', true, true)
         +tournamentLiveCard('12:00', '>', 322, 'Spin pong SCD', 'Шахпонг', '', '16', false, true)

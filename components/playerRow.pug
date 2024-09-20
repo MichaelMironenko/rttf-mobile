@@ -45,10 +45,11 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType,
                     if index < players.length - 1
                       | /
     
-    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tableTennis}
-    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].badminton}
-    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].squash}
-    td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tennis}
+    if ratingType == 'racketlon'
+        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tableTennis}
+        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].badminton}
+        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].squash}
+        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tennis}
     
     td.text-center
       +userRating(players[0].rating, players[0].double, '', players[0].ratingType)
