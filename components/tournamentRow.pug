@@ -1,4 +1,6 @@
-mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comments, players, reg)
+include /components/atoms/ratingLimit
+
+mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comments, players, reg, logo)
   -
     let tournamentIcons = {
       'Шахпонг': 'img/chesspong.svg',
@@ -16,14 +18,16 @@ mixin tournamentRow(time, ratingType, ratingValue, name, tournamentType, comment
     }
     let tournamentLink = tournamentLinks[tournamentType] || 'singleTournament.html'
 
-  a(class=`p-${tournamentType !== 'Настольный теннис' ? 2 : 3} ${reg ? 'border-2 border-rttf-green px-2' : 'px-2.5'}` href=`pages/tournaments/${tournamentLink}`).bg-white.rounded-lg.shadow.w-full.mb-1.max-w-sm
-    div.flex.items-center.grow(class='gap-2.5')
+  a(class=`p-${tournamentType !== 'Настольный теннис' ? 2 : 3} ${reg ? 'border-2 border-rttf-green px-2' : 'px-2.5'}` href=`pages/tournaments/${tournamentLink}`).bg-white.rounded-lg.shadow.w-full.mb-1.max-w-sm.block
+    div.flex.items-center(class='gap-2.5')
       div.text-sm.text-gray-700 #{time}
       +ratingLimit(ratingType, ratingValue)
       if tournamentType !== 'Настольный теннис'
         .bg-slate-100.border.rounded-full.p-1
             img.h-4.w-4(src=tournamentIcons[tournamentType] alt=tournamentType)
-      div.truncate.w-24.text-gray-900.grow.text-sm.font-medium #{name}
+      if logo
+        img.h-5.w-5(src=logo alt=tournamentType)
+      div.truncate.w-24.text-rttf-black.grow.text-sm.font-medium #{name}
     
       if comments
         div.flex.hidden.items-center.gap-1(class="xs:flex").shrink-0

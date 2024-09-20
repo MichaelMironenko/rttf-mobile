@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание игр в лигах</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <base href="../../">
+  </head>
+  <body class="bg-page-background">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/rttf-logo.svg" alt="Логотип">
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><img class="h-4 shrink-0 mt-0.5" src="img/rttf-logo-text.svg" alt="РТТФ"><span class="w-full text-xs leading-none tracking-tight text-slate-500 overflow-visible truncate text-ellipsis whitespace-nowrap">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Уведомления"><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Соообщения"><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-rttf-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Рейтинг"><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt=""><span class="ml-1 text-xs font-bold text-rttf-color">1376</span></div>
+          </div>
+          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-rttf-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/halls/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg" alt="">
+            <div class="text-rttf-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <div class="py-4 px-3 pb-16 pt-12">
+      <h1 class="text-lg text-center my-4">Расписание турниров Лиг</h1>
+      <!-- Январь-->
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Воскресенье, 14 января 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">250
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 1</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 1</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">15</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">450
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 1</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">18</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">550
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 1</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">20</span></div>
+        </div></a>
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 20 января 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">12:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Претендент</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">14:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Старт</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">8</span></div>
+        </div></a>
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Воскресенье, 21 января 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">12:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">300
+          </div><img class="h-5 w-5" src="dynamic-img/another-league.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Другая Лига - Тур 1</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
+        </div></a>
+      <!-- Февраль-->
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Воскресенье, 25 февраля 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">250
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 2</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">18</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 2</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">20</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">450
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 2</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">22</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">550
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 2</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">24</span></div>
+        </div></a>
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 3 февраля 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">12:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Гранд</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">16:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Мастер</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+        </div></a>
+      <!-- Март-->
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 9 марта 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">14:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Любитель</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">12</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">18:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Дебютант</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">10</span></div>
+        </div></a>
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Воскресенье, 10 марта 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">250
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 3</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">15</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 3</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">450
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 3</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">18</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">550
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 3</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">20</span></div>
+        </div></a>
+      <!-- Апрель-->
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 6 апреля 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">12:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. СуперЭлит</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">20</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">16:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Элит</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
+        </div></a>
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Воскресенье, 7 апреля 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">250
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 4</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">13</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 4</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">14</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">450
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 4</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">15</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">550
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 4</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">16</span></div>
+        </div></a>
+      <!-- Май-->
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Суббота, 11 мая 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">14:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-yellow">ОТКР
+          </div><img class="h-5 w-5" src="dynamic-img/lchb.jpeg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">ЛЧБ. Престиж</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">11</span></div>
+        </div></a>
+      <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
+        <div class="text-rttf-black text-sm font-semibold leading-none">Воскресенье, 12 мая 2024</div>
+      </div><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">250
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 5</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">17</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">10:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">350
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 5</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">18</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">450
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 5</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">19</span></div>
+        </div></a><a class="p-3 px-2.5 bg-white rounded-lg shadow w-full mb-1 max-w-sm block" href="pages/tournaments/singleTournament.html">
+        <div class="flex items-center gap-2.5">
+          <div class="text-sm text-gray-700">17:00</div>
+          <div class="w-10 h-5 flex items-center justify-center shrink-0 text-white text-xs rounded font-semibold bg-rttf-color">550
+          </div><img class="h-5 w-5" src="dynamic-img/rttf-cup.svg" alt="Настольный теннис">
+          <div class="truncate w-24 text-rttf-black grow text-sm font-medium">Кубок РТТФ - Тур 5</div>
+          <div class="flex items-center gap-1"><img class="h-4 w-4 saturate-50 opacity-50" src="img/player.svg" alt="Игроки"><span class="text-rttf-black-50 text-sm">20</span></div>
+        </div></a>
+    </div>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7" src="img/tabbar/tournaments-active.svg" alt=""><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/halls/halls.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tables.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Залы</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/around-game.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/market.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>

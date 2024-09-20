@@ -326,16 +326,16 @@ html(lang="ru")
 
                 // Список с false
                 table#playersFalse.w-full
-                    tr.text-xs.text-rttf-color(class="!font-semibold").border-b
+                    tr.text-xs.text-rttf-black-50(class="!font-semibold").border-b
                         th.text-left # ▲
                         th.text-left.py-2 Игрок
-                        th(class="hidden sm:table-cell w-1/12")
+                        th(class="hidden 576:table-cell w-1/12")
                             img(src="/img/tt-racket.svg", class="mx-auto" alt="Настольный теннис").size-4
-                        th(class="hidden sm:table-cell w-1/12")
+                        th(class="hidden 576:table-cell w-1/12")
                             img(src="/img/badminton.svg", class="mx-auto" alt="Бадминтон").size-4
-                        th(class="hidden sm:table-cell w-1/12")
+                        th(class="hidden 576:table-cell w-1/12")
                             img(src="/img/squash.svg", class="mx-auto" alt="Сквош").size-4
-                        th(class="hidden sm:table-cell w-1/12")
+                        th(class="hidden 576:table-cell w-1/12")
                             img(src="/img/tennis.svg", class="mx-auto" alt="Теннис").size-4
                         th Рейтинг   
                         th(class="sm:table-cell").hidden Регистрация                  
@@ -343,7 +343,7 @@ html(lang="ru")
                         - var teamName = team[0].teamName ? team[0].teamName : ''
                         - var dateTime = team[0].dateTime
 
-                        +playerRow(team, false, teamName, dateTime, '', ratingType)
+                        +playerRow(team, false, teamName, dateTime, '', 'racketlon')
                 
                     
 
@@ -361,19 +361,7 @@ html(lang="ru")
                             playersFalse.classList.remove('hidden');
                         }
                         });
-                        const addFriendButton = document.querySelector('.js-add-friend');
-                        const requestSentBlock = document.querySelector('.js-request-sent');
-                        const cancelRequestButton = document.querySelector('.js-cancel-request');
-
-                        addFriendButton.addEventListener('click', function() {
-                        addFriendButton.classList.add('hidden');
-                        requestSentBlock.classList.remove('hidden');
-                        });
-
-                        cancelRequestButton.addEventListener('click', function() {
-                        requestSentBlock.classList.add('hidden');
-                        addFriendButton.classList.remove('hidden');
-                        });
+                        
                     });
             +block('Прогнозы')
                 div(class="flex flex-row overflow-x-auto scroll-smooth gap-2 no-scrollbar p-4 -m-4") 
@@ -486,7 +474,7 @@ html(lang="ru")
 
                                 if !isPair && !isTeam
                                     +avatar(winner.color, winner.initials, 60)
-                                    a(class="text-center text-xs s:text-s font-bold flex-grow" ) #{winner.name}
+                                    a(class="text-center text-xs s:text-s font-bold flex-grow" href="pages/others/profile.html") #{winner.name}
 
                                 +userRating(winner.rate, '', '', 'racketlon')
                 +winnersList([

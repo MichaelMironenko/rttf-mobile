@@ -1,0 +1,70 @@
+include /components/atoms/date.pug
+include /components/tabBar.pug
+include /components/topBar.pug
+include /components/tournamentRow.pug
+
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Расписание игр в лигах
+        link(href="../../styles.css" rel="stylesheet")
+        base(href="../../")
+    body.bg-page-background
+        +topBar
+        
+        .py-4.px-3.pb-16.pt-12
+            h1.text-lg.text-center.my-4 Расписание турниров Лиг
+            // Январь
+            +date("Воскресенье, 14 января 2024")
+            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '12', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '15', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
+            +date("Суббота, 20 января 2024")
+            +tournamentRow('12:00', 'откр', '', 'ЛЧБ. Претендент', 'Настольный теннис', '', '10', '', 'dynamic-img/lchb.jpeg')
+            +tournamentRow('14:00', 'откр', '', 'ЛЧБ. Старт', 'Настольный теннис', '', '8', '', 'dynamic-img/lchb.jpeg')
+            +date("Воскресенье, 21 января 2024")
+            +tournamentRow('12:00', '<', 300, 'Другая Лига - Тур 1', 'Настольный теннис', '', '14', '', 'dynamic-img/another-league.svg')
+
+            // Февраль
+            +date("Воскресенье, 25 февраля 2024")
+            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '22', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '24', '', 'dynamic-img/rttf-cup.svg')
+            +date("Суббота, 3 февраля 2024")
+            +tournamentRow('12:00', 'откр', '', 'ЛЧБ. Гранд', 'Настольный теннис', '', '14', '', 'dynamic-img/lchb.jpeg')
+            +tournamentRow('16:00', 'откр', '', 'ЛЧБ. Мастер', 'Настольный теннис', '', '16', '', 'dynamic-img/lchb.jpeg')
+            
+            // Март
+            +date("Суббота, 9 марта 2024")
+            +tournamentRow('14:00', 'откр', '', 'ЛЧБ. Любитель', 'Настольный теннис', '', '12', '', 'dynamic-img/lchb.jpeg')
+            +tournamentRow('18:00', 'откр', '', 'ЛЧБ. Дебютант', 'Настольный теннис', '', '10', '', 'dynamic-img/lchb.jpeg')
+            +date("Воскресенье, 10 марта 2024")
+            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '15', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '16', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
+
+            // Апрель
+            +date("Суббота, 6 апреля 2024")
+            +tournamentRow('12:00', 'откр', '', 'ЛЧБ. СуперЭлит', 'Настольный теннис', '', '20', '', 'dynamic-img/lchb.jpeg')
+            +tournamentRow('16:00', 'откр', '', 'ЛЧБ. Элит', 'Настольный теннис', '', '14', '', 'dynamic-img/lchb.jpeg')
+            +date("Воскресенье, 7 апреля 2024")
+            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '13', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '14', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '15', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '16', '', 'dynamic-img/rttf-cup.svg')
+
+            // Май
+            +date("Суббота, 11 мая 2024")
+            +tournamentRow('14:00', 'откр', '', 'ЛЧБ. Престиж', 'Настольный теннис', '', '11', '', 'dynamic-img/lchb.jpeg')
+            +date("Воскресенье, 12 мая 2024")
+            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '17', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '19', '', 'dynamic-img/rttf-cup.svg')
+            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
+        +tabBar('Турниры')

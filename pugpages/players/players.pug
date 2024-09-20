@@ -214,10 +214,9 @@ html(lang='ru')
             th 
             th.px-2.text-left Имя/город
             th.hidden.px-2.text-left(class='sm:table-cell') Логин
-            th Шахпонг
-            th.hidden.px-2.text-center(class='sm:table-cell') Шахпонг +/-  
             th Теннис
-            th.hidden.px-2.text-center(class='sm:table-cell') Теннис +/-   
+            th Шахпонг
+            th ★ +/-
             th.hidden.px-2.text-center(class='sm:table-cell') Обновлён
 
         each user, index in users
@@ -230,7 +229,10 @@ html(lang='ru')
                 class='text-[13px] xs:text-sm'
               )= user.name
               .text-xs.text-rttf-black-50= user.location
+
             td.hidden.w-auto.px-2.text-sm.text-rttf-black-50(class='sm:table-cell')= user.username
+            td.px-2.text-center
+              +userRating(user.pairRating, false, '', 'tennis') 
             td.px-2.py-1.text-center
               +userRating(user.singleRating, '', '', 'chesspong')  
               div(
@@ -241,16 +243,7 @@ html(lang='ru')
               div(
                 class=(user.singleRatingChange > 0 ? 'text-rttf-green' : user.singleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
               )= user.singleRatingChange
-            td.px-2.text-center
-              +userRating(user.pairRating, true, '', 'tennis') 
-              div(
-                class="mt-1 text-xs sm:hidden"  
-                class=(user.doubleRatingChange > 0 ? 'text-rttf-green' : user.doubleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
-              )= user.doubleRatingChange
-            td.hidden.px-2.py-1.text-center.text-sm(class='sm:table-cell') 
-              div(
-                class=(user.doubleRatingChange > 0 ? 'text-rttf-green' : user.doubleRatingChange < 0 ? 'text-rttf-red' : 'text-rttf-black-50')
-              )= user.doubleRatingChange
+
             td.hidden.px-2.text-center.text-sm.text-rttf-black-50(class='sm:table-cell')= user.lastChange
   
         

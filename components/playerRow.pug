@@ -21,8 +21,7 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType,
             each player, index in players
               - var avatarClass = index > 0 ? '-mt-2' : ''
               div(class=avatarClass class=index === 0 ? '' : "sm:mr-0 sm:mt-0 sm:-ml-2")
-                a(href="pages/others/profile.html" + player.id + "?type=d")
-                  +avatar(randomColor, player.firstName[0] + player.lastName[0], 28, player.avatar)
+                +avatar(randomColor, player.firstName[0] + player.lastName[0], 28, player.avatar)
 
           .block(class="sm:hidden")
             each player in players
@@ -46,17 +45,18 @@ mixin playerRow(players, showCoefficient, teamName, dateTime, medal, ratingType,
                       | /
     
     if ratingType == 'racketlon'
-        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tableTennis}
-        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].badminton}
-        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].squash}
-        td.text-center.text-rttf-black.hidden(class="sm:table-cell") #{players[0].tennis}
+        td.text-center.text-rttf-black.hidden(class="576:table-cell") #{players[0].tableTennis}
+        td.text-center.text-rttf-black.hidden(class="576:table-cell") #{players[0].badminton}
+        td.text-center.text-rttf-black.hidden(class="576:table-cell") #{players[0].squash}
+        td.text-center.text-rttf-black.hidden(class="576:table-cell") #{players[0].tennis}
     
     td.text-center
       +userRating(players[0].rating, players[0].double, '', players[0].ratingType)
 
     if ratingType == 'chess' && !showCoefficient 
+        
         td.text-center(class="xs:table-cell").hidden
-            +userRating(players[0].rating, players[0].double, '')
+            +userRating(players[0].rating, false, '', 'default')
     
     if dateTime && !showCoefficient
       td.text-center.hidden(class="sm:table-cell text-rttf-black-50") #{dateTime}
