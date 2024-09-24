@@ -4,6 +4,7 @@ include /components/tournamentsPanel.pug
 include /components/topBar.pug
 include /components/tabBar.pug
 include /components/atoms/date.pug
+include /components/inputs/switch.pug
 include /components/atoms/citySelect.pug
 include /components/tournamentLiveCard.pug
 include /components/searchAndFilterButton.pug
@@ -40,7 +41,11 @@ html(lang='en')
       +tournamentsPanel("Регистрация")
     .fixed.left-0.top-0.min-h-screen.w-full.bg-page-background(class='z-[-1]')
     #registration.tab-content.py-4.px-3(class='pb-[50px] pt-[104px]')
-      +citySelect(true)
+      .flex.items-center.justify-between
+        +citySelect(true)
+        +switch('Подходящие мне', 'py-2', 'w-fit', 'toggleId', 'small')
+        
+      
       .flex.flex-col.items-center
         +date("Вторник, 25 ноября")
         +tournamentRow('12:30', '<', 350, 'ArtTT-Первом', 'Настольный теннис', 23, '10')

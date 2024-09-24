@@ -86,19 +86,27 @@
     </div>
     <div class="fixed left-0 top-0 min-h-screen w-full bg-page-background z-[-1]"></div>
     <div class="tab-content py-4 px-3 pb-[50px] pt-[104px]" id="registration">
-      <div class="flex items-center gap-1 undefined"><img class="h-4 w-4" src="img/location-icon.svg">
-        <select class="w-fit appearance-none rounded-2xl border-none bg-transparent bg-none p-0 text-sm font-semibold leading-none text-rttf-color undefined focus-visible:outline-none">
-          <option value="0" selected>Все города</option>
-          <option value="781">Алексин</option>
-          <option value="38">Казань</option>
-          <option value="120">Калининград</option>
-          <option value="197">Калуга</option>
-          <option value="35">Кемерово</option>
-          <option value="8">Красногорск</option>
-          <option value="1">Москва</option>
-          <option value="67">Новосибирск</option>
-          <option value="312">Одинцово</option>
-        </select>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-1 undefined"><img class="h-4 w-4" src="img/location-icon.svg">
+          <select class="w-fit appearance-none rounded-2xl border-none bg-transparent bg-none p-0 text-sm font-semibold leading-none text-rttf-color undefined focus-visible:outline-none">
+            <option value="0" selected>Все города</option>
+            <option value="781">Алексин</option>
+            <option value="38">Казань</option>
+            <option value="120">Калининград</option>
+            <option value="197">Калуга</option>
+            <option value="35">Кемерово</option>
+            <option value="8">Красногорск</option>
+            <option value="1">Москва</option>
+            <option value="67">Новосибирск</option>
+            <option value="312">Одинцово</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-3 leading-tight text-left max-w-sm w-fit py-2">
+          <label class="flex items-center gap-3 text-sm text-rttf-black" for="toggleId">Подходящие мне
+            <input class="sr-only peer" type="checkbox" value="" id="toggleId">
+            <div class="relative flex-shrink-0 bg-gray-200 rounded-full w-8 h-5 peer-focus:outline-none dark:peer-focus:ring-blue-800 dark:bg-slate-200 peer-checked:after:translate-x-3 rtl:peer-checked:after:-translate-x-3 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-rttf-color"></div>
+          </label>
+        </div>
       </div>
       <div class="flex flex-col items-center">
         <div class="justify-center items-center gap-2 pt-6 pb-3 inline-flex m-auto w-full"><img class="w-4 h-4" src="img/calendar.svg" alt="Календарь">
@@ -677,7 +685,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">15</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -685,7 +693,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700 font-bold">16</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -693,7 +701,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">17</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -701,7 +709,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">18</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -709,13 +717,13 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">19</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
               <div class="text-sm text-rttf-red opacity-50">Вс</div>
               <div class="w-10 h-10 flex justify-center">
-                <div class="w-9 h-9 flex items-center justify-center rounded-full bg-rttf-red text-white">20</div>
+                <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">20</div>
               </div>
               <div class="flex h-2 mt-1 justify-center gap-0.5">
               </div>
@@ -727,7 +735,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">21</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -735,7 +743,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">22</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -743,13 +751,13 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">23</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
               <div class="text-sm text-rttf-black-50">Чт</div>
               <div class="w-10 h-10 flex justify-center">
-                <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">24</div>
+                <div class="w-9 h-9 flex items-center justify-center rounded-full bg-rttf-color text-white">24</div>
               </div>
               <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
@@ -767,7 +775,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">26</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -775,7 +783,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-rttf-red">27</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
           </div>
@@ -785,7 +793,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">28</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5">
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -793,7 +801,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">29</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -801,7 +809,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">30</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5">
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span>
               </div>
             </div>
             <div class="flex flex-col items-center justify-center">
@@ -809,7 +817,7 @@
               <div class="w-10 h-10 flex justify-center">
                 <div class="w-9 h-9 flex items-center justify-center rounded-full text-gray-700">31</div>
               </div>
-              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full bg-rttf-color opacity-100 ring-2 ring-offset-2 ring-rttf-color "></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
+              <div class="flex h-2 mt-1 justify-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span><span class="w-1.5 h-1.5 rounded-full  bg-rttf-black-50 opacity-50"></span>
               </div>
             </div>
           </div>

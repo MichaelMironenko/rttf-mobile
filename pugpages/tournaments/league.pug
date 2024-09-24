@@ -1,0 +1,217 @@
+include /components/atoms/button.pug
+include /components/topBar.pug
+include /components/tabBar.pug
+include /components/gameResult.pug
+include /components/newsCard.pug
+include /components/block.pug
+include /components/filters/filterButtonsRow.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Лига 350 - Кубок РТТФ
+    link(href='../../styles.css', rel='stylesheet')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
+    base(href='../../')
+  body.bg-white.px-4.pb-32.pt-14
+    +topBar
+    h1.text-center.py-4.font-bold(style="background: linear-gradient(to right, #37B68B, #1476c6); -webkit-background-clip: text; color: transparent;") Кубок RTTF 2024 
+        div.bg-avatar-gradient.text-white.mt-3.text-lg.font-semibold.w-fit.px-3.py-1.rounded-lg.mx-auto Лига 350
+
+    div.flex.items-center.bg-slate-700.px-4.py-2.rounded-lg.justify-between
+      div.text-white(class='w-1/2')
+        div.text-sm.font-medium До начала 8 тура
+        div.font-semibold Кубка RTTF
+      div.flex.justify-around(class='w-1/2')
+        div.text-center
+          div.text-xl.text-rttf-light-yellow.font-semibold 3
+          div.text-xs.text-white.opacity-70 дня
+        div.text-center
+          div.text-xl.text-rttf-light-yellow.font-semibold 11
+          div.text-xs.text-white.opacity-70 часов
+        div.text-center
+          div.text-xl.text-rttf-light-yellow.font-semibold 24
+          div.text-xs.text-white.opacity-70 мин
+
+    a(href="pages/tournaments/reglament.html").block.mt-4 Регламент Кубка RTTF 2024 (полный) 
+    
+    h2.mt-6.mb-2 Место проведения
+    a(href="pages/halls/singleClub.html").flex.gap-3.items-center.mb-6  
+      img(src="/dynamic-img/fili-tt.png", alt="Логотип клуба").size-16
+      .div 
+        .font-semibold Wings Club Фили
+        div.mt-2.text-sm.text-rttf-black.leading-tight г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж)
+
+    +block('Новости', { href:"pages/aroundgame/news.html", text:'Все'}, '', '', '-mx-4')
+      .sm.grid.grid-cols-1.gap-8(class='sm:grid-cols-2 lg:grid-cols-3')
+          .flex.flex-col.gap-4
+              +newsCard('23 мая состоится студенческий турнир Москвы', 'dynamic-img/club-1.jpg', 'Naten ЮГ Ярославль', '4 апреля 16:30', 'pages/aroundgame/singleNews.html')
+              +newsCard('Открытые тренировки для всех желающих', '', 'Спартак М', '12 мая 18:00', 'pages/aroundgame/singleNews.html')
+              +newsCard('Финал городского чемпионата по бадминтону', 'dynamic-img/club-3.jpg', 'Динамо СПб', '20 июня 20:00', 'pages/aroundgame/singleNews.html')
+
+          .hidden(class='sm:flex sm:flex-col sm:gap-4')
+              +newsCard('Запуск новой школы бадминтона в Петербурге', 'dynamic-img/photo-1.jpg', 'БК Невский', '15 июня 10:00', 'pages/aroundgame/singleNews.html')
+              +newsCard('Летний кубок по бадминтону для детей', 'dynamic-img/club-1.jpg', 'БК Москва', '25 июля 14:00', 'pages/aroundgame/singleNews.html')
+              +newsCard('Международный турнир по бадминтону стартует в августе', '', 'БК Интернационал', '1 августа 09:00', 'pages/aroundgame/singleNews.html')
+
+          .hidden(class='lg:flex lg:flex-col lg:gap-4')
+              +newsCard('Семинар по тактике игры в бадминтон', 'dynamic-img/club-2.jpg', 'БК Лидер', '3 сентября 12:00', 'pages/aroundgame/singleNews.html')
+              +newsCard('Турнир памяти выдающихся игроков', '', 'БК Виктория', '10 сентября 15:00', 'pages/aroundgame/singleNews.html')
+              +newsCard('Бадминтонный фестиваль для всей семьи', 'dynamic-img/photo-2.jpg', 'БК Семья', '17 сентября 10:00', 'pages/aroundgame/singleNews.html')
+
+    
+
+
+    h2.mt-6.mb-2 Туры и результаты
+    .no-scrollbar.-mx-4.flex.gap-2.overflow-x-auto.px-4
+      - 
+        var tours = [
+          { month: 'Март', name: 'Тур 1', date: '19 марта' },
+          { month: 'Апрель', name: 'Тур 2', date: '23 апреля' },
+          { month: 'Май', name: 'Тур 3', date: '15 мая' },
+          { month: 'Июнь', name: 'Тур 4', date: '20 июня' },
+          { month: 'Июль', name: 'Тур 5', date: '11 июля' },
+          { month: 'Август', name: 'Тур 6', date: '17 августа' },
+          { month: 'Сентябрь', name: 'Внекубковый турнир', date: '18 сентября' },
+          { month: 'Октябрь', name: 'Тур 7', date: '5 октября' },
+          { month: 'Ноябрь', name: 'Тур 8', date: '10 ноября' },
+          { month: 'Декабрь/Январь', name: 'Финал кубка RTTF', date: 'Дата уточняется' }
+        ]
+
+      script.
+        document.addEventListener('DOMContentLoaded', () => {
+          const activeTour = document.querySelector('.active-tour')
+          if (activeTour) {
+            const container = document.querySelector('.no-scrollbar')
+            container.scrollLeft = activeTour.offsetLeft - container.offsetWidth / 2 + activeTour.offsetWidth / 2
+          }
+        })
+
+      .mt-2.flex.gap-2.mr-4
+        each tour, index in tours
+          - var isActive = index === 7
+          button.flex.flex-col.items-center.justify-center.rounded-lg.p-2.shrink-0(
+            class=[isActive ? 'bg-rttf-color active-tour' : 'bg-rttf-color-10'],
+            data-month=tour.month
+          )
+            div(class=isActive ? 'text-sm text-white' : 'text-sm text-rttf-black').font-semibold= tour.name
+            if tour.date
+              div(class=isActive ? 'text-xs text-white' : 'text-xs text-rttf-black')= tour.date
+
+
+    - 
+      var teams = [
+          { name: 'Крылатые Ястребы', players: [{ name: 'Григорьев Павел', rating: 410 }, { name: 'Николаева Анна', rating: 420 }, { name: 'Федоров Василий', rating: 360 }] },
+          { name: 'Скоростные Дельфины', players: [{ name: 'Орлов Олег', rating: 440 }, { name: 'Кузьмина Наталья', rating: 390 }, { name: 'Быков Артем', rating: 370 }] },
+          { name: 'Красные Драконы', players: [{ name: 'Медведев Дмитрий', rating: 350 }, { name: 'Ершова Ирина', rating: 430 }, { name: 'Новиков Сергей', rating: 450 }] }
+        ]
+
+    .mb-2.shrink-0
+      h2.mt-4 Победители 7 тура
+      .flex.items-center
+        img.h-4.mr-1(src="img/player-white.svg", alt="players")
+        span.text-white.text-sm.leading-none 12 
+        span.text-white.text-sm.leading-none 17:00
+      img.w-full(src='dynamic-img/league-350.jpg', alt='Победители').rounded-lg.overflow-hidden
+      .p-2
+        each team, index in teams
+          
+          .flex.items-center.gap-2.py-2.justify-center
+            - var medal = ['gold', 'silver', 'bronze'][index % 3]
+            img.h-6(src=`img/medal-${medal}.svg`, alt=`${medal} medal`) 
+            span.font-semibold.text-center= team.name
+            
+          .flex.items-center.justify-center.gap-3.mb-4
+            each player in team.players
+              a.text-center(href="pages/others/profile.html" class="w-1/3")
+                div.text-sm.font-medium= player.name
+                div.text-xs.mt-1 ★ #{player.rating}
+    
+    
+        
+
+    
+
+    h2.mt-6.mb-3 Лучшие игры 7 тура
+
+    +gameResult({
+                  stage: '1/16',
+                  duration: 14,
+                  border: true,
+                  players: [
+                      { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+                      { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
+                  ],
+                  numOfPlayers: 1
+              })
+    +gameResult({
+        stage: '1/16',
+        duration: 12,
+        border: true,
+        players: [
+            { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '-14.2', opponentScore: 2, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+            { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '+11.5', opponentScore: 1, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
+        ],
+        numOfPlayers: 2
+    })
+    +gameResult({
+        stage: '1/16',
+        duration: 13,
+        border: false,
+        players: [
+            { name: 'Бадминтонные пауки', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+            { name: 'Подмосковные ястребы', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
+        ],
+        numOfPlayers: 3
+    })
+
+
+    
+    h2.mt-6.my-3 Статистика по игрокам 7 тура
+
+    -
+        const players = [
+          { name: "Иван Сергеев", rating: 700, gold: 60, silver: 40, bronze: 28, total: 128, me: true, place: 1 },
+          { name: "Анна Иванова", rating: 695, gold: 55, silver: 35, bronze: 25, total: 115, me: false, place: 2 },
+          { name: "Петр Алексеев", rating: 690, gold: 50, silver: 30, bronze: 22, total: 102, me: false, place: 3 },
+          { name: "Ольга Николаева", rating: 685, gold: 45, silver: 28, bronze: 20, total: 93, me: false, place: 4 },
+          { name: "Дмитрий Козлов", rating: 680, gold: 40, silver: 27, bronze: 18, total: 85, me: false, place: 5 },
+          { name: "Елена Соколова", rating: 675, gold: 35, silver: 25, bronze: 16, total: 76, me: false, place: 6 },
+          { name: "Александр Петров", rating: 670, gold: 30, silver: 23, bronze: 15, total: 68, me: false, place: 7 },
+          { name: "Мария Федорова", rating: 665, gold: 25, silver: 20, bronze: 14, total: 59, me: false, place: 8 },
+          { name: "Сергей Васильев", rating: 660, gold: 20, silver: 18, bronze: 12, total: 50, me: false, place: 9 },
+          { name: "Виктория Егорова", rating: 655, gold: 15, silver: 15, bronze: 10, total: 40, me: false, place: 10 }
+        ];
+    table.-mx-4.my-3.w-screen
+      thead
+        tr.p-2.text-xs.text-rttf-black-50
+          th.max-w-10.pl-2.text-center #
+          th.max-w-24.p-2.text-left Имя
+          th.p-2.text-center ★
+          th.p-2.text-center
+            img.mx-auto(src='img/medal-gold.svg', alt='')
+          th.p-2.text-center
+            img.mx-auto(src='img/medal-silver.svg', alt='')
+          th.p-2.text-center
+            img.mx-auto(src='img/medal-bronze.svg', alt='')
+          th.p-2.text-center =
+
+      tbody
+        each player, index in players
+          - const playerRowClass = player.me ? 'bg-orange-100' : 'even:bg-white odd:bg-slate-100'
+          tr.text-sm.text-rttf-black(class=playerRowClass)
+            td.w-7.pl-2.text-center.font-semibold= player.place
+            td.max-w-24.p-2.text-left.leading-5= player.name
+            td.p-2.text-center
+              +userRating(player.rating)
+            td.p-2.text-center= player.gold
+            td.p-2.text-center= player.silver
+            td.p-2.text-center= player.bronze
+            td.p-2.text-center= player.total
+
+    
+
+
+    +tabBar('Турниры')

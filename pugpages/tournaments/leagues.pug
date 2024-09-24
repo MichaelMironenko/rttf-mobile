@@ -2,6 +2,7 @@ include /components/atoms/date.pug
 include /components/tabBar.pug
 include /components/topBar.pug
 include /components/tournamentRow.pug
+include /components/searchAndFilterButton.pug
 
 
 doctype html
@@ -12,59 +13,49 @@ html(lang="ru")
         title Расписание игр в лигах
         link(href="../../styles.css" rel="stylesheet")
         base(href="../../")
-    body.bg-page-background
-        +topBar
-        
-        .py-4.px-3.pb-16.pt-12
-            h1.text-lg.text-center.my-4 Расписание турниров Лиг
-            // Январь
-            +date("Воскресенье, 14 января 2024")
-            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '12', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '15', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 1', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
-            +date("Суббота, 20 января 2024")
-            +tournamentRow('12:00', 'откр', '', 'ЛЧБ. Претендент', 'Настольный теннис', '', '10', '', 'dynamic-img/lchb.jpeg')
-            +tournamentRow('14:00', 'откр', '', 'ЛЧБ. Старт', 'Настольный теннис', '', '8', '', 'dynamic-img/lchb.jpeg')
-            +date("Воскресенье, 21 января 2024")
-            +tournamentRow('12:00', '<', 300, 'Другая Лига - Тур 1', 'Настольный теннис', '', '14', '', 'dynamic-img/another-league.svg')
+    div.bg-page-background.pb-16.pt-12
+      +topBar
 
-            // Февраль
-            +date("Воскресенье, 25 февраля 2024")
-            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '22', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 2', 'Настольный теннис', '', '24', '', 'dynamic-img/rttf-cup.svg')
-            +date("Суббота, 3 февраля 2024")
-            +tournamentRow('12:00', 'откр', '', 'ЛЧБ. Гранд', 'Настольный теннис', '', '14', '', 'dynamic-img/lchb.jpeg')
-            +tournamentRow('16:00', 'откр', '', 'ЛЧБ. Мастер', 'Настольный теннис', '', '16', '', 'dynamic-img/lchb.jpeg')
-            
-            // Март
-            +date("Суббота, 9 марта 2024")
-            +tournamentRow('14:00', 'откр', '', 'ЛЧБ. Любитель', 'Настольный теннис', '', '12', '', 'dynamic-img/lchb.jpeg')
-            +tournamentRow('18:00', 'откр', '', 'ЛЧБ. Дебютант', 'Настольный теннис', '', '10', '', 'dynamic-img/lchb.jpeg')
-            +date("Воскресенье, 10 марта 2024")
-            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '15', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '16', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 3', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
+      .px-3
+          h1.text-center.mt-4 Кубки и лиги
+          //- +searchAndFilterButton('Название лиги', true)
 
-            // Апрель
-            +date("Суббота, 6 апреля 2024")
-            +tournamentRow('12:00', 'откр', '', 'ЛЧБ. СуперЭлит', 'Настольный теннис', '', '20', '', 'dynamic-img/lchb.jpeg')
-            +tournamentRow('16:00', 'откр', '', 'ЛЧБ. Элит', 'Настольный теннис', '', '14', '', 'dynamic-img/lchb.jpeg')
-            +date("Воскресенье, 7 апреля 2024")
-            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '13', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '14', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '15', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 4', 'Настольный теннис', '', '16', '', 'dynamic-img/rttf-cup.svg')
+      - 
+        var leaguesData = [
+            { year: '2024', title: 'RTTF CUP', date: 'Февраль-декабрь 2024', location: 'Wings Club Фили, Москва', stages: 9, leagues: ['Лига 250', 'Лига 350', 'Лига 450', 'Лига 550'], logo: 'dynamic-img/rttf-cup.svg', winners: ['Ля какие!', 'Пардон, нас не звали!', 'Классика жанра'] },
+            { year: '2024', title: 'Другая лига', date: 'Январь-декабрь 2022', location: 'Клуб Звезда, Санкт-Петербург', stages: 8, leagues: ['Другая лига'], logo: 'dynamic-img/another-league.svg', winners: ['Василий Васильев', 'Артем Артемов', 'Илья Ильин'] },
+            { year: '2024', title: 'Лига Чемпионов Бизнеса', date: 'Март-ноябрь 2024', location: 'Wings Club Фили, Москва', stages: 12, leagues: ['Новичок', 'Претендент', 'Старт', 'Престиж', 'Гранд', 'Мастер', 'Любитель', 'Дебютант', 'Элит', 'СуперЭлит'], logo: 'dynamic-img/lchb.jpeg' },
+            { year: '2023', title: 'RTTF CUP', date: 'Февраль-декабрь 2023', location: 'Wings Club Фили, Москва', stages: 9, leagues: ['Лига 250', 'Лига 350', 'Лига 450', 'Лига 550'], logo: 'dynamic-img/rttf-cup.svg', winners: ['Роза с шипами', 'Взрывной накат 1', 'Операция ЗЫ'] },
+            { year: '2023', title: 'Лига Чемпионов Бизнеса', date: 'Март-ноябрь 2023', location: 'Wings Club Фили, Москва', stages: 12, leagues: ['Новичок', 'Претендент', 'Старт', 'Престиж', 'Гранд', 'Мастер', 'Любитель', 'Дебютант', 'Элит', 'СуперЭлит'], logo: 'dynamic-img/lchb.jpeg', winners: ['Алексей Николаев', 'Николай Дмитриев', 'Дмитрий Алексеев'] },
+            { year: '2022', title: 'Другая лига', date: 'Январь-декабрь 2022', location: 'Клуб Звезда, Санкт-Петербург', stages: 8, leagues: ['Первая', 'Вторая', 'Третья'], logo: 'dynamic-img/another-league.svg', winners: ['Василий Васильев', 'Артем Артемов', 'Илья Ильин'] }
+        ]
 
-            // Май
-            +date("Суббота, 11 мая 2024")
-            +tournamentRow('14:00', 'откр', '', 'ЛЧБ. Престиж', 'Настольный теннис', '', '11', '', 'dynamic-img/lchb.jpeg')
-            +date("Воскресенье, 12 мая 2024")
-            +tournamentRow('10:00', '<', 250, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '17', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('10:00', '<', 350, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '18', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 450, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '19', '', 'dynamic-img/rttf-cup.svg')
-            +tournamentRow('17:00', '<', 550, 'Кубок РТТФ - Тур 5', 'Настольный теннис', '', '20', '', 'dynamic-img/rttf-cup.svg')
-        +tabBar('Турниры')
+      each year in ['2024', '2023', '2022']
+        h2.text-xl.font-semibold.mt-6.mb-3.text-center #{year}
+        each league in leaguesData.filter(l => l.year === year)
+            .bg-white.rounded-lg.p-3.mb-2
+                .flex.gap-4.items-center
+                    img.w-20.h-20(src=league.logo alt='logo').shrink-0.rounded-xl
+                    .flex-grow
+                        h3.text-lg.font-bold #{league.title} #{league.year}
+                        div.text-sm.text-rttf-black-50.mt-2.mb-2 #{league.date}, #{league.stages} этапов
+                        a.flex.items-center.gap-1(href="pages/halls/singleClub.html")
+                          img(src="img/location-icon.svg", alt="Место проведения").saturate-50.opacity-75
+                          div.text-sm #{league.location}
+
+                .flex.flex-col.divide-y.divide-gray-200.mt-3
+                    each l, index in league.leagues
+                        a.flex.items-center.justify-between.py-3.px-3.bg-rttf-color-10.gap-4.rounded(href="pages/tournaments/league.html")
+                            span.flex-1.font-semibold.text-sm(class="w-1/2") #{l}
+                            if league.year === '2024'
+                                span.text-xs.text-rttf-black-50(class="w-1/2") #{index == 0 ? 'Ближайший тур: 12 окт' : 'Ближайший тур: 19 окт'}
+                            else if league.winners
+                                .flex.flex-col.gap-1(class="w-1/2")
+                                    each winner, idx in league.winners
+                                        .flex.items-center
+                                            img.w-4.h-4(src=`img/medal-${idx === 0 ? 'gold' : idx === 1 ? 'silver' : 'bronze'}.svg`, alt=`Медаль ${idx === 0 ? 'золото' : idx === 1 ? 'серебро' : 'бронза'}`)
+                                            span.text-xs.text-center.font-medium.ml-2 #{winner}
+
+                            img(src="img/expand-arrow.svg", alt="Перейти", class="w-5 h-5 -rotate-90")
+
+      +tabBar('Турниры')

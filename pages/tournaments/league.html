@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лига 350 - Кубок РТТФ</title>
+    <link href="../../styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&amp;:display=swap">
+    <base href="../../">
+  </head>
+  <body class="bg-white px-4 pb-32 pt-14">
+    <div class="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b bg-white px-3 py-2"><a class="min-w-30 flex flex-shrink items-center space-x-2" href="index.html"><img class="h-8" src="img/rttf-logo.svg" alt="Логотип">
+        <div class="flex min-w-0 flex-shrink flex-col items-start gap-1"><img class="h-4 shrink-0 mt-0.5" src="img/rttf-logo-text.svg" alt="РТТФ"><span class="w-full text-xs leading-none tracking-tight text-slate-500 overflow-visible truncate text-ellipsis whitespace-nowrap">Нижний Новгород</span></div></a>
+      <div class="ml-4 flex shrink-0 flex-grow items-center justify-end gap-4"><a class="relative shrink-0" href="pages/others/notifications.html"><img class="h-6 w-6 shrink-0" src="img/notification-icon.svg" alt="Уведомления"><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="relative shrink-0" href="pages/others/messages.html"><img class="h-6 w-6 shrink-0" src="img/messages-icon.svg" alt="Соообщения"><span class="absolute -right-1 -top-1 inline-block rounded-full bg-rttf-red px-1 text-center text-xxs text-white">99</span></a><a class="inline-flex gap-2">
+          <div class="hidden text-right xs:block">
+            <div class="text-xs font-semibold text-rttf-color">nikpol</div>
+            <div class="flex items-center justify-end"><img class="relative z-10 h-3 w-3" src="img/gradient-star.svg" alt="Рейтинг"><img class="relative -ml-4 h-3 w-3" src="img/gradient-star.svg" alt=""><span class="ml-1 text-xs font-bold text-rttf-color">1376</span></div>
+          </div>
+          <div class="p-[1px] w-[32px] h-[32px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(32px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div></a></div>
+      <div class="hidden" id="userMenu">
+        <div class="max-w-full min-w-56 px-4 py-4 bg-white rounded-lg flex flex-col justify-start items-start z-[1000] absolute top-10 right-4 drop-shadow-around transform-gpu"><a class="flex-col self-stretch pb-3 border-b border-blue-950 flex border-opacity-10 justify-start items-start gap-1" href="pages/others/profile.html">
+            <div class="text-slate-900 font-semibold text-sm leading-tight">Никита Полянский</div>
+            <div class="text-center text-rttf-black-50 text-sm font-normal leading-none">@nikpol</div>
+            <div class="flex flex-row gap-2 mt-1">
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid">
+                <div class="flex items-center"><img class="h-3 w-3 shrink-0" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе"><img class="h-3 w-3 -ml-1.5 shrink-0" src="img/rating-star-aqua.svg" alt=""></div>
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">713</div>
+              </div>
+              <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+                <div class="text-rttf-black text-center text-xs font-semibold leading-none">321</div>
+              </div>
+            </div></a>
+          <div class="flex flex-col self-stretch py-2 border-b w-full"><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myFinance.html"><img class="w-4 h-4 justify-center items-center" src="img/price-outline.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Финансы</div><span class="text-xs leading-tight">1500 ₽</span></a><a class="py-2 flex justify-between items-center gap-3" href="pages/halls/myBookings.html"><img class="w-4 h-4 justify-center items-center" src="img/booking.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Бронирования</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/market/orders.html"><img class="w-4 h-4 justify-center items-center" src="img/orders.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Заказы</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myBookmarks.html"><img class="w-4 h-4 justify-center items-center" src="img/bookmark-empty.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Закладки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/myTrainings.html"><img class="w-4 h-4 justify-center items-center" src="img/trainer.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Тренировки</div></a><a class="py-2 flex justify-between items-center gap-3" href="pages/others/friends.html"><img class="w-4 h-4 justify-center items-center" src="img/friends.svg" alt="">
+              <div class="text-rttf-black text-sm font-normal grow leading-tight">Лента друзей</div></a>
+          </div>
+          <div class="pt-1 flex justify-start items-center mt-2 gap-3"><img class="w-4 h-4 justify-center items-center" src="img/exit.svg" alt="">
+            <div class="text-rttf-black text-sm font-normal">Выйти</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var avatar = document.getElementById('avatarContainer')
+        var userMenu = document.getElementById('userMenu')
+        avatar.addEventListener('click', function () {
+          userMenu.classList.toggle('hidden')
+        })
+      })
+    </script>
+    <h1 class="text-center py-4 font-bold" style="background: linear-gradient(to right, #37B68B, #1476c6); -webkit-background-clip: text; color: transparent;">Кубок RTTF 2024 
+      <div class="bg-avatar-gradient text-white mt-3 text-lg font-semibold w-fit px-3 py-1 rounded-lg mx-auto">Лига 350</div>
+    </h1>
+    <div class="flex items-center bg-slate-700 px-4 py-2 rounded-lg justify-between">
+      <div class="text-white w-1/2">
+        <div class="text-sm font-medium">До начала 8 тура</div>
+        <div class="font-semibold">Кубка RTTF</div>
+      </div>
+      <div class="flex justify-around w-1/2">
+        <div class="text-center">
+          <div class="text-xl text-rttf-light-yellow font-semibold">3</div>
+          <div class="text-xs text-white opacity-70">дня</div>
+        </div>
+        <div class="text-center">
+          <div class="text-xl text-rttf-light-yellow font-semibold">11</div>
+          <div class="text-xs text-white opacity-70">часов</div>
+        </div>
+        <div class="text-center">
+          <div class="text-xl text-rttf-light-yellow font-semibold">24</div>
+          <div class="text-xs text-white opacity-70">мин</div>
+        </div>
+      </div>
+    </div><a class="block mt-4" href="pages/tournaments/reglament.html">Регламент Кубка RTTF 2024 (полный) </a>
+    <h2 class="mt-6 mb-2">Место проведения</h2><a class="flex gap-3 items-center mb-6" href="pages/halls/singleClub.html"> <img class="size-16" src="/dynamic-img/fili-tt.png" alt="Логотип клуба">
+      <div class="div"> 
+        <div class="font-semibold">Wings Club Фили</div>
+        <div class="mt-2 text-sm text-rttf-black leading-tight">г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж)</div>
+      </div></a>
+    <div class="p-4 bg-white rounded-lg overflow-hidden  -mx-4">
+      <div class="flex justify-between items-center mb-4 gap-4">
+        <div class="flex gap-2 items-center">
+          <h2 class="leading-tight">Новости</h2>
+        </div><a class=" leading-none" href="pages/aroundgame/news.html">Все</a>
+      </div>
+      <div class="sm grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="flex flex-col gap-4"><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-1.jpg">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">23 мая состоится студенческий турнир Москвы</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">Naten ЮГ Ярославль</span><span class="text-rttf-black-50">4 апреля 16:30</span></span>
+            </div></a><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Открытые тренировки для всех желающих</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">Спартак М</span><span class="text-rttf-black-50">12 мая 18:00</span></span>
+            </div></a><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-3.jpg">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Финал городского чемпионата по бадминтону</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">Динамо СПб</span><span class="text-rttf-black-50">20 июня 20:00</span></span>
+            </div></a>
+        </div>
+        <div class="hidden sm:flex sm:flex-col sm:gap-4"><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/photo-1.jpg">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Запуск новой школы бадминтона в Петербурге</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">БК Невский</span><span class="text-rttf-black-50">15 июня 10:00</span></span>
+            </div></a><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-1.jpg">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Летний кубок по бадминтону для детей</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">БК Москва</span><span class="text-rttf-black-50">25 июля 14:00</span></span>
+            </div></a><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Международный турнир по бадминтону стартует в августе</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">БК Интернационал</span><span class="text-rttf-black-50">1 августа 09:00</span></span>
+            </div></a>
+        </div>
+        <div class="hidden lg:flex lg:flex-col lg:gap-4"><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/club-2.jpg">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Семинар по тактике игры в бадминтон</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">БК Лидер</span><span class="text-rttf-black-50">3 сентября 12:00</span></span>
+            </div></a><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Турнир памяти выдающихся игроков</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">БК Виктория</span><span class="text-rttf-black-50">10 сентября 15:00</span></span>
+            </div></a><a class="flex items-center gap-3 min-h-16" href="pages/aroundgame/singleNews.html"><img class="size-16 shrink-0 rounded object-cover" src="dynamic-img/photo-2.jpg">
+            <div class="flex flex-col gap-1">
+              <h3 class="line-clamp-2 text-15 font-medium leading-tight">Бадминтонный фестиваль для всей семьи</h3><span class="text-xs text-rttf-black-50"><span class="mr-2 font-semibold text-rttf-black-50">БК Семья</span><span class="text-rttf-black-50">17 сентября 10:00</span></span>
+            </div></a>
+        </div>
+      </div>
+    </div>
+    <h2 class="mt-6 mb-2">Туры и результаты</h2>
+    <div class="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4">
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const activeTour = document.querySelector('.active-tour')
+          if (activeTour) {
+            const container = document.querySelector('.no-scrollbar')
+            container.scrollLeft = activeTour.offsetLeft - container.offsetWidth / 2 + activeTour.offsetWidth / 2
+          }
+        })
+        
+      </script>
+      <div class="mt-2 flex gap-2 mr-4">
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Март">
+          <div class="text-sm text-rttf-black font-semibold">Тур 1</div>
+          <div class="text-xs text-rttf-black">19 марта</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Апрель">
+          <div class="text-sm text-rttf-black font-semibold">Тур 2</div>
+          <div class="text-xs text-rttf-black">23 апреля</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Май">
+          <div class="text-sm text-rttf-black font-semibold">Тур 3</div>
+          <div class="text-xs text-rttf-black">15 мая</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Июнь">
+          <div class="text-sm text-rttf-black font-semibold">Тур 4</div>
+          <div class="text-xs text-rttf-black">20 июня</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Июль">
+          <div class="text-sm text-rttf-black font-semibold">Тур 5</div>
+          <div class="text-xs text-rttf-black">11 июля</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Август">
+          <div class="text-sm text-rttf-black font-semibold">Тур 6</div>
+          <div class="text-xs text-rttf-black">17 августа</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Сентябрь">
+          <div class="text-sm text-rttf-black font-semibold">Внекубковый турнир</div>
+          <div class="text-xs text-rttf-black">18 сентября</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color active-tour" data-month="Октябрь">
+          <div class="text-sm text-white font-semibold">Тур 7</div>
+          <div class="text-xs text-white">5 октября</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Ноябрь">
+          <div class="text-sm text-rttf-black font-semibold">Тур 8</div>
+          <div class="text-xs text-rttf-black">10 ноября</div>
+        </button>
+        <button class="flex flex-col items-center justify-center rounded-lg p-2 shrink-0 bg-rttf-color-10" data-month="Декабрь/Январь">
+          <div class="text-sm text-rttf-black font-semibold">Финал кубка RTTF</div>
+          <div class="text-xs text-rttf-black">Дата уточняется</div>
+        </button>
+      </div>
+    </div>
+    <div class="mb-2 shrink-0">
+      <h2 class="mt-4">Победители 7 тура</h2>
+      <div class="flex items-center"><img class="h-4 mr-1" src="img/player-white.svg" alt="players"><span class="text-white text-sm leading-none">12 </span><span class="text-white text-sm leading-none">17:00</span></div><img class="w-full rounded-lg overflow-hidden" src="dynamic-img/league-350.jpg" alt="Победители">
+      <div class="p-2">
+        <div class="flex items-center gap-2 py-2 justify-center"><img class="h-6" src="img/medal-gold.svg" alt="gold medal"><span class="font-semibold text-center">Крылатые Ястребы</span>
+        </div>
+        <div class="flex items-center justify-center gap-3 mb-4"><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Григорьев Павел</div>
+            <div class="text-xs mt-1">★ 410</div></a><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Николаева Анна</div>
+            <div class="text-xs mt-1">★ 420</div></a><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Федоров Василий</div>
+            <div class="text-xs mt-1">★ 360</div></a>
+        </div>
+        <div class="flex items-center gap-2 py-2 justify-center"><img class="h-6" src="img/medal-silver.svg" alt="silver medal"><span class="font-semibold text-center">Скоростные Дельфины</span>
+        </div>
+        <div class="flex items-center justify-center gap-3 mb-4"><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Орлов Олег</div>
+            <div class="text-xs mt-1">★ 440</div></a><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Кузьмина Наталья</div>
+            <div class="text-xs mt-1">★ 390</div></a><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Быков Артем</div>
+            <div class="text-xs mt-1">★ 370</div></a>
+        </div>
+        <div class="flex items-center gap-2 py-2 justify-center"><img class="h-6" src="img/medal-bronze.svg" alt="bronze medal"><span class="font-semibold text-center">Красные Драконы</span>
+        </div>
+        <div class="flex items-center justify-center gap-3 mb-4"><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Медведев Дмитрий</div>
+            <div class="text-xs mt-1">★ 350</div></a><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Ершова Ирина</div>
+            <div class="text-xs mt-1">★ 430</div></a><a class="text-center w-1/3" href="pages/others/profile.html">
+            <div class="text-sm font-medium">Новиков Сергей</div>
+            <div class="text-xs mt-1">★ 450</div></a>
+        </div>
+      </div>
+    </div>
+    <h2 class="mt-6 mb-3">Лучшие игры 7 тура</h2>
+    <div class="pt-2 border-b border-rttf-black-10">
+      <div class="flex items-center gap-3 text-xs 430:text-sm"><span class="text-rttf-black-50">1/16</span><span class="whitespace-nowrap text-rttf-black-50">14 мин</span>
+      </div>
+      <div class="flex w-full flex-shrink flex-grow flex-col justify-center gap-3 py-3">
+        <div class="flex items-center justify-between gap-2">
+          <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm font-semibold" href="pages/others/profile.html">Клейменов А. 
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">420</div>
+            </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-green">+14.2</span></a><span class="w-4 flex-shrink-0 text-center text-sm font-semibold">2</span>
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+            <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">НП</span></div>
+          </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm" href="pages/others/profile.html">Преображенский В. 
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">389</div>
+            </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-red">-11.5</span></a><span class="w-4 flex-shrink-0 text-center text-sm text-slate-500">1</span>
+        </div>
+      </div>
+    </div>
+    <div class="pt-2 border-b border-rttf-black-10">
+      <div class="flex items-center gap-3 text-xs 430:text-sm"><span class="text-rttf-black-50">1/16</span><span class="whitespace-nowrap text-rttf-black-50">12 мин</span>
+      </div>
+      <div class="flex w-full flex-shrink flex-grow flex-col justify-center gap-3 py-3">
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex -space-x-2">
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+              <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">НП</span></div>
+            </div>
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+              <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">АК</span></div>
+            </div>
+          </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm" href="pages/others/profile.html">Гуреев А. / Богданова С. 
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">420</div>
+            </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-red">-14.2</span></a><span class="w-4 flex-shrink-0 text-center text-sm text-slate-500">1</span>
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex -space-x-2">
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+              <div class="bg-rttf-blue flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">НП</span></div>
+            </div>
+            <div class="p-[1px] w-[24px] h-[24px] from-green-600 to-sky-500  undefined relative flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r" id="avatarContainer">
+              <div class="bg-rttf-yellow flex h-full w-full items-center justify-center rounded-full border border-white border-opacity-75"><span class="w-full text-center text-[calc(24px/2.66)] font-bold leading-none text-white">АК</span></div>
+            </div>
+          </div><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm font-semibold" href="pages/others/profile.html">Кобыляцкий С. / Кобыляцкая Л. 
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">389</div>
+            </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-green">+11.5</span></a><span class="w-4 flex-shrink-0 text-center text-sm font-semibold">2</span>
+        </div>
+      </div>
+    </div>
+    <div class="pt-2">
+      <div class="flex items-center gap-3 text-xs 430:text-sm"><span class="text-rttf-black-50">1/16</span><span class="whitespace-nowrap text-rttf-black-50">13 мин</span>
+      </div>
+      <div class="flex w-full flex-shrink flex-grow flex-col justify-center gap-3 py-3">
+        <div class="flex items-center justify-between gap-2"><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm font-semibold" href="pages/others/profile.html">Бадминтонные пауки 
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">420</div>
+            </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-green">+14.2</span></a><span class="w-4 flex-shrink-0 text-center text-sm font-semibold">2</span>
+        </div>
+        <div class="flex items-center justify-between gap-2"><a class="inline-flex min-w-0 flex-shrink flex-grow flex-wrap items-center gap-1 text-sm" href="pages/others/profile.html">Подмосковные ястребы 
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">389</div>
+            </div><span class="flex-shrink-0 text-center text-xs leading-none text-rttf-red">-11.5</span></a><span class="w-4 flex-shrink-0 text-center text-sm text-slate-500">1</span>
+        </div>
+      </div>
+    </div>
+    <h2 class="mt-6 my-3">Статистика по игрокам 7 тура</h2>
+    <table class="-mx-4 my-3 w-screen">
+      <thead>
+        <tr class="p-2 text-xs text-rttf-black-50">
+          <th class="max-w-10 pl-2 text-center">#</th>
+          <th class="max-w-24 p-2 text-left">Имя</th>
+          <th class="p-2 text-center">★</th>
+          <th class="p-2 text-center"><img class="mx-auto" src="img/medal-gold.svg" alt=""></th>
+          <th class="p-2 text-center"><img class="mx-auto" src="img/medal-silver.svg" alt=""></th>
+          <th class="p-2 text-center"><img class="mx-auto" src="img/medal-bronze.svg" alt=""></th>
+          <th class="p-2 text-center">=</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-sm text-rttf-black bg-orange-100">
+          <td class="w-7 pl-2 text-center font-semibold">1</td>
+          <td class="max-w-24 p-2 text-left leading-5">Иван Сергеев</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">700</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">60</td>
+          <td class="p-2 text-center">40</td>
+          <td class="p-2 text-center">28</td>
+          <td class="p-2 text-center">128</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">2</td>
+          <td class="max-w-24 p-2 text-left leading-5">Анна Иванова</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">695</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">55</td>
+          <td class="p-2 text-center">35</td>
+          <td class="p-2 text-center">25</td>
+          <td class="p-2 text-center">115</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">3</td>
+          <td class="max-w-24 p-2 text-left leading-5">Петр Алексеев</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">690</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">50</td>
+          <td class="p-2 text-center">30</td>
+          <td class="p-2 text-center">22</td>
+          <td class="p-2 text-center">102</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">4</td>
+          <td class="max-w-24 p-2 text-left leading-5">Ольга Николаева</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">685</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">45</td>
+          <td class="p-2 text-center">28</td>
+          <td class="p-2 text-center">20</td>
+          <td class="p-2 text-center">93</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">5</td>
+          <td class="max-w-24 p-2 text-left leading-5">Дмитрий Козлов</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">680</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">40</td>
+          <td class="p-2 text-center">27</td>
+          <td class="p-2 text-center">18</td>
+          <td class="p-2 text-center">85</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">6</td>
+          <td class="max-w-24 p-2 text-left leading-5">Елена Соколова</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">675</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">35</td>
+          <td class="p-2 text-center">25</td>
+          <td class="p-2 text-center">16</td>
+          <td class="p-2 text-center">76</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">7</td>
+          <td class="max-w-24 p-2 text-left leading-5">Александр Петров</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">670</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">30</td>
+          <td class="p-2 text-center">23</td>
+          <td class="p-2 text-center">15</td>
+          <td class="p-2 text-center">68</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">8</td>
+          <td class="max-w-24 p-2 text-left leading-5">Мария Федорова</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">665</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">25</td>
+          <td class="p-2 text-center">20</td>
+          <td class="p-2 text-center">14</td>
+          <td class="p-2 text-center">59</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">9</td>
+          <td class="max-w-24 p-2 text-left leading-5">Сергей Васильев</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">660</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">20</td>
+          <td class="p-2 text-center">18</td>
+          <td class="p-2 text-center">12</td>
+          <td class="p-2 text-center">50</td>
+        </tr>
+        <tr class="text-sm text-rttf-black even:bg-white odd:bg-slate-100">
+          <td class="w-7 pl-2 text-center font-semibold">10</td>
+          <td class="max-w-24 p-2 text-left leading-5">Виктория Егорова</td>
+          <td class="p-2 text-center">
+            <div class="undefined items-center inline-flex border border-rttf-color-10 w-12 h-6 shrink-0 align-middle rounded justify-center gap-1 bg-rttf-color-10-solid"><img class="h-3.5 w-3.5" src="img/rating-star-aqua.svg" alt="Рейтинг игрока в настольном теннисе">
+              <div class="text-rttf-black text-center text-xs font-semibold leading-none">655</div>
+            </div>
+          </td>
+          <td class="p-2 text-center">15</td>
+          <td class="p-2 text-center">15</td>
+          <td class="p-2 text-center">10</td>
+          <td class="p-2 text-center">40</td>
+        </tr>
+      </tbody>
+    </table>
+    <nav class="pb-safe fixed inset-x-0 bottom-0 z-10 border-t bg-white">
+      <div class="flex justify-between"><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/tournaments/tournaments.html"><img class="mx-auto h-7 w-7" src="img/tabbar/tournaments-active.svg" alt=""><span class=" font-bold  text-nowrap text-[10px] tracking-tighter">Турниры</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/trainings/trainings.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/trainings.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Тренировки</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/halls/halls.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/tables.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Залы</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/players/players.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/players.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Игроки</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/aroundgame/aroundGame.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/around-game.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Вокруг игры</span></a><a class="flex flex-col gap-1 py-1 text-center text-rttf-black-50 w-1/6" href="pages/market/market.html"><img class="mx-auto h-7 w-7 opacity-80" src="img/tabbar/market.svg" alt=""><span class=" text-nowrap text-[10px] tracking-tighter">Маркет</span></a>
+      </div>
+    </nav>
+  </body>
+</html>
