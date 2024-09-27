@@ -1,4 +1,4 @@
-mixin avatar(color, initials, size, url, status, unreadBadge, extraClass, birthday, id='avatarContainer')
+mixin avatar(color, initials, size, url, status, unreadBadge, extraClass, birthday, id='avatarContainer', achievement)
   -
     let roundedPadding = Math.round(size / 24);
     let avatarBorder = status === 'тренер' ? 'from-red-500 to-blue-900' : 'from-green-600 to-sky-500';  
@@ -21,3 +21,5 @@ mixin avatar(color, initials, size, url, status, unreadBadge, extraClass, birthd
       )= unreadBadge
     if birthday
       img.absolute.-right-2.-top-6.-z-10.h-12.w-8(src='img/birthday-hat.png', alt='Именинник' class='rotate-[38deg]')
+    if achievement 
+      span.absolute.top-0.drop-shadow-sharp.bg-white.-right-1.text-xs.text-rttf-black.border.border-rttf-black-50.green.leading-none.font-bold.size-6.text-center.rounded-full.p-1= achievement

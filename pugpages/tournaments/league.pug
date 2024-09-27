@@ -4,6 +4,7 @@ include /components/tabBar.pug
 include /components/gameResult.pug
 include /components/newsCard.pug
 include /components/block.pug
+include /components/tournamentResultsTable.pug
 include /components/filters/filterButtonsRow.pug
 
 doctype html
@@ -15,36 +16,37 @@ html(lang='ru')
     link(href='../../styles.css', rel='stylesheet')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&:display=swap")
     base(href='../../')
-  body.bg-white.px-4.pb-32.pt-14
+  body.bg-page-background.pb-32.pt-12
     +topBar
-    h1.text-center.py-4.font-bold(style="background: linear-gradient(to right, #37B68B, #1476c6); -webkit-background-clip: text; color: transparent;") Кубок RTTF 2024 
-        div.bg-avatar-gradient.text-white.mt-3.text-lg.font-semibold.w-fit.px-3.py-1.rounded-lg.mx-auto Лига 350
+    div.bg-white.p-4.mb-3
+      h1.text-center.py-4.font-bold(style="background: linear-gradient(to right, #37B68B, #1476c6); -webkit-background-clip: text; color: transparent;") Кубок RTTF 2024 
+          div.bg-avatar-gradient.text-white.mt-3.text-lg.font-semibold.w-fit.px-3.py-1.rounded-lg.mx-auto Лига 350
 
-    div.flex.items-center.bg-slate-700.px-4.py-2.rounded-lg.justify-between
-      div.text-white(class='w-1/2')
-        div.text-sm.font-medium До начала 8 тура
-        div.font-semibold Кубка RTTF
-      div.flex.justify-around(class='w-1/2')
-        div.text-center
-          div.text-xl.text-rttf-light-yellow.font-semibold 3
-          div.text-xs.text-white.opacity-70 дня
-        div.text-center
-          div.text-xl.text-rttf-light-yellow.font-semibold 11
-          div.text-xs.text-white.opacity-70 часов
-        div.text-center
-          div.text-xl.text-rttf-light-yellow.font-semibold 24
-          div.text-xs.text-white.opacity-70 мин
+      div.flex.items-center.bg-slate-700.px-4.py-2.rounded-lg.justify-between
+        div.text-white(class='w-1/2')
+          div.text-sm.font-medium До начала 8 тура
+          div.font-semibold Кубка RTTF
+        div.flex.justify-around(class='w-1/2')
+          div.text-center
+            div.text-xl.text-rttf-light-yellow.font-semibold 3
+            div.text-xs.text-white.opacity-70 дня
+          div.text-center
+            div.text-xl.text-rttf-light-yellow.font-semibold 11
+            div.text-xs.text-white.opacity-70 часов
+          div.text-center
+            div.text-xl.text-rttf-light-yellow.font-semibold 24
+            div.text-xs.text-white.opacity-70 мин
 
-    a(href="pages/tournaments/reglament.html").block.mt-4 Регламент Кубка RTTF 2024 (полный) 
+      a(href="pages/tournaments/reglament.html").block.mt-4 Регламент Кубка RTTF 2024 (полный) 
     
-    h2.mt-6.mb-2 Место проведения
-    a(href="pages/halls/singleClub.html").flex.gap-3.items-center.mb-6  
-      img(src="/dynamic-img/fili-tt.png", alt="Логотип клуба").size-16
-      .div 
-        .font-semibold Wings Club Фили
-        div.mt-2.text-sm.text-rttf-black.leading-tight г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж)
+    +block('Место проведения')
+      a(href="pages/halls/singleClub.html").flex.gap-3.items-center
+        img(src="/dynamic-img/fili-tt.png", alt="Логотип клуба").size-16
+        .div 
+          .font-semibold Wings Club Фили
+          div.mt-2.text-sm.text-rttf-black.leading-tight г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж)
 
-    +block('Новости', { href:"pages/aroundgame/news.html", text:'Все'}, '', '', '-mx-4')
+    +block('Новости', { href:"pages/aroundgame/news.html", text:'Все'})
       .sm.grid.grid-cols-1.gap-8(class='sm:grid-cols-2 lg:grid-cols-3')
           .flex.flex-col.gap-4
               +newsCard('23 мая состоится студенческий турнир Москвы', 'dynamic-img/club-1.jpg', 'Naten ЮГ Ярославль', '4 апреля 16:30', 'pages/aroundgame/singleNews.html')
@@ -63,57 +65,51 @@ html(lang='ru')
 
     
 
+    +block('Победители')
+      
+      .no-scrollbar.-ml-4.flex.gap-2.overflow-x-auto.px-4.mb-4
+        - 
+          var tours = [
+            { month: 'Март', name: 'Тур 1', date: '19 марта' },
+            { month: 'Апрель', name: 'Тур 2', date: '23 апреля' },
+            { month: 'Май', name: 'Тур 3', date: '15 мая' },
+            { month: 'Июнь', name: 'Тур 4', date: '20 июня' },
+            { month: 'Июль', name: 'Тур 5', date: '11 июля' },
+            { month: 'Август', name: 'Тур 6', date: '17 августа' },
+            { month: 'Сентябрь', name: 'Внекубковый турнир', date: '18 сентября' },
+            { month: 'Октябрь', name: 'Тур 7', date: '5 октября' },
+            { month: 'Ноябрь', name: 'Тур 8', date: '10 ноября' },
+            { month: 'Декабрь/Январь', name: 'Финал кубка RTTF', date: 'Дата уточняется' }
+          ]
 
-    h2.mt-6.mb-2 Туры и результаты
-    .no-scrollbar.-mx-4.flex.gap-2.overflow-x-auto.px-4
+        script.
+          document.addEventListener('DOMContentLoaded', () => {
+            const activeTour = document.querySelector('.active-tour')
+            if (activeTour) {
+              const container = document.querySelector('.no-scrollbar')
+              container.scrollLeft = activeTour.offsetLeft - container.offsetWidth / 2 + activeTour.offsetWidth / 2
+            }
+          })
+
+        .mt-2.flex.gap-2.mr-4
+          each tour, index in tours
+            - var isActive = index === 7
+            button.flex.flex-col.items-center.justify-center.rounded-lg.p-2.shrink-0(
+              class=[isActive ? 'bg-rttf-color active-tour' : 'bg-rttf-color-10'],
+              data-month=tour.month
+            )
+              div(class=isActive ? 'text-sm text-white' : 'text-sm text-rttf-black').font-semibold= tour.name
+              if tour.date
+                div(class=isActive ? 'text-xs text-white' : 'text-xs text-rttf-black')= tour.date
+
+
       - 
-        var tours = [
-          { month: 'Март', name: 'Тур 1', date: '19 марта' },
-          { month: 'Апрель', name: 'Тур 2', date: '23 апреля' },
-          { month: 'Май', name: 'Тур 3', date: '15 мая' },
-          { month: 'Июнь', name: 'Тур 4', date: '20 июня' },
-          { month: 'Июль', name: 'Тур 5', date: '11 июля' },
-          { month: 'Август', name: 'Тур 6', date: '17 августа' },
-          { month: 'Сентябрь', name: 'Внекубковый турнир', date: '18 сентября' },
-          { month: 'Октябрь', name: 'Тур 7', date: '5 октября' },
-          { month: 'Ноябрь', name: 'Тур 8', date: '10 ноября' },
-          { month: 'Декабрь/Январь', name: 'Финал кубка RTTF', date: 'Дата уточняется' }
-        ]
+        var teams = [
+            { name: 'Крылатые Ястребы', players: [{ name: 'Григорьев Павел', rating: 410 }, { name: 'Николаева Анна', rating: 420 }, { name: 'Федоров Василий', rating: 360 }] },
+            { name: 'Скоростные Дельфины', players: [{ name: 'Орлов Олег', rating: 440 }, { name: 'Кузьмина Наталья', rating: 390 }, { name: 'Быков Артем', rating: 370 }] },
+            { name: 'Красные Драконы', players: [{ name: 'Медведев Дмитрий', rating: 350 }, { name: 'Ершова Ирина', rating: 430 }, { name: 'Новиков Сергей', rating: 450 }] }
+          ]
 
-      script.
-        document.addEventListener('DOMContentLoaded', () => {
-          const activeTour = document.querySelector('.active-tour')
-          if (activeTour) {
-            const container = document.querySelector('.no-scrollbar')
-            container.scrollLeft = activeTour.offsetLeft - container.offsetWidth / 2 + activeTour.offsetWidth / 2
-          }
-        })
-
-      .mt-2.flex.gap-2.mr-4
-        each tour, index in tours
-          - var isActive = index === 7
-          button.flex.flex-col.items-center.justify-center.rounded-lg.p-2.shrink-0(
-            class=[isActive ? 'bg-rttf-color active-tour' : 'bg-rttf-color-10'],
-            data-month=tour.month
-          )
-            div(class=isActive ? 'text-sm text-white' : 'text-sm text-rttf-black').font-semibold= tour.name
-            if tour.date
-              div(class=isActive ? 'text-xs text-white' : 'text-xs text-rttf-black')= tour.date
-
-
-    - 
-      var teams = [
-          { name: 'Крылатые Ястребы', players: [{ name: 'Григорьев Павел', rating: 410 }, { name: 'Николаева Анна', rating: 420 }, { name: 'Федоров Василий', rating: 360 }] },
-          { name: 'Скоростные Дельфины', players: [{ name: 'Орлов Олег', rating: 440 }, { name: 'Кузьмина Наталья', rating: 390 }, { name: 'Быков Артем', rating: 370 }] },
-          { name: 'Красные Драконы', players: [{ name: 'Медведев Дмитрий', rating: 350 }, { name: 'Ершова Ирина', rating: 430 }, { name: 'Новиков Сергей', rating: 450 }] }
-        ]
-
-    .mb-2.shrink-0
-      h2.mt-4 Победители 7 тура
-      .flex.items-center
-        img.h-4.mr-1(src="img/player-white.svg", alt="players")
-        span.text-white.text-sm.leading-none 12 
-        span.text-white.text-sm.leading-none 17:00
       img.w-full(src='dynamic-img/league-350.jpg', alt='Победители').rounded-lg.overflow-hidden
       .p-2
         each team, index in teams
@@ -123,93 +119,338 @@ html(lang='ru')
             img.h-6(src=`img/medal-${medal}.svg`, alt=`${medal} medal`) 
             span.font-semibold.text-center= team.name
             
-          .flex.items-center.justify-center.gap-3.mb-4
+          .flex.items-center.justify-center.gap-3.mb-4(class="last:mb-0")
             each player in team.players
               a.text-center(href="pages/others/profile.html" class="w-1/3")
                 div.text-sm.font-medium= player.name
                 div.text-xs.mt-1 ★ #{player.rating}
     
-    
-        
-
-    
-
-    h2.mt-6.mb-3 Лучшие игры 7 тура
-
-    +gameResult({
-                  stage: '1/16',
-                  duration: 14,
-                  border: true,
-                  players: [
-                      { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
-                      { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
-                  ],
-                  numOfPlayers: 1
-              })
-    +gameResult({
-        stage: '1/16',
-        duration: 12,
-        border: true,
-        players: [
-            { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '-14.2', opponentScore: 2, initials: 'НП', avatarBg: 'bg-rttf-blue' },
-            { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '+11.5', opponentScore: 1, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
-        ],
-        numOfPlayers: 2
-    })
-    +gameResult({
-        stage: '1/16',
-        duration: 13,
-        border: false,
-        players: [
-            { name: 'Бадминтонные пауки', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
-            { name: 'Подмосковные ястребы', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
-        ],
-        numOfPlayers: 3
-    })
 
 
-    
-    h2.mt-6.my-3 Статистика по игрокам 7 тура
-
-    -
-        const players = [
-          { name: "Иван Сергеев", rating: 700, gold: 60, silver: 40, bronze: 28, total: 128, me: true, place: 1 },
-          { name: "Анна Иванова", rating: 695, gold: 55, silver: 35, bronze: 25, total: 115, me: false, place: 2 },
-          { name: "Петр Алексеев", rating: 690, gold: 50, silver: 30, bronze: 22, total: 102, me: false, place: 3 },
-          { name: "Ольга Николаева", rating: 685, gold: 45, silver: 28, bronze: 20, total: 93, me: false, place: 4 },
-          { name: "Дмитрий Козлов", rating: 680, gold: 40, silver: 27, bronze: 18, total: 85, me: false, place: 5 },
-          { name: "Елена Соколова", rating: 675, gold: 35, silver: 25, bronze: 16, total: 76, me: false, place: 6 },
-          { name: "Александр Петров", rating: 670, gold: 30, silver: 23, bronze: 15, total: 68, me: false, place: 7 },
-          { name: "Мария Федорова", rating: 665, gold: 25, silver: 20, bronze: 14, total: 59, me: false, place: 8 },
-          { name: "Сергей Васильев", rating: 660, gold: 20, silver: 18, bronze: 12, total: 50, me: false, place: 9 },
-          { name: "Виктория Егорова", rating: 655, gold: 15, silver: 15, bronze: 10, total: 40, me: false, place: 10 }
+    +block('Лучшие игроки Лиги')
+      - 
+        var achievements = [
+            {
+                title: 'Самый быстрый рост рейтинга',
+                icon: '🚀',
+                player: {
+                    name: 'Борис Романов',
+                    rating: 532,
+                    metric: '+23.4',
+                    avatarColor: 'bg-rttf-blue',
+                    initials: 'БР'
+                }
+            },
+            {
+                title: 'Самый высокий процент побед',
+                icon: '%',
+                player: {
+                    name: 'Диана Савельева',
+                    rating: 590,
+                    metric: '59%',
+                    avatarColor: 'bg-rttf-yellow',
+                    initials: 'ДС'
+                }
+            },
+            {
+                title: 'Самая длительная серия побед',
+                icon: '⚡️',
+                player: {
+                    name: 'Иван Смирнов',
+                    rating: 510,
+                    metric: '10 побед',
+                    avatarColor: 'bg-rttf-red',
+                    initials: 'ИС'
+                }
+            },
+            {
+                title: 'Максимум побед над соперниками сильнее',
+                icon: '🐎',
+                player: {
+                    name: 'Анна Кузьмина',
+                    rating: 450,
+                    metric: '5 побед ',
+                    avatarColor: 'bg-rttf-purple',
+                    initials: 'АК'
+                }
+            },
+            {
+                title: 'Самая быстрая победа',
+                icon: '🎯',
+                player: {
+                    name: 'Сергей Лебедев',
+                    rating: 480,
+                    metric: '3:24 мин',
+                    avatarColor: 'bg-rttf-green',
+                    initials: 'СЛ'
+                }
+            }
         ];
-    table.-mx-4.my-3.w-screen
-      thead
-        tr.p-2.text-xs.text-rttf-black-50
-          th.max-w-10.pl-2.text-center #
-          th.max-w-24.p-2.text-left Имя
-          th.p-2.text-center ★
-          th.p-2.text-center
-            img.mx-auto(src='img/medal-gold.svg', alt='')
-          th.p-2.text-center
-            img.mx-auto(src='img/medal-silver.svg', alt='')
-          th.p-2.text-center
-            img.mx-auto(src='img/medal-bronze.svg', alt='')
-          th.p-2.text-center =
+      
+      .no-scrollbar.-ml-4.flex.gap-2.overflow-x-auto.px-4.mb-4
+        each achievement in achievements
+            .flex.items-center.gap-3.flex-col.w-32.shrink-0 
+                span.text-sm.font-semibold.text-center.leading-tight.h-12= achievement.title
+                a(href="pages/others/profile.html").flex.items-center.gap-2.flex-col
+                    +avatar(achievement.player.avatarColor, achievement.player.initials, '64', '', false, '', false, '', '', achievement.icon)
+                      span.absolute.top-0.drop-shadow-sharp.bg-white.-right-1.text-xs.text-rttf-black.border.border-rttf-black-50.green.leading-none.font-bold.size-6.text-center.rounded-full.p-1= achievement.icon
+                    div.font-semibold.text-sm.text-center= achievement.player.name
+                    div.text-sm ★#{achievement.player.rating}
+                    span.mt-2.text-white.text-center.text-sm.bg-rttf-green.px-2.py-1.rounded-md= achievement.player.metric
+    
+    +block('Лучшие игры Лиги')
+      
+      +gameResult({
+                    stage: '1/16',
+                    duration: 14,
+                    border: true,
+                    players: [
+                        { name: 'Клейменов А.', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+                        { name: 'Преображенский В.', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
+                    ],
+                    numOfPlayers: 1
+                })
+      +gameResult({
+          stage: '1/16',
+          duration: 12,
+          border: true,
+          players: [
+              { name: 'Гуреев А. / Богданова С.', rating: '420', score: 1, ratingChange: '-14.2', opponentScore: 2, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+              { name: 'Кобыляцкий С. / Кобыляцкая Л.', rating: '389', score: 2, ratingChange: '+11.5', opponentScore: 1, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
+          ],
+          numOfPlayers: 2
+      })
+      +gameResult({
+          stage: '1/16',
+          duration: 13,
+          border: false,
+          players: [
+              { name: 'Бадминтонные пауки', rating: '420', score: 2, ratingChange: '+14.2', opponentScore: 1, initials: 'НП', avatarBg: 'bg-rttf-blue' },
+              { name: 'Подмосковные ястребы', rating: '389', score: 1, ratingChange: '-11.5', opponentScore: 2, initials: 'АК', avatarBg: 'bg-rttf-yellow' }
+          ],
+          numOfPlayers: 3
+      })
 
-      tbody
-        each player, index in players
-          - const playerRowClass = player.me ? 'bg-orange-100' : 'even:bg-white odd:bg-slate-100'
-          tr.text-sm.text-rttf-black(class=playerRowClass)
-            td.w-7.pl-2.text-center.font-semibold= player.place
-            td.max-w-24.p-2.text-left.leading-5= player.name
-            td.p-2.text-center
-              +userRating(player.rating)
-            td.p-2.text-center= player.gold
-            td.p-2.text-center= player.silver
-            td.p-2.text-center= player.bronze
-            td.p-2.text-center= player.total
+
+    +block('Статистика Лиги')
+    
+      -
+        var players = [
+          { 
+              place: 1, 
+              name: 'Артамошкин Сергей', 
+              rating: 418, 
+              gold: 2, 
+              silver: 1, 
+              bronze: 0, 
+              totalTournaments: 5,
+              games: 18, 
+              wins: 10, 
+              losses: 8 
+          },
+          { 
+              place: 2, 
+              name: 'Вознесенский Андрей', 
+              rating: 363, 
+              gold: 1, 
+              silver: 2, 
+              bronze: 1, 
+              totalTournaments: 5,
+              games: 17, 
+              wins: 11, 
+              losses: 6 
+          },
+          { 
+              place: 3, 
+              name: 'Бероев Егор', 
+              rating: 269, 
+              gold: 0, 
+              silver: 1, 
+              bronze: 2, 
+              totalTournaments: 5,
+              games: 17, 
+              wins: 8, 
+              losses: 9 
+          },
+          { 
+              place: 4, 
+              name: 'Гаспарян Артур', 
+              rating: 261, 
+              gold: 1, 
+              silver: 1, 
+              bronze: 1, 
+              totalTournaments: 5,
+              games: 17, 
+              wins: 9, 
+              losses: 8 
+          },
+          { 
+              place: 5, 
+              name: 'Глебов Юрий', 
+              rating: 267, 
+              gold: 0, 
+              silver: 2, 
+              bronze: 1, 
+              totalTournaments: 5,
+              games: 18, 
+              wins: 10, 
+              losses: 6 
+          },
+          { 
+              place: 6, 
+              name: 'Голубев Виктор', 
+              rating: 413, 
+              gold: 0, 
+              silver: 1, 
+              bronze: 1, 
+              totalTournaments: 5,
+              games: 18, 
+              wins: 11, 
+              losses: 7 
+          },
+          { 
+              place: 7, 
+              name: 'Карташов Александр', 
+              rating: 412, 
+              gold: 0, 
+              silver: 0, 
+              bronze: 2, 
+              totalTournaments: 2,
+              games: 19, 
+              wins: 7, 
+              losses: 12 
+          },
+          { 
+              place: 8, 
+              name: 'Карпунькова Ольга', 
+              rating: 411, 
+              gold: 1, 
+              silver: 0, 
+              bronze: 1, 
+              totalTournaments: 4,
+              games: 16, 
+              wins: 12, 
+              losses: 4 
+          },
+          { 
+              place: 9, 
+              name: 'Войнов Александр', 
+              rating: 411, 
+              gold: 1, 
+              silver: 0, 
+              bronze: 1, 
+              totalTournaments: 3,
+              games: 16, 
+              wins: 12, 
+              losses: 4 
+          },
+          { 
+              place: 10, 
+              name: 'Картункова Юлия ', 
+              rating: 410, 
+              gold: 0, 
+              silver: 1, 
+              bronze: 2, 
+              totalTournaments: 4,
+              games: 16, 
+              wins: 12, 
+              losses: 4 
+          }
+        ];
+      table.w-screen.-mx-4
+          thead
+              tr.text-xs.text-rttf-blue
+                  th.pl-2.text-center # 
+                  th.pl-4.p-2.text-left Имя
+                  th.p-2.text-center Рейтинг
+                  th.p-2.min-w-8
+                      img(src="img/medal-gold.svg", alt="1 место").size-4.mx-auto
+                  th.p-2.min-w-8
+                      img(src="img/medal-silver.svg", alt="2 место").size-4.mx-auto
+                  th.p-2.min-w-8
+                      img(src="img/medal-bronze.svg", alt="3 место").size-4.mx-auto
+                  th.p-2.text-center.min-w-8 ∑
+                  th.p-2.text-center.hidden(class="sm:table-cell") Турн
+                  th.p-2.text-center.hidden(class="sm:table-cell") Игр
+                  th.p-2.text-center.hidden(class="sm:table-cell") % побед
+          tbody
+              each player, index in players
+                  - const playerRowClass = (index % 2 === 0) ? "bg-white" : "bg-slate-100"
+                  tr(class=`${playerRowClass} text-[13px] text-rttf-black`)
+                      td.pl-2.text-center= player.place
+                      td.pl-4.p-2.text-rttf-blue= player.name
+                      td.text-center
+                          +userRating(player.rating)
+                      // Колонка Золотые
+                      td.p-2.text-center
+                          if player.gold > 0
+                              = player.gold
+                          else
+                              span(class="text-rttf-black-30") —
+                      // Колонка Серебряные
+                      td.p-2.text-center
+                          if player.silver > 0
+                              = player.silver
+                          else
+                              span(class="text-rttf-black-30") —
+                      // Колонка Бронзовые
+                      td.p-2.text-center
+                          if player.bronze > 0
+                              = player.bronze
+                          else
+                              span(class="text-rttf-black-30") —
+                      // Колонка Всего медалей
+                      td.p-2.text-center= (player.gold + player.silver + player.bronze)
+                      // Колонка Турниров
+                      td.p-2.text-center.hidden(class="sm:table-cell")= player.totalTournaments
+                      // Колонка Игр (В-П)
+                      td.p-2.text-center.hidden(class="sm:table-cell")
+                          | #{player.games}
+                          div.whitespace-nowrap
+                              span(class="text-rttf-green")= `(${player.wins}`
+                              | -
+                              span(class="text-rttf-red")= `${player.losses})`
+                      // Колонка % Побед
+                      td.p-2.text-center.hidden(class="sm:table-cell")= player.games > 0 ? ((player.wins / player.games) * 100).toFixed(1) + '%' : '0%'
+    //- -
+    //-     const players = [
+    //-       { name: "Иван Сергеев", rating: 700, gold: 60, silver: 40, bronze: 28, total: 128, me: true, place: 1 },
+    //-       { name: "Анна Иванова", rating: 695, gold: 55, silver: 35, bronze: 25, total: 115, me: false, place: 2 },
+    //-       { name: "Петр Алексеев", rating: 690, gold: 50, silver: 30, bronze: 22, total: 102, me: false, place: 3 },
+    //-       { name: "Ольга Николаева", rating: 685, gold: 45, silver: 28, bronze: 20, total: 93, me: false, place: 4 },
+    //-       { name: "Дмитрий Козлов", rating: 680, gold: 40, silver: 27, bronze: 18, total: 85, me: false, place: 5 },
+    //-       { name: "Елена Соколова", rating: 675, gold: 35, silver: 25, bronze: 16, total: 76, me: false, place: 6 },
+    //-       { name: "Александр Петров", rating: 670, gold: 30, silver: 23, bronze: 15, total: 68, me: false, place: 7 },
+    //-       { name: "Мария Федорова", rating: 665, gold: 25, silver: 20, bronze: 14, total: 59, me: false, place: 8 },
+    //-       { name: "Сергей Васильев", rating: 660, gold: 20, silver: 18, bronze: 12, total: 50, me: false, place: 9 },
+    //-       { name: "Виктория Егорова", rating: 655, gold: 15, silver: 15, bronze: 10, total: 40, me: false, place: 10 }
+    //-     ];
+    //- table.-mx-4.my-3.w-screen
+    //-   thead
+    //-     tr.p-2.text-xs.text-rttf-black-50
+    //-       th.max-w-10.pl-2.text-center #
+    //-       th.max-w-24.p-2.text-left Имя
+    //-       th.p-2.text-center ★
+    //-       th.p-2.text-center
+    //-         img.mx-auto(src='img/medal-gold.svg', alt='')
+    //-       th.p-2.text-center
+    //-         img.mx-auto(src='img/medal-silver.svg', alt='')
+    //-       th.p-2.text-center
+    //-         img.mx-auto(src='img/medal-bronze.svg', alt='')
+    //-       th.p-2.text-center =
+
+    //-   tbody
+    //-     each player, index in players
+    //-       - const playerRowClass = player.me ? 'bg-orange-100' : 'even:bg-white odd:bg-slate-100'
+    //-       tr.text-sm.text-rttf-black(class=playerRowClass)
+    //-         td.w-7.pl-2.text-center.font-semibold= player.place
+    //-         td.max-w-24.p-2.text-left.leading-5= player.name
+    //-         td.p-2.text-center
+    //-           +userRating(player.rating)
+    //-         td.p-2.text-center= player.gold
+    //-         td.p-2.text-center= player.silver
+    //-         td.p-2.text-center= player.bronze
+    //-         td.p-2.text-center= player.total
 
     
 
