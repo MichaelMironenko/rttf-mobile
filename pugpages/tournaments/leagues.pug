@@ -22,7 +22,7 @@ html(lang="ru")
 
       - 
         var leaguesData = [
-            { year: '2024', title: 'RTTF CUP', date: 'Февраль-декабрь 2024', location: 'Wings Club Фили, Москва', stages: 9, leagues: ['Лига 250', 'Лига 350', 'Лига 450', 'Лига 550'], logo: 'dynamic-img/rttf-cup.svg', winners: ['Ля какие!', 'Пардон, нас не звали!', 'Классика жанра'] },
+            { year: '2024', title: 'RTTF CUP ', date: 'Февраль-декабрь 2024', location: 'Wings Club Фили, Москва', stages: 9, leagues: ['Лига 250', 'Лига 350', 'Лига 450', 'Лига 550'], logo: 'dynamic-img/rttf-cup.svg', winners: ['Ля какие!', 'Пардон, нас не звали!', 'Классика жанра'] },
             { year: '2024', title: 'Другая лига', date: 'Январь-декабрь 2022', location: 'Клуб Звезда, Санкт-Петербург', stages: 8, leagues: ['Другая лига'], logo: 'dynamic-img/another-league.svg', winners: ['Василий Васильев', 'Артем Артемов', 'Илья Ильин'] },
             { year: '2024', title: 'Лига Чемпионов Бизнеса', date: 'Март-ноябрь 2024', location: 'Wings Club Фили, Москва', stages: 12, leagues: ['Новичок', 'Претендент', 'Старт', 'Престиж', 'Гранд', 'Мастер', 'Любитель', 'Дебютант', 'Элит', 'СуперЭлит'], logo: 'dynamic-img/lchb.jpeg' },
             { year: '2023', title: 'RTTF CUP', date: 'Февраль-декабрь 2023', location: 'Wings Club Фили, Москва', stages: 9, leagues: ['Лига 250', 'Лига 350', 'Лига 450', 'Лига 550'], logo: 'dynamic-img/rttf-cup.svg', winners: ['Роза с шипами', 'Взрывной накат 1', 'Операция ЗЫ'] },
@@ -33,11 +33,14 @@ html(lang="ru")
       each year in ['2024', '2023', '2022']
         h2.text-xl.font-semibold.mt-6.mb-3.text-center #{year}
         each league in leaguesData.filter(l => l.year === year)
-            .bg-white.rounded-lg.p-3.mb-2
+            .bg-white.rounded-lg.p-4.mb-2
                 .flex.gap-4.items-center
                     img.w-20.h-20(src=league.logo alt='logo').shrink-0.rounded-xl
                     .flex-grow
-                        h3.text-lg.font-bold #{league.title} #{league.year}
+                        .flex.items-center.flex-wrap.gap-x-3.gap-y-1  
+                            h3.text-lg.font-bold #{league.title} #{league.year}
+                            if league.title === 'RTTF CUP'
+                                span.px-2.py-1.leading-none.text-white.bg-rttf-color.rounded.text-xs Командный турнир
                         div.text-sm.text-rttf-black-50.mt-2.mb-2 #{league.date}, #{league.stages} этапов
                         a.flex.items-center.gap-1(href="pages/halls/singleClub.html")
                           img(src="img/location-icon.svg", alt="Место проведения").saturate-50.opacity-75
